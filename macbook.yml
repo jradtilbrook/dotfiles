@@ -1,0 +1,127 @@
+#! /usr/bin/env ansible-playbook --ask-vault-pass
+
+##
+## macOS ansible playbook for setting up a new machine.
+##
+---
+- hosts: localhost
+  connection: local
+
+  # stores github access token for ssh
+  vars_files:
+    - vault.yml
+
+  tasks:
+    - name: install homebrew taps
+      tags: brew
+      homebrew_tap:
+        tap: "{{ item }}"
+      with_items:
+        - caskroom/cask
+        - caskroom/fonts
+        # - homebrew/versions # is this default or need installing? not used anymore?
+
+    - name: install apps with homebrew-cask
+      tags: brew
+      homebrew_cask:
+        cask: "{{ item }}"
+        update_homebrew: yes
+      with_items:
+        - alfred
+        # - appcleaner # or appzapper
+        - atom
+        # - disk-sensei
+        - firefox
+        - font-source-code-pro
+        - gitkraken
+        - google-chrome
+        - google-drive
+        # - insync # google drive client
+        - iterm2
+        - ngrok
+        # - nylas-n1 # should I buy?
+        - phpstorm
+        - postman
+        # - robomongo
+        - slack
+        # - spectacle
+        # - toggldesktop # time tracking app (for meetings?)
+        - vagrant
+        - vagrant-manager
+        - virtualbox
+        - virtualbox-extension-pack
+
+    - name: install packages with homebrew
+      tags: brew
+      homebrew:
+        name: "{{ item }}"
+        update_homebrew: yes
+      with_items:
+        - ack
+        - git
+        - node
+        - packer
+        - tree
+        - vim
+        - wget
+
+    - name: install atom packages
+      tags: atom
+      shell: apm install "{{ item }}"
+      args:
+        creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+      with_items:
+        - atom-beautify
+        - chester-atom-syntax
+        - color-picker
+        - docblockr
+        - editorconfig
+        - file-icons
+        - git-plus
+        - highlight-selected
+        - language-ini
+        - language-mongodb
+        - minimap
+        - minimap-find-and-replace
+        - minimap-git-diff
+        - minimap-highlight-selected
+        - minimap-split-diff
+        - pigments
+        - sort-lines
+        - split-diff
+        - split-into-lines
+        - tabs-to-spaces
+        - vim-mode
+
+    - name: create ssh key
+      tags: ssh
+      # todo: or comment could be ansible_env.<pc host name>
+      shell: ssh-keygen -t rsa -b 4096 -C "{{ ansible_hostname }}" -f "{{ ansible_env.HOME }}/.ssh/id_rsa"
+      args:
+        creates: "{{ ansible_env.HOME }}/.ssh/id_rsa"
+      register: ssh_key
+
+    - name: print ssh public key to upload to bitbucket
+      tags: ssh
+      debug:
+        msg: "{{ lookup('file', '{{ ansible_env.HOME }}/.ssh/id_rsa.pub')}}"
+      when: ssh_key | changed
+
+    - name: add ssh key to keychain
+      tags: ssh
+      shell: ssh-add -K {{ ansible_env.HOME }}/.ssh/id_rsa
+      when: ssh_key | changed
+
+    - name: upload key to github (through api)
+      tags: ssh
+      github_key:
+        name: "{{ ansible_hostname }}"
+        pubkey: "{{ lookup('file', '{{ ansible_env.HOME }}/.ssh/id_rsa.pub')}}"
+        token: "{{ vault_github_api_token }}"
+        force: no
+      when: ssh_key | changed
+
+    # - name: export environment variables
+
+    # - name: import dotfiles
+    #   tags: dotfiles

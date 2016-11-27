@@ -12,6 +12,9 @@
     - vault.yml
 
   tasks:
+    ## ----------------------
+    ## Homebrew related tasks
+    ## ----------------------
     - name: install homebrew taps
       tags: brew
       homebrew_tap:
@@ -65,6 +68,9 @@
         - vim
         - wget
 
+    ## ------------------------------
+    ## Atom packages and config files
+    ## ------------------------------
     - name: install atom packages
       tags: atom
       shell: apm install "{{ item }}"
@@ -93,6 +99,12 @@
         - tabs-to-spaces
         - vim-mode
 
+    # - name: install atom configuration files
+    #   tags: atom
+
+    ## ---------------------
+    ## SSH key configuration
+    ## ---------------------
     - name: create ssh key
       tags: ssh
       # todo: or comment could be ansible_env.<pc host name>
@@ -121,6 +133,9 @@
         force: no
       when: ssh_key | changed
 
+    ## -------------------
+    ## Configuration files
+    ## -------------------
     # - name: export environment variables
 
     # - name: import dotfiles

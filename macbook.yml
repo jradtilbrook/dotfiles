@@ -1,15 +1,14 @@
 #! /usr/bin/env ansible-playbook --ask-vault-pass
 
-##
-## macOS ansible playbook for setting up a new machine.
-##
+## ---------------------------------------------------
+## macOS ansible playbook for setting up a new machine
+## ---------------------------------------------------
 ---
 - hosts: localhost
   connection: local
 
-  # stores github access token for ssh
   vars_files:
-    - vault.yml
+    - vars/vault.yml # stores github access token for ssh
 
   tasks:
     ## ----------------------

@@ -72,9 +72,9 @@
     ## ------------------------------
     - name: install atom packages
       tags: atom
-      shell: apm install "{{ item }}"
+      shell: apm install {{ item }}
       args:
-        creates: "{{ ansible_env.HOME }}/.atom/packages/{{ item }}"
+        creates: "{{ ansible_user_dir }}/.atom/packages/{{ item }}"
       with_items:
         - atom-beautify
         - chester-atom-syntax
@@ -106,28 +106,27 @@
     ## ---------------------
     - name: create ssh key
       tags: ssh
-      # todo: or comment could be ansible_env.<pc host name>
-      shell: ssh-keygen -t rsa -b 4096 -C "{{ ansible_hostname }}" -f "{{ ansible_env.HOME }}/.ssh/id_rsa"
+      shell: ssh-keygen -t rsa -b 4096 -C "{{ ansible_hostname | regex_replace('-|_', ' ') }}" -f "{{ ansible_user_dir }}/.ssh/id_rsa"
       args:
-        creates: "{{ ansible_env.HOME }}/.ssh/id_rsa"
+        creates: "{{ ansible_user_dir }}/.ssh/id_rsa"
       register: ssh_key
 
     - name: print ssh public key to upload to bitbucket
       tags: ssh
       debug:
-        msg: "{{ lookup('file', '{{ ansible_env.HOME }}/.ssh/id_rsa.pub')}}"
+        msg: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
       when: ssh_key | changed
 
     - name: add ssh key to keychain
       tags: ssh
-      shell: ssh-add -K {{ ansible_env.HOME }}/.ssh/id_rsa
+      shell: ssh-add -K {{ ansible_user_dir }}/.ssh/id_rsa
       when: ssh_key | changed
 
     - name: upload key to github (through api)
       tags: ssh
       github_key:
-        name: "{{ ansible_hostname }}"
-        pubkey: "{{ lookup('file', '{{ ansible_env.HOME }}/.ssh/id_rsa.pub')}}"
+        name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}"
+        pubkey: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
         token: "{{ vault_github_api_token }}"
         force: no
       when: ssh_key | changed

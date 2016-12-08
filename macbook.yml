@@ -11,6 +11,17 @@
     - vars/vault.yml # stores github access token for ssh
 
   tasks:
+    ## -----------------------------------------------
+    ## Include vars_file for overriding default values
+    ## -----------------------------------------------
+    - name: include override vars_file (if it exists)
+      tags: always
+      include_vars: "{{ item }}"
+      with_first_found:
+        - files:
+            - vars/override.yml
+          skip: true # don't error if not found
+
     ## ----------------------
     ## Homebrew related tasks
     ## ----------------------

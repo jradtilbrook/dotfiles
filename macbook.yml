@@ -9,7 +9,7 @@
 
   vars_files:
     - vars/vault.yml # stores secure variables
-    - vars/main.yml  # default variables
+    - vars/defaults.yml  # default variables
 
   tasks:
     ## -----------------------------------------------

@@ -1,0 +1,7 @@
+---
+## --------------------------------------------------------------
+## Default variables. These can be overriden in vars/override.yml
+## --------------------------------------------------------------
+env_vars:
+  - name: CLICOLOR
+    value: 1

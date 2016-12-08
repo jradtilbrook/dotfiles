@@ -1,0 +1,52 @@
+[user]
+	name = {{ user.name }}
+	email = {{ user.email }}
+[core]
+	editor = vim
+	longpaths = true # avoid Windows complaining about filename lengths
+	pager = less -F -X
+	whitespace = space-before-tab,-indent-with-non-tab,tab-in-indent,trailing-space
+[color]
+	ui = true # show colour by default
+[diff]
+	submodule = log
+[grep]
+	linenumber = true
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	diffc = diff --cached
+	diffcw = diff -w --cached
+	diffw = diff -w
+	diffwc = diff -w --cached
+	kraken = !gitkraken &
+	lol = log --graph --pretty=custom # pretty log display
+	lola = log --graph --pretty=custom --all # show all branches
+	lolan = log --graph --pretty=custom --all -n 15 # show all branches limited to 15 log entries
+	loln = log --graph --pretty=custom -n 10 # limit to 10 log entries
+	s = status -s --branch
+	st = status
+	uci = reset --soft HEAD^ # undo a commit to staging area
+	unstage = reset HEAD -- # Remove files from staging area
+[log]
+	date = local # default to local time in logs
+	decorate = true # show ref names by default
+[pretty]
+	custom = format:%w(80,0,4)%C(auto)%d %h [%cn %cr]%Creset%n %s
+[status]
+	submoduleSummary = true
+[push]
+	#default = current # Push current branch to branch with matching name. This is nice to use, but status doesn't show tracking info
+	default = simple # Only push to registered tracking branch
+[credential]
+{% if ansible_distribution == 'Mac' %} #TODO: what value is this on mac?
+	helper = osxkeychain
+{% else %}
+	helper = cache --timeout=900 # Remember credentials for 15mins
+{% endif %}
+[merge]
+	conflictstyle = diff3 # Also show original text in merge conflicts
+	tool = vimdiff # use vim for conflict resolution in terminal
+[help]
+	autocorrect = 5

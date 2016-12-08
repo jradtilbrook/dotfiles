@@ -8,7 +8,8 @@
   connection: local
 
   vars_files:
-    - vars/vault.yml # stores github access token for ssh
+    - vars/vault.yml # stores secure variables
+    - vars/main.yml  # default variables
 
   tasks:
     ## -----------------------------------------------
@@ -147,5 +148,17 @@
     ## -------------------
     # - name: export environment variables
 
-    # - name: import dotfiles
-    #   tags: dotfiles
+    - name: symlink dotfiles to home directory
+      tags: dotfiles
+      file:
+        src: "{{ item }}"
+        dest: "{{ ansible_user_dir }}/.{{ item | basename }}"
+        state: link
+      with_fileglob: files/*
+
+    - name: import dotfile templates to home directory
+      tags: dotfiles
+      template:
+        src: "{{ item }}"
+        dest: "{{ ansible_user_dir }}/.{{ item | basename }}"
+      with_fileglob: templates/*

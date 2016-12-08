@@ -1,3 +1,16 @@
+#### Todo's
+
+- Automate System Preferences settings
+- add ansible_managed comments to templates
+- environment variables
+- vim config
+- other dotfiles/templates
+- and how to handle config file/template directories
+    * relpath
+    * find vs with_fileglob
+    * basename, dirname, splitext, list filters, regex_replace, playbook_dir
+- fix annoying warnings about ansible.cfg/hosts file
+
 # MacBook Pro Setup
 
 I use ansible to setup a new Mac rather than using the built in migration

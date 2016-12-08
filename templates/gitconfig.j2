@@ -40,7 +40,7 @@
 	#default = current # Push current branch to branch with matching name. This is nice to use, but status doesn't show tracking info
 	default = simple # Only push to registered tracking branch
 [credential]
-{% if ansible_distribution == 'Mac' %} #TODO: what value is this on mac?
+{% if ansible_distribution == 'MacOSX' %}
 	helper = osxkeychain
 {% else %}
 	helper = cache --timeout=900 # Remember credentials for 15mins

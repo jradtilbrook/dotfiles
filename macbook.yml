@@ -23,6 +23,7 @@
             - vars/override.yml
           skip: true # don't error if not found
 
+
     ## ----------------------
     ## Homebrew related tasks
     ## ----------------------
@@ -30,54 +31,22 @@
       tags: brew
       homebrew_tap:
         tap: "{{ item }}"
-      with_items:
-        - caskroom/cask
-        - caskroom/fonts
-        # - homebrew/versions # is this default or need installing? not used anymore?
+      with_items: "{{ homebrew_taps }}"
 
     - name: install apps with homebrew-cask
       tags: brew
       homebrew_cask:
         cask: "{{ item }}"
         update_homebrew: yes
-      with_items:
-        - alfred
-        # - appcleaner # or appzapper
-        - atom
-        # - disk-sensei
-        - firefox
-        - font-source-code-pro
-        - gitkraken
-        - google-chrome
-        - google-drive
-        # - insync # google drive client
-        - iterm2
-        - ngrok
-        # - nylas-n1 # should I buy?
-        - phpstorm
-        - postman
-        # - robomongo
-        - slack
-        # - spectacle
-        # - toggldesktop # time tracking app (for meetings?)
-        - vagrant
-        - vagrant-manager
-        - virtualbox
-        - virtualbox-extension-pack
+      with_items: "{{ homebrew_casks }}"
 
     - name: install packages with homebrew
       tags: brew
       homebrew:
         name: "{{ item }}"
         update_homebrew: yes
-      with_items:
-        - ack
-        - git
-        - node
-        - packer
-        - tree
-        - vim
-        - wget
+      with_items: "{{ homebrew_formulae }}"
+
 
     ## ------------------------------
     ## Atom packages and config files
@@ -87,31 +56,11 @@
       shell: apm install {{ item }}
       args:
         creates: "{{ ansible_user_dir }}/.atom/packages/{{ item }}"
-      with_items:
-        - atom-beautify
-        - chester-atom-syntax
-        - color-picker
-        - docblockr
-        - editorconfig
-        - file-icons
-        - git-plus
-        - highlight-selected
-        - language-ini
-        - language-mongodb
-        - minimap
-        - minimap-find-and-replace
-        - minimap-git-diff
-        - minimap-highlight-selected
-        - minimap-split-diff
-        - pigments
-        - sort-lines
-        - split-diff
-        - split-into-lines
-        - tabs-to-spaces
-        - vim-mode
+      with_items: "{{ atom_packages }}"
 
     # - name: install atom configuration files
     #   tags: atom
+
 
     ## ---------------------
     ## SSH key configuration
@@ -143,6 +92,7 @@
         force: no
       when: ssh_key | changed
 
+
     ## -------------------
     ## Configuration files
     ## -------------------
@@ -160,5 +110,5 @@
       tags: dotfiles
       template:
         src: "{{ item }}"
-        dest: "{{ ansible_user_dir }}/.{{ item | basename }}"
+        dest: "{{ ansible_user_dir }}/.{{ item | basename | splitext | first }}"
       with_fileglob: templates/*

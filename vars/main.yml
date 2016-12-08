@@ -1,7 +1,83 @@
 ---
-## --------------------------------------------------------------
-## Default variables. These can be overriden in vars/override.yml
-## --------------------------------------------------------------
+## -------------------------------------------
+## Default vars_file
+##
+## These can be overriden in vars/override.yml
+## -------------------------------------------
+
+## --------
+## Homebrew
+## --------
+homebrew_taps:
+  - caskroom/cask
+  - caskroom/fonts
+  # - homebrew/versions # is this default or need installing? not used anymore?
+homebrew_casks:
+  - alfred
+  # - appcleaner # or appzapper
+  - atom
+  # - disk-sensei
+  - firefox
+  - font-source-code-pro
+  - gitkraken
+  - google-chrome
+  - google-drive
+  # - insync # google drive client
+  - iterm2
+  - ngrok
+  # - nylas-n1 # should I buy?
+  - phpstorm
+  - postman
+  # - robomongo
+  - slack
+  # - spectacle
+  # - toggldesktop # time tracking app (for meetings?)
+  - vagrant
+  - vagrant-manager
+  - virtualbox
+  - virtualbox-extension-pack
+homebrew_formulae:
+  - ack
+  - git
+  - node
+  - packer
+  - tree
+  - vim
+  - wget
+
+
+## ----
+## Atom
+## ----
+atom_packages:
+  - atom-beautify
+  - chester-atom-syntax
+  - color-picker
+  - docblockr
+  - editorconfig
+  - file-icons
+  - git-plus
+  - highlight-selected
+  - language-ini
+  - language-mongodb
+  - minimap
+  - minimap-find-and-replace
+  - minimap-git-diff
+  - minimap-highlight-selected
+  - minimap-split-diff
+  - pigments
+  - sort-lines
+  - split-diff
+  - split-into-lines
+  - tabs-to-spaces
+  - vim-mode
+
+
+## -----
+## Shell
+## -----
 env_vars:
   - name: CLICOLOR
     value: 1
+  - name: EDITOR
+    value: vim

@@ -1,11 +1,11 @@
-#! /usr/bin/env ansible-playbook --ask-vault-pass
+#! /usr/bin/env ansible-playbook
 
 ## ---------------------------------------------------
 ## macOS ansible playbook for setting up a new machine
 ## ---------------------------------------------------
 ---
-- hosts: localhost
-  connection: local
+- name: Playbook for setting up a new mac
+  hosts: localhost
 
   vars_files:
     - vars/vault.yml # stores secure variables

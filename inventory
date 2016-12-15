@@ -1,0 +1,2 @@
+# this is included just to stop ansible showing warnings
+localhost ansible_connection=local

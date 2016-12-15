@@ -1,7 +1,6 @@
 #### Todo's
 
 - Automate System Preferences settings
-- add ansible_managed comments to templates
 - environment variables
 - vim config
 - other dotfiles/templates
@@ -9,7 +8,6 @@
     * relpath
     * find vs with_fileglob
     * basename, dirname, splitext, list filters, regex_replace, playbook_dir
-- fix annoying warnings about ansible.cfg/hosts file
 
 # MacBook Pro Setup
 

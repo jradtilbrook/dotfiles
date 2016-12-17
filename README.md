@@ -4,10 +4,6 @@
 - environment variables
 - vim config
 - other dotfiles/templates
-- and how to handle config file/template directories
-    * relpath
-    * find vs with_fileglob
-    * basename, dirname, splitext, list filters, regex_replace, playbook_dir
 
 # MacBook Pro Setup
 

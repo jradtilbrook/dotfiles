@@ -58,9 +58,6 @@
         creates: "{{ ansible_user_dir }}/.atom/packages/{{ item }}"
       with_items: "{{ atom_packages }}"
 
-    # - name: install atom configuration files
-    #   tags: atom
-
 
     ## ---------------------
     ## SSH key configuration

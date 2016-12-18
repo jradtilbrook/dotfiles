@@ -67,7 +67,10 @@
     ## ---------------------
     - name: create ssh key
       tags: ssh
-      shell: ssh-keygen -t rsa -b 4096 -C "{{ ansible_hostname | regex_replace('-|_', ' ') }}" -f "{{ ansible_user_dir }}/.ssh/id_rsa"
+      shell: >
+        ssh-keygen -t rsa -b 4096 \
+        -C "{{ ansible_hostname | regex_replace('-|_', ' ') }}" \
+        -f "{{ ansible_user_dir }}/.ssh/id_rsa_foo"
       args:
         creates: "{{ ansible_user_dir }}/.ssh/id_rsa"
       register: ssh_key
@@ -124,7 +127,8 @@
       tags: dotfiles
       template:
         src: "{{ item.path }}"
-        dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('templates') | splitext | first }}"
+        dest: "{{ ansible_user_dir }}/\
+          .{{ item.path | relpath('templates') | splitext | first }}"
         backup: yes
       with_items: "{{ templates.files }}"
 
@@ -140,8 +144,10 @@
         update: no
 
     - name: install plugins with vundle
-      tags: vim
-      shell: "BEF=`ls ~/.vim/bundle/ | wc -l`; vim +PluginInstall +qa; AFT=`ls ~/.vim/bundle | wc -l`; exit $(($AFT-$BEF))"
+      tags: foo
+      shell: >
+        BEF=`ls ~/.vim/bundle/ | wc -l`; vim +PluginInstall +qa; \
+        AFT=`ls ~/.vim/bundle | wc -l`; exit $(($AFT-$BEF))
       register: vundle
       changed_when: vundle.rc > 0
       failed_when: false # this shouldn't ever actually fail

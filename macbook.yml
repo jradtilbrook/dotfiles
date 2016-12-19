@@ -11,6 +11,10 @@
     - vars/vault.yml # stores secure variables
     - vars/defaults.yml  # default variables
 
+  handlers:
+    - name: restart dock
+      command: killall Dock
+
   tasks:
     ## -----------------------------------------------
     ## Include vars_file for overriding default values
@@ -148,3 +152,42 @@
       register: vundle
       changed_when: vundle.rc > 0
       failed_when: false # this shouldn't ever actually fail
+
+
+    ## ----------
+    ## Dock items
+    ## ----------
+    - name: find current dock items
+      tags: dock
+      shell: dockutil --list | sed 's/\(.*\)[[:blank:]]file:.*/\1/'
+      register: current_dock
+      changed_when: false
+
+    - name: remove unnecessary dock items
+      tags: dock
+      shell: dockutil --remove "{{ item }}" --no-restart
+      with_items: "{{ current_dock.stdout_lines }}"
+      when: item not in (dock_items | map(attribute='name') | list)
+      notify: restart dock
+
+    - name: add/rearrange dock items
+      tags: dock
+      shell: >
+        [ "`dockutil --find "{{ item.name }}" | \
+          sed -n 's/.*slot \\([[:digit:]]*\\).*/\\1/p'`" -eq {{ item.pos }} ] \
+          2> /dev/null || \
+        ( \
+          dockutil --find "{{ item.name }}" > /dev/null && \
+          dockutil --move "{{ item.name }}" --position {{ item.pos }} \
+            --no-restart  && \
+          echo changed
+        ) || \
+        ( \
+          dockutil --add "/Applications/{{ item.name }}.app" \
+            --position {{ item.pos }} --no-restart && \
+          echo changed \
+        )
+      with_items: "{{ dock_items }}"
+      register: dock_change
+      changed_when: '"changed" in "{{ dock_change.stdout }}"'
+      notify: restart dock

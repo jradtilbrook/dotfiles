@@ -81,3 +81,37 @@ env_vars:
     value: 1
   - name: EDITOR
     value: vim
+
+
+## ----
+## Dock
+## ----
+dock_items:
+  - name: Google Chrome
+    pos: 1
+  - name: Safari
+    pos: 2
+  - name: iTunes
+    pos: 3
+  - name: Mail
+    pos: 4
+  - name: Calendar
+    pos: 5
+  - name: Notes
+    pos: 6
+  - name: Reminders
+    pos: 7
+  - name: Atom
+    pos: 8
+  - name: iTerm
+    pos: 9
+  - name: Slack
+    pos: 10
+  - name: PhpStorm
+    pos: 11
+  - name: GitKraken
+    pos: 12
+  # - name: Nylas N1
+  #   pos:
+  - name: System Preferences
+    pos: 13

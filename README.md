@@ -4,6 +4,7 @@
 - environment variables
 - vim config
 - other dotfiles/templates
+- split up playbook into multiple files? (split per tag?)
 
 # MacBook Pro Setup
 
@@ -132,10 +133,6 @@ Only non-defaults shown.
 ## Menu Bar
 
 - [x] Show battery percentage
-
-## Dock
-
-- Remove all built in cruft
 
 ## Finder Preferences
 

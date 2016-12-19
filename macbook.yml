@@ -15,6 +15,23 @@
     - name: restart dock
       command: killall Dock
 
+    - name: add ssh key to keychain
+      shell: ssh-add -K {{ ansible_user_dir }}/.ssh/id_rsa
+      listen: ssh changed
+
+    - name: upload key to github (through api)
+      github_key:
+        name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}"
+        pubkey: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
+        token: "{{ vault_github_api_token }}"
+        force: no
+      listen: ssh changed
+
+    - name: print ssh public key to upload to bitbucket
+      debug:
+        msg: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
+      listen: ssh changed
+
   tasks:
     ## -----------------------------------------------
     ## Include vars_file for overriding default values
@@ -74,27 +91,7 @@
         -f "{{ ansible_user_dir }}/.ssh/id_rsa"
       args:
         creates: "{{ ansible_user_dir }}/.ssh/id_rsa"
-      register: ssh_key
-
-    - name: print ssh public key to upload to bitbucket
-      tags: ssh
-      debug:
-        msg: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
-      when: ssh_key | changed
-
-    - name: add ssh key to keychain
-      tags: ssh
-      shell: ssh-add -K {{ ansible_user_dir }}/.ssh/id_rsa
-      when: ssh_key | changed
-
-    - name: upload key to github (through api)
-      tags: ssh
-      github_key:
-        name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}"
-        pubkey: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
-        token: "{{ vault_github_api_token }}"
-        force: no
-      when: ssh_key | changed
+      notify: ssh changed
 
 
     ## -------------------

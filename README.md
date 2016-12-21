@@ -4,7 +4,6 @@
 - environment variables
 - vim config
 - other dotfiles/templates
-- split up playbook into multiple files? (split per tag?)
 
 # MacBook Pro Setup
 
@@ -23,12 +22,6 @@ assistant. The steps below outline how to set up a new Mac.
 
 The playbook will install my apps, generate an SSH key and upload it to GitHub
 and move dotfiles into place. The Bitbucket key must be uploaded manually.
-
-#### Notes
-
-- `git` installed with Homebrew doesn't seem to set up properly, so manually add
-  a symlink `/usr/local/bin/git` pointing to `/usr/local/Cellar/git/...`.
-- `packer` also doesn't set up links properly.
 
 ## Resources
 
@@ -123,7 +116,6 @@ Only non-defaults shown.
 
 #### Users & Groups
 
-- Change avatar
 - Disallow guests
 
 #### Date & Time

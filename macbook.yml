@@ -58,14 +58,12 @@
       tags: brew
       homebrew_cask:
         cask: "{{ item }}"
-        update_homebrew: yes
       with_items: "{{ homebrew_casks }}"
 
     - name: install packages with homebrew
       tags: brew
       homebrew:
         name: "{{ item }}"
-        update_homebrew: yes
       with_items: "{{ homebrew_formulae }}"
 
 

@@ -38,6 +38,7 @@ homebrew_casks:
   - virtualbox-extension-pack
 homebrew_formulae:
   - ack
+  - dockutil
   - git
   - node
   - packer

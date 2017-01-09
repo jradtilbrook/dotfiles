@@ -1,0 +1,20 @@
+# show symbols for file types
+alias ls='ls -F'
+
+# show long format with human readable sizes
+alias ll='ls -lh'
+
+# show long format with hidden files
+alias lla='ll -A'
+
+# show all files
+alias la='ls -A'
+
+# show in one column
+alias l1='ls -1'
+
+# grep with colour
+alias grep='grep --color=auto'
+
+# show size and colour
+alias tree='tree --du -h -C --dirsfirst'

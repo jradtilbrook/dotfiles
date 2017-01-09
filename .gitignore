@@ -1,2 +1,5 @@
 # vars_file to override defaults
 vars/override.yml
+
+# vim swap files
+*.swp

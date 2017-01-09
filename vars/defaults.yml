@@ -78,10 +78,12 @@ atom_packages:
 ## Shell
 ## -----
 env_vars:
-  - name: CLICOLOR
+  - name: CLICOLOR # iTerm2 colours
     value: 1
   - name: EDITOR
     value: vim
+  - name: LSCOLORS # similar to ubuntu colours
+    value: ExGxCxDxCxDxdxabagacad
 
 
 ## ----

@@ -1,0 +1,142 @@
+" required for Vundle
+set nocompatible    " don't worry about compatibility
+filetype off        " disable filetype detection
+
+
+
+
+
+"---------------------------------- PLUGINS -----------------------------------"
+" append Vundle to the runtime path
+set rtp+=~/.vim/bundle/Vundle.vim
+" initialise Vundle
+call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
+    Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'editorconfig/editorconfig-vim'
+    Plugin 'flazz/vim-colorschemes'
+    "Plugin 'christoomey/vim-tmux-navigator'
+    "Plugin 'scrooloose/syntastic'
+    "Plugin 'vim-scripts/Align' " or,
+    "Plugin 'junegunn/vim-easy-align'
+    "Plugin 'skwp/greplace.vim'
+    "Plugin 'tpope/vim-surround'
+    "Plugin 'tpope/vim-ragtag'
+    Plugin 'tpope/vim-fugitive'
+    "Plugin 'tpope/vim-unimpaired'
+    "Plugin 'majutsushi/tagbar'
+    "Plugin 'airblade/vim-gutter'
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'Xuyuanp/nerdtree-git-plugin'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+call vundle#end()
+
+filetype plugin indent on       " re-enable filetype detection
+
+
+
+
+
+"---------------------------------- COLOURS -----------------------------------"
+syntax on                       " enable syntax highlighting
+" don't fail if colorscheme not found
+silent! colorscheme molokai
+
+
+
+
+
+set number                      " display line numbers
+set mouse=a                     " enable mouse for all modes
+set expandtab                   " expand tabs to spaces
+set smarttab                    " delete 'shiftwidth' spaces at a time
+set smartindent                 " add tabs by default
+set autoindent                  " automatically indent
+set tabstop=4                   " number of spaces of <Tab>
+set shiftwidth=4                " number of spaces of indent
+set listchars+=tab:»\ ,trail:▫,eol:¬,space:·    " invisible characters
+set list                        " show invisibles
+
+set scrolloff=5                 " show 5 context lines when scrolling
+set sidescroll=1                " use continuous scrolling
+set sidescrolloff=10            " show 10 context columns when scrolling
+set nowrap                      " do not wrap lines by default
+set colorcolumn=81              " vertical line at column 81
+
+set hlsearch                    " highlight search matches
+set incsearch                   " show incremental matches
+set ignorecase                  " ignore case by default
+set smartcase                   " include case if present
+
+set t_Co=256                    " set terminal to 256 colours
+set cursorline                  " highlight current line
+"set cursorcolumn                " higlight current column
+set laststatus=2                " always show the status line
+set backspace=indent,start,eol  " backspace over everything
+
+set showcmd                     " show command line
+set wildmenu                    " show command completion matches
+set autoread                    " automatically update external changes
+set clipboard=unnamed           " share system clipboard
+
+set splitbelow                  " but the new window below
+set splitright                  " put the new window to the right
+
+set formatoptions+=ojr          " insert comment leader when using 'o' or 'O'
+                                " insert comment leader on <Enter>
+                                " remove comment leader when joining lines
+
+
+
+
+
+"---------------------------------- MAPPINGS ----------------------------------"
+" change <Leader> to ','
+let mapleader=','
+" shortcut to edit vimrc file
+nmap <Leader>ev :tabedit $MYVIMRC<cr>
+" remove highlighted search
+nmap <Leader><space> :nohlsearch<cr>
+
+" easier split movements
+nmap <C-H> <C-W><C-H>
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-L> <C-W><C-L>
+
+" toggle nerdtree
+nmap <Leader>1 :NERDTreeToggle<cr>
+nmap <C-\> :NERDTreeToggle<cr>
+
+
+
+
+
+"------------------------------- AUTO COMMANDS --------------------------------"
+augroup autosourcing
+    " clear the group
+    autocmd!
+    " source vimrc when it changes
+    autocmd BufWritePost $MYVIMRC source %
+augroup END
+
+
+
+
+
+"------------------------------ PLUGIN CONFIGS --------------------------------"
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+
+" NERDTree
+let NERDTreeHijackNetrw = 0
+
+" NERDCommenter
+let NERDCommentEmptyLines = 1
+let NERDRemoveExtraSpaces = 1
+let NERDSpaceDelims = 1
+let NERDDefaultAlign = 'left'

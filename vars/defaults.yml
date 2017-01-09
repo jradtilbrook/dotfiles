@@ -19,6 +19,7 @@ homebrew_casks:
   # - disk-sensei
   - firefox
   - font-source-code-pro
+  - font-source-code-pro-for-powerline
   - gitkraken
   - google-chrome
   - google-drive
@@ -36,10 +37,14 @@ homebrew_casks:
   - vagrant-manager
   - virtualbox
   - virtualbox-extension-pack
+  - vlc
 homebrew_formulae:
   - ack
+  - awscli
+  - cowsay
   - dockutil
   - git
+  - jq
   - node
   - packer
   - tree
@@ -52,6 +57,7 @@ homebrew_formulae:
 ## ----
 atom_packages:
   - atom-beautify
+  - atom-jinja2
   - chester-atom-syntax
   - color-picker
   - docblockr

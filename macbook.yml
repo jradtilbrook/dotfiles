@@ -1,4 +1,4 @@
-#! /usr/bin/env ansible-playbook
+#! /usr/bin/env ansible-playbook --ask-vault-pass
 
 ## ---------------------------------------------------
 ## macOS ansible playbook for setting up a new machine

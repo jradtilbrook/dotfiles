@@ -8,8 +8,7 @@
   hosts: localhost
 
   vars_files:
-    - vars/vault.yml # stores secure variables
-    - vars/defaults.yml  # default variables
+    - vars/defaults.yml # default variables
 
   handlers:
     - name: restart dock
@@ -23,7 +22,7 @@
       github_key:
         name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}"
         pubkey: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
-        token: "{{ vault_github_api_token }}"
+        token: "{{ github_api_token }}"
         force: no
       listen: ssh changed
 
@@ -81,6 +80,10 @@
     ## ---------------------
     ## SSH key configuration
     ## ---------------------
+    - name: include vars_file for github api token
+      tags: ssh
+      include_vars: vars/github_api_token.yml
+
     - name: create ssh key
       tags: ssh
       shell: >

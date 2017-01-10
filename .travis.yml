@@ -4,10 +4,8 @@ os: osx
 osx_image: xcode8.2
 
 before_install:
-  # update homebrew cache
+  # update homebrew
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then brew update ; fi
-  # create ansible-vault password file
-  - echo $ANSIBLE_VAULT_PASSWORD > $ANSIBLE_VAULT_PASSWORD_FILE
   # create temporary log file
   - idempotence=`mktemp`
 

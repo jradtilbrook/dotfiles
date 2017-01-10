@@ -1,0 +1,28 @@
+---
+language: python
+osx_image: xcode8.2
+
+before_install:
+  # update homebrew cache
+  - if [[ $TRAVIS_OS_NAME == "osx" ]]; then brew update ; fi
+  # create ansible-vault password file
+  - echo $ANSIBLE_VAULT_PASSWORD > $ANSIBLE_VAULT_PASSWORD_FILE
+  # create temporary log file
+  - idempotence=`mktemp`
+
+install:
+  - brew install ansible
+
+script:
+  # check syntax
+  - ansible-playbook macbook.yml --syntax-check
+  # run playbook
+  # NOTE: ssh task won't work because it prompts for password
+  - ansible-playbook macbook.yml --skip-tags ssh
+  # check idempotence
+  - ansible-playbook macbook.yml --skip-tags ssh | tee -a ${idempotence}
+  - >
+    tail ${idempotence}
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)

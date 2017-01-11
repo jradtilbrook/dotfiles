@@ -17,9 +17,10 @@ script:
   - ansible-playbook macbook.yml --syntax-check
   # run playbook
   # NOTE: ssh task won't work because it prompts for password
-  - ansible-playbook macbook.yml --skip-tags ssh
+  # NOTE: `user` dict is not defined in this repo so pass it with playbook
+  - ansible-playbook macbook.yml --skip-tags ssh -e "{'user':{'name':'{$USER}','email':'${USER}@${TRAVIS_OS_NAME}.com'}}"
   # check idempotence
-  - ansible-playbook macbook.yml --skip-tags ssh | tee -a ${idempotence}
+  - ansible-playbook macbook.yml --skip-tags ssh -e "{'user':{'name':'{$USER}','email':'${USER}@${TRAVIS_OS_NAME}.com'}}" | tee -a ${idempotence}
   - >
     tail ${idempotence}
     | grep -q 'changed=0.*failed=0'

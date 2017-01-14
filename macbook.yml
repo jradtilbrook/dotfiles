@@ -18,14 +18,6 @@
       shell: ssh-add -K {{ ansible_user_dir }}/.ssh/id_rsa
       listen: ssh changed
 
-    - name: upload key to github (through api)
-      github_key:
-        name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}"
-        pubkey: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
-        token: "{{ github_api_token }}"
-        force: no
-      listen: ssh changed
-
     - name: print ssh public key to upload to bitbucket
       debug:
         msg: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
@@ -93,6 +85,14 @@
       args:
         creates: "{{ ansible_user_dir }}/.ssh/id_rsa"
       notify: ssh changed
+
+    - name: upload key to github (through api)
+      tags: ssh
+      github_key:
+        name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}"
+        pubkey: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
+        token: "{{ github_api_token }}"
+        force: no
 
 
     ## -------------------

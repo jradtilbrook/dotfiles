@@ -5,7 +5,10 @@
 - vim config
 - other dotfiles/templates
 
-# MacBook Pro Setup
+# MacBook Pro Setup [![Build Status][travis-badge]][travis-url]
+
+[travis-badge]: https://travis-ci.org/jradtilbrook/dotfiles.svg?branch=master
+[travis-url]: https://travis-ci.org/jradtilbrook/dotfiles
 
 I use ansible to setup a new Mac rather than using the built in migration
 assistant. The steps below outline how to set up a new Mac.

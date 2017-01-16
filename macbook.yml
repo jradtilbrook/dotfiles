@@ -98,8 +98,6 @@
     ## -------------------
     ## Configuration files
     ## -------------------
-    # - name: export environment variables
-
     - name: find dotfiles to link
       tags: dotfiles
       find:

@@ -1,5 +1,7 @@
 #### Todo's
 
+- aws stuff
+- bash/zsh config
 - Automate System Preferences settings
 - environment variables
 - vim config
@@ -29,8 +31,6 @@ and move dotfiles into place. The Bitbucket key must be uploaded manually.
 ## Resources
 
 - A helpful guide to setting up a Mac for development [here](http://sourabhbajaj.com/mac-setup/).
-- Another [gist](https://gist.github.com/balupton/5259595) for setting up a new
-  environment.
 
 ## System Preferences
 

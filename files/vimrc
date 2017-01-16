@@ -57,7 +57,7 @@ set autoindent                  " automatically indent
 set tabstop=4                   " number of spaces of <Tab>
 set shiftwidth=4                " number of spaces of indent
 set listchars+=tab:»\ ,trail:▫,eol:¬,space:·    " invisible characters
-set list                        " show invisibles
+set nolist                      " show invisibles
 
 set scrolloff=5                 " show 5 context lines when scrolling
 set sidescroll=1                " use continuous scrolling

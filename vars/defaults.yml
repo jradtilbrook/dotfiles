@@ -18,6 +18,8 @@ homebrew_casks:
   - atom
   # - disk-sensei
   - firefox
+  - font-droid-sans-mono
+  - font-droid-sans-mono-for-powerline
   - font-source-code-pro
   - font-source-code-pro-for-powerline
   - gitkraken
@@ -26,7 +28,7 @@ homebrew_casks:
   # - insync # google drive client
   - iterm2
   - ngrok
-  # - nylas-n1 # should I buy?
+  - nylas-mail
   - phpstorm
   - postman
   # - robomongo
@@ -98,31 +100,37 @@ env_vars:
 ## Dock
 ## ----
 dock_items:
-  - name: Google Chrome
+  - name: /Applications/Google Chrome.app
     pos: 1
-  - name: Safari
+  - name: /Applications/Safari.app
     pos: 2
-  - name: iTunes
+  - name: /Applications/iTunes.app
     pos: 3
-  - name: Mail
+  - name: /Applications/Nylas Mail.app
     pos: 4
-  - name: Calendar
+  - name: /Applications/Calendar.app
     pos: 5
-  - name: Notes
+  - name: /Applications/Notes.app
     pos: 6
-  - name: Reminders
+  - name: /Applications/Reminders.app
     pos: 7
-  - name: Atom
+  - name: /Applications/Atom.app
     pos: 8
-  - name: iTerm
+  - name: /Applications/iTerm.app
     pos: 9
-  - name: Slack
+  - name: /Applications/Slack.app
     pos: 10
-  - name: PhpStorm
+  - name: /Applications/PhpStorm.app
     pos: 11
-  - name: GitKraken
+  - name: /Applications/GitKraken.app
     pos: 12
-  # - name: Nylas N1
-  #   pos:
-  - name: System Preferences
+  - name: /Applications/System Preferences.app
     pos: 13
+  # folder positions are relatvie to folders section on the dock
+  # the options key is required for folders
+  - name: ~/Downloads
+    pos: 1
+    options: --display folder --sort name --view auto --section others
+  - name: ~/Documents
+    pos: 2
+    options: --display folder --sort name --view auto --section others

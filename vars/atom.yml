@@ -1,0 +1,28 @@
+---
+## ----
+## Atom
+## ----
+atom_packages:
+  - atom-beautify
+  - atom-jinja2
+  - chester-atom-syntax
+  - color-picker
+  - docblockr
+  - editorconfig
+  - file-icons
+  - git-plus
+  - highlight-selected
+  - language-ini
+  - language-mongodb
+  - language-varnish
+  - minimap
+  - minimap-find-and-replace
+  - minimap-git-diff
+  - minimap-highlight-selected
+  - minimap-split-diff
+  - pigments
+  - sort-lines
+  - split-diff
+  - split-into-lines
+  - tabs-to-spaces
+  - vim-mode

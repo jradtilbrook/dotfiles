@@ -1,9 +1,7 @@
 ---
-## -------------------------------------------
-## Default vars_file
-##
-## These can be overriden in vars/override.yml
-## -------------------------------------------
+## --------------------------
+## Mac specific variables
+## --------------------------
 
 ## --------
 ## Homebrew
@@ -51,47 +49,6 @@ homebrew_formulae:
   - tree
   - vim
   - wget
-
-
-## ----
-## Atom
-## ----
-atom_packages:
-  - atom-beautify
-  - atom-jinja2
-  - chester-atom-syntax
-  - color-picker
-  - docblockr
-  - editorconfig
-  - file-icons
-  - git-plus
-  - highlight-selected
-  - language-ini
-  - language-mongodb
-  - language-varnish
-  - minimap
-  - minimap-find-and-replace
-  - minimap-git-diff
-  - minimap-highlight-selected
-  - minimap-split-diff
-  - pigments
-  - sort-lines
-  - split-diff
-  - split-into-lines
-  - tabs-to-spaces
-  - vim-mode
-
-
-## -----
-## Shell
-## -----
-env_vars:
-  - name: CLICOLOR # iTerm2 colours
-    value: 1
-  - name: EDITOR
-    value: vim
-  - name: LSCOLORS # similar to ubuntu colours
-    value: ExGxCxDxCxDxdxabagacad
 
 
 ## ----

@@ -33,8 +33,7 @@ homebrew_casks:
   - postman
   # - robomongo
   - slack
-  # - spectacle
-  # - toggldesktop # time tracking app (for meetings?)
+  - spectacle
   - vagrant
   - vagrant-manager
   - virtualbox

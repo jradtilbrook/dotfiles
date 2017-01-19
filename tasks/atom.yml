@@ -1,0 +1,13 @@
+---
+## -------------
+## Atom packages
+## -------------
+- include_vars: ../vars/atom.yml
+  tags: atom
+
+- name: install atom packages
+  tags: atom
+  shell: apm install {{ item }}
+  args:
+    creates: "{{ ansible_user_dir }}/.atom/packages/{{ item }}"
+  with_items: "{{ atom_packages }}"

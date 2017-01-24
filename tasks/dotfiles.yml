@@ -2,9 +2,6 @@
 ## -------------------
 ## Configuration files
 ## -------------------
-- include_vars: ../vars/dotfiles.yml
-  tags: dotfiles
-
 - name: find dotfiles to link
   tags: dotfiles
   find:

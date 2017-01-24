@@ -11,7 +11,6 @@
   vars_files:
     - vars/atom.yml
     - vars/dotfiles.yml
-    - vars/vault/github_api_token.yml
 
   tasks:
     ## -----------------------------------------------

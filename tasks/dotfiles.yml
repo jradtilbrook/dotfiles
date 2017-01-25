@@ -5,22 +5,22 @@
 - name: find dotfiles to link
   tags: dotfiles
   find:
-    paths: ../files/
+    paths: files/
     recurse: yes
   register: files
 
 - name: find templates to import
   tags: dotfiles
   find:
-    paths: ../templates/
+    paths: templates/
     recurse: yes
   register: templates
 
 - name: link dotfiles to home directory
   tags: dotfiles
   file:
-    src: "{{ item.path | relpath('../') | realpath }}"
-    dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('../files') }}"
+    src: "{{ item.path | realpath }}"
+    dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('files') }}"
     state: link
   with_items: "{{ files.files }}"
 
@@ -29,6 +29,6 @@
   template:
     src: "{{ item.path }}"
     dest: "{{ ansible_user_dir }}/\
-      .{{ item.path | relpath('../templates') | splitext | first }}"
+      .{{ item.path | relpath('templates') | splitext | first }}"
     backup: yes
   with_items: "{{ templates.files }}"

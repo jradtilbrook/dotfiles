@@ -1,0 +1,69 @@
+---
+# variables required by tasks below
+- name: include macOS variables
+  include_vars: ../vars/macbook.yml
+  tags:
+    - brew
+    - dock
+
+
+## ----------------------
+## Homebrew related tasks
+## ----------------------
+- name: install homebrew taps
+  tags: brew
+  homebrew_tap:
+    tap: "{{ item }}"
+  with_items: "{{ homebrew_taps }}"
+
+- name: install apps with homebrew-cask
+  tags: brew
+  homebrew_cask:
+    cask: "{{ item }}"
+  with_items: "{{ homebrew_casks }}"
+
+- name: install packages with homebrew
+  tags: brew
+  homebrew:
+    name: "{{ item }}"
+  with_items: "{{ homebrew_formulae }}"
+
+
+## ----------
+## Dock items
+## ----------
+- name: find current dock items
+  tags: dock
+  shell: dockutil --list | cut -f 1
+  register: current_dock
+  changed_when: false
+  check_mode: false # this doesn't make changes so can run in check mode
+
+- name: remove unnecessary dock items
+  tags: dock
+  shell: dockutil --remove "{{ item }}" --no-restart
+  with_items: "{{ current_dock.stdout_lines }}"
+  when: item not in (dock_items | map(attribute='name') | list)
+  notify: restart dock
+
+- name: add/rearrange dock items
+  tags: dock
+  shell: >
+    [ "`dockutil --find '{{ item.name }}' | \
+      sed -n 's/.*slot \\([[:digit:]]*\\).*/\\1/p'`" -eq {{ item.pos }} ] \
+      2> /dev/null || \
+    ( \
+      dockutil --find "{{ item.name }}" > /dev/null && \
+      dockutil --move "{{ item.name }}" --position {{ item.pos }} \
+        --no-restart  && \
+      echo changed
+    ) || \
+    ( \
+      dockutil --add "/Applications/{{ item.name }}.app" \
+        --position {{ item.pos }} --no-restart && \
+      echo changed \
+    )
+  with_items: "{{ dock_items }}"
+  register: dock_change
+  changed_when: '"changed" in "{{ dock_change.stdout }}"'
+  notify: restart dock

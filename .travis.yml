@@ -1,7 +1,19 @@
 ---
 language: generic
-os: osx
-osx_image: xcode8.2
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+    - os: osx
+      osx_image: xcode8.2
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:ansible/ansible'
+    packages:
+      - ansible
 
 before_install:
   # update homebrew
@@ -10,17 +22,17 @@ before_install:
   - idempotence=`mktemp`
 
 install:
-  - brew install ansible
+  - if [[ $TRAVIS_OS_NAME == "osx" ]]; then brew install ansible ; fi
 
 script:
   # check syntax
-  - ansible-playbook macbook.yml --syntax-check
+  - ansible-playbook dotfiles.yml --syntax-check
   # run playbook
   # NOTE: ssh task won't work because it prompts for password
   # NOTE: `user` dict is not defined in this repo so pass it with playbook
-  - ansible-playbook macbook.yml --skip-tags ssh -e "{'user':{'name':'${USER}','email':'${USER}@${TRAVIS_OS_NAME}.com'}}"
+  - ansible-playbook dotfiles.yml --skip-tags ssh -e "{'user':{'name':'${USER}','email':'${USER}@${TRAVIS_OS_NAME}.com'}}"
   # check idempotence
-  - ansible-playbook macbook.yml --skip-tags ssh -e "{'user':{'name':'${USER}','email':'${USER}@${TRAVIS_OS_NAME}.com'}}" | tee -a ${idempotence}
+  - ansible-playbook dotfiles.yml --skip-tags ssh -e "{'user':{'name':'${USER}','email':'${USER}@${TRAVIS_OS_NAME}.com'}}" | tee -a ${idempotence}
   - >
     tail ${idempotence}
     | grep -q 'changed=0.*failed=0'

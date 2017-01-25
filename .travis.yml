@@ -5,15 +5,9 @@ matrix:
   include:
     - os: linux
       dist: trusty
+      language: python
     - os: osx
       osx_image: xcode8.2
-
-addons:
-  apt:
-    sources:
-      - sourceline: 'ppa:ansible/ansible'
-    packages:
-      - ansible
 
 before_install:
   # update homebrew
@@ -23,6 +17,7 @@ before_install:
 
 install:
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then brew install ansible ; fi
+  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then sudo pip install ansible ; fi
 
 script:
   # check syntax

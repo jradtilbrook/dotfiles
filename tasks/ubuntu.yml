@@ -19,7 +19,7 @@
 - name: install packages
   tags: apt
   apt:
-    pkg:
+    pkg: "{{ item }}"
     update_cache: true
     cache_valid_time: 3600
   with_items: "{{ ubuntu_packages }}"

@@ -30,6 +30,7 @@
     ## -------------------------
     - include: tasks/ubuntu.yml
       tags: ubuntu
+      become: true
       when: ansible_distribution == 'Ubuntu'
 
     ## -----------------------------------------------

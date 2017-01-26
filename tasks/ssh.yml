@@ -34,3 +34,12 @@
   debug:
     msg: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
   when: ssh_key | changed
+
+- name: upload public key to aws
+  tags: ssh
+  shell: >
+    aws ec2 import-key-pair \
+    --key-name "{{ ansible_hostname | regex_replace('-|_', ' ') }}" \
+    --public-key-material \
+    "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
+  when: ssh_key | changed

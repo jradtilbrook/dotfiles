@@ -11,6 +11,7 @@
   vars_files:
     - vars/atom.yml
     - vars/dotfiles.yml
+    - vars/python.yml
 
   handlers:
     - name: restart dock
@@ -51,6 +52,9 @@
       tags: common
 
     - include: tasks/dotfiles.yml
+      tags: common
+
+    - include: tasks/python.yml
       tags: common
 
     - include: tasks/ssh.yml

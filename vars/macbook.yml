@@ -23,8 +23,9 @@ homebrew_casks:
   - gitkraken
   - google-chrome
   - google-drive
-  # - insync # google drive client
+  - insync # google drive client
   - iterm2
+  - java
   - ngrok
   - nylas-mail
   - phpstorm

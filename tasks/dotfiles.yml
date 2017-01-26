@@ -2,6 +2,10 @@
 ## -------------------
 ## Configuration files
 ## -------------------
+- name: include AWS credentials
+  include_vars: ../vars/vault/aws_credentials.yml
+  tags: dotfiles
+
 - name: find dotfiles to link
   tags: dotfiles
   find:

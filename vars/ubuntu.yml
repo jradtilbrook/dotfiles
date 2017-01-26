@@ -6,15 +6,9 @@
 ## ------------------------
 ## Third party repos to add
 ## ------------------------
-ubuntu_repositories:
-  - 'ppa:ansible/ansible'
-  - 'ppa:webupd8team/atom'
+ubuntu_repositories: []
 
 ## -----------------------
 ## APT packages to install
 ## -----------------------
-ubuntu_packages:
-  - ansible
-  - atom
-  - git
-  - vim
+ubuntu_packages: []

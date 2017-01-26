@@ -41,7 +41,7 @@
       include_vars: "{{ item }}"
       with_first_found:
         - files:
-            - ../vars/override.yml
+            - override.yml
           skip: true # don't error if not found
 
     ## --------------------------

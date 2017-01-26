@@ -9,14 +9,14 @@
 ## ----------------
 ## Install packages
 ## ----------------
-- name: add repositories
+- name: add ubuntu repositories
   tags: apt
   apt_repository:
     repo: "{{ item }}"
     update_cache: true
   with_items: "{{ ubuntu_repositories }}"
 
-- name: install packages
+- name: install ubuntu packages
   tags: apt
   apt:
     pkg: "{{ item }}"

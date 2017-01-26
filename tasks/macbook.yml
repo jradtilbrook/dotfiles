@@ -16,13 +16,13 @@
     tap: "{{ item }}"
   with_items: "{{ homebrew_taps }}"
 
-- name: install apps with homebrew-cask
+- name: install mac apps
   tags: brew
   homebrew_cask:
     cask: "{{ item }}"
   with_items: "{{ homebrew_casks }}"
 
-- name: install packages with homebrew
+- name: install mac packages
   tags: brew
   homebrew:
     name: "{{ item }}"

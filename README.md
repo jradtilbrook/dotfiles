@@ -9,11 +9,9 @@
 
 # MacBook Pro Setup
 
-[travis-badge]: https://travis-ci.org/jradtilbrook/dotfiles.svg?branch=master
-[travis-url]: https://travis-ci.org/jradtilbrook/dotfiles
-
 I use ansible to setup a new Mac rather than using the built in migration
-assistant. The steps below outline how to set up a new Mac.
+assistant. The steps below outline how to set up a new Mac. __Note:__ I've also
+added Ubuntu support but haven't used it fully yet.
 
 1. Install Xcode.
     - Also run `xcode-select --install` from the terminal to install command
@@ -22,8 +20,9 @@ assistant. The steps below outline how to set up a new Mac.
     - Run `brew doctor` and fix any issues.
 3. Install `ansible` using Homebrew.
 4. Clone this repo.
-5. Run the ansible playbook: `./macbook.yml`.
-6. Change any other app settings as desired.
+5. Put any variable overrides in `vars/override.yml` (eg. `user` object for git config)
+6. Run the ansible playbook: `./dotfiles.yml`.
+7. Change any other app settings as desired.
 
 The playbook will install my apps, generate an SSH key and upload it to GitHub
 and move dotfiles into place. The Bitbucket key must be uploaded manually.

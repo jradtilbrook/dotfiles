@@ -41,24 +41,29 @@
   tags: dock
   shell: dockutil --remove "{{ item }}" --no-restart
   with_items: "{{ current_dock.stdout_lines }}"
-  when: item not in (dock_items | map(attribute='name') | list)
+  when: >-
+    item not in (dock_items | map(attribute='name') | map('basename') |
+    map('splitext') | map('first') | list)
   notify: restart dock
 
 - name: add/rearrange dock items
   tags: dock
   shell: >
-    [ "`dockutil --find '{{ item.name }}' | \
+    [ "`dockutil --find '{{ item.name | basename | splitext | first }}' | \
       sed -n 's/.*slot \\([[:digit:]]*\\).*/\\1/p'`" -eq {{ item.pos }} ] \
       2> /dev/null || \
     ( \
-      dockutil --find "{{ item.name }}" > /dev/null && \
-      dockutil --move "{{ item.name }}" --position {{ item.pos }} \
-        --no-restart  && \
-      echo changed
+      dockutil --find "{{ item.name | basename | splitext | first }}" \
+        > /dev/null && \
+      dockutil --move "{{ item.name | basename | splitext | first }}" \
+        --position {{ item.pos }} --no-restart \
+        {{ item.options | default() }} && \
+      echo changed \
     ) || \
     ( \
-      dockutil --add "/Applications/{{ item.name }}.app" \
-        --position {{ item.pos }} --no-restart && \
+      dockutil --add "{{ item.name }}" \
+        --position {{ item.pos }} --no-restart \
+        {{ item.options | default() }} && \
       echo changed \
     )
   with_items: "{{ dock_items }}"

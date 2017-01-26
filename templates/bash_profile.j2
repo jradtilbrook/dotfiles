@@ -22,3 +22,7 @@ HISTCONTROL=ignoreboth
 {% for item in env_vars %}
 export {{ item.name }}={{ item.value }}
 {% endfor %}
+
+{% if ansible_distribution == 'MacOSX' %}
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+{% endif %}

@@ -29,7 +29,7 @@
 	s = status -s --branch
 	st = status
 	uci = reset --soft HEAD^ # undo a commit to staging area
-	unstage = reset HEAD -- # Remove files from staging area
+	unstage = reset HEAD -- # remove files from staging area
 [log]
 	date = local # default to local time in logs
 	decorate = true # show ref names by default
@@ -38,16 +38,16 @@
 [status]
 	submoduleSummary = true
 [push]
-	#default = current # Push current branch to branch with matching name. This is nice to use, but status doesn't show tracking info
-	default = simple # Only push to registered tracking branch
+	#default = current # push current branch to branch with matching name. This is nice to use, but status doesn't show tracking info
+	default = simple # only push to registered tracking branch
 [credential]
 {% if ansible_distribution == 'MacOSX' %}
 	helper = osxkeychain
 {% else %}
-	helper = cache --timeout=900 # Remember credentials for 15mins
+	helper = cache --timeout=900 # remember credentials for 15mins
 {% endif %}
 [merge]
-	conflictstyle = diff3 # Also show original text in merge conflicts
+	conflictstyle = diff3 # also show original text in merge conflicts
 	tool = vimdiff # use vim for conflict resolution in terminal
 # [help]
 #	autocorrect = 5

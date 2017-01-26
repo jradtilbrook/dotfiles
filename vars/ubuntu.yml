@@ -1,0 +1,14 @@
+---
+## -------------------------
+## Ubuntu specific variables
+## -------------------------
+
+## ------------------------
+## Third party repos to add
+## ------------------------
+ubuntu_repositories: []
+
+## -----------------------
+## APT packages to install
+## -----------------------
+ubuntu_packages: []

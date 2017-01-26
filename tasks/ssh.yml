@@ -1,0 +1,36 @@
+---
+## ---------------------
+## SSH key configuration
+## ---------------------
+- name: include github api token
+  include_vars: ../vars/vault/github_api_token.yml
+  tags: ssh
+
+- name: create ssh key
+  tags: ssh
+  shell: >
+    ssh-keygen -t rsa -b 4096 \
+    -C "{{ ansible_hostname | regex_replace('-|_', ' ') }}" \
+    -f "{{ ansible_user_dir }}/.ssh/id_rsa"
+  args:
+    creates: "{{ ansible_user_dir }}/.ssh/id_rsa"
+  register: ssh_key
+
+- name: upload key to github (through api)
+  tags: ssh
+  github_key:
+    name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}"
+    pubkey: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
+    token: "{{ github_api_token }}"
+    force: no
+
+- name: add ssh key to keychain
+  tags: ssh
+  shell: ssh-add -K {{ ansible_user_dir }}/.ssh/id_rsa
+  when: ssh_key | changed
+
+- name: print ssh public key to upload to bitbucket
+  tags: ssh
+  debug:
+    msg: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
+  when: ssh_key | changed

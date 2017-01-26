@@ -1,0 +1,25 @@
+---
+# variables required by tasks below
+- name: include ubuntu variables
+  include_vars: ../vars/ubuntu.yml
+  tags:
+    - apt
+
+
+## ----------------
+## Install packages
+## ----------------
+- name: add ubuntu repositories
+  tags: apt
+  apt_repository:
+    repo: "{{ item }}"
+    update_cache: true
+  with_items: "{{ ubuntu_repositories }}"
+
+- name: install ubuntu packages
+  tags: apt
+  apt:
+    pkg: "{{ item }}"
+    update_cache: true
+    cache_valid_time: 3600
+  with_items: "{{ ubuntu_packages }}"

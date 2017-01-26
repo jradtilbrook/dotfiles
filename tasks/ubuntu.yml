@@ -2,8 +2,7 @@
 # variables required by tasks below
 - name: include ubuntu variables
   include_vars: ../vars/ubuntu.yml
-  tags:
-    - apt
+  tags: always
 
 
 ## ----------------

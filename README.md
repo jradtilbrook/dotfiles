@@ -7,7 +7,7 @@
 - vim config
 - other dotfiles/templates
 
-# MacBook Pro Setup [![Build Status][travis-badge]][travis-url]
+# MacBook Pro Setup
 
 [travis-badge]: https://travis-ci.org/jradtilbrook/dotfiles.svg?branch=master
 [travis-url]: https://travis-ci.org/jradtilbrook/dotfiles

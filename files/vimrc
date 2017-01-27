@@ -20,7 +20,7 @@ call vundle#begin()
     "Plugin 'vim-scripts/Align' " or,
     "Plugin 'junegunn/vim-easy-align'
     "Plugin 'skwp/greplace.vim'
-    "Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-surround'
     "Plugin 'tpope/vim-ragtag'
     Plugin 'tpope/vim-fugitive'
     "Plugin 'tpope/vim-unimpaired'
@@ -58,6 +58,8 @@ set tabstop=4                   " number of spaces of <Tab>
 set shiftwidth=4                " number of spaces of indent
 set listchars+=tab:»\ ,trail:▫,eol:¬,space:·    " invisible characters
 set nolist                      " show invisibles
+set foldmethod=indent           " fold with equal indents
+set foldlevel=99                " leave all folds open by default
 
 set scrolloff=5                 " show 5 context lines when scrolling
 set sidescroll=1                " use continuous scrolling
@@ -109,6 +111,9 @@ nmap <C-L> <C-W><C-L>
 " toggle nerdtree
 nmap <Leader>1 :NERDTreeToggle<cr>
 nmap <C-\> :NERDTreeToggle<cr>
+
+" use space to toggle folding
+nnoremap <space> za
 
 
 

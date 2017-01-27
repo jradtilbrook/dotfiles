@@ -9,6 +9,7 @@
 homebrew_taps:
   - caskroom/cask
   - caskroom/fonts
+  # - homebrew/completions
   # - homebrew/versions # is this default or need installing? not used anymore?
 homebrew_casks:
   - alfred
@@ -41,12 +42,14 @@ homebrew_casks:
 homebrew_formulae:
   - ack
   - awscli
+  - chromedriver
   - cowsay
   - dockutil
   - git
   - jq
   - node
   - packer
+  - selenium-server-standalone
   - thefuck
   - tree
   - vim
@@ -91,3 +94,78 @@ dock_items:
   - name: ~/Documents
     pos: 2
     options: --display folder --sort name --view auto --section others
+
+
+## --------------
+## Plist settings
+## --------------
+mac_defaults:
+  # allow tab in modal dialogs (space to select)
+  - defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+  # subpixel font rendering on non-apple displays
+  - defaults write NSGlobalDomain AppleFontSmoothing -int 2
+  # autohide dock
+  - defaults write com.apple.dock autohide -bool true
+  - defaults write com.apple.dock autohide-delay -float 0
+  # show dock on left
+  - defaults write com.apple.dock orientation -string 'left'
+  # dock icon size
+  - defaults write com.apple.dock tilesize -int 30
+  - defaults write com.apple.dock largesize -int 45
+  # translucent hidden apps
+  - defaults write com.apple.dock showhidden -bool true
+  # show file extensions
+  - defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+  # show path bar in finder
+  - defaults write com.apple.finder ShowPathbar -bool true
+  # show status bar in finder
+  - defaults write com.apple.finder ShowStatusBar -bool true
+  # expand save panel
+  - defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+  # expand print panel
+  - defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+  # use key repeate no press-and-hold
+  - defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+  # enable tap to click
+  - defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+  # enable Safari's debug/dev menu
+  - defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+  - defaults write com.apple.Safari IncludeDevelopMenu -bool true
+  # mission control group by app
+  - defaults write com.apple.dock expose-group-by-app -bool true
+  # fast key repeat
+  - defaults write NSGlobalDomain InitialKeyRepeat -int 20
+  - defaults write NSGlobalDomain KeyRepeat -int 1
+  # save screenshots to desktop
+  - defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+  # screenshots in PNG
+  - defaults write com.apple.screencapture type -string "png"
+  # allow selection in quick look
+  - defaults write com.apple.finder QLEnableTextSelection -bool true
+  # show hard drives, servers and removable media on desktop
+  - defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+  # - defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+  - defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+  - defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+  # automatically open a new Finder window when a volume is mounted
+  - defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+  - defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+  - defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
+  # show all finder windows in list view
+  - defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+  # highlight in pink
+  - defaults write NSGlobalDomain AppleHighlightColor -string '1.000000 0.749020 0.823529'
+  # natural scrolling
+  - defaults write -g com.apple.swipescrolldirection -bool true
+  # enable snap-to-grid for icons on the desktop and in other icon views
+  - /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+  - /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+  - /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+  # set the size of icons on the desktop and in other icon views
+  - /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 52" ~/Library/Preferences/com.apple.finder.plist
+  - /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 52" ~/Library/Preferences/com.apple.finder.plist
+  - /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 52" ~/Library/Preferences/com.apple.finder.plist
+  # show Library folder
+  - chflags nohidden ~/Library
+  # the above commands need to restart some/all of these services
+  # Finder, Dock, Safari and maybe SystemUIServer, cfprefsd

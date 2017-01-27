@@ -1,11 +1,12 @@
 #### Todo's
 
-- aws stuff
 - bash/zsh config
-- Automate System Preferences settings
+    - powerline (git integration)
 - environment variables
 - vim config
+    - setup ide for HE code & style
 - other dotfiles/templates
+- tmux
 
 # MacBook Pro Setup
 
@@ -30,6 +31,7 @@ and move dotfiles into place. The Bitbucket key must be uploaded manually.
 ## Resources
 
 - A helpful guide to setting up a Mac for development [here](http://sourabhbajaj.com/mac-setup/).
+- Another cool configuration repo [maximum-awesome](https://github.com/square/maximum-awesome).
 
 ## System Preferences
 
@@ -39,7 +41,6 @@ Only non-defaults shown.
 
 - [x] Use dark menu bar
 - [x] Automatically hide and show menu bar
-- Highlight colour: pink
 - Sidebar icon size: small
 - Click in scroll bar: Jump to spot clicked
 
@@ -47,17 +48,6 @@ Only non-defaults shown.
 
 - Turn screen saver off
 - Change background to personal preference
-
-#### Dock
-
-- Size: 10-15%
-- [x] Magnification: 20-25%
-- Position: left
-- [x] Automatically hide and show
-
-#### Mission Control
-
-- [x] Group windows by application
 
 #### Language & Region
 
@@ -78,14 +68,11 @@ Only non-defaults shown.
 
 #### Keyboard
 
-- Key repeat: right most
-- Delay repeat: right most
 - [ ] Adjust backlight in low light
 - Disable spotlight shortcuts (in favour of Alfred)
 
 #### Trackpad
 
-- [x] Tap to click
 - Light click pressure
 - Tracking speed: 5th notch from right
 - [x] Swipe between pages: _three fingers_
@@ -144,5 +131,3 @@ Only non-defaults shown.
 - [x] Show library folder
 - Light-grey background colour
 - [x] Set as Defaults
-- [x] Show path bar
-- [x] Show status bar

@@ -16,6 +16,16 @@
   handlers:
     - name: restart dock
       command: killall Dock
+      listen: restart mac services
+      when: ansible_distribution == 'MacOSX'
+
+    - name: restart mac services
+      command: killall {{ item }}
+      with_items:
+        - Finder
+        - Safari
+        - SystemUIServer
+        - cfprefsd
       when: ansible_distribution == 'MacOSX'
 
   tasks:

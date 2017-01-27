@@ -72,3 +72,18 @@
   register: dock_change
   changed_when: '"changed" in "{{ dock_change.stdout }}"'
   notify: restart dock
+
+
+## ----------------------------
+## Settings accessible from CLI
+## ----------------------------
+#TODO: this needs work
+- name: set plist defaults
+  tags: plist
+  shell: >
+    [ "`defaults read {{ item.plist }} {{ item.setting }}`" = "{{ item.value }}" ] \
+    || \
+    defaults write {{ item.plist }} {{ item.setting }} -{{ item.type }} "{{ item.value }}"
+  with_items: "{{ mac_defaults }}"
+  notify: restart mac services
+  when: false

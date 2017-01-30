@@ -10,11 +10,13 @@ homebrew_taps:
   - caskroom/cask
   - caskroom/fonts
   # - homebrew/completions
+  - homebrew/php
   # - homebrew/versions # is this default or need installing? not used anymore?
 homebrew_casks:
   - alfred
   # - appcleaner # or appzapper
   - atom
+  - betterzipql
   # - disk-sensei
   - firefox
   - font-droid-sans-mono
@@ -31,9 +33,16 @@ homebrew_casks:
   - nylas-mail
   - phpstorm
   - postman
+  - qlcolorcode
+  - qlimagesize
+  - qlmarkdown
+  - qlstephen
+  - qlvideo
+  - quicklook-json
   # - robomongo
   - slack
   - spectacle
+  - suspicious-package
   - vagrant
   - vagrant-manager
   - virtualbox
@@ -43,12 +52,14 @@ homebrew_formulae:
   - ack
   - awscli
   - chromedriver
+  - composer
   - cowsay
   - dockutil
   - git
   - jq
   - node
   - packer
+  - php70
   - selenium-server-standalone
   - thefuck
   - tree

@@ -5,6 +5,7 @@
 atom_packages:
   - atom-beautify
   - atom-jinja2
+  - atom-typescript
   - chester-atom-syntax
   - color-picker
   - docblockr

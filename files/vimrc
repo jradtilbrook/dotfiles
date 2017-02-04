@@ -15,6 +15,9 @@ call vundle#begin()
     Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'editorconfig/editorconfig-vim'
     Plugin 'flazz/vim-colorschemes'
+    Plugin 'leafgarland/typescript-vim'
+    Plugin 'pearofducks/ansible-vim'
+    "Plugin 'elzr/vim-json'
     "Plugin 'christoomey/vim-tmux-navigator'
     "Plugin 'scrooloose/syntastic'
     "Plugin 'vim-scripts/Align' " or,
@@ -145,3 +148,7 @@ let NERDCommentEmptyLines = 1
 let NERDRemoveExtraSpaces = 1
 let NERDSpaceDelims = 1
 let NERDDefaultAlign = 'left'
+
+" ansible-vim
+let g:ansible_name_highlight = 'b'
+let g:ansible_extra_keywords_highlight = 1

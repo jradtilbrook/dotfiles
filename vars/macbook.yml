@@ -18,6 +18,7 @@ homebrew_casks:
   - atom
   - betterzipql
   # - disk-sensei
+  - docker
   - firefox
   - font-droid-sans-mono
   - font-droid-sans-mono-for-powerline
@@ -54,6 +55,7 @@ homebrew_formulae:
   - chromedriver
   - composer
   - cowsay
+  - docker
   - dockutil
   - git
   - jq
@@ -77,7 +79,7 @@ dock_items:
     pos: 2
   - name: /Applications/iTunes.app
     pos: 3
-  - name: /Applications/Nylas Mail.app
+  - name: /Applications/Mail.app
     pos: 4
   - name: /Applications/Calendar.app
     pos: 5
@@ -135,7 +137,7 @@ mac_defaults:
   - defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
   # expand print panel
   - defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-  # use key repeate no press-and-hold
+  # use key repeat no press-and-hold
   - defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
   # enable tap to click
   - defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -144,6 +146,9 @@ mac_defaults:
   - defaults write com.apple.Safari IncludeDevelopMenu -bool true
   # mission control group by app
   - defaults write com.apple.dock expose-group-by-app -bool true
+  # disable automatic substitution of quotes and dashes
+  - defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+  - defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
   # fast key repeat
   - defaults write NSGlobalDomain InitialKeyRepeat -int 20
   - defaults write NSGlobalDomain KeyRepeat -int 1

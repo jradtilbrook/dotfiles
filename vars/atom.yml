@@ -13,10 +13,12 @@ atom_packages:
   - file-icons
   - git-plus
   - highlight-selected
+  - language-ansible
   - language-ini
   - language-mongodb
   - language-varnish
   - minimap
+  - minimap-autohide
   - minimap-find-and-replace
   - minimap-git-diff
   - minimap-highlight-selected

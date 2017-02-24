@@ -2,9 +2,12 @@
 ## -------------------
 ## Configuration files
 ## -------------------
-- name: include AWS credentials
-  include_vars: ../vars/vault/aws_credentials.yml
+- name: include vault files
   tags: dotfiles
+  include_vars: "{{ item }}"
+  with_items:
+    - ../vars/vault/aws_credentials.yml
+    - ../vars/vault/ansible_galaxy.yml
 
 - name: find dotfiles to link
   tags: dotfiles

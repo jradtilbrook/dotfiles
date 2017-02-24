@@ -9,3 +9,9 @@ env_vars:
     value: vim
   - name: LSCOLORS # similar to ubuntu colours
     value: ExGxCxDxCxDxdxabagacad
+  - name: WORKON_HOME
+    value: $HOME/.virtualenvs
+  - name: VIRTUALENVWRAPPER_PYTHON
+    value: /usr/local/bin/python3
+  - name: PROJECT_HOME
+    value: $HOME/projects

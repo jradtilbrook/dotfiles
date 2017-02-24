@@ -14,8 +14,10 @@ atom_packages:
   - git-plus
   - highlight-selected
   - language-ansible
+  - language-docker
   - language-ini
   - language-mongodb
+  - language-nginx
   - language-varnish
   - minimap
   - minimap-autohide

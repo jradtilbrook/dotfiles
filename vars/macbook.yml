@@ -43,6 +43,7 @@ homebrew_casks:
   # - robomongo
   - slack
   - spectacle
+  - spotify
   - suspicious-package
   - vagrant
   - vagrant-manager
@@ -57,11 +58,13 @@ homebrew_formulae:
   - cowsay
   - docker
   - dockutil
+  - gawk
   - git
   - jq
   - node
   - packer
   - php70
+  - python3
   - selenium-server-standalone
   - thefuck
   - tree
@@ -79,26 +82,28 @@ dock_items:
     pos: 2
   - name: /Applications/iTunes.app
     pos: 3
-  - name: /Applications/Mail.app
+  - name: /Applications/Spotify.app
     pos: 4
-  - name: /Applications/Calendar.app
+  - name: /Applications/Mail.app
     pos: 5
-  - name: /Applications/Notes.app
+  - name: /Applications/Calendar.app
     pos: 6
-  - name: /Applications/Reminders.app
+  - name: /Applications/Notes.app
     pos: 7
-  - name: /Applications/Atom.app
+  - name: /Applications/Reminders.app
     pos: 8
-  - name: /Applications/iTerm.app
+  - name: /Applications/Atom.app
     pos: 9
-  - name: /Applications/Slack.app
+  - name: /Applications/iTerm.app
     pos: 10
-  - name: /Applications/PhpStorm.app
+  - name: /Applications/Slack.app
     pos: 11
-  - name: /Applications/GitKraken.app
+  - name: /Applications/PhpStorm.app
     pos: 12
-  - name: /Applications/System Preferences.app
+  - name: /Applications/GitKraken.app
     pos: 13
+  - name: /Applications/System Preferences.app
+    pos: 14
   # folder positions are relatvie to folders section on the dock
   # the options key is required for folders
   - name: ~/Downloads

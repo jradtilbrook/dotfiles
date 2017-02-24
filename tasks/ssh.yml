@@ -2,10 +2,6 @@
 ## ---------------------
 ## SSH key configuration
 ## ---------------------
-- name: include github api token
-  include_vars: ../vars/vault/github_api_token.yml
-  tags: ssh
-
 - name: create ssh key
   tags: ssh
   shell: >

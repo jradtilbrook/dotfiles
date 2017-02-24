@@ -1,12 +1,4 @@
 ---
-# variables required by tasks below
-- name: include macOS variables
-  include_vars: ../vars/macbook.yml
-  tags:
-    - brew
-    - dock
-
-
 ## ----------------------
 ## Homebrew related tasks
 ## ----------------------

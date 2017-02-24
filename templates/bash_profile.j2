@@ -23,6 +23,5 @@ HISTCONTROL=ignoreboth
 export {{ item.name }}={{ item.value }}
 {% endfor %}
 
-{% if ansible_distribution == 'MacOSX' %}
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-{% endif %}
+# virtualenv/virtualenvwrapper bindings
+test -e "/usr/local/bin/virtualenvwrapper.sh" && source "/usr/local/bin/virtualenvwrapper.sh"

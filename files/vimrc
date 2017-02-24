@@ -59,8 +59,9 @@ set smartindent                 " add tabs by default
 set autoindent                  " automatically indent
 set tabstop=4                   " number of spaces of <Tab>
 set shiftwidth=4                " number of spaces of indent
+set shiftround                  " round indents to nearest `shiftwidth`
 set listchars+=tab:»\ ,trail:▫,eol:¬,space:·    " invisible characters
-set nolist                      " show invisibles
+set list                        " show invisibles
 set foldmethod=indent           " fold with equal indents
 set foldlevel=99                " leave all folds open by default
 

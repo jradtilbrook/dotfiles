@@ -21,3 +21,5 @@ alias tree='tree --du -h -C --dirsfirst'
 
 # the fuck alias
 eval `thefuck --alias`
+
+alias f='fuck'

@@ -41,11 +41,8 @@
 	#default = current # push current branch to branch with matching name. This is nice to use, but status doesn't show tracking info
 	default = simple # only push to registered tracking branch
 [credential]
-{% if ansible_distribution == 'MacOSX' %}
-	helper = osxkeychain
-{% else %}
 	helper = cache --timeout=900 # remember credentials for 15mins
-{% endif %}
+	; helper = osxkeychain
 [merge]
 	conflictstyle = diff3 # also show original text in merge conflicts
 	tool = vimdiff # use vim for conflict resolution in terminal

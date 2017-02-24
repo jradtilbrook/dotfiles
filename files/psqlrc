@@ -1,0 +1,19 @@
+\set QUIET 1
+
+\set PROMPT1 '%[%033[1;31m%]%x%[%033[0m%] %[%033[1;34m%]%n%[%033[0m%]@%[%033[1;33m%]%/%[%033[0m%]%R%# '
+
+\set PROMPT2 '%[%033[1;31m%]%x%[%033[0m%]   %R%# '
+
+\pset null '[null]'
+
+\set COMP_KEYWORD_CASE upper
+
+\timing
+
+\set HISTSIZE 2000
+
+\x auto
+
+\set VERBOSITY verbose
+
+\set QUIET 0

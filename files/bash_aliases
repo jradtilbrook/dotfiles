@@ -1,5 +1,5 @@
 # show symbols for file types
-alias ls='ls -F'
+alias ls='ls -F --color'
 
 # show long format with human readable sizes
 alias ll='ls -lh'

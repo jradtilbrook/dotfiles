@@ -2,40 +2,44 @@
 ## ---------------------
 ## SSH key configuration
 ## ---------------------
+- name: check ssh key exists
+  stat:
+    path: "{{ ansible_user_dir }}/.ssh/id_rsa"
+  register: ssh_key
+
 - name: create ssh key
-  tags: ssh
   shell: >
     ssh-keygen -t rsa -b 4096 \
     -C "{{ ansible_hostname | regex_replace('-|_', ' ') }}" \
     -f "{{ ansible_user_dir }}/.ssh/id_rsa"
-  args:
-    creates: "{{ ansible_user_dir }}/.ssh/id_rsa"
-  register: ssh_key
+  register: ssh_key_new
+  when: not ssh_key.stat.exists
 
 - name: upload key to github (through api)
-  tags: ssh
   github_key:
     name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}"
     pubkey: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
     token: "{{ github_api_token }}"
     force: no
+  when: ssh_key.stat.exists or ssh_key_new | changed
 
 - name: add ssh key to keychain
-  tags: ssh
-  shell: ssh-add -K {{ ansible_user_dir }}/.ssh/id_rsa
-  when: ssh_key | changed
+  shell: ssh-add {{ ansible_user_dir }}/.ssh/id_rsa
+  when: ssh_key_new | changed
+
+- name: print command to add SSH key passphrase
+  debug:
+    msg: Add passphrase to SSH key with `ssh-keygen -p`
+  when: ssh_key.stat.exists or ssh_key_new | changed
 
 - name: print ssh public key to upload to bitbucket
-  tags: ssh
   debug:
     msg: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
-  when: ssh_key | changed
+  when: ssh_key.stat.exists or ssh_key_new | changed
 
 - name: upload public key to aws
-  tags: ssh
-  shell: >
-    aws ec2 import-key-pair \
-    --key-name "{{ ansible_hostname | regex_replace('-|_', ' ') }}" \
-    --public-key-material \
-    "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
-  when: ssh_key | changed
+  ec2_key:
+    name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}"
+    key_material: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
+    region: ap-southeast-2
+  when: ssh_key.stat.exists or ssh_key_new | changed

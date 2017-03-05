@@ -3,7 +3,6 @@
 ## Atom packages
 ## -------------
 - name: install atom packages
-  tags: atom
   shell: apm install {{ item }}
   args:
     creates: "{{ ansible_user_dir }}/.atom/packages/{{ item }}"

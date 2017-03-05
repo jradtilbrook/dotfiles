@@ -20,10 +20,13 @@ added Ubuntu support but haven't used it fully yet.
 2. Install Homebrew from [here](http://brew.sh/).
     - Run `brew doctor` and fix any issues.
 3. Install `ansible` using Homebrew.
-4. Clone this repo.
-5. Put any variable overrides in `vars/override.yml` (eg. `user` object for git config)
+4. Clone this repo (using https because no ssh key exists yet).
 6. Run the ansible playbook: `./dotfiles.yml`.
 7. Change any other app settings as desired.
+8. Change the repo url to use ssh.
+
+Ubuntu requires manual install of git and ansible. Use the PPA for Ansible
+because version 2.2 or greater is required.
 
 The playbook will install my apps, generate an SSH key and upload it to GitHub
 and move dotfiles into place. The Bitbucket key must be uploaded manually.

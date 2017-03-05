@@ -1,4 +1,4 @@
-#! /usr/bin/env ansible-playbook --ask-vault-pass
+#!/usr/bin/env ansible-playbook
 
 ## ---------------------------------------------
 ## Ansible playbook for setting up a new machine
@@ -48,16 +48,26 @@
     ## Include common task files
     ## --------------------------
     - include: tasks/atom.yml
-      tags: common
+      tags:
+        - common
+        - atom
 
     - include: tasks/dotfiles.yml
-      tags: common
+      tags:
+        - common
+        - dotfiles
 
     - include: tasks/python.yml
-      tags: common
+      tags:
+        - common
+        - python
 
     - include: tasks/ssh.yml
-      tags: common
+      tags:
+        - common
+        - ssh
 
     - include: tasks/vim.yml
-      tags: common
+      tags:
+        - common
+        - vim

@@ -3,7 +3,7 @@
 ## Install python packages and virtualenvs
 ## ---------------------------------------
 - name: install python packages (global)
-  tags: python
   pip:
     name: "{{ item }}"
+    state: present
   with_items: "{{ python_global_packages }}"

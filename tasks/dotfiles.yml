@@ -3,21 +3,33 @@
 ## Configuration files
 ## -------------------
 - name: find dotfiles to link
-  tags: dotfiles
   find:
     paths: files/
     recurse: yes
   register: files
 
 - name: find templates to import
-  tags: dotfiles
   find:
     paths: templates/
     recurse: yes
   register: templates
 
+- name: find directories to create
+  find:
+    file_type: directory
+    paths:
+      - files/
+      - templates/
+    recurse: yes
+  register: dirs
+
+- name: ensure directories exist
+  file:
+    dest: "{{ ansible_user_dir }}/.{{ item.path | regex_replace('^(templates|files)/', '') }}"
+    state: directory
+  with_items: "{{ dirs.files }}"
+
 - name: link dotfiles to home directory
-  tags: dotfiles
   file:
     src: "{{ item.path | realpath }}"
     dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('files') }}"
@@ -25,7 +37,6 @@
   with_items: "{{ files.files }}"
 
 - name: import dotfile templates to home directory
-  tags: dotfiles
   template:
     src: "{{ item.path }}"
     dest: "{{ ansible_user_dir }}/\

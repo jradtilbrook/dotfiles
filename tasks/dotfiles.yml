@@ -1,7 +1,7 @@
 ---
-## -------------------
-## Configuration files
-## -------------------
+## ---------------------------
+## Move in configuration files
+## ---------------------------
 - name: find dotfiles to link
   find:
     paths: files/

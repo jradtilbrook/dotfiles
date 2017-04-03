@@ -1,7 +1,7 @@
 ---
-## -----------------
-## Vim configuration
-## -----------------
+## ---------------------------
+## Vim plugins with Vundle.vim
+## ---------------------------
 - name: clone Vundle.vim for plugin management in vim
   git:
     repo: git://github.com/VundleVim/Vundle.vim.git

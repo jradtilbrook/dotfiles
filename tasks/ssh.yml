@@ -23,10 +23,6 @@
     force: no
   when: ssh_key.stat.exists or ssh_key_new | changed
 
-- name: add ssh key to keychain
-  shell: ssh-add {{ ansible_user_dir }}/.ssh/id_rsa
-  when: ssh_key_new | changed
-
 - name: print command to add SSH key passphrase
   debug:
     msg: Add passphrase to SSH key with `ssh-keygen -p`

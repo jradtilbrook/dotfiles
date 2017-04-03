@@ -1,7 +1,7 @@
 ---
-## -------------
-## Atom packages
-## -------------
+## ---------------------
+## Install Atom packages
+## ---------------------
 - name: install atom packages
   shell: apm install {{ item }}
   args:

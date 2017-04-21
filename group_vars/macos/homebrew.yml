@@ -1,0 +1,71 @@
+---
+## ------------------
+## Homebrew variables
+## ------------------
+homebrew_taps:
+  - caskroom/cask
+  - caskroom/fonts
+  # - homebrew/completions
+  - homebrew/php
+  # - homebrew/versions # is this default or need installing? not used anymore?
+homebrew_casks:
+  - alfred
+  # - appcleaner # or appzapper
+  - atom
+  - betterzipql
+  # - disk-sensei
+  - docker
+  - firefox
+  - font-droid-sans-mono
+  - font-droid-sans-mono-for-powerline
+  - font-source-code-pro
+  - font-source-code-pro-for-powerline
+  - gitkraken
+  - google-chrome
+  - google-drive
+  - insync # google drive client
+  - iterm2
+  - java
+  - ngrok
+  - nylas-mail
+  - phpstorm
+  - postman
+  - qlcolorcode
+  - qlimagesize
+  - qlmarkdown
+  - qlstephen
+  - qlvideo
+  - quicklook-json
+  - rambox
+  - robomongo
+  - slack
+  - spectacle
+  - spotify
+  - suspicious-package
+  - vagrant
+  - vagrant-manager
+  - virtualbox
+  - virtualbox-extension-pack
+  - vlc
+homebrew_formulae:
+  - ack
+  - awscli
+  - chromedriver
+  - composer
+  - cowsay
+  - docker
+  - dockutil
+  - gawk
+  - git
+  - git-lfs
+  - jq
+  - node
+  - packer
+  - php70
+  - python3
+  - selenium-server-standalone
+  - sha2
+  - thefuck
+  - tree
+  - vim
+  - wget

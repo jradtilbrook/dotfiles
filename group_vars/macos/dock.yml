@@ -1,0 +1,41 @@
+---
+## ----
+## Dock
+## ----
+dock_items:
+  - name: /Applications/Google Chrome.app
+    pos: 1
+  - name: /Applications/Safari.app
+    pos: 2
+  - name: /Applications/iTunes.app
+    pos: 3
+  - name: /Applications/Spotify.app
+    pos: 4
+  - name: /Applications/Mail.app
+    pos: 5
+  - name: /Applications/Calendar.app
+    pos: 6
+  - name: /Applications/Notes.app
+    pos: 7
+  - name: /Applications/Reminders.app
+    pos: 8
+  - name: /Applications/Atom.app
+    pos: 9
+  - name: /Applications/iTerm.app
+    pos: 10
+  - name: /Applications/Slack.app
+    pos: 11
+  - name: /Applications/PhpStorm.app
+    pos: 12
+  - name: /Applications/GitKraken.app
+    pos: 13
+  - name: /Applications/System Preferences.app
+    pos: 14
+  # folder positions are relatvie to folders section on the dock
+  # the options key is required for folders
+  - name: ~/Downloads
+    pos: 1
+    options: --display folder --sort name --view auto --section others
+  - name: ~/Documents
+    pos: 2
+    options: --display folder --sort name --view auto --section others

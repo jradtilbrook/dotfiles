@@ -1,2 +1,0 @@
-# this is included just to stop ansible showing warnings
-localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python2

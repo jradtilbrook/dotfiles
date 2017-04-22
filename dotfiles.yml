@@ -1,18 +1,46 @@
 #!/usr/bin/env ansible-playbook
 
-## ---------------------------------------------
+## -------------------------------------------------------------------------------
 ## Ansible playbook for setting up a new machine
-## ---------------------------------------------
----
-- name: Configure a new machine
-  hosts: localhost
+##
+## This handles the 3 platforms that I generally use; Arch Linux, Ubuntu and MacOS
+## -------------------------------------------------------------------------------
 
+---
+## -------------------------
+## Arch Linux specific tasks
+## -------------------------
+- name: Configure Arch Linux
+  hosts: archlinux
+  tags: archlinux
+  become: true
+  tasks:
+    - include: tasks/archlinux.yml
+      static: yes
+
+
+## ---------------------
+## Ubuntu specific tasks
+## ---------------------
+- name: Configure Ubuntu
+  hosts: ubuntu
+  tags: ubuntu
+  become: true
+  tasks:
+    - include: tasks/ubuntu.yml
+      static: yes
+
+
+## --------------------
+## MacOS specific tasks
+## --------------------
+- name: Configure MacOS
+  hosts: macos
+  tags: macos
   handlers:
     - name: restart dock
       command: killall Dock
       listen: restart mac services
-      when: ansible_distribution == 'MacOSX'
-
     - name: restart mac services
       command: killall {{ item }}
       with_items:
@@ -20,54 +48,30 @@
         - Safari
         - SystemUIServer
         - cfprefsd
-      when: ansible_distribution == 'MacOSX'
-
-  pre_tasks:
-    - name: include variables
-      tags: always
-      include_vars:
-        dir: vars
-
   tasks:
-    ## ------------------------
-    ## Run macOS specific tasks
-    ## ------------------------
     - include: tasks/macbook.yml
-      tags: osx
-      when: ansible_distribution == 'MacOSX'
+      static: yes
 
-    ## -------------------------
-    ## Run Ubuntu specific tasks
-    ## -------------------------
-    - include: tasks/ubuntu.yml
-      tags: ubuntu
-      become: true
-      when: ansible_distribution == 'Ubuntu'
 
-    ## --------------------------
-    ## Include common task files
-    ## --------------------------
+## -----------------------
+## Platform agnostic tasks
+## -----------------------
+- name: Configure common stuff
+  hosts: all
+  tags: common
+  tasks:
     - include: tasks/atom.yml
-      tags:
-        - common
-        - atom
-
+      static: yes
+      tags: atom
     - include: tasks/dotfiles.yml
-      tags:
-        - common
-        - dotfiles
-
+      static: yes
+      tags: dotfiles
     - include: tasks/python.yml
-      tags:
-        - common
-        - python
-
+      static: yes
+      tags: python
     - include: tasks/ssh.yml
-      tags:
-        - common
-        - ssh
-
+      static: yes
+      tags: ssh
     - include: tasks/vim.yml
-      tags:
-        - common
-        - vim
+      static: yes
+      tags: vim

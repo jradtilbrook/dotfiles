@@ -1,0 +1,58 @@
+---
+## -----------------------------
+## Arch Linux specific variables
+## -----------------------------
+
+## --------------------------
+## Pacman packages to install
+## --------------------------
+pacman_packages:
+  - atom
+  - aws-cli
+  - git
+  - gvim # normal vim doesnt come with `+clipboard`
+  - i3
+  - libglvnd # depending on graphics hardware
+  - mesa
+  - openssh
+  - python
+  - python-pip
+  - python2
+  - python2-pip
+  - vagrant
+  - virtualbox
+  - virtualbox-guest-iso
+  - virtualbox-host-modules-arch
+  - wget
+  - xf86-video-intel # depending on graphics hardware
+  - xorg-server
+  # - chromium
+
+  # compton
+  # feh
+  # htop
+  # gparted/fdisk/gdisk
+  # gtk, sdl
+  # lm-sensors
+  # most
+  # jdk
+  # playerctl
+  # rofi
+  # dmenu
+  # scrot
+  # sublime text?
+  # thunar
+  # ruby
+  # xbacklight
+  # psql
+  # php
+
+  # wayland (instead of x11)
+  # sway (instead of i3)
+
+## -----------------------
+## AUR packages to install
+## -----------------------
+aur_packages: []
+# firefox-developer
+# packer-io

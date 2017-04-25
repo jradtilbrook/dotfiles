@@ -2,4 +2,5 @@
 ## ------
 ## Python
 ## ------
-python_global_packages: []
+python_global_packages:
+  - boto

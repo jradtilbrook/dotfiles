@@ -20,7 +20,9 @@ HISTCONTROL=ignoreboth
 
 # environment variables
 {% for item in env_vars %}
+{% if ansible_distribution in (item.only_os | default([ansible_distribution])) %}
 export {{ item.name }}={{ item.value }}
+{% endif %}
 {% endfor %}
 
 # virtualenv/virtualenvwrapper bindings

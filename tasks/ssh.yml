@@ -23,11 +23,6 @@
     force: no
   when: ssh_key.stat.exists or ssh_key_new | changed
 
-- name: print command to add SSH key passphrase
-  debug:
-    msg: Add passphrase to SSH key with `ssh-keygen -p`
-  when: ssh_key.stat.exists or ssh_key_new | changed
-
 - name: print ssh public key to upload to bitbucket
   debug:
     msg: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"

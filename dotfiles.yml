@@ -70,6 +70,7 @@
       static: yes
       tags: dotfiles
     - include: tasks/python.yml
+      become: "{% if ansible_distribution == 'MacOSX' %}no{% else %}yes{% endif %}"
       static: yes
       tags: python
     - include: tasks/ssh.yml

@@ -5,10 +5,14 @@
 env_vars:
   - name: CLICOLOR # iTerm2 colours
     value: 1
+    only_os:
+      - MacOSX
   - name: EDITOR
     value: vim
   - name: LSCOLORS # similar to ubuntu colours
     value: ExGxCxDxCxDxdxabagacad
+    only_os:
+      - MacOSX
   - name: WORKON_HOME
     value: $HOME/.virtualenvs
   - name: VIRTUALENVWRAPPER_PYTHON

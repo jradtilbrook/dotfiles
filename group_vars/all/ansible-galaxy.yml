@@ -1,0 +1,5 @@
+---
+## ----------------------------------------------------------------
+## Token used to authenticate with Ansible Galaxy (vault protected)
+## ----------------------------------------------------------------
+ansible_galaxy_token: "{{ vault_ansible_galaxy_token }}"

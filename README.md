@@ -8,7 +8,6 @@
 - other dotfiles/templates
 - tmux
 - how to manage gpg keys
-- improve vault file abstraction
 
 ------
 

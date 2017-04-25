@@ -7,130 +7,35 @@
     - setup ide for HE code & style
 - other dotfiles/templates
 - tmux
+- how to manage gpg keys
+- improve vault file abstraction
 
-# MacBook Pro Setup
+------
 
-I use ansible to setup a new Mac rather than using the built in migration
-assistant. The steps below outline how to set up a new Mac. __Note:__ I've also
-added Ubuntu support but haven't used it fully yet.
+# My Dotfiles
 
-1. Install Xcode.
-    - Also run `xcode-select --install` from the terminal to install command
-      line options. **Restart required**.
-2. Install Homebrew from [here](http://brew.sh/).
-    - Run `brew doctor` and fix any issues.
-3. Install `ansible` using Homebrew.
-4. Clone this repo (using https because no ssh key exists yet).
-6. Run the ansible playbook: `./dotfiles.yml`.
-7. Change any other app settings as desired.
-8. Change the repo url to use ssh.
+This repo holds my configuration files for the different OSes I use; Arch Linux, Ubuntu and MacOS.
 
-Ubuntu requires manual install of git and ansible. Use the PPA for Ansible
-because version 2.2 or greater is required.
+I use Ansible to help automate the initial setup and manage changes. The [`dotfiles.yml`](./dotfiles.yml) file is the
+global playbook used to configure any of the above OSes. It installs the applications I use, moves dotfiles into place
+and sets up SSH keys.
 
-The playbook will install my apps, generate an SSH key and upload it to GitHub
-and move dotfiles into place. The Bitbucket key must be uploaded manually.
+To use this repo, simply install Ansible (see [OS specific notes](#os-specific-notes) below) and execute
+`./dotfiles.yml`. *Note* that it will ask for my vault password which I'm obviously not going to share here
+:stuck_out_tongue_winking_eye: but it should be pretty simple to work around if you are looking for a better dofiles
+solution.
 
-## Resources
+To allow this to work on multiple OSes I use a dynamic inventory file for Ansible that determines the current system and
+outputs different aliases to allow specific tasks to be executed. See [`inventory.py`](./inventory.py) for the code.
 
-- A helpful guide to setting up a Mac for development [here](http://sourabhbajaj.com/mac-setup/).
-- Another cool configuration repo [maximum-awesome](https://github.com/square/maximum-awesome).
 
-## System Preferences
+### OS specific notes
 
-Only non-defaults shown.
+- [Arch Linux](./archlinux.md)
+- [Ubuntu](./ubuntu.md)
+- [MacOS](./macbook.md)
 
-#### General
 
-- [x] Use dark menu bar
-- [x] Automatically hide and show menu bar
-- Sidebar icon size: small
-- Click in scroll bar: Jump to spot clicked
-
-#### Desktop & Screen Saver
-
-- Turn screen saver off
-- Change background to personal preference
-
-#### Language & Region
-
-- Time format: 24hr
-
-#### Security & Privacy
-
-- FileVault: on
-- Firewall: on
-
-#### Displays
-
-- [ ] Show mirroring options when available
-
-#### Energy Saver
-
-- Battery display turn off: 5min
-
-#### Keyboard
-
-- [ ] Adjust backlight in low light
-- Disable spotlight shortcuts (in favour of Alfred)
-
-#### Trackpad
-
-- Light click pressure
-- Tracking speed: 5th notch from right
-- [x] Swipe between pages: _three fingers_
-- [x] App Expose
-
-#### Sound
-
-- [x] Show volume in menu
-- Input volume: left most (almost muted)
-
-#### iCloud
-
-- [ ] Photos
-
-#### Internet Accounts
-
-- Link up Google with Mail, Contacts, Calendars
-- Sign in with Facebook (uncheck Contacts)
-- Linkedin
-- Twitter
-
-#### App Store
-
-- [ ] Download newly available in the background
-
-#### Bluetooth
-
-- [x] Show in menu bar
-- Default to off
-
-#### Users & Groups
-
-- Disallow guests
-
-#### Date & Time
-
-- [x] Show date
-
-## Menu Bar
-
-- [x] Show battery percentage
-
-## Finder Preferences
-
-- New windows open in user home
-- [x] Show Mac device
-- [ ] Recent tags
-- [x] Show all filename extensions
-- [x] Remove items from trash after 30 days
-- [x] Keep folders on top when sorting
-- Arrange by: name
-- Icon size: 36x36
-- Grid spacing: 2nd notch from left
-- Text size: 11pt
-- [x] Show item info
-- [x] Show library folder
-- Light-grey background colour
-- [x] Set as Defaults
+### Other references
+- Awesome list for [vim/tmux](https://github.com/square/maximum-awesome).
+- All [awesome lists](https://awesome.re)

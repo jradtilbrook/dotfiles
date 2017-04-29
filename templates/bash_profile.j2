@@ -25,3 +25,8 @@ export {{ item.name }}={{ item.value }}
 
 # virtualenv/virtualenvwrapper bindings
 test -e "/usr/local/bin/virtualenvwrapper.sh" && source "/usr/local/bin/virtualenvwrapper.sh"
+
+{% if ansible_distribution == 'MacOSX' %}
+# colourful prompt
+PS1='\e[38;5;80m\u@\h\[\033[00m\]:\e[38;5;214m\w\e[0m\$ '
+{% endif %}

@@ -40,7 +40,8 @@ homebrew_casks:
   - qlstephen
   - qlvideo
   - quicklook-json
-  # - robomongo
+  - rambox
+  - robomongo
   - slack
   - spectacle
   - spotify
@@ -60,12 +61,14 @@ homebrew_formulae:
   - dockutil
   - gawk
   - git
+  - git-lfs
   - jq
   - node
   - packer
   - php70
   - python3
   - selenium-server-standalone
+  - sha2
   - thefuck
   - tree
   - vim

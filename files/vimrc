@@ -23,9 +23,11 @@ call vundle#begin()
     "Plugin 'vim-scripts/Align' " or,
     "Plugin 'junegunn/vim-easy-align'
     "Plugin 'skwp/greplace.vim'
+    Plugin 'joshdick/onedark.vim'
     Plugin 'tpope/vim-surround'
     "Plugin 'tpope/vim-ragtag'
     Plugin 'tpope/vim-fugitive'
+    Plugin 'derekwyatt/vim-scala'
     "Plugin 'tpope/vim-unimpaired'
     "Plugin 'majutsushi/tagbar'
     "Plugin 'airblade/vim-gutter'
@@ -45,7 +47,7 @@ filetype plugin indent on       " re-enable filetype detection
 "---------------------------------- COLOURS -----------------------------------"
 syntax on                       " enable syntax highlighting
 " don't fail if colorscheme not found
-silent! colorscheme molokai
+silent! colorscheme onedark
 
 
 
@@ -69,7 +71,7 @@ set scrolloff=5                 " show 5 context lines when scrolling
 set sidescroll=1                " use continuous scrolling
 set sidescrolloff=10            " show 10 context columns when scrolling
 set nowrap                      " do not wrap lines by default
-set colorcolumn=81              " vertical line at column 81
+set colorcolumn=121             " vertical line at column 121
 
 set hlsearch                    " highlight search matches
 set incsearch                   " show incremental matches
@@ -103,6 +105,8 @@ set formatoptions+=ojr          " insert comment leader when using 'o' or 'O'
 let mapleader=','
 " shortcut to edit vimrc file
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
+" shortcut to edit i3 config
+nmap <Leader>ei :tabedit $HOME/.config/i3/config<cr>
 " remove highlighted search
 nmap <Leader><space> :nohlsearch<cr>
 
@@ -139,7 +143,7 @@ augroup END
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
+let g:airline_theme='onedark'
 
 " NERDTree
 let NERDTreeHijackNetrw = 0

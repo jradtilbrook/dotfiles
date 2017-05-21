@@ -1,0 +1,10 @@
+---
+## ---------------------------
+## Arch Linux systemd services
+## ---------------------------
+system_services:
+  - bluetooth.service
+  - docker.socket # starts docker on demand when first trying to use it
+
+user_services:
+  - mpd.service

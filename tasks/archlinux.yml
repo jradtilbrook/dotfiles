@@ -6,7 +6,6 @@
   pacman:
     pkg: "{{ item }}"
     state: present
-    update_cache: yes
   with_items: "{{ pacman_packages }}"
 
 # TODO: how to do aur/yaourt packages? create module or use shell/command module

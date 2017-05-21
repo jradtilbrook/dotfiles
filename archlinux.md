@@ -21,6 +21,7 @@ Reboot and log into the new user. Now the Ansible playbook can be run:
     - The playbook requires admin rights to install packages so run `sudo -v` beforehand to cache credentials.
 3. Change any other app settings as desired.
 4. Change the repo url to use ssh.
+5. Install `yaourt` to help with AUR packages.
 
 Now perform other system admin/management/security tasks as needed that are not easily automated with Ansible. See the [References](#references) below.
 
@@ -29,3 +30,4 @@ Now perform other system admin/management/security tasks as needed that are not 
 
 - [General recommendations](https://wiki.archlinux.org/index.php/General_recommendations)
 - [List of applications](https://wiki.archlinux.org/index.php/List_of_applications)
+- [Eye candy](https://wiki.archlinux.org/index.php/Category:Eye_candy)

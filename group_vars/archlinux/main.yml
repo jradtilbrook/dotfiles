@@ -7,18 +7,56 @@
 ## Pacman packages to install
 ## --------------------------
 pacman_packages:
+  - ack
+  - alsa-utils
+  - archey3
   - atom
   - aws-cli
+  - bluez
+  - bluez-firmware
+  - bluez-libs
+  - bluez-utils
+  - chromium
+  - composer
+  - docker
+  - docker-compose
+  - dunst
+  - feh
   - git
   - gvim # normal vim doesnt come with `+clipboard`
+  - htop
+  - hunspell
   - i3
+  - inotify-tools
+  - jq
   - libglvnd # depending on graphics hardware
+  - lm_sensors
   - mesa
+  - mpc
+  - mpd
+  - namcap
+  - ncmpcpp
+  - net-tools
+  - ntfs-3g
   - openssh
+  - pamixer
+  - pavucontrol
+  - php
+  - pulseaudio
+  - pulseaudio-alsa
+  - pulseaudio-bluetooth
   - python
   - python-pip
   - python2
   - python2-pip
+  - ripgrep
+  - rsync
+  - rxvt-unicode
+  - the_silver_searcher
+  - thefuck
+  - tree
+  - ttf-dejavu
+  - unzip
   - vagrant
   - virtualbox
   - virtualbox-guest-iso
@@ -26,14 +64,15 @@ pacman_packages:
   - wget
   - xf86-video-intel # depending on graphics hardware
   - xorg-server
-  # - chromium
+  - xorg-xbacklight
+  - xorg-xinit
+  - xorg-xrandr
+  - zip
 
   # compton
-  # feh
   # htop
   # gparted/fdisk/gdisk
   # gtk, sdl
-  # lm-sensors
   # most
   # jdk
   # playerctl
@@ -43,9 +82,6 @@ pacman_packages:
   # sublime text?
   # thunar
   # ruby
-  # xbacklight
-  # psql
-  # php
 
   # wayland (instead of x11)
   # sway (instead of i3)
@@ -53,6 +89,20 @@ pacman_packages:
 ## -----------------------
 ## AUR packages to install
 ## -----------------------
-aur_packages: []
-# firefox-developer
-# packer-io
+aur_packages:
+  - firefox-developer
+  - git-lfs
+  - jiq
+  - mons
+  - otf-hermit
+  - packer-io
+  - postman-bin
+  - scudcloud
+  - ttf-font-awesome
+
+## -----------------------
+## yaourt and dependencies
+## -----------------------
+yaourt_dependencies:
+  - package-query
+  - yaourt

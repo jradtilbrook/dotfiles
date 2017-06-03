@@ -22,6 +22,7 @@ Reboot and log into the new user. Now the Ansible playbook can be run:
 3. Change any other app settings as desired.
 4. Change the repo url to use ssh.
 5. Install `yaourt` to help with AUR packages.
+6. Change shell to Zsh.
 
 Now perform other system admin/management/security tasks as needed that are not easily automated with Ansible. See the [References](#references) below.
 

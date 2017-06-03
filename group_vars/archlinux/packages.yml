@@ -69,6 +69,7 @@ pacman_packages:
   - xorg-xinit
   - xorg-xrandr
   - zip
+  - zsh
 
   # compton
   # htop
@@ -95,6 +96,7 @@ aur_packages:
   - git-lfs
   - jiq
   - mons
+  - oh-my-zsh-git
   - otf-hermit
   - packer-io
   - postman-bin

@@ -1,7 +1,8 @@
 {{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
-[user]
-	name = {{ user.name }}
-	email = {{ user.email }}
+[includeIf "gitdir:~/projects/"]
+	path = .gitconfig-play
+[includeIf "gitdir:~/he/"]
+	path = .gitconfig-he
 [core]
 	editor = vim
 	longpaths = true # avoid Windows complaining about filename lengths
@@ -48,3 +49,8 @@
 	tool = vimdiff # use vim for conflict resolution in terminal
 # [help]
 #	autocorrect = 5
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

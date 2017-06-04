@@ -1,25 +1,14 @@
-# show symbols for file types
-alias ls='ls -F --color'
+alias ls='ls -F --color' # show symbols for file types
+alias ll='ls -lh' # show long format with human readable sizes
+alias lla='ll -A' # show long format with hidden files
+alias la='ls -A' # show all files
+alias l1='ls -1' # show in one column
+alias vimp='vim -p' # tab for each file
+alias vimo='vim -O' # vertical split
+alias free='free -h' # always human readable format
+alias grep='grep --color=auto' # always output colour
+alias tree='tree --du -h -C --dirsfirst' # show size and colour
 
-# show long format with human readable sizes
-alias ll='ls -lh'
-
-# show long format with hidden files
-alias lla='ll -A'
-
-# show all files
-alias la='ls -A'
-
-# show in one column
-alias l1='ls -1'
-
-# grep with colour
-alias grep='grep --color=auto'
-
-# show size and colour
-alias tree='tree --du -h -C --dirsfirst'
-
-# the fuck alias
+# the fuck setup probably should go in bashrc or other
 eval `thefuck --alias`
-
 alias f='fuck'

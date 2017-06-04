@@ -10,7 +10,7 @@ ZSH=/usr/share/oh-my-zsh/
 ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -51,8 +51,8 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
+plugins=(archlinux aws common-aliases composer docker git gpg-agent httpie jira sudo systemd vagrant)
+# node npm pip pylint python virtualenvwrapper thefuck
 
 # User configuration
 
@@ -92,3 +92,17 @@ source $ZSH/oh-my-zsh.sh
 
 # helpful messages for unfound packages
 source /usr/share/doc/pkgfile/command-not-found.zsh
+
+# do not kill background processes on exit
+setopt NO_HUP
+
+# dont store `history` commands
+setopt HIST_NO_STORE
+
+
+# Aliases
+alias vimp='vim -p' # tab for each file
+alias vimo='vim -O' # vertical split
+alias tree='tree --du -h -C --dirsfirst' # show size and colour
+eval $(thefuck --alias)
+alias f='fuck'

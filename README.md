@@ -1,8 +1,5 @@
 #### Todo's
 
-- bash/zsh config
-    - powerline (git integration)
-- environment variables
 - vim config
     - setup ide for HE code & style
 - other dotfiles/templates

@@ -99,10 +99,15 @@ setopt NO_HUP
 # dont store `history` commands
 setopt HIST_NO_STORE
 
-
 # Aliases
 alias vimp='vim -p' # tab for each file
 alias vimo='vim -O' # vertical split
 alias tree='tree --du -h -C --dirsfirst' # show size and colour
 eval $(thefuck --alias)
 alias f='fuck'
+
+# Environment variables
+export EDITOR=vim
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export PROJECT_HOME=$HOME/projects

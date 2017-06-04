@@ -32,3 +32,8 @@ test -e "/usr/local/bin/virtualenvwrapper.sh" && source "/usr/local/bin/virtuale
 # colourful prompt
 PS1='\e[38;5;80m\u@\h\[\033[00m\]:\e[38;5;214m\w\e[0m\$ '
 {% endif %}
+
+# start X on login through TTY1
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+    exec startx
+fi

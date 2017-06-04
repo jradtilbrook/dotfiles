@@ -16,6 +16,7 @@ atom_packages:
   - language-ansible
   - language-docker
   - language-ini
+  - language-jsx
   - language-mongodb
   - language-nginx
   - language-varnish
@@ -26,6 +27,7 @@ atom_packages:
   - minimap-highlight-selected
   - minimap-split-diff
   - pigments
+  - react
   - sort-lines
   - split-diff
   - split-into-lines

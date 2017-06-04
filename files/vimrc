@@ -4,8 +4,6 @@ filetype off        " disable filetype detection
 
 
 
-
-
 "---------------------------------- PLUGINS -----------------------------------"
 " append Vundle to the runtime path
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -18,6 +16,12 @@ call vundle#begin()
     Plugin 'leafgarland/typescript-vim'
     Plugin 'pearofducks/ansible-vim'
     "Plugin 'elzr/vim-json'
+    "Plugin 'mhinz/vim-signify'
+    "Plugin 'sjl/gundo.vim'
+    "Plugin 'sudar/vim-arduino-syntax'
+    "Plugin 'tomasr/molokai'
+    "Plugin 'junegunn/seoul256.vim'
+    "Plugin 'vim-scripts/a.vim'
     "Plugin 'christoomey/vim-tmux-navigator'
     "Plugin 'scrooloose/syntastic'
     "Plugin 'vim-scripts/Align' " or,
@@ -42,14 +46,10 @@ filetype plugin indent on       " re-enable filetype detection
 
 
 
-
-
 "---------------------------------- COLOURS -----------------------------------"
 syntax on                       " enable syntax highlighting
 " don't fail if colorscheme not found
 silent! colorscheme onedark
-
-
 
 
 
@@ -63,7 +63,7 @@ set tabstop=4                   " number of spaces of <Tab>
 set shiftwidth=4                " number of spaces of indent
 set shiftround                  " round indents to nearest `shiftwidth`
 set listchars+=tab:»\ ,trail:▫,eol:¬,space:·    " invisible characters
-set list                        " show invisibles
+" set list                        " show invisibles
 set foldmethod=indent           " fold with equal indents
 set foldlevel=99                " leave all folds open by default
 
@@ -98,15 +98,17 @@ set formatoptions+=ojr          " insert comment leader when using 'o' or 'O'
 
 
 
-
-
 "---------------------------------- MAPPINGS ----------------------------------"
 " change <Leader> to ','
 let mapleader=','
+" save pressing shift
+nmap ; :
 " shortcut to edit vimrc file
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
 " shortcut to edit i3 config
 nmap <Leader>ei :tabedit $HOME/.config/i3/config<cr>
+" shortcut to edit Zsh config
+nmap <Leader>ez :tabedit $HOME/.zshrc<cr>
 " remove highlighted search
 nmap <Leader><space> :nohlsearch<cr>
 
@@ -125,8 +127,6 @@ nnoremap <space> za
 
 
 
-
-
 "------------------------------- AUTO COMMANDS --------------------------------"
 augroup autosourcing
     " clear the group
@@ -134,8 +134,6 @@ augroup autosourcing
     " source vimrc when it changes
     autocmd BufWritePost $MYVIMRC source %
 augroup END
-
-
 
 
 

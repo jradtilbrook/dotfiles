@@ -23,6 +23,8 @@ pacman_packages:
   - dunst
   - feh
   - git
+  - gksu
+  - gufw
   - gvim # normal vim doesnt come with `+clipboard`
   - htop
   - hunspell
@@ -32,6 +34,7 @@ pacman_packages:
   - libglvnd # depending on graphics hardware
   - lm_sensors
   - mesa
+  - mopidy
   - mpc
   - mpd
   - namcap
@@ -96,6 +99,8 @@ aur_packages:
   - git-lfs
   - jiq
   - mons
+  - mopidy-gmusic
+  - mopidy-spotify
   - oh-my-zsh-git
   - otf-hermit
   - packer-io

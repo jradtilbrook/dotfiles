@@ -10,6 +10,7 @@ atom_packages:
   - color-picker
   - docblockr
   - editorconfig
+  - ex-mode
   - file-icons
   - git-plus
   - highlight-selected
@@ -20,16 +21,19 @@ atom_packages:
   - language-mongodb
   - language-nginx
   - language-varnish
+  - linter-php
   - minimap
   - minimap-autohide
   - minimap-find-and-replace
   - minimap-git-diff
   - minimap-highlight-selected
   - minimap-split-diff
+  - php-cs-fixer
   - pigments
   - react
   - sort-lines
   - split-diff
   - split-into-lines
+  - svg-preview
   - tabs-to-spaces
-  - vim-mode
+  - vim-mode-plus

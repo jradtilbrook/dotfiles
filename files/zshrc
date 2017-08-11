@@ -51,8 +51,9 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux aws common-aliases composer docker git gpg-agent httpie jira sudo systemd vagrant)
+plugins=(archlinux aws common-aliases composer docker git gpg-agent httpie jira node pip python ssh-agent sudo systemd vagrant virtualenvwrapper)
 # node npm pip pylint python virtualenvwrapper thefuck
+zstyle :omz:plugins:ssh-agent lifetime 1h # only cache for 1 hour
 
 # User configuration
 
@@ -102,12 +103,18 @@ setopt HIST_NO_STORE
 # Aliases
 alias vimp='vim -p' # tab for each file
 alias vimo='vim -O' # vertical split
+alias l1='ls -1'
+alias llh='ll -h'
 alias tree='tree --du -h -C --dirsfirst' # show size and colour
 eval $(thefuck --alias)
 alias f='fuck'
+alias free='free -h'
+unalias rm
+alias xclip='xclip -selection c'
 
 # Environment variables
 export EDITOR=vim
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export PROJECT_HOME=$HOME/projects
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"

@@ -12,6 +12,9 @@
 	ui = true # show colour by default
 [diff]
 	submodule = log
+[diff "ansible-vault"]
+    textconv = ansible-vault view
+    cachetextconv = true
 [grep]
 	linenumber = true
 [alias]

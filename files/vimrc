@@ -15,6 +15,8 @@ call vundle#begin()
     Plugin 'flazz/vim-colorschemes'
     Plugin 'leafgarland/typescript-vim'
     Plugin 'pearofducks/ansible-vim'
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'mxw/vim-jsx'
     "Plugin 'elzr/vim-json'
     "Plugin 'mhinz/vim-signify'
     "Plugin 'sjl/gundo.vim'
@@ -87,7 +89,7 @@ set backspace=indent,start,eol  " backspace over everything
 set showcmd                     " show command line
 set wildmenu                    " show command completion matches
 set autoread                    " automatically update external changes
-set clipboard=unnamed           " share system clipboard
+set clipboard=unnamedplus       " share system clipboard
 
 set splitbelow                  " but the new window below
 set splitright                  " put the new window to the right
@@ -155,3 +157,6 @@ let NERDDefaultAlign = 'left'
 " ansible-vim
 let g:ansible_name_highlight = 'b'
 let g:ansible_extra_keywords_highlight = 1
+
+" vim-jsx
+let g:jsx_ext_required = 0

@@ -9,6 +9,7 @@
 pacman_packages:
   - ack
   - alsa-utils
+  - arc-gtk-theme
   - archey3
   - atom
   - aws-cli
@@ -18,10 +19,15 @@ pacman_packages:
   - bluez-utils
   - chromium
   - composer
+  - compton
+  - deluge
+  - dmenu
   - docker
   - docker-compose
   - dunst
+  - exfat-utils
   - feh
+  - gimp
   - git
   - gksu
   - gufw
@@ -40,32 +46,45 @@ pacman_packages:
   - namcap
   - ncmpcpp
   - net-tools
+  - nfs-utils
   - ntfs-3g
   - openssh
   - pamixer
+  - pass
   - pavucontrol
   - php
   - pkgfile
+  - playerctl
   - pulseaudio
   - pulseaudio-alsa
   - pulseaudio-bluetooth
   - python
   - python-pip
+  - python-virtualenvwrapper
   - python2
   - python2-pip
+  - rfkill
   - ripgrep
+  - rofi
   - rsync
+  - ruby
   - rxvt-unicode
+  - screen
+  - shotwell
   - the_silver_searcher
   - thefuck
   - tree
   - ttf-dejavu
+  - ttf-liberation
+  - ufw
   - unzip
   - vagrant
   - virtualbox
   - virtualbox-guest-iso
   - virtualbox-host-modules-arch
+  - vlc
   - wget
+  - xclip
   - xf86-video-intel # depending on graphics hardware
   - xorg-server
   - xorg-xbacklight
@@ -73,20 +92,15 @@ pacman_packages:
   - xorg-xrandr
   - zip
   - zsh
-
-  # compton
-  # htop
   # gparted/fdisk/gdisk
   # gtk, sdl
   # most
   # jdk
-  # playerctl
-  # rofi
-  # dmenu
+  # dzen
+  # heroku
+  # xautolock
   # scrot
-  # sublime text?
   # thunar
-  # ruby
 
   # wayland (instead of x11)
   # sway (instead of i3)
@@ -95,17 +109,23 @@ pacman_packages:
 ## AUR packages to install
 ## -----------------------
 aur_packages:
+  - browserpass
   - firefox-developer
   - git-lfs
   - jiq
   - mons
   - mopidy-gmusic
   - mopidy-spotify
+  - mopidy-spotify-web
+  - nerd-fonts-complete
+  - ngrok
   - oh-my-zsh-git
   - otf-hermit
   - packer-io
+  - phpstorm-jre
   - postman-bin
   - scudcloud
+  - sublime-text
   - ttf-font-awesome
 
 ## -----------------------

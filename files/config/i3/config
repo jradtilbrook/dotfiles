@@ -1,0 +1,367 @@
+##
+## i3 Config File
+## See http://i3wm.org/docs/userguide.html
+##
+
+
+
+##
+## Variables
+##
+# super key as modifier
+set $mod Mod4
+# workspace variables
+set $workspace1 "1 "
+set $workspace2 "2 "
+set $workspace3 "3 "
+set $workspace4 "4 "
+set $workspace5 "5 "
+set $workspace6 "6 "
+set $workspace7 "7 "
+set $workspace8 "8 "
+set $workspace9 "9 "
+set $workspace10 "10 "
+# resize window
+set $resize ""
+# move a floating window
+set $move ""
+# colourscheme
+set $bg-color               #2f343f
+set $inactive-bg-color      #2f343f
+set $text-color             #f3f4f5
+set $inactive-text-color    #676E7D
+set $urgent-bg-color        #E53935
+set $orange                 #d29c7a
+set $green                  #54c666
+set $aqua                   #0cacaa
+set $red                    #fa334a
+set $purple                 #b04897
+set $white                  #dee2ea
+set $grey                   #272b34
+set $blue                   #0066cc
+set $inactive-grey          #676e7d
+
+
+
+##
+## Miscellaneous
+##
+# use mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+# font for window titles.
+# font pango:System San Francisco Display 10
+font pango: CodeNewRoman Nerd Font 10
+# kill focused window
+bindsym $mod+Shift+q kill
+# show urgency border a little longer
+force_display_urgency_hint 800 ms
+# stop focus following mouse cursor
+focus_follows_mouse no
+# only show borders if workspace has more than one window
+hide_edge_borders smart
+# show urgency border a little longer
+focus_on_window_activation urgent
+# window borders only if more than one window
+new_window pixel 1
+new_float none
+
+
+
+##
+## Movements
+##
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+# workspace cycling
+bindsym $mod+grave workspace back_and_forth
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+minus move scratchpad
+
+
+
+##
+## Orientation
+##
+# split in horizontal orientation
+bindsym $mod+b split h
+# split in vertical orientation
+bindsym $mod+v split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+
+
+##
+## Focus
+##
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# focus the parent container
+bindsym $mod+p focus parent
+# focus the child container
+bindsym $mod+c focus child
+
+
+
+##
+## Workspaces
+##
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+bindsym $mod+minus scratchpad show
+bindsym $mod+equal sticky toggle
+# workspace $workspace1 output HDMI3
+# workspace $workspace2 output HDMI3
+# workspace $workspace3 output HDMI3
+# workspace $workspace4 output HDMI3
+# workspace $workspace5 output HDMI3
+# workspace $workspace6 output HDMI-1-0
+# workspace $workspace7 output HDMI-1-0
+# workspace $workspace8 output HDMI-1-0
+# workspace $workspace9 output HDMI-1-0
+# workspace $workspace10 output HDMI-1-0
+
+
+
+##
+## Session management
+##
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# lock screen shortcut
+# bindsym $mod+Shift+Escape exec ~/.config/i3/lockscreen #--nofork
+bindsym $mod+Shift+Escape exec i3lock -c 002222 -e
+# bind for lock / sleep / shutdown / ...
+# bindsym $mod+Shift+Delete exec ~/.config/i3/exitmenu
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# use rofi instead of dmenu
+bindsym $mod+d exec rofi -show run -lines 4 -eh 2 -width 100 -padding 800 -opacity "80" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#0066cc" -font "System San Francisco Display 18"
+# bindsym $mod+d exec rofi -show run -lines 4 -eh 2 -width 100 -padding 450 -opacity "80" -bw 0 -bc "$grey" -bg "$grey" -fg "$white" -hlbg "$grey" -hlfg "$aqua" -font "System San Francisco Display 15"
+
+
+
+##
+## Shortcuts
+##
+# start a terminal
+bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Shift+Return exec gnome-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+f exec chromium
+bindsym $mod+Shift+a exec atom
+bindsym $mod+t exec thunar
+bindsym $mod+Shift+p exec pstorm
+# screenshot
+# bindsym Print exec scrot -q 100 "$HOME/Pictures/%Y-%m-%d_%H:%M:%S.png"
+
+
+
+##
+## Custom modes
+##
+# resize window
+mode $resize {
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+        bindsym $mod+m mode $move
+}
+bindsym $mod+r mode $resize
+# move a floating window
+mode $move {
+        bindsym h move left 10 px
+        bindsym j move down 10 px
+        bindsym k move up 10 px
+        bindsym l move right 10 px
+        # same bindings, but for the arrow keys
+        bindsym Left move left 10 px
+        bindsym Down move down 10 px
+        bindsym Up move up 10 px
+        bindsym Right move right 10 px
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+m mode "default"
+        bindsym $mod+r mode $resize
+}
+bindsym $mod+m mode $move
+
+
+
+##
+## Theme
+##
+# colour class          border              background         text                 indicator
+client.focused          $bg-color           $white          $text-color          $bg-color
+#client.focused          $inactive-text-color           $inactive-text-color          $bg-color          #00ff00
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
+# colour class              border      background      text                indicator       child_border
+# client.focused              $grey       $grey           $white              $grey           $grey
+# client.unfocused            $grey       $grey           $inactive-grey      $grey           $grey
+# client.focused_inactive     $grey       $grey           $inactive-grey      $grey           $grey
+# client.urgent               $red        $red            $grey               $red            $grey
+
+
+
+##
+## i3bar
+##
+# Start i3blocks to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        font pango: System San Francisco Display, FontAwesome 11
+        status_command i3status
+        # status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        #strip_workspace_numbers yes
+        #position top
+        #mode hide
+        colors {
+                separator #757575
+                background $bg-color
+                #statusline #aea79f
+                #                   border              background          text
+                #focused_workspace   $inactive-text-color $inactive-text-color $text-color
+                focused_workspace   $bg-color           $bg-color           $text-color
+                inactive_workspace  $inactive-bg-color  $inactive-bg-color  $inactive-text-color
+                urgent_workspace    $urgent-bg-color    $urgent-bg-color    $text-color
+                # separator  $white
+                # background $grey
+                # statusline $white
+                # #                   border      background      text
+                # focused_workspace   $grey       $grey           $red
+                # active_workspace    $grey       $grey           $orange
+                # inactive_workspace  $grey       $grey           $inactive-grey
+                # urgent_workspace    $red        $red            $grey
+                # binding_mode        $purple     $purple         $grey
+        }
+}
+
+
+
+##
+## Extra keys
+##
+# multimedia keys
+# using default i3blocks scripts (which use amixer) and trigger volume display update through a signal to i3blocks
+# bindsym XF86AudioRaiseVolume exec --no-startup-id BLOCK_BUTTON=4 ~/git/dotfiles/i3/i3blocks/volume "" pulse && pkill -RTMIN+10 i3blocks # increase sound
+# bindsym XF86AudioLowerVolume exec --no-startup-id BLOCK_BUTTON=5 ~/git/dotfiles/i3/i3blocks/volume "" pulse && pkill -RTMIN+10 i3blocks # decrease sound
+# bindsym XF86AudioMute exec --no-startup-id BLOCK_BUTTON=3 ~/git/dotfiles/i3/i3blocks/volume "" pulse && pkill -RTMIN+10 i3blocks # mute sound
+# sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+# media player controls
+# bindsym XF86AudioPlay exec playerctl play-pause
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
+
+# TODO: specific to mpd (wont work for spotify). also add to volume script for i3bar
+bindsym XF86AudioPlay exec mpc -h $HOME/.config/mpd/socket toggle
+bindsym XF86AudioNext exec mpc -h $HOME/.config/mpd/socket next
+bindsym XF86AudioPrev exec mpc -h $HOME/.config/mpd/socket prev
+bindsym XF86AudioRaiseVolume exec mpc -h $HOME/.config/mpd/socket volume +2
+bindsym XF86AudioLowerVolume exec mpc -h $HOME/.config/mpd/socket volume -2
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+
+
+
+##
+## Application specific settings
+##
+# firefox bookmarks manager open in floating mode
+for_window [class="Firefox" instance="Places"] floating enable
+# open Thunar in floating mode by default
+for_window [class="Thunar"] floating enable
+# open Slic3r in floating mode
+for_window [class="Slic3r"] floating enable
+assign [class="ScudCloud Slack"] $workspace6
+# for_window [class="ScudCloud Slack"] floating enable
+for_window [class="vlc"] floating enable
+for_window [class="VirtualBox"] floating enable
+for_window [class="eagle"] floating enable
+assign [class="jetbrains-phpstorm"] $workspace4
+no_focus [class="jetbrains-phpstorm"]
+
+
+
+##
+## Custom startup
+##
+# change wallpaper
+# exec --no-startup-id feh --bg-fill ~/.wallpaper
+
+# run compton for pretty fading and opacity
+# exec --no-startup-id compton -f -b -D 5
+
+# start syndaemon to disable touchpad whilst typing
+# exec --no-startup-id syndaemon -i 1.0 -K -t -d -R
+# allow scrolling on touchpad
+# exec_always --no-startup-id synclient HorizTwoFingerScroll=1 HorizEdgeScroll=1 #PalmDetect=1
+
+# enable screen turn off delay
+# exec --no-startup-id xset +dpms dpms 300 300 300
+
+# automatic screen lock and sleep
+# exec --no-startup-id xautolock -detectsleep -time 10 -locker "~/git/dotfiles/i3/lockscreen" -killtime 20 -killer "systemctl suspend"

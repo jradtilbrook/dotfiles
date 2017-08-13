@@ -25,3 +25,4 @@
     state: started
     user: yes
   with_items: "{{ user_services }}"
+  failed_when: no # this fails on very first run because config files arent installed yet

@@ -14,4 +14,4 @@
     AFT=`ls ~/.vim/bundle | wc -l`; exit $(($AFT-$BEF))
   register: vundle
   changed_when: vundle.rc > 0
-  failed_when: false # this shouldn't ever actually fail
+  failed_when: no # this shouldn't ever actually fail

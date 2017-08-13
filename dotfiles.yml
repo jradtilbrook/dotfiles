@@ -13,8 +13,8 @@
 - name: Configure Arch Linux
   hosts: archlinux
   tags: archlinux
-  gather_facts: false
-  become: true
+  gather_facts: no
+  become: yes
   tasks:
     - include: tasks/archlinux.yml
       static: yes
@@ -26,8 +26,8 @@
 - name: Configure Ubuntu
   hosts: ubuntu
   tags: ubuntu
-  gather_facts: false
-  become: true
+  gather_facts: no
+  become: yes
   tasks:
     - include: tasks/ubuntu.yml
       static: yes
@@ -39,7 +39,7 @@
 - name: Configure MacOS
   hosts: macos
   tags: macos
-  gather_facts: false
+  gather_facts: no
   handlers:
     - name: restart dock
       command: killall Dock

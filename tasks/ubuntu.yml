@@ -6,13 +6,13 @@
   tags: apt
   apt_repository:
     repo: "{{ item }}"
-    update_cache: true
+    update_cache: yes
   with_items: "{{ ubuntu_repositories }}"
 
 - name: install ubuntu packages
   tags: apt
   apt:
     pkg: "{{ item }}"
-    update_cache: true
+    update_cache: yes
     cache_valid_time: 3600
   with_items: "{{ ubuntu_packages }}"

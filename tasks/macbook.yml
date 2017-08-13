@@ -28,8 +28,8 @@
   tags: dock
   shell: dockutil --list | cut -f 1
   register: current_dock
-  changed_when: false
-  check_mode: false # this doesn't make changes so can run in check mode
+  changed_when: no
+  check_mode: no # this doesn't make changes so can run in check mode
 
 - name: remove unnecessary dock items
   tags: dock
@@ -80,4 +80,4 @@
     type: "{{ item.type }}"
   with_items: "{{ osx_defaults }}"
   notify: restart mac services
-  when: false
+  when: no

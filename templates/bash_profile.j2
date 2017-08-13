@@ -35,5 +35,8 @@ PS1='\e[38;5;80m\u@\h\[\033[00m\]:\e[38;5;214m\w\e[0m\$ '
 
 # start X on login through TTY1
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-    exec startx
+    # logout when exiting X
+    # exec startx
+    # stay logged in when exiting X
+    startx
 fi

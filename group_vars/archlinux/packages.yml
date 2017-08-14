@@ -33,6 +33,7 @@ pacman_packages:
   - gufw
   - gvim # normal vim doesnt come with `+clipboard`
   - htop
+  - httpie
   - hunspell
   - i3
   - inotify-tools
@@ -49,6 +50,7 @@ pacman_packages:
   - nfs-utils
   - ntfs-3g
   - openssh
+  - packer-io
   - pamixer
   - pass
   - pavucontrol
@@ -63,6 +65,7 @@ pacman_packages:
   - python-virtualenvwrapper
   - python2
   - python2-pip
+  - ranger
   - rfkill
   - ripgrep
   - rofi
@@ -121,7 +124,6 @@ aur_packages:
   - ngrok
   - oh-my-zsh-git
   - otf-hermit
-  - packer-io
   - phpstorm-jre
   - postman-bin
   - scudcloud

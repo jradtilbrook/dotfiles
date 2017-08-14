@@ -4,42 +4,42 @@
 ## ---------------------------
 - name: find dotfiles to link
   find:
-    paths: files/
+    paths: files/home/
     recurse: yes
-  register: files
+  register: home_files
 
 - name: find templates to import
   find:
-    paths: templates/
+    paths: templates/home/
     recurse: yes
-  register: templates
+  register: home_templates
 
 - name: find directories to create
   find:
     file_type: directory
     paths:
-      - files/
-      - templates/
+      - files/home/
+      - templates/home/
     recurse: yes
-  register: dirs
+  register: home_dirs
 
 - name: ensure directories exist
   file:
-    dest: "{{ ansible_user_dir }}/.{{ item.path | regex_replace('^(templates|files)/', '') }}"
+    dest: "{{ ansible_user_dir }}/.{{ item.path | regex_replace('^(templates|files)/home/', '') }}"
     state: directory
-  with_items: "{{ dirs.files }}"
+  with_items: "{{ home_dirs.files }}"
 
 - name: link dotfiles to home directory
   file:
     src: "{{ item.path | realpath }}"
-    dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('files') }}"
+    dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('files/home') }}"
     state: link
-  with_items: "{{ files.files }}"
+  with_items: "{{ home_files.files }}"
 
 - name: import dotfile templates to home directory
   template:
     src: "{{ item.path }}"
     dest: "{{ ansible_user_dir }}/\
-      .{{ item.path | relpath('templates') | splitext | first }}"
+      .{{ item.path | relpath('templates/home') | splitext | first }}"
     backup: yes
-  with_items: "{{ templates.files }}"
+  with_items: "{{ home_templates.files }}"

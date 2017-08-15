@@ -5,6 +5,7 @@
 system_services:
   - bluetooth.service
   - docker.socket # starts docker on demand when first trying to use it
+  - ufw.service
 
 user_services:
   - mpd.service

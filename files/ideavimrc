@@ -1,0 +1,7 @@
+; load default vim config
+source ~/.vimrc
+
+; enable the surround extension
+set vim-surround
+
+set scrolloff=1

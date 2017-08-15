@@ -2,13 +2,13 @@
 ## ---------------------------
 ## Move in configuration files
 ## ---------------------------
-- name: find dotfiles to link
+- name: find dotfiles to link to ~
   find:
     paths: files/home/
     recurse: yes
   register: home_files
 
-- name: find templates to import
+- name: find templates to import to ~
   find:
     paths: templates/home/
     recurse: yes
@@ -22,6 +22,18 @@
       - templates/home/
     recurse: yes
   register: home_dirs
+
+- name: find dotfiles to link to /etc
+  find:
+    paths: files/etc/
+    recurse: yes
+  register: etc_files
+
+- name: find templates to import to /etc
+  find:
+    paths: templates/etc/
+    recurse: yes
+  register: etc_templates
 
 - name: ensure directories exist
   file:
@@ -43,3 +55,19 @@
       .{{ item.path | relpath('templates/home') | splitext | first }}"
     backup: yes
   with_items: "{{ home_templates.files }}"
+
+- name: link dotfiles to etc directory
+  become: yes
+  file:
+    src: "{{ item.path | realpath }}"
+    dest: "/etc/{{ item.path | relpath('files/etc') }}"
+    state: link
+  with_items: "{{ etc_files.files }}"
+
+- name: import dotfile templates to etc directory
+  become: yes
+  template:
+    src: "{{ item.path }}"
+    dest: "/etc/{{ item.path | relpath('templates/etc') | splitext | first }}"
+    backup: yes
+  with_items: "{{ etc_templates.files }}"

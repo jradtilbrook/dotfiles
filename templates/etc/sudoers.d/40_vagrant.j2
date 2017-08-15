@@ -1,0 +1,7 @@
+{{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
+
+## Vagrant hostmanager plugin commands to synchronize VM host names
+Cmnd_Alias VAGRANT_HOSTMANAGER_UPDATE = /bin/cp {{ ansible_user_dir }}/.vagrant.d/tmp/hosts.local /etc/hosts
+Cmnd_Alias VAGRANT_HOSTS_ADD = /bin/sh -c echo "*" >> /etc/hosts
+Cmnd_Alias VAGRANT_HOSTS_REMOVE = /usr/bin/sed -i -e /*/ d /etc/hosts
+%wheel ALL=(root) NOPASSWD: VAGRANT_HOSTMANAGER_UPDATE, VAGRANT_HOSTS_ADD, VAGRANT_HOSTS_REMOVE

@@ -115,6 +115,7 @@ aur_packages:
   - browserpass
   - firefox-developer
   - git-lfs
+  - i3lock-color-git
   - jiq
   - mons
   - mopidy-gmusic

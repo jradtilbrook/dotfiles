@@ -176,8 +176,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # lock screen shortcut
-# bindsym $mod+Shift+Escape exec ~/.config/i3/lockscreen #--nofork
-bindsym $mod+Shift+Escape exec i3lock -c 002222 -e
+bindsym $mod+Shift+Escape exec ~/.local/bin/i3lock_wrapper.sh
 # bind for lock / sleep / shutdown / ...
 # bindsym $mod+Shift+Delete exec ~/.config/i3/exitmenu
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"

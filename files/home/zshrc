@@ -51,8 +51,8 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux aws common-aliases composer docker git gpg-agent httpie jira node pip python ssh-agent sudo systemd vagrant virtualenvwrapper)
-# node npm pip pylint python virtualenvwrapper thefuck
+plugins=(archlinux aws common-aliases composer docker git git-prompt gpg-agent httpie jira node pip python ssh-agent sudo systemd vagrant virtualenvwrapper)
+# node npm pip pylint python virtualenvwrapper thefuck tmux tmuxinator
 zstyle :omz:plugins:ssh-agent lifetime 1h # only cache for 1 hour
 
 # User configuration

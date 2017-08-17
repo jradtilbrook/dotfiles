@@ -40,7 +40,6 @@ i3lock \
 --bshlcolor=fa334a80 \
 --textcolor=000000ff \
 $*
-# --composite \ # will this allow notifications on top?
 
 # resume dunst
 killall -SIGUSR2 dunst

@@ -339,6 +339,7 @@ assign [class="ScudCloud Slack"] $workspace6
 # for_window [class="ScudCloud Slack"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="VirtualBox"] floating enable
+for_window [class="Pavucontrol"] floating enable
 for_window [class="eagle"] floating enable
 assign [class="jetbrains-phpstorm"] $workspace4
 no_focus [class="jetbrains-phpstorm"]

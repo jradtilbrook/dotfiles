@@ -119,6 +119,7 @@ aur_packages:
   - jiq
   - mons
   - mopidy-gmusic
+  - mopidy-local-sqlite
   - mopidy-spotify
   - mopidy-spotify-web
   - nerd-fonts-complete

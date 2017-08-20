@@ -17,7 +17,7 @@
 
 - name: upload key to github (through api)
   github_key:
-    name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}"
+    name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}-{{ ansible_product_name }}"
     pubkey: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
     token: "{{ github_api_token }}"
     force: no

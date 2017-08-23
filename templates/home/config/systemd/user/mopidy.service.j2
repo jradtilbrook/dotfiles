@@ -1,0 +1,19 @@
+{{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
+[Unit]
+Description=Mopidy music server
+Documentation=man:mopidy(1)
+After=network.target sound.target
+Conflicts=mpd.service
+
+[Service]
+Type=simple
+ExecStart={{ ansible_user_dir }}/.virtualenvs/mopidy/bin/mopidy
+ProtectSystem=yes
+NoNewPrivileges=yes
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+
+[Install]
+WantedBy=default.target

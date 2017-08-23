@@ -38,7 +38,7 @@ i3lock \
 --line-uses-inside \
 --keyhlcolor=f4b601ff \
 --bshlcolor=fa334a80 \
---textcolor=000000ff \
+--textcolor=dba300ff \
 $*
 
 # resume dunst

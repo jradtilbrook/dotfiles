@@ -35,7 +35,9 @@ pacman_packages:
   - htop
   - httpie
   - hunspell
-  - i3
+  - i3-wm
+  - i3blocks
+  - i3status
   - inotify-tools
   - jq
   - libglvnd # depending on graphics hardware

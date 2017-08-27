@@ -1,0 +1,10 @@
+---
+## ---------------------
+## Install node packages
+## ---------------------
+- name: install node packages (global)
+  npm:
+    name: "{{ item }}"
+    state: present
+    global: yes
+  with_items: "{{ npm_packages }}"

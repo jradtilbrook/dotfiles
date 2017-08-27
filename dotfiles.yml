@@ -73,6 +73,10 @@
       become: "{% if ansible_distribution == 'MacOSX' %}no{% else %}yes{% endif %}"
       static: yes
       tags: python
+    - include: tasks/node.yml
+      become: "{% if ansible_distribution == 'MacOSX' %}no{% else %}yes{% endif %}"
+      static: yes
+      tags: node
     - include: tasks/ssh.yml
       static: yes
       tags: ssh

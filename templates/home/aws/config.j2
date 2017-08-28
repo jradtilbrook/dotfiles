@@ -1,8 +1,8 @@
 {{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
-{% for profile in aws_profiles %}
+{% for config in aws_config %}
 
-{% for name, hash in profile.items() %}
-[{{ name }}]
+{% for section, hash in config.items() %}
+[{{ section }}]
 {% for key, value in hash.items() %}
 {{ key }} = {{ value }}
 {% endfor %}

@@ -78,6 +78,7 @@ pacman_packages:
   - shotwell
   - the_silver_searcher
   - thefuck
+  - tig
   - tree
   - ttf-dejavu
   - ttf-liberation

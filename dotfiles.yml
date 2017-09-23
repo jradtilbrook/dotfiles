@@ -16,8 +16,7 @@
   gather_facts: no
   become: yes
   tasks:
-    - include: tasks/archlinux.yml
-      static: yes
+    - import_tasks: tasks/archlinux.yml
 
 
 ## ---------------------
@@ -29,8 +28,7 @@
   gather_facts: no
   become: yes
   tasks:
-    - include: tasks/ubuntu.yml
-      static: yes
+    - import_tasks: tasks/ubuntu.yml
 
 
 ## --------------------
@@ -52,8 +50,7 @@
         - SystemUIServer
         - cfprefsd
   tasks:
-    - include: tasks/macbook.yml
-      static: yes
+    - import_tasks: tasks/macbook.yml
 
 
 ## -----------------------
@@ -63,23 +60,17 @@
   hosts: all
   tags: common
   tasks:
-    - include: tasks/atom.yml
-      static: yes
+    - import_tasks: tasks/atom.yml
       tags: atom
-    - include: tasks/dotfiles.yml
-      static: yes
+    - import_tasks: tasks/dotfiles.yml
       tags: dotfiles
-    - include: tasks/python.yml
+    - import_tasks: tasks/python.yml
       become: "{% if ansible_distribution == 'MacOSX' %}no{% else %}yes{% endif %}"
-      static: yes
       tags: python
-    - include: tasks/node.yml
+    - import_tasks: tasks/node.yml
       become: "{% if ansible_distribution == 'MacOSX' %}no{% else %}yes{% endif %}"
-      static: yes
       tags: node
-    - include: tasks/ssh.yml
-      static: yes
+    - import_tasks: tasks/ssh.yml
       tags: ssh
-    - include: tasks/vim.yml
-      static: yes
+    - import_tasks: tasks/vim.yml
       tags: vim

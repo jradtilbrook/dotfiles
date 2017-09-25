@@ -43,3 +43,5 @@ $*
 
 # resume dunst
 killall -SIGUSR2 dunst
+
+exit 0

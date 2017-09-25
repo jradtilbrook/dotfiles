@@ -178,11 +178,9 @@ bindsym $mod+Shift+r restart
 # lock screen shortcut
 bindsym $mod+Shift+Escape exec --no-startup-id ~/.local/bin/i3lock_wrapper.sh
 # bind for lock / sleep / shutdown / ...
-# bindsym $mod+Shift+Delete exec ~/.config/i3/exitmenu
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+Delete exec --no-startup-id ~/.local/bin/i3exit.sh
 # use rofi instead of dmenu
-bindsym $mod+d exec rofi -show run -lines 4 -eh 2 -width 100 -padding 800 -opacity "80" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#0066cc" -font "System San Francisco Display 18"
-# bindsym $mod+d exec rofi -show run -lines 4 -eh 2 -width 100 -padding 450 -opacity "80" -bw 0 -bc "$grey" -bg "$grey" -fg "$white" -hlbg "$grey" -hlfg "$aqua" -font "System San Francisco Display 15"
+bindsym $mod+d exec --no-startup-id rofi -show run
 
 
 
@@ -348,7 +346,7 @@ no_focus [class="jetbrains-phpstorm"]
 ## Custom startup
 ##
 # change wallpaper
-exec --no-startup-id feh --no-fehbg --bg-fill ~/.wallpaper
+exec_always --no-startup-id feh --no-fehbg --bg-fill ~/.wallpaper
 
 # run compton for pretty fading and opacity
 exec --no-startup-id compton -f -b -D 3
@@ -362,4 +360,4 @@ exec --no-startup-id compton -f -b -D 3
 # exec --no-startup-id xset +dpms dpms 300 300 300
 
 # automatic screen lock and sleep
-# exec --no-startup-id xautolock -detectsleep -time 10 -locker "~/git/dotfiles/i3/lockscreen" -killtime 20 -killer "systemctl suspend"
+exec --no-startup-id xautolock -detectsleep -time 5 -locker "~/.local/bin/i3lock_wrapper.sh" #-killtime 20 -killer "systemctl suspend"

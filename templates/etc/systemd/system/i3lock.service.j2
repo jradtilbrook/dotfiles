@@ -1,0 +1,16 @@
+{{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
+[Unit]
+Description=Screen locking service
+Before=sleep.target
+
+[Service]
+Type=simple
+User={{ ansible_user_id }}
+Environment=DISPLAY=:0
+# start the locker without forking
+ExecStart={{ ansible_user_dir}}/.local/bin/i3lock_wrapper.sh -n
+# sleep before moving on to suspend to ensure screen is locked
+ExecStartPost=/usr/bin/sleep 1
+
+[Install]
+RequiredBy=sleep.target

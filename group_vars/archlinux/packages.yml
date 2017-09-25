@@ -90,6 +90,7 @@ pacman_packages:
   - virtualbox-host-modules-arch
   - vlc
   - wget
+  - xautolock
   - xclip
   - xf86-video-intel # depending on graphics hardware
   - xorg-server

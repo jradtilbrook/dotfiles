@@ -18,6 +18,7 @@ pacman_packages:
   - bluez-libs
   - bluez-utils
   - chromium
+  - cmake
   - composer
   - compton
   - deluge
@@ -79,6 +80,7 @@ pacman_packages:
   - the_silver_searcher
   - thefuck
   - tig
+  - tmux
   - tree
   - ttf-dejavu
   - ttf-liberation
@@ -97,6 +99,8 @@ pacman_packages:
   - xorg-xbacklight
   - xorg-xinit
   - xorg-xrandr
+  - yarn
+  - zeal
   - zip
   - zsh
   # gparted/fdisk/gdisk

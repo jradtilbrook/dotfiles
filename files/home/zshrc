@@ -131,6 +131,7 @@ alias f='fuck'
 alias free='free -h'
 unalias rm
 alias xclip='xclip -selection c'
+alias clc='tput reset'
 
 # Environment variables
 export EDITOR=vim

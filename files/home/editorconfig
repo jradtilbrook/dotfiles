@@ -12,7 +12,7 @@ insert_final_newline = true
 [*.py]
 max_line_length = 79
 
-[*.{scss,js,jsx,json,yml}]
+[*.{scss,js,jsx,json,yaml,yml}]
 indent_size = 2
 
 [{Makefile,makefile}]

@@ -19,7 +19,7 @@ killall -SIGUSR1 dunst
 # lock the screen
 i3lock \
 --ignore-empty-password \
---blur 3 \
+-i ~/.wallpaper -t \ #--blur 3 \
 --radius=100 \
 --indicator \
 --clock \

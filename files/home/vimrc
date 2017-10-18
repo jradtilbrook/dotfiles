@@ -10,38 +10,61 @@ set rtp+=~/.vim/bundle/Vundle.vim
 " initialise Vundle
 call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
-    Plugin 'ctrlpvim/ctrlp.vim'
-    Plugin 'editorconfig/editorconfig-vim'
-    Plugin 'flazz/vim-colorschemes'
-    Plugin 'leafgarland/typescript-vim'
-    Plugin 'pearofducks/ansible-vim'
-    Plugin 'pangloss/vim-javascript'
-    Plugin 'mxw/vim-jsx'
-    "Plugin 'elzr/vim-json'
-    "Plugin 'mhinz/vim-signify'
-    "Plugin 'sjl/gundo.vim'
-    "Plugin 'sudar/vim-arduino-syntax'
-    "Plugin 'tomasr/molokai'
-    "Plugin 'junegunn/seoul256.vim'
-    "Plugin 'vim-scripts/a.vim'
-    "Plugin 'christoomey/vim-tmux-navigator'
-    "Plugin 'scrooloose/syntastic'
-    "Plugin 'vim-scripts/Align' " or,
-    "Plugin 'junegunn/vim-easy-align'
-    "Plugin 'skwp/greplace.vim'
-    Plugin 'joshdick/onedark.vim'
-    Plugin 'tpope/vim-surround'
-    "Plugin 'tpope/vim-ragtag'
-    Plugin 'tpope/vim-fugitive'
+
+    " extra languages
+    Plugin 'chr4/nginx.vim'
     Plugin 'derekwyatt/vim-scala'
-    "Plugin 'tpope/vim-unimpaired'
-    "Plugin 'majutsushi/tagbar'
-    "Plugin 'airblade/vim-gutter'
-    Plugin 'scrooloose/nerdcommenter'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'Xuyuanp/nerdtree-git-plugin'
+    Plugin 'leafgarland/typescript-vim'
+    Plugin 'mxw/vim-jsx'
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'pearofducks/ansible-vim'
+    Plugin 'scrooloose/syntastic'
+    " Plugin 'elzr/vim-json'
+    " Plugin 'sudar/vim-arduino-syntax'
+
+    " themes
+    Plugin 'airblade/vim-gitgutter'
+    Plugin 'flazz/vim-colorschemes'
+    Plugin 'joshdick/onedark.vim'
+    Plugin 'mhinz/vim-signify'
+    Plugin 'paranoida/vim-airlineish'
+    Plugin 'tyrannicaltoucan/vim-quantum'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
+
+    " navigating
+    " Plugin 'christoomey/vim-tmux-navigator'
+    Plugin 'ctrlpvim/ctrlp.vim' " or ctrlspace
+    Plugin 'majutsushi/tagbar'
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'scrooloose/nerdtree'
+    " Plugin 'vim-scripts/a.vim'
+    Plugin 'wesQ3/vim-windowswap'
+    Plugin 'xolox/vim-easytags'
+    Plugin 'xolox/vim-misc'
+    Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+    " syntax/linting
+    Plugin 'editorconfig/editorconfig-vim'
+    " Plugin 'w0rp/ale'
+
+    " completion
+    Plugin 'honza/vim-snippets'
+    Plugin 'KabbAmine/zeavim.vim'
+    Plugin 'sirver/ultisnips'
+    " Plugin 'valloric/youcompleteme'
+
+    " other utils
+    Plugin 'sjl/gundo.vim'
+    Plugin 'terryma/vim-multiple-cursors'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'tpope/vim-obsession'
+    Plugin 'tpope/vim-ragtag'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'tpope/vim-speeddating'
+    Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-unimpaired'
+    " Plugin 'skwp/greplace.vim'
 call vundle#end()
 
 filetype plugin indent on       " re-enable filetype detection
@@ -50,12 +73,15 @@ filetype plugin indent on       " re-enable filetype detection
 
 "---------------------------------- COLOURS -----------------------------------"
 syntax on                       " enable syntax highlighting
+let g:quantum_italics = 1
 " don't fail if colorscheme not found
-silent! colorscheme onedark
+silent! colorscheme quantum
+" highlight Comment cterm=italic  " enable italics for comments
+set termguicolors
 
 
 
-set number                      " display line numbers
+set number relativenumber       " display relative and normal line numbers
 set mouse=a                     " enable mouse for all modes
 set expandtab                   " expand tabs to spaces
 set smarttab                    " delete 'shiftwidth' spaces at a time
@@ -88,8 +114,9 @@ set backspace=indent,start,eol  " backspace over everything
 
 set showcmd                     " show command line
 set wildmenu                    " show command completion matches
+set wildignore=*.swp,*.pyc,*.o  " ignore files when expanding wildcards
 set autoread                    " automatically update external changes
-set clipboard=unnamedplus       " share system clipboard
+" set clipboard=unnamed,unnamedplus       " share system clipboard
 
 set splitbelow                  " but the new window below
 set splitright                  " put the new window to the right
@@ -97,6 +124,7 @@ set splitright                  " put the new window to the right
 set formatoptions+=ojr          " insert comment leader when using 'o' or 'O'
                                 " insert comment leader on <Enter>
                                 " remove comment leader when joining lines
+set pastetoggle=<F2>            " key to toggle paste mode
 
 
 
@@ -113,6 +141,8 @@ nmap <Leader>ei :tabedit $HOME/.config/i3/config<cr>
 nmap <Leader>ez :tabedit $HOME/.zshrc<cr>
 " remove highlighted search
 nmap <Leader><space> :nohlsearch<cr>
+" Ctrl-P word under cursor
+nnoremap <Leader>p <C-P><C-\>w
 
 " easier split movements
 nmap <C-H> <C-W><C-H>
@@ -120,22 +150,38 @@ nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-L> <C-W><C-L>
 
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
 " toggle nerdtree
-nmap <Leader>1 :NERDTreeToggle<cr>
 nmap <C-\> :NERDTreeToggle<cr>
+
+" toggle tag viewer
+nnoremap <C-M> :TagbarToggle<cr>
 
 " use space to toggle folding
 nnoremap <space> za
+" search for word under cursor
+nnoremap // yiw/<C-R>"<CR>
+
+" vim-fugitive
+map <Leader>gs :Gstatus<CR>
+map <Leader>gd :Gdiff<CR>
+map <Leader>gc :Gcommit<CR>
+map <Leader>gw :Gwrite<CR>
+map <Leader>gp :Gpush<CR>
+
+" resize windows mappings or plugin
 
 
 
 "------------------------------- AUTO COMMANDS --------------------------------"
-augroup autosourcing
-    " clear the group
-    autocmd!
-    " source vimrc when it changes
-    autocmd BufWritePost $MYVIMRC source %
-augroup END
+" augroup autosourcing
+"     " clear the group
+"     autocmd!
+"     " source vimrc when it changes
+"     autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" augroup END
 
 
 
@@ -143,7 +189,47 @@ augroup END
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='onedark'
+" let g:airline_theme = 'onedark'
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+" let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#left_alt_sep = ''
+" let g:airline#extensions#tabline#right_sep = ''
+" let g:airline#extensions#tabline#right_alt_sep = ''
+" shortcuts for tab/buffer navigation
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>n <Plug>AirlineSelectPrevTab
+nmap <leader>m <Plug>AirlineSelectNextTab
+let g:airline#extensions#tabline#buffer_nr_show = 0
+let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#tab_min_count = 2
+
+" ultisnips
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+
+" vim-signify/vim-gitgutter
+" let g:signify_line_highlight = 1
+" let g:gitgutter_highlight_lines = 1
+
+" ctrlp
+if executable('rg')
+    " use ripgrep for its speed
+    let g:ctrlp_user_command = 'rg %s -l --color never --files --no-ignore'
+    " its so fast it doesnt need caching
+    let g:ctrlp_use_caching = 0
+    " use it for grep as well
+    set grepprg=rg\ --vimgrep
+    set grepformat^=%f:%l:%c:%m
+endif
 
 " NERDTree
 let NERDTreeHijackNetrw = 0
@@ -160,3 +246,8 @@ let g:ansible_extra_keywords_highlight = 1
 
 " vim-jsx
 let g:jsx_ext_required = 0
+
+" KabbAmine/zeavim.vim
+let g:zv_file_types = {
+    \ 'php' : 'php,laravel,phpunit,yii,doctrine'
+    \ }

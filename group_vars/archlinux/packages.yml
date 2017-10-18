@@ -21,6 +21,7 @@ pacman_packages:
   - cmake
   - composer
   - compton
+  - ctags
   - deluge
   - dmenu
   - docker

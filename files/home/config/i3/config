@@ -15,12 +15,12 @@ set $workspace1 "1 "
 set $workspace2 "2 "
 set $workspace3 "3 "
 set $workspace4 "4 "
-set $workspace5 "5 "
+set $workspace5 "5 "
 set $workspace6 "6 "
 set $workspace7 "7 "
 set $workspace8 "8 "
 set $workspace9 "9 "
-set $workspace10 "10 "
+set $workspace10 "10 "
 # resize window
 set $resize ""
 # move a floating window
@@ -28,7 +28,8 @@ set $move ""
 # colourscheme
 set $bg-color               #2f343f
 set $inactive-bg-color      #2f343f
-set $text-color             #f3f4f5
+set $yellow                 #dba300
+set $black                  #222222
 set $inactive-text-color    #676E7D
 set $urgent-bg-color        #E53935
 set $orange                 #d29c7a
@@ -113,7 +114,7 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+d floating toggle
 
 
 
@@ -131,7 +132,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+d focus mode_toggle
 # focus the parent container
 bindsym $mod+p focus parent
 # focus the child container
@@ -180,7 +181,7 @@ bindsym $mod+Shift+Escape exec --no-startup-id ~/.local/bin/i3lock_wrapper.sh
 # bind for lock / sleep / shutdown / ...
 bindsym $mod+Shift+Delete exec --no-startup-id ~/.local/bin/i3exit.sh
 # use rofi instead of dmenu
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+space exec --no-startup-id rofi -show run
 
 
 
@@ -188,13 +189,13 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 ## Shortcuts
 ##
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
-bindsym $mod+Shift+Return exec gnome-terminal
+bindsym $mod+Return exec --no-startup-id gnome-terminal
+bindsym $mod+Shift+Return exec --no-startup-id gnome-terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Shift+f exec chromium
-bindsym $mod+Shift+a exec atom
-bindsym $mod+t exec thunar
-bindsym $mod+Shift+p exec pstorm
+bindsym $mod+Shift+f exec --no-startup-id firefox-developer
+bindsym $mod+Shift+w exec --no-startup-id chromium
+bindsym $mod+Shift+a exec --no-startup-id atom
+bindsym $mod+Shift+p exec --no-startup-id pstorm
 # screenshot
 # bindsym Print exec scrot -q 100 "$HOME/Pictures/%Y-%m-%d_%H:%M:%S.png"
 
@@ -249,12 +250,11 @@ bindsym $mod+m mode $move
 ##
 ## Theme
 ##
-# colour class          border              background         text                 indicator
-client.focused          $bg-color           $white          $text-color          $bg-color
-#client.focused          $inactive-text-color           $inactive-text-color          $bg-color          #00ff00
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
+# colour class          border              background          text                    indicator           child_border
+client.focused          $black              $black              $yellow                 $bg-color           $inactive-grey
+client.unfocused        $inactive-bg-color  $black              $inactive-text-color    $inactive-bg-color
+client.focused_inactive $black              $inactive-bg-color  $inactive-text-color    $inactive-bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color    $yellow                 $urgent-bg-color
 # colour class              border      background      text                indicator       child_border
 # client.focused              $grey       $grey           $white              $grey           $grey
 # client.unfocused            $grey       $grey           $inactive-grey      $grey           $grey
@@ -280,10 +280,9 @@ bar {
                 background $bg-color
                 #statusline #aea79f
                 #                   border              background          text
-                #focused_workspace   $inactive-text-color $inactive-text-color $text-color
-                focused_workspace   $bg-color           $bg-color           $text-color
+                focused_workspace   $bg-color           $bg-color           $yellow
                 inactive_workspace  $inactive-bg-color  $inactive-bg-color  $inactive-text-color
-                urgent_workspace    $urgent-bg-color    $urgent-bg-color    $text-color
+                urgent_workspace    $urgent-bg-color    $urgent-bg-color    $bg-color
                 # separator  $white
                 # background $grey
                 # statusline $white
@@ -310,11 +309,6 @@ bindsym XF86AudioMute exec --no-startup-id BLOCK_BUTTON=3 /usr/lib/i3blocks/volu
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
 # media player controls
-# bindsym XF86AudioPlay exec playerctl play-pause
-# bindsym XF86AudioNext exec playerctl next
-# bindsym XF86AudioPrev exec playerctl previous
-
-# TODO: specific to mpd (wont work for spotify). also add to volume script for i3bar
 bindsym XF86AudioPlay exec mpc -h $HOME/.config/mpd/socket toggle
 bindsym XF86AudioNext exec mpc -h $HOME/.config/mpd/socket next
 bindsym XF86AudioPrev exec mpc -h $HOME/.config/mpd/socket prev
@@ -326,12 +320,10 @@ bindsym XF86AudioPrev exec mpc -h $HOME/.config/mpd/socket prev
 ##
 # firefox bookmarks manager open in floating mode
 for_window [class="Firefox" instance="Places"] floating enable
-# open Thunar in floating mode by default
 for_window [class="Thunar"] floating enable
-# open Slic3r in floating mode
+for_window [class="Zeal"] floating enable
 for_window [class="Slic3r"] floating enable
 assign [class="ScudCloud Slack"] $workspace6
-# for_window [class="ScudCloud Slack"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="VirtualBox"] floating enable
 for_window [class="Pavucontrol"] floating enable

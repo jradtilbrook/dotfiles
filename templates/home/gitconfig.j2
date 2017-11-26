@@ -20,20 +20,32 @@
 [alias]
 	br = branch
 	ci = commit
+	ca = commit --amend
 	co = checkout
+	st = status
+	s = status -s --branch
+	wc = whatchanged
+	f = fetch
+	m = merge
+	d = diff
 	diffc = diff --cached
 	diffcw = diff -w --cached
 	diffw = diff -w
 	diffwc = diff -w --cached
+	showw = diff HEAD^
+	showww = diff HEAD^^
 	kraken = !gitkraken &
 	lol = log --graph --pretty=custom # pretty log display
 	lola = log --graph --pretty=custom --all # show all branches
 	lolan = log --graph --pretty=custom --all -n 15 # show all branches limited to 15 log entries
 	loln = log --graph --pretty=custom -n 10 # limit to 10 log entries
-	s = status -s --branch
-	st = status
 	uci = reset --soft HEAD^ # undo a commit to staging area
 	uns = reset HEAD -- # remove files from staging area
+	# show all commits on one branch not on the other
+	missing = log --graph --left-right --cherry-pick --oneline # HEAD...<branch>
+	unpushed = log --graph --left-right --cherry-pick --oneline HEAD...@{push}
+	zap = fetch -p # prune remote tracked branches
+	wip = rebase -i @{push}
 [log]
 	date = local # default to local time in logs
 	decorate = true # show ref names by default

@@ -62,7 +62,7 @@
     )
   with_items: "{{ dock_items }}"
   register: dock_change
-  changed_when: '"changed" in "{{ dock_change.stdout }}"'
+  changed_when: '"changed" in dock_change.stdout'
   notify: restart dock
 
 

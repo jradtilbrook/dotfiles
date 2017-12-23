@@ -9,9 +9,8 @@ homebrew_taps:
 homebrew_casks:
   - alfred
   - atom
-  - betterzipql
-  - caskroom/cask/cheatsheet
-  - caskroom/cask/google-drive-file-stream
+  - cheatsheet
+  - dash
   - docker
   - firefox
   - font-droid-sans-mono-for-powerline
@@ -21,6 +20,8 @@ homebrew_casks:
   - font-source-code-pro-for-powerline
   - gitkraken
   - google-chrome
+  - google-drive-file-stream
+  - insomnia
   - iterm2
   - ngrok
   - nylas-mail
@@ -38,7 +39,6 @@ homebrew_casks:
   - spectacle
   - spotify
   - suspicious-package
-  - tig
   - vagrant
   - vagrant-manager
   - virtualbox
@@ -54,15 +54,19 @@ homebrew_formulae:
   - gawk
   - git
   - git-lfs
+  # - gopass
+  - httpie
   - jq
   - node
   - packer
+  - pass
   - php71
   - python3
   - ripgrep
   #- selenium-server-standalone
   - sha2
   - thefuck
+  - tig
   - tree
   - vim
   - wget

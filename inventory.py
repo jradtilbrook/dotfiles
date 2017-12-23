@@ -26,6 +26,7 @@ output = {
 # determine the OS and add aliases and extra variables as required
 if platform.system().lower() == 'darwin': # MacOS
     output['macos'] = ['localhost']
+    output['_meta']['hostvars']['localhost']['ansible_python_interpreter'] = '/usr/local/bin/python2'
 elif platform.system().lower() == 'linux': # Ubuntu or Arch Linux
     if platform.linux_distribution()[0].lower() == 'ubuntu':
         output['ubuntu'] = ['localhost']

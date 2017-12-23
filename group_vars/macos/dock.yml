@@ -11,26 +11,22 @@ dock_items:
     pos: 3
   - name: /Applications/Spotify.app
     pos: 4
-  - name: /Applications/Mail.app
+  - name: /Applications/Nylas Mail.app
     pos: 5
-  - name: /Applications/Calendar.app
-    pos: 6
   - name: /Applications/Notes.app
-    pos: 7
-  - name: /Applications/Reminders.app
-    pos: 8
+    pos: 6
   - name: /Applications/Atom.app
-    pos: 9
+    pos: 7
   - name: /Applications/iTerm.app
-    pos: 10
+    pos: 8
   - name: /Applications/Slack.app
-    pos: 11
+    pos: 9
+  - name: /Applications/Insomnia.app
+    pos: 10
   - name: /Applications/PhpStorm.app
-    pos: 12
-  - name: /Applications/GitKraken.app
-    pos: 13
+    pos: 11
   - name: /Applications/System Preferences.app
-    pos: 14
+    pos: 12
   # folder positions are relatvie to folders section on the dock
   # the options key is required for folders
   - name: ~/Downloads

@@ -1,4 +1,4 @@
-alias ls='ls -F --color' # show symbols for file types
+alias ls='ls -F' # show symbols for file types
 alias ll='ls -lh' # show long format with human readable sizes
 alias lla='ll -A' # show long format with hidden files
 alias la='ls -A' # show all files

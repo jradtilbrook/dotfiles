@@ -5,27 +5,23 @@
 homebrew_taps:
   - caskroom/cask
   - caskroom/fonts
-  # - homebrew/completions
   - homebrew/php
-  # - homebrew/versions # is this default or need installing? not used anymore?
 homebrew_casks:
   - alfred
-  # - appcleaner # or appzapper
   - atom
   - betterzipql
-  # - disk-sensei
+  - caskroom/cask/cheatsheet
+  - caskroom/cask/google-drive-file-stream
   - docker
   - firefox
-  - font-droid-sans-mono
   - font-droid-sans-mono-for-powerline
+  - font-droidsansmono-nerd-font
+  - font-droidsansmono-nerd-font-mono
   - font-source-code-pro
   - font-source-code-pro-for-powerline
   - gitkraken
   - google-chrome
-  - google-drive
-  - insync # google drive client
   - iterm2
-  - java
   - ngrok
   - nylas-mail
   - phpstorm
@@ -37,11 +33,12 @@ homebrew_casks:
   - qlvideo
   - quicklook-json
   - rambox
-  - robomongo
+  #- robomongo
   - slack
   - spectacle
   - spotify
   - suspicious-package
+  - tig
   - vagrant
   - vagrant-manager
   - virtualbox
@@ -50,9 +47,8 @@ homebrew_casks:
 homebrew_formulae:
   - ack
   - awscli
-  - chromedriver
+  #- chromedriver
   - composer
-  - cowsay
   - docker
   - dockutil
   - gawk
@@ -61,11 +57,14 @@ homebrew_formulae:
   - jq
   - node
   - packer
-  - php70
+  - php71
   - python3
-  - selenium-server-standalone
+  - ripgrep
+  #- selenium-server-standalone
   - sha2
   - thefuck
   - tree
   - vim
   - wget
+  - zsh
+  - zsh-completions

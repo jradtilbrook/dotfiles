@@ -1,0 +1,5 @@
+---
+## ------------------------------------
+## Wakatime API token (vault protected)
+## ------------------------------------
+wakatime_api_key: "{{ vault_wakatime_api_key }}"

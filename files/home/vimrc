@@ -65,6 +65,7 @@ call vundle#begin()
     Plugin 'tpope/vim-surround'
     Plugin 'tpope/vim-unimpaired'
     " Plugin 'skwp/greplace.vim'
+    Plugin 'wakatime/vim-wakatime'
 call vundle#end()
 
 filetype plugin indent on       " re-enable filetype detection

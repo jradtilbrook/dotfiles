@@ -95,6 +95,7 @@ pacman_packages:
   - wget
   - xautolock
   - xclip
+  - xdotool
   - xf86-video-intel # depending on graphics hardware
   - xorg-server
   - xorg-xbacklight
@@ -121,7 +122,6 @@ pacman_packages:
 ## AUR packages to install
 ## -----------------------
 aur_packages:
-  - browserpass
   - firefox-developer
   - git-lfs
   - i3lock-color-git

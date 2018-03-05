@@ -114,7 +114,7 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 # toggle tiling / floating
-bindsym $mod+Shift+d floating toggle
+bindsym $mod+Shift+space floating toggle
 
 
 
@@ -182,6 +182,8 @@ bindsym $mod+Shift+Escape exec --no-startup-id ~/.local/bin/i3lock_wrapper.sh
 bindsym $mod+Shift+Delete exec --no-startup-id ~/.local/bin/i3exit.sh
 # use rofi instead of dmenu
 bindsym $mod+space exec --no-startup-id rofi -show run
+# simple password management
+bindsym $mod+g exec --no-startup-id gopass ls --flat | rofi -dmenu -p "password" | xargs --no-run-if-empty gopass show | xdotool type --clearmodifiers --file -
 
 
 

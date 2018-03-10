@@ -71,7 +71,6 @@ pacman_packages:
   - python2-pip
   - ranger
   - redshift
-  - rfkill
   - ripgrep
   - rofi
   - rsync
@@ -88,6 +87,7 @@ pacman_packages:
   - ttf-liberation
   - ufw
   - unzip
+  - util-linux
   - vagrant
   - virtualbox
   - virtualbox-guest-iso

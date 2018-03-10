@@ -333,6 +333,7 @@ for_window [class="Pinentry"] floating enable
 for_window [class="eagle"] floating enable
 assign [class="jetbrains-phpstorm"] $workspace4
 no_focus [class="jetbrains-phpstorm"]
+for_window [class="mpv"] floating enable sticky enable
 
 
 

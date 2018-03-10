@@ -48,6 +48,7 @@ pacman_packages:
   - mopidy
   - mpc
   - mpd
+  - mpv
   - namcap
   - ncmpcpp
   - net-tools
@@ -103,6 +104,8 @@ pacman_packages:
   - xorg-xinit
   - xorg-xrandr
   - yarn
+  - youtube-dl
+  - youtube-viewer
   - zeal
   - zip
   - zsh

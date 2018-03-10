@@ -70,6 +70,7 @@ pacman_packages:
   - python2
   - python2-pip
   - ranger
+  - redshift
   - rfkill
   - ripgrep
   - rofi

@@ -2,7 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+# ZSH=/usr/share/oh-my-zsh/
+ZSH=~/.oh-my-zsh/
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -57,7 +58,9 @@ plugins=(
     common-aliases \
     composer \
     docker \
+    docker-compose \
     git \
+    go \
     gpg-agent \
     httpie \
     jira \
@@ -70,8 +73,9 @@ plugins=(
     systemd \
     vagrant \
     virtualenvwrapper \
+    yarn \
 )
-# node npm pip pylint python virtualenvwrapper thefuck tmux tmuxinator
+# npm pylint tmux tmuxinator
 
 zstyle :omz:plugins:ssh-agent lifetime 1h # only cache for 1 hour
 
@@ -125,7 +129,7 @@ alias vimp='vim -p' # tab for each file
 alias vimo='vim -O' # vertical split
 alias l1='ls -1'
 alias llh='ll -h'
-alias tree='tree --du -h -C --dirsfirst' # show size and colour
+alias tree='tree --du -h -C --dirsfirst -I "vendor|coverage"' # show size and colour, ignore some dirs by default
 eval $(thefuck --alias)
 alias f='fuck'
 alias free='free -h'
@@ -139,3 +143,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export PROJECT_HOME=$HOME/projects
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+
+# enable zsh highlighting
+[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

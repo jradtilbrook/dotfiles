@@ -1,0 +1,28 @@
+---
+## -----------------
+## Excluded dotfiles
+## -----------------
+# TODO: these variables are effectively duplicates. look into consolidating
+dotfile_blacklist:
+  - 40-libinput.conf
+  - Xresources
+  - config
+  - default.pa
+  - dunstrc
+  - i3*
+  - mpd.conf
+  - mpv.conf
+  - ncmpcpp/config
+  - redshift.conf
+  - xinitrc
+  - xprofile
+  - xserverrc
+  # templates
+  - i3*
+  - mopidy*
+  - override.conf.j2
+
+directory_blacklist:
+  - config
+  - etc
+  - local

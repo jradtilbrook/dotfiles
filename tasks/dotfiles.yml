@@ -6,13 +6,29 @@
   find:
     paths: files/home/
     recurse: yes
+    excludes: "{{ dotfile_blacklist | default(omit) }}"
   register: home_files
 
 - name: find templates to import to ~
   find:
     paths: templates/home/
     recurse: yes
+    excludes: "{{ dotfile_blacklist | default(omit) }}"
   register: home_templates
+
+- name: find dotfiles to link to /etc
+  find:
+    paths: files/etc/
+    recurse: yes
+    excludes: "{{ dotfile_blacklist | default(omit) }}"
+  register: etc_files
+
+- name: find templates to import to /etc
+  find:
+    paths: templates/etc/
+    recurse: yes
+    excludes: "{{ dotfile_blacklist | default(omit) }}"
+  register: etc_templates
 
 - name: find directories to create
   find:
@@ -23,23 +39,13 @@
     recurse: yes
   register: home_dirs
 
-- name: find dotfiles to link to /etc
-  find:
-    paths: files/etc/
-    recurse: yes
-  register: etc_files
-
-- name: find templates to import to /etc
-  find:
-    paths: templates/etc/
-    recurse: yes
-  register: etc_templates
-
 - name: ensure directories exist
   file:
     dest: "{{ ansible_user_dir }}/.{{ item.path | regex_replace('^(templates|files)/home/', '') }}"
     state: directory
   with_items: "{{ home_dirs.files }}"
+  # if a blacklist is defined, use it, otherwise create all directories
+  when: directory_blacklist is not defined or item.path is not search(directory_blacklist | join('|'))
 
 - name: link dotfiles to home directory
   file:
@@ -51,8 +57,7 @@
 - name: import dotfile templates to home directory
   template:
     src: "{{ item.path }}"
-    dest: "{{ ansible_user_dir }}/\
-      .{{ item.path | relpath('templates/home') | splitext | first }}"
+    dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('templates/home') | splitext | first }}"
     backup: yes
   with_items: "{{ home_templates.files }}"
 

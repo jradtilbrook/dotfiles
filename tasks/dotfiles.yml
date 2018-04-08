@@ -6,28 +6,28 @@
   find:
     paths: files/home/
     recurse: yes
-    excludes: "{{ dotfile_blacklist | default([]) }}"
+    excludes: "{{ dotfile_blacklist | default(omit) }}"
   register: home_files
 
 - name: find templates to import to ~
   find:
     paths: templates/home/
     recurse: yes
-    excludes: "{{ dotfile_blacklist | default([]) }}"
+    excludes: "{{ dotfile_blacklist | default(omit) }}"
   register: home_templates
 
 - name: find dotfiles to link to /etc
   find:
     paths: files/etc/
     recurse: yes
-    excludes: "{{ dotfile_blacklist | default([]) }}"
+    excludes: "{{ dotfile_blacklist | default(omit) }}"
   register: etc_files
 
 - name: find templates to import to /etc
   find:
     paths: templates/etc/
     recurse: yes
-    excludes: "{{ dotfile_blacklist | default([]) }}"
+    excludes: "{{ dotfile_blacklist | default(omit) }}"
   register: etc_templates
 
 - name: find directories to create

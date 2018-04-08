@@ -8,6 +8,7 @@
 ## --------------------------
 pacman_packages:
   - ack
+  - acpi
   - alsa-utils
   - arc-gtk-theme
   - archey3
@@ -26,8 +27,10 @@ pacman_packages:
   - dmenu
   - docker
   - docker-compose
+  - dosfstools
   - dunst
   - exfat-utils
+  - fd
   - feh
   - gimp
   - git
@@ -36,10 +39,12 @@ pacman_packages:
   - gvim # normal vim doesnt come with `+clipboard`
   - htop
   - httpie
+  - hub
   - hunspell
   - i3-wm
   - i3blocks
   - i3status
+  - iftop
   - inotify-tools
   - jq
   - libglvnd # depending on graphics hardware
@@ -131,6 +136,7 @@ aur_packages:
   - git-lfs
   - i3lock-color-git
   - jiq
+  - marp
   - mons
   - mopidy-gmusic
   - mopidy-local-sqlite

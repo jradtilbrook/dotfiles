@@ -23,9 +23,9 @@ i3lock \
 --radius=100 \
 --indicator \
 --clock \
---timefont='System San Francisco Display' \
+--time-font='System San Francisco Display' \
 --timecolor=dba300ff \
---datefont='System San Francisco Display' \
+--date-font='System San Francisco Display' \
 --datecolor=dba300ff \
 --datestr='%a, %d %b' \
 --datesize=18 \
@@ -38,7 +38,6 @@ i3lock \
 --line-uses-inside \
 --keyhlcolor=f4b601ff \
 --bshlcolor=fa334a80 \
---textcolor=dba300ff \
 $*
 
 # resume dunst

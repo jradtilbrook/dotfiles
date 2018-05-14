@@ -41,6 +41,7 @@ pacman_packages:
   - httpie
   - hub
   - hunspell
+  - hunspell-en_AU
   - i3-wm
   - i3blocks
   - i3status
@@ -58,6 +59,7 @@ pacman_packages:
   - ncmpcpp
   - net-tools
   - nfs-utils
+  - noto-fonts-emoji
   - ntfs-3g
   - openssh
   - packer-io
@@ -90,7 +92,9 @@ pacman_packages:
   - tmux
   - tree
   - ttf-dejavu
+  - ttf-hack
   - ttf-liberation
+  - ttf-symbola
   - ufw
   - unzip
   - util-linux

@@ -22,5 +22,4 @@ outputs different aliases to allow specific tasks to be executed. See [`inventor
 
 
 ### Other references
-- Awesome list for [vim/tmux](https://github.com/square/maximum-awesome).
 - All [awesome lists](https://awesome.re)

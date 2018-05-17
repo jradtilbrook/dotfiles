@@ -34,32 +34,32 @@
   tags: dock
   shell: dockutil --remove "{{ item }}" --no-restart
   loop: "{{ current_dock.stdout_lines }}"
-  when: >-
-    item not in (dock_items | map(attribute='name') | map('basename') |
-    map('splitext') | map('first') | list)
+  when: item not in (dock_items | map(attribute='name') | map('basename') | map('splitext') | map('first') | list)
   notify: restart dock
 
 - name: add/rearrange dock items
   tags: dock
   shell: >
     [ "`dockutil --find '{{ item.name | basename | splitext | first }}' | \
-      sed -n 's/.*slot \\([[:digit:]]*\\).*/\\1/p'`" -eq {{ item.pos }} ] \
+      sed -n 's/.*slot \\([[:digit:]]*\\).*/\\1/p'`" -eq {{ index + 1 }} ] \
       2> /dev/null || \
     ( \
       dockutil --find "{{ item.name | basename | splitext | first }}" \
         > /dev/null && \
       dockutil --move "{{ item.name | basename | splitext | first }}" \
-        --position {{ item.pos }} --no-restart \
+        --position {{ index + 1 }} --no-restart \
         {{ item.options | default() }} && \
       echo changed \
     ) || \
     ( \
       dockutil --add "{{ item.name }}" \
-        --position {{ item.pos }} --no-restart \
+        --position {{ index + 1 }} --no-restart \
         {{ item.options | default() }} && \
       echo changed \
     )
   loop: "{{ dock_items }}"
+  loop_control:
+    index_var: index
   register: dock_change
   changed_when: '"changed" in dock_change.stdout'
   notify: restart dock

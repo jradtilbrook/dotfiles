@@ -12,7 +12,7 @@ homebrew_casks:
   - cheatsheet
   - dash
   - docker
-  - firefox
+  - firefox-developer-edition
   - font-anonymice-powerline
   - font-droid-sans-mono-for-powerline
   - font-droidsansmono-nerd-font
@@ -22,13 +22,11 @@ homebrew_casks:
   - font-roboto-mono-for-powerline
   - font-source-code-pro
   - font-source-code-pro-for-powerline
-  - gitkraken
   - google-chrome
   - google-drive-file-stream
   - insomnia
   - iterm2
   - ngrok
-  - nylas-mail
   - phpstorm
   - postman
   - qlcolorcode
@@ -44,7 +42,6 @@ homebrew_casks:
   - spotify
   - suspicious-package
   - vagrant
-  - vagrant-manager
   - virtualbox
   - virtualbox-extension-pack
   - vlc
@@ -69,6 +66,7 @@ homebrew_formulae:
   - pass
   - php71
   - pinentry-mac
+  - postgresql
   - python3
   - ranger
   - ripgrep

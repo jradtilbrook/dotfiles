@@ -6,19 +6,18 @@
   tags: brew
   homebrew_tap:
     tap: "{{ item }}"
-  with_items: "{{ homebrew_taps }}"
+  loop: "{{ homebrew_taps }}"
 
 - name: install mac apps
   tags: brew
   homebrew_cask:
     cask: "{{ item }}"
-  with_items: "{{ homebrew_casks }}"
+  loop: "{{ homebrew_casks }}"
 
 - name: install mac packages
   tags: brew
   homebrew:
-    name: "{{ item }}"
-  with_items: "{{ homebrew_formulae }}"
+    name: "{{ homebrew_formulae }}"
 
 
 ## ----------
@@ -34,7 +33,7 @@
 - name: remove unnecessary dock items
   tags: dock
   shell: dockutil --remove "{{ item }}" --no-restart
-  with_items: "{{ current_dock.stdout_lines }}"
+  loop: "{{ current_dock.stdout_lines }}"
   when: >-
     item not in (dock_items | map(attribute='name') | map('basename') |
     map('splitext') | map('first') | list)
@@ -60,7 +59,7 @@
         {{ item.options | default() }} && \
       echo changed \
     )
-  with_items: "{{ dock_items }}"
+  loop: "{{ dock_items }}"
   register: dock_change
   changed_when: '"changed" in dock_change.stdout'
   notify: restart dock
@@ -78,6 +77,6 @@
     key: "{{ item.key }}"
     value: "{{ item.value }}"
     type: "{{ item.type }}"
-  with_items: "{{ osx_defaults }}"
+  loop: "{{ osx_defaults }}"
   notify: restart mac services
   when: no

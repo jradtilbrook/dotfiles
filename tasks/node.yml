@@ -7,4 +7,4 @@
     name: "{{ item }}"
     state: present
     global: yes
-  with_items: "{{ npm_packages }}"
+  loop: "{{ npm_packages }}"

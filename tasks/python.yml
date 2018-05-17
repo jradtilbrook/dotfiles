@@ -3,8 +3,7 @@
 ## Install python packages
 ## -----------------------
 - name: install python packages (global)
-  pip:
-    name: "{{ item }}"
-    state: present
   # TODO: how to use pip3 on arch but pip on others
-  with_items: "{{ python_global_packages }}"
+  pip:
+    name: "{{ python_global_packages }}"
+    state: present

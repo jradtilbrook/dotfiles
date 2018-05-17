@@ -4,9 +4,8 @@
 ## ----------------
 - name: install packages with pacman
   pacman:
-    pkg: "{{ item }}"
+    pkg: "{{ pacman_packages }}"
     state: present
-  with_items: "{{ pacman_packages }}"
 
 # TODO: how to do aur/yaourt packages? create module or use shell/command module
 
@@ -15,7 +14,7 @@
     name: "{{ item }}"
     enabled: yes
     state: started
-  with_items: "{{ system_services }}"
+  loop: "{{ system_services }}"
 
 - name: start/enable user services
   become: no
@@ -24,8 +23,8 @@
     enabled: yes
     state: started
     user: yes
-  with_items: "{{ user_services }}"
-  failed_when: no # this fails on very first run because config files arent installed yet
+  loop: "{{ user_services }}"
+  failed_when: no # TODO: this fails on very first run because config files arent installed yet
 
 - name: ignore pressing the power button
   ini_file:

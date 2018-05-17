@@ -43,7 +43,7 @@
   file:
     dest: "{{ ansible_user_dir }}/.{{ item.path | regex_replace('^(templates|files)/home/', '') }}"
     state: directory
-  with_items: "{{ home_dirs.files }}"
+  loop: "{{ home_dirs.files }}"
   # if a blacklist is defined, use it, otherwise create all directories
   when: directory_blacklist is not defined or item.path is not search(directory_blacklist | join('|'))
 
@@ -52,14 +52,14 @@
     src: "{{ item.path | realpath }}"
     dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('files/home') }}"
     state: link
-  with_items: "{{ home_files.files }}"
+  loop: "{{ home_files.files }}"
 
 - name: import dotfile templates to home directory
   template:
     src: "{{ item.path }}"
     dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('templates/home') | splitext | first }}"
     backup: yes
-  with_items: "{{ home_templates.files }}"
+  loop: "{{ home_templates.files }}"
 
 - name: link dotfiles to etc directory
   become: yes
@@ -67,7 +67,7 @@
     src: "{{ item.path | realpath }}"
     dest: "/etc/{{ item.path | relpath('files/etc') }}"
     state: link
-  with_items: "{{ etc_files.files }}"
+  loop: "{{ etc_files.files }}"
 
 - name: import dotfile templates to etc directory
   become: yes
@@ -75,4 +75,4 @@
     src: "{{ item.path }}"
     dest: "/etc/{{ item.path | relpath('templates/etc') | splitext | first }}"
     backup: yes
-  with_items: "{{ etc_templates.files }}"
+  loop: "{{ etc_templates.files }}"

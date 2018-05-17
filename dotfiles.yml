@@ -44,7 +44,7 @@
       listen: restart mac services
     - name: restart mac services
       command: killall {{ item }}
-      with_items:
+      loop:
         - Finder
         - Safari
         - SystemUIServer

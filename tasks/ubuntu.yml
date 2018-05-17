@@ -7,12 +7,11 @@
   apt_repository:
     repo: "{{ item }}"
     update_cache: yes
-  with_items: "{{ ubuntu_repositories }}"
+  loop: "{{ ubuntu_repositories }}"
 
 - name: install ubuntu packages
   tags: apt
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ ubuntu_packages }}"
     update_cache: yes
     cache_valid_time: 3600
-  with_items: "{{ ubuntu_packages }}"

@@ -3,7 +3,8 @@
 ## Install Atom packages
 ## ---------------------
 - name: install atom packages
-  shell: apm install {{ item }}
+  command: apm install {{ item }}
+  loop: "{{ atom_packages }}"
   args:
     creates: "{{ ansible_user_dir }}/.atom/packages/{{ item }}"
-  loop: "{{ atom_packages }}"
+  # TODO: check mode is still skipped. pending PR https://github.com/ansible/ansible/pull/40428

@@ -2,35 +2,35 @@
 ## ---------------------
 ## SSH key configuration
 ## ---------------------
+- name: create ssh key
+  command: >
+    ssh-keygen -t rsa -b 4096
+    -C "{{ ansible_hostname | regex_replace('-|_', ' ') }}"
+    -f "{{ ansible_user_dir }}/.ssh/id_rsa"
+  args:
+    creates: "{{ ansible_user_dir }}/.ssh/id_rsa"
+  # TODO: check mode is still skipped. pending PR https://github.com/ansible/ansible/pull/40428
+
 - name: check ssh key exists
   stat:
     path: "{{ ansible_user_dir }}/.ssh/id_rsa"
   register: ssh_key
 
-- name: create ssh key
-  shell: >
-    ssh-keygen -t rsa -b 4096 \
-    -C "{{ ansible_hostname | regex_replace('-|_', ' ') }}" \
-    -f "{{ ansible_user_dir }}/.ssh/id_rsa"
-  register: ssh_key_new
-  when: not ssh_key.stat.exists
-
-- name: upload key to github (through api)
+- name: upload key to github
   github_key:
-    name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}-{{ ansible_product_name | default('') }}"
-    pubkey: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
+    name: >-
+      {{ ansible_hostname | regex_replace('-|_', ' ') }}
+      {{ '- ' + ansible_product_name if ansible_product_name is defined else '' }}
+    pubkey: "{{ item }}"
     token: "{{ github_api_token }}"
     force: no
-  when: ssh_key.stat.exists or ssh_key_new | changed
+  with_file: "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
+  when: ssh_key.stat.exists
 
-- name: print ssh public key to upload to bitbucket
-  debug:
-    msg: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
-  when: ssh_key.stat.exists or ssh_key_new | changed
-
-- name: upload public key to aws
+- name: upload key to aws
   ec2_key:
     name: "{{ ansible_hostname | regex_replace('-|_', ' ') }}"
-    key_material: "{{ lookup('file', '{{ ansible_user_dir }}/.ssh/id_rsa.pub') }}"
+    key_material: "{{ item }}"
     region: ap-southeast-2
-  when: ssh_key.stat.exists or ssh_key_new | changed
+  with_file: "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
+  when: ssh_key.stat.exists

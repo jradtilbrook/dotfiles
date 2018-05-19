@@ -10,7 +10,7 @@
 
 - name: install plugins with vundle
   shell: >
-    BEF=`ls ~/.vim/bundle/ | wc -l`; vim +PluginInstall +qa; \
+    BEF=`ls ~/.vim/bundle/ | wc -l`; vim +PluginInstall +qa;
     AFT=`ls ~/.vim/bundle | wc -l`; exit $(($AFT-$BEF))
   register: vundle
   changed_when: vundle.rc > 0

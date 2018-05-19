@@ -26,6 +26,7 @@ homebrew_casks:
   - google-drive-file-stream
   - insomnia
   - iterm2
+  - keyboardcleantool
   - ngrok
   - phpstorm
   - postman
@@ -60,7 +61,9 @@ homebrew_formulae:
   # - gopass
   - htop
   - httpie
+  - hub
   - jq
+  - libevent
   - node
   - packer
   - pass

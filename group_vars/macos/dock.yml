@@ -2,7 +2,7 @@
 ## ----
 ## Dock
 ## ----
-dock_items:
+dock_apps:
   - name: /Applications/Google Chrome.app
   - name: /Applications/Firefox Developer Edition.app
   - name: /Applications/Safari.app
@@ -15,8 +15,9 @@ dock_items:
   - name: /Applications/Insomnia.app
   - name: /Applications/PhpStorm.app
   - name: /Applications/System Preferences.app
-  # folder positions are relative to folders section on the dock
-  # the options key is required for folders
+# these are kept separate since positions are relative to the folders section
+# the options key is required for folders
+dock_dirs:
   - name: ~/Downloads
     options: --display folder --sort name --view auto --section others
   - name: ~/Documents

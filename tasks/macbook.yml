@@ -23,18 +23,11 @@
 ## ----------
 ## Dock items
 ## ----------
-- name: find current dock items
-  tags: dock
-  shell: dockutil --list | cut -f 1
-  register: current_dock
-  changed_when: no
-  check_mode: no # this doesn't make changes so can run in check mode
-
 - name: remove unnecessary dock items
   tags: dock
-  shell: dockutil --remove "{{ item }}" --no-restart
-  loop: "{{ current_dock.stdout_lines }}"
-  when: item not in (dock_items | map(attribute='name') | map('basename') | map('splitext') | map('first') | list)
+  command: dockutil --remove "{{ item }}" --no-restart
+  with_lines: dockutil --list | cut -f 1
+  when: item not in dock_items | map(attribute='name') | map('basename')
   notify: restart dock
 
 - name: add/rearrange dock items

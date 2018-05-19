@@ -15,7 +15,7 @@ dock_items:
   - name: /Applications/Insomnia.app
   - name: /Applications/PhpStorm.app
   - name: /Applications/System Preferences.app
-  # folder positions are relatvie to folders section on the dock
+  # folder positions are relative to folders section on the dock
   # the options key is required for folders
   - name: ~/Downloads
     options: --display folder --sort name --view auto --section others

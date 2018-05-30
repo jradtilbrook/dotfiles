@@ -13,6 +13,7 @@ enabled = false
 
 [local]
 enabled = false
+media_dir = ~/music
 
 [m3u]
 enabled = false
@@ -41,7 +42,9 @@ client_secret = {{ mopidy_spotify_client_secret }}
 bitrate = 320
 timeout = 5
 private_session = true
+allow_playlists = true
 
 [spotify_web]
+enabled = true
 client_id = {{ mopidy_spotify_client_id }}
 client_secret = {{ mopidy_spotify_client_secret }}

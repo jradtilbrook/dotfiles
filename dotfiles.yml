@@ -70,6 +70,8 @@
     - import_tasks: tasks/node.yml
       become: "{% if ansible_distribution == 'MacOSX' %}no{% else %}yes{% endif %}"
       tags: node
+    - import_tasks: tasks/ruby.yml
+      tags: ruby
     - import_tasks: tasks/ssh.yml
       tags: ssh
     - import_tasks: tasks/vim.yml

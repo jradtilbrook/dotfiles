@@ -1,0 +1,9 @@
+---
+## -----------------
+## Install ruby gems
+## -----------------
+- name: install ruby gems (global)
+  gem:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ ruby_gems }}"

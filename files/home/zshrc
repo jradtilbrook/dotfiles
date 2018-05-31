@@ -129,7 +129,7 @@ alias vimp='vim -p' # tab for each file
 alias vimo='vim -O' # vertical split
 alias l1='ls -1'
 alias llh='ll -h'
-alias tree='tree --du -h -C --dirsfirst -I "vendor|coverage"' # show size and colour, ignore some dirs by default
+alias tree='tree --du -h -C --dirsfirst' # show size and colour
 eval $(thefuck --alias)
 alias f='fuck'
 alias free='free -h'
@@ -144,5 +144,5 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export PROJECT_HOME=$HOME/projects
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 
-# enable zsh highlighting
-[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# travis cli autocompletion
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh

@@ -118,7 +118,6 @@ pacman_packages:
   - zeal
   - zip
   - zsh
-  - zsh-syntax-highlighting
   # gparted/fdisk/gdisk
   # gtk, sdl
   # most

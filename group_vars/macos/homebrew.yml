@@ -58,7 +58,9 @@ homebrew_formulae:
   - git
   - git-lfs
   - gnu-sed
+  - gnupg
   # - gopass
+  - gpg-agent
   - htop
   - httpie
   - hub

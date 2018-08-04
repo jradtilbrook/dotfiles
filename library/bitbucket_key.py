@@ -5,7 +5,7 @@ import json
 import re
 
 
-API_BASE = 'https://api.bitbucket.org/1.0'
+API_BASE = 'https://api.bitbucket.org/2.0'
 
 
 class BitbucketResponse(object):
@@ -25,14 +25,15 @@ class BitbucketSession(object):
 
     def request(self, method, url, data=None):
         headers = {
-            'Authorization': basic_auth_header(self.username, self.password)
+            'Authorization': basic_auth_header(self.username, self.password),
+            'Content-Type': 'application/json'
         }
 
         # add username to placeholder
         url = url.replace('<user>', self.username)
 
         response, info = fetch_url(
-            self.module, url, method=method, data=data, headers=headers)
+            self.module, url, method=method, data=self.module.jsonify(data), headers=headers)
 
         if not (200 <= info['status'] < 400):
             self.module.fail_json(
@@ -45,7 +46,7 @@ def get_all_keys(session):
     url = API_BASE + '/users/<user>/ssh-keys'
 
     r = session.request('GET', url)
-    for key in r.json():
+    for key in r.json()['values']:
         yield key
 
 def create_key(session, name, pubkey, check_mode):
@@ -53,7 +54,7 @@ def create_key(session, name, pubkey, check_mode):
         from datetime import datetime
         now = datetime.utcnow()
         return {
-            'pk': 0,
+            'uuid': 0,
             'key': pubkey,
             'label': name
         }
@@ -61,14 +62,14 @@ def create_key(session, name, pubkey, check_mode):
         return session.request(
             'POST',
             API_BASE + '/users/<user>/ssh-keys',
-            data=json.dumps({'label': name, 'key': pubkey}))
+            data={'label': name, 'key': pubkey})
 
 def delete_keys(session, to_delete, check_mode):
     if check_mode:
         return
 
     for key in to_delete:
-        session.request('DELETE', API_BASE + '/users/<user>/ssh-keys/%s' % key['pk'])
+        session.request('DELETE', API_BASE + '/users/<user>/ssh-keys/%s' % key['uuid'])
 
 def ensure_key_absent(session, name, check_mode):
     to_delete = [key for key in get_all_keys(session) if key['label'] == name]
@@ -86,7 +87,7 @@ def ensure_key_present(session, name, pubkey, force, check_mode):
         (deleted_keys, matching_keys) = (matching_keys, [])
 
     if not matching_keys:
-        key = create_key(session, name, pubkey, check_mode=check_mode)
+        key = create_key(session, name, pubkey, check_mode=check_mode).json()
     else:
         key = matching_keys[0]
 
@@ -124,9 +125,6 @@ def main():
         # Keys consist of a protocol, the key data, and an optional comment.
         if len(pubkey_parts) < 2:
             module.fail_json(msg='"pubkey" parameter has an invalid format')
-
-        # Strip out comment so we can compare to the keys Bitbucket returns.
-        pubkey = ' '.join(pubkey_parts[:2])
     elif state == 'present':
         module.fail_json(msg='"pubkey" is required when state=present')
 
@@ -137,8 +135,6 @@ def main():
             check_mode=module.check_mode)
     elif state == 'absent':
         result = ensure_key_absent(session, name, check_mode=module.check_mode)
-
-    res = session.request('GET', API_BASE+'/users/<user>/ssh-keys')
 
     module.exit_json(**result)
 

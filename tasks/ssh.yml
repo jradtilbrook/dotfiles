@@ -10,6 +10,7 @@
   args:
     creates: "{{ ansible_user_dir }}/.ssh/id_rsa"
   # TODO: check mode is still skipped. pending PR https://github.com/ansible/ansible/pull/40428
+  # TODO: it should be coming in the 2.7.0 release
 
 - name: check ssh key exists
   stat:
@@ -25,6 +26,22 @@
     token: "{{ github_api_token }}"
     force: no
   with_file: "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
+  loop_control:
+    label: "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
+  when: ssh_key.stat.exists
+
+- name: upload key to bitbucket
+  bitbucket_key:
+    name: >-
+      {{ ansible_hostname | regex_replace('-|_', ' ') }}
+      {{ '- ' + ansible_product_name if ansible_product_name is defined else '' }}
+    pubkey: "{{ item }}"
+    username: "{{ bitbucket_username }}"
+    password: "{{ bitbucket_password }}"
+    force: no
+  with_file: "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
+  loop_control:
+    label: "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
   when: ssh_key.stat.exists
 
 - name: upload key to aws
@@ -33,4 +50,6 @@
     key_material: "{{ item }}"
     region: ap-southeast-2
   with_file: "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
+  loop_control:
+    label: "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
   when: ssh_key.stat.exists

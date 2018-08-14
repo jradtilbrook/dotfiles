@@ -24,13 +24,13 @@
 	co = checkout
 	st = status
 	s = status -s --branch
-	wc = whatchanged
 	f = fetch
 	m = merge
 	d = diff
 	diffc = diff --cached
-	diffcw = diff -w --cached
 	diffw = diff -w
+	diffp = diff --cached @{push} # diff to what is currently pushed (without including pending)
+	diffcw = diff -w --cached
 	diffwc = diff -w --cached
 	showw = diff HEAD^
 	showww = diff HEAD^^

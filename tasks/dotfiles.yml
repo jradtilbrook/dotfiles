@@ -59,6 +59,7 @@
     src: "{{ item.path }}"
     dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('templates/home') | splitext | first }}"
     backup: yes
+    mode: "{{ item.mode }}"
   loop: "{{ home_templates.files }}"
 
 - name: link dotfiles to etc directory

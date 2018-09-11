@@ -1,0 +1,23 @@
+#!/bin/bash
+# This script is run from udev when a monitor is plugged in
+# It will enable the second monitor only if it was plugged, or enable the internal monitor if unplugged.
+
+# this isn't dynamic, these are the tested outputs that get triggered
+DP_STATUS=$(</sys/class/drm/card0/card0-DP-1/status)
+LAPTOP_STATUS=$(</sys/class/drm/card0/card0-eDP-1/status)
+
+# TODO: make it a little more dynamic so if the laptop lid is open, extend the display and when it closes, push to the
+#       second monitor only. CAVEAT: udev doesnt seem to trigger anything on lid close
+case $DP_STATUS in
+    "connected")
+        mons -s
+        ;;
+    "disconnected")
+        mons -o
+        ;;
+esac
+
+# update the background so it matches resolution of current monitor
+HOME={{ ansible_user_dir }} feh --no-fehbg --bg-fill {{ ansible_user_dir }}/.wallpaper
+
+exit 0

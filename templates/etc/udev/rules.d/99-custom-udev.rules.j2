@@ -1,0 +1,3 @@
+{{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
+# change monitor config when one is plugged in
+KERNEL=="card0", SUBSYSTEM=="drm", ACTION=="change", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="{{ ansible_user_dir }}/.Xauthority", RUN+="{{ ansible_user_dir }}/.local/bin/monitor_hotplug.sh"

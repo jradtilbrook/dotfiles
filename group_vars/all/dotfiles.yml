@@ -19,3 +19,10 @@ env_vars:
     value: /usr/local/bin/python3
   - name: PROJECT_HOME
     value: $HOME/projects
+
+## -----------------------------------------
+## Symlinks to create to files within the OS
+## -----------------------------------------
+symlinks:
+  # this goes with the systemd-resolved.service to ensure dns works
+  /etc/resolv.conf: /run/systemd/resolve/stub-resolv.conf

@@ -76,3 +76,13 @@
     dest: "/etc/{{ item.path | relpath('templates/etc') | splitext | first }}"
     backup: yes
   loop: "{{ etc_templates.files }}"
+
+- name: link system files
+  become: yes
+  file:
+    src: "{{ item.value }}"
+    dest: "{{ item.key }}"
+    state: link
+    force: yes
+  loop: "{{ symlinks | dict2items }}"
+  when: ansible_distribution != 'MacOSX'

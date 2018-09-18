@@ -93,6 +93,7 @@ pacman_packages:
   - ruby
   - rxvt-unicode
   - screen
+  - scrot
   - shotwell
   - stack
   - thefuck

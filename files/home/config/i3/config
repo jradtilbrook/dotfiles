@@ -18,7 +18,7 @@ set $workspace4 "4 "
 set $workspace5 "5 "
 set $workspace6 "6 "
 set $workspace7 "7 "
-set $workspace8 "8 "
+set $workspace8 "8 "
 set $workspace9 "9 "
 set $workspace10 "10 "
 # resize window
@@ -50,7 +50,6 @@ set $inactive-grey          #676e7d
 # use mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 # font for window titles.
-# font pango:System San Francisco Display 10
 font pango: CodeNewRoman Nerd Font 9
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -199,7 +198,7 @@ bindsym $mod+Shift+w exec --no-startup-id chromium
 bindsym $mod+Shift+a exec --no-startup-id atom
 bindsym $mod+Shift+p exec --no-startup-id pstorm
 # screenshot
-# bindsym Print exec scrot -q 100 "$HOME/Pictures/%Y-%m-%d_%H:%M:%S.png"
+bindsym Print exec scrot -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
 
 
 
@@ -326,6 +325,7 @@ for_window [class="Thunar"] floating enable
 for_window [class="Zeal"] floating enable
 for_window [class="Slic3r"] floating enable
 assign [class="ScudCloud Slack"] $workspace6
+assign [class="Slack"] $workspace6
 for_window [class="vlc"] floating enable
 for_window [class="VirtualBox"] floating enable
 for_window [class="Pavucontrol"] floating enable

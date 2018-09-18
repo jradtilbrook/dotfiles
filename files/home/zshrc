@@ -64,11 +64,13 @@ plugins=(
     gpg-agent \
     httpie \
     jira \
+    kubectl \
     last-working-dir \
     node \
     pip \
     python \
     ssh-agent \
+    stack \
     sudo \
     systemd \
     vagrant \

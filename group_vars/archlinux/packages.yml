@@ -148,7 +148,9 @@ aur_packages:
   - gksu
   - i3lock-color-git
   - jiq
+  - kubectl-bin
   - marp
+  - minikube
   - mons
   - mopidy-gmusic
   - mopidy-local-sqlite

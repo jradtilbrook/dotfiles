@@ -7,10 +7,11 @@ the pacstrap command. At the end of the `chroot` step perform the following:
 1. Install the following extra dependencies:
     - ansible
     - git
-    - intel-ucode
-    - iw
+    - intel-ucode or amd-ucode
+    - iw (if using wireless)
+    - python2
     - sudo
-    - wpa_supplicant
+    - wpa_supplicant (if using wireless)
 2. Create a new user.
 3. Give the user sudo access.
 

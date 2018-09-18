@@ -32,10 +32,13 @@ pacman_packages:
   - exfat-utils
   - fd
   - feh
+  - firefox-developer-edition
   - ghc
   - gimp
   - git
-  - gksu
+  - git-lfs
+  - go
+  - gopass
   - gufw
   - gvim # normal vim doesnt come with `+clipboard`
   - htop
@@ -47,6 +50,7 @@ pacman_packages:
   - i3blocks
   - i3status
   - iftop
+  - imagemagick
   - inotify-tools
   - jq
   - libglvnd # depending on graphics hardware
@@ -63,11 +67,14 @@ pacman_packages:
   - noto-fonts-emoji
   - ntfs-3g
   - openssh
-  - packer-io
   - pamixer
   - pass
   - pavucontrol
   - php
+  - php-memcached
+  - php-pgsql
+  - php-sodium
+  - php-sqlite
   - pkgfile
   - playerctl
   - pulseaudio
@@ -93,9 +100,9 @@ pacman_packages:
   - tmux
   - tree
   - ttf-dejavu
+  - ttf-font-awesome
   - ttf-hack
   - ttf-liberation
-  - ttf-symbola
   - ttf-ubuntu-font-family
   - ufw
   - unzip
@@ -137,8 +144,7 @@ pacman_packages:
 ## AUR packages to install
 ## -----------------------
 aur_packages:
-  - firefox-developer
-  - git-lfs
+  - gksu
   - i3lock-color-git
   - jiq
   - marp
@@ -151,11 +157,12 @@ aur_packages:
   - ngrok
   - oh-my-zsh-git
   - otf-hermit
-  - phpstorm-jre
+  - phpstorm
   - postman-bin
   - scudcloud
+  - slack-desktop
   - sublime-text
-  - ttf-font-awesome
+  - ttf-symbola
 
 ## -----------------------
 ## yaourt and dependencies

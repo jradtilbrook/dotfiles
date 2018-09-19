@@ -8,7 +8,6 @@ homebrew_taps:
   - homebrew/php
 homebrew_casks:
   - alfred
-  - atom
   - cheatsheet
   - dash
   - docker

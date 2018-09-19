@@ -12,7 +12,6 @@ pacman_packages:
   - alsa-utils
   - arc-gtk-theme
   - archey3
-  - atom
   - aws-cli
   - bluez
   - bluez-firmware

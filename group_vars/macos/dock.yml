@@ -9,7 +9,6 @@ dock_apps:
   - name: /Applications/iTunes.app
   - name: /Applications/Spotify.app
   - name: /Applications/Notes.app
-  - name: /Applications/Atom.app
   - name: /Applications/iTerm.app
   - name: /Applications/Slack.app
   - name: /Applications/Insomnia.app

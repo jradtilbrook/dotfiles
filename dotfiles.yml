@@ -60,8 +60,6 @@
   hosts: all
   tags: common
   tasks:
-    - import_tasks: tasks/atom.yml
-      tags: atom
     - import_tasks: tasks/dotfiles.yml
       tags: dotfiles
     - import_tasks: tasks/python.yml

@@ -141,6 +141,7 @@ alias clc='tput reset'
 
 # Environment variables
 export EDITOR=vim
+export TERM=xterm-256color
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export PROJECT_HOME=$HOME/projects

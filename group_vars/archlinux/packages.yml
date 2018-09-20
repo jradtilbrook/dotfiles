@@ -90,11 +90,11 @@ pacman_packages:
   - rofi
   - rsync
   - ruby
-  - rxvt-unicode
   - screen
   - scrot
   - shotwell
   - stack
+  - termite
   - thefuck
   - tig
   - tmux

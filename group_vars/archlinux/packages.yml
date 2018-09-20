@@ -157,7 +157,6 @@ aur_packages:
   - mopidy-spotify-web
   - nerd-fonts-complete
   - ngrok
-  - oh-my-zsh-git
   - otf-hermit
   - phpstorm
   - postman-bin

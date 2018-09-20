@@ -1,0 +1,10 @@
+---
+## --------------------------
+## Clone any custom git repos
+## --------------------------
+- name: clone custom git repos
+  git:
+    repo: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    update: no
+  loop: "{{ git_repos }}"

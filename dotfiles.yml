@@ -72,5 +72,7 @@
       tags: ruby
     - import_tasks: tasks/ssh.yml
       tags: ssh
+    - import_tasks: tasks/git.yml
+      tags: git
     - import_tasks: tasks/vim.yml
       tags: vim

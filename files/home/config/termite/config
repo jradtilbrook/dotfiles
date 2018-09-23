@@ -1,0 +1,67 @@
+[options]
+allow_bold = true
+clickable_url = true
+hyperlinks = true
+font = Hermit medium 10
+dynamic_title = true
+fullscreen = true
+mouse_autohide = true
+scroll_on_output = false
+scroll_on_keystroke = true
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines = 10000
+search_wrap = true
+urgent_on_bell = true
+# "system", "on" or "off"
+cursor_blink = system
+# "block", "underline" or "ibeam"
+cursor_shape = block
+# Hide links that are no longer valid in url select overlay mode
+filter_unmatched_urls = true
+
+[colors]
+# Base16 Solar Flare
+foreground          = #A6AFB8
+foreground_bold     = #E8E9ED
+cursor              = #E8E9ED
+cursor_foreground   = #18262F
+background          = rgba(24, 38, 47, 0.95)
+# 16 color space
+# Black, Gray, Silver, White
+color0  = #18262F
+color8  = #667581
+color7  = #A6AFB8
+color15 = #F5F7FA
+# Red
+color1  = #EF5253
+color9  = #EF5253
+# Green
+color2  = #67AF33
+color10 = #67AF33
+# Yellow
+color3  = #CEA41A
+color11 = #CEA41A
+# Blue
+color4  = #2FABD6
+color12 = #2FABD6
+# Purple
+color5  = #A363D5
+color13 = #A363D5
+# Teal
+color6  = #52CBB0
+color14 = #52CBB0
+# Extra colors
+color16 = #E66B2B
+color17 = #D73C9A
+color18 = #222E38
+color19 = #586875
+color20 = #85939E
+color21 = #E8E9ED
+
+[hints]
+font = Hermit medium 12
+foreground = #111111
+background = #e5c07b
+
+# vim: ft=dosini

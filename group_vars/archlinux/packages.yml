@@ -19,6 +19,7 @@ pacman_packages:
   - bluez-utils
   - chromium
   - cmake
+  - code
   - composer
   - compton
   - ctags
@@ -32,6 +33,7 @@ pacman_packages:
   - fd
   - feh
   - firefox-developer-edition
+  - fzf
   - ghc
   - gimp
   - git
@@ -127,16 +129,7 @@ pacman_packages:
   - zeal
   - zip
   - zsh
-  # gparted/fdisk/gdisk
-  # gtk, sdl
-  # most
-  # jdk
   # dzen
-  # heroku
-  # xautolock
-  # scrot
-  # thunar
-
   # wayland (instead of x11)
   # sway (instead of i3)
 
@@ -144,10 +137,14 @@ pacman_packages:
 ## AUR packages to install
 ## -----------------------
 aur_packages:
+  - exercism-cli
+  - fac
   - gksu
   - i3lock-color-git
+  - insomnia
   - jiq
   - kubectl-bin
+  - lazygit
   - marp
   - minikube
   - mons
@@ -164,6 +161,7 @@ aur_packages:
   - slack-desktop
   - sublime-text
   - ttf-symbola
+  - zoom
 
 ## -----------------------
 ## yaourt and dependencies

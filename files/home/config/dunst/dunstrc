@@ -1,5 +1,5 @@
 [global]
-    font = System San Francisco Display 9
+    font = System San Francisco Display, NotoEmoji Nerd Font 9
 
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -73,7 +73,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing windowmanager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 30
+    # transparency = 30
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -111,10 +111,10 @@
     # This adds empty space above and under the text.
     line_height = 0
 
-    # Draw a line of "separatpr_height" pixel height between two
+    # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 2
+    separator_height = 1
 
     # Padding between text and separator.
     padding = 16
@@ -136,10 +136,10 @@
     startup_notification = false
 
     # dmenu path.
-    dmenu = /usr/bin/rofi -dmenu -p dunst:
+    dmenu = /usr/bin/rofi -dmenu -p dunst
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/chromium
+    browser = /usr/bin/xdg-open
 
     # Align icons left/right/off
     icon_position = left
@@ -150,8 +150,9 @@
     # Paths to default icons.
     icon_folders = /usr/share/icons/Adwaita/48x48/status/:/usr/share/icons/Adwaita/48x48/devices/:/usr/share/icons/elementary/scalable/apps/
 
-    frame_width = 0
-    frame_color = "#ffffff"
+    frame_width = 1
+    frame_color = "#A6AFB8"
+    separator_color = "#A6AFB8"
 
 [shortcuts]
 
@@ -174,22 +175,23 @@
     # Context menu.
     context = ctrl+shift+period
 
-[urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#000000"
-    foreground = "#dba300"
+[base16_low]
+    msg_urgency = low
     timeout = 5
+    background = "#222E38"
+    foreground = "#667581"
 
-[urgency_normal]
-    background = "#000000"
-    foreground = "#dba300"
+[base16_normal]
+    msg_urgency = normal
     timeout = 5
+    background = "#586875"
+    foreground = "#A6AFB8"
 
-[urgency_critical]
-    background = "#d8e0e3"
-    foreground = "#412f27"
+[base16_critical]
+    msg_urgency = critical
     timeout = 0
+    background = "#EF5253"
+    foreground = "#E8E9ED"
 
 
 # Every section that isn't one of the above is interpreted as a rules to

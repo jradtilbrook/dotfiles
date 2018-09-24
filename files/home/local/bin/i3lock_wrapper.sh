@@ -18,7 +18,7 @@ killall -SIGUSR1 dunst
 
 # create a temp file for resizing images
 RESIZED_IMAGE_PATH=$(mktemp)
-IMAGE_PATH=~/.wallpaper
+IMAGE_PATH=~/.screensaver
 # determine the current screen resolution. NB: this probably only works for a single screen
 RESOLUTION=$(xrandr -q | head -1 | sed -n 's:.*current\s\([0-9]\+\)\sx\s\([0-9]\+\).*:\1x\2:p')
 # LOCK_IMAGE="--blur 6"

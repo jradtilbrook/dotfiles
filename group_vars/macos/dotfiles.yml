@@ -5,7 +5,6 @@
 # TODO: these variables are effectively duplicates. look into consolidating
 dotfile_blacklist:
   - 40-libinput.conf
-  - Xresources
   - config
   - default.pa
   - dunstrc

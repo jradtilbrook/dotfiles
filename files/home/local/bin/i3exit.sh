@@ -5,7 +5,7 @@
 # menu options
 options="Cancel\nLock\nSleep\nLog out\nShutdown\nRestart"
 # colours
-colour="#a0000000,#a3a4a1,#a0000000,#da000000,#80fa334a"
+colour="#a0222e38,#a6afb8,#a0222e38,#222e38,#ef5253"
 # prompt user using rofi
 select=$(echo -e $options | rofi -dmenu -p "exit" -color-normal $colour)
 # do the appropriate action

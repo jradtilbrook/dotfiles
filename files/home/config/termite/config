@@ -64,4 +64,4 @@ font = Hermit medium 12
 foreground = #111111
 background = #e5c07b
 
-# vim: ft=dosini
+# vim: ft=cfg

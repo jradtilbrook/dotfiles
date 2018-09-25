@@ -1,5 +1,5 @@
 [global]
-    font = System San Francisco Display, NotoEmoji Nerd Font 9
+    font = System San Francisco Display 9
 
     # Allow a small subset of html markup:
     #   <b>bold</b>

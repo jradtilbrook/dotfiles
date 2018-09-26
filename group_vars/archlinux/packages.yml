@@ -47,7 +47,7 @@ pacman_packages:
   - hub
   - hunspell
   - hunspell-en_AU
-  - i3-wm
+  - i3-gaps
   - i3blocks
   - i3status
   - iftop

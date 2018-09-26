@@ -63,6 +63,10 @@ focus_on_window_activation urgent
 # no window borders
 default_border none
 default_floating_border none
+# gaps specific config
+gaps inner 5
+gaps outer 2
+smart_gaps on
 
 
 

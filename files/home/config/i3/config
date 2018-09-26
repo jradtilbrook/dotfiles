@@ -185,7 +185,8 @@ bindsym $mod+Shift+f exec firefox-developer-edition
 bindsym $mod+Shift+w exec chromium
 bindsym $mod+Shift+p exec --no-startup-id phpstorm
 # screenshot
-bindsym Print exec scrot -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
+bindsym --release Print exec scrot -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
+bindsym --release Shift+Print exec scrot -s -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
 
 
 

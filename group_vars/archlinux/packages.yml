@@ -122,6 +122,7 @@ pacman_packages:
   - xorg-server
   - xorg-xbacklight
   - xorg-xinit
+  - xorg-xprop
   - xorg-xrandr
   - yarn
   - youtube-dl

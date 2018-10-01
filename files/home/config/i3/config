@@ -308,6 +308,7 @@ for_window [class="eagle"] floating enable
 assign [class="jetbrains-phpstorm"] $workspace4
 no_focus [class="jetbrains-phpstorm"]
 for_window [class="mpv"] floating enable sticky enable
+for_window [class="Pinentry-gtk-2"] floating enable sticky enable
 for_window [class="Termite" window_role="scratch"] floating enable, move scratchpad, scratchpad show
 
 

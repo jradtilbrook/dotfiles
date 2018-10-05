@@ -31,7 +31,7 @@ call vundle#begin()
     Plugin 'vim-airline/vim-airline-themes'
 
     " navigating
-    Plugin 'ctrlpvim/ctrlp.vim' " or ctrlspace
+    Plugin 'junegunn/fzf.vim'
     Plugin 'majutsushi/tagbar'
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'scrooloose/nerdtree'
@@ -91,6 +91,7 @@ set listchars+=tab:»\ ,trail:▫,eol:¬,space:·    " invisible characters
 " set list                        " show invisibles
 set foldmethod=indent           " fold with equal indents
 set foldlevel=99                " leave all folds open by default
+set autowriteall                " write contents when switching away
 
 set scrolloff=5                 " show 5 context lines when scrolling
 set sidescroll=1                " use continuous scrolling
@@ -138,8 +139,13 @@ nmap <Leader>ei :tabedit $HOME/.config/i3/config<cr>
 nmap <Leader>ez :tabedit $HOME/.zshrc<cr>
 " remove highlighted search
 nmap <Leader><space> :nohlsearch<cr>
-" Ctrl-P word under cursor
-nnoremap <Leader>p <C-P><C-\>w
+" fzf map
+nnoremap <silent> <C-P> :Files<cr>
+nnoremap <silent> <C-B> :Buffers<cr>
+nnoremap <silent> <leader>m :Marks<cr>
+nnoremap <silent> <leader>t :BTags<cr>
+nnoremap <silent> <leader>gl :Commits<CR>
+nnoremap <silent> <leader>ga :BCommits<CR>
 
 " easier split movements
 nmap <C-H> <C-W><C-H>
@@ -147,8 +153,8 @@ nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-L> <C-W><C-L>
 
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" bind K to grep word under cursor using fzf
+nnoremap <silent> K :execute 'Rg' expand('<cword>')<CR>
 
 " toggle nerdtree
 nmap <C-\> :NERDTreeToggle<cr>
@@ -167,8 +173,6 @@ map <Leader>gd :Gdiff<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gw :Gwrite<CR>
 map <Leader>gp :Gpush<CR>
-
-" resize windows mappings or plugin
 
 
 
@@ -217,13 +221,12 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 " let g:signify_line_highlight = 1
 " let g:gitgutter_highlight_lines = 1
 
-" ctrlp
+" fzf
+let g:fzf_layout = {'down': '15'} " number of results to show
+let g:fzf_buffers_jump = 1  " jump to open buffer if possible
+
+" use rg for grep
 if executable('rg')
-    " use ripgrep for its speed
-    let g:ctrlp_user_command = 'rg %s -l --color never --files --no-ignore'
-    " its so fast it doesnt need caching
-    let g:ctrlp_use_caching = 0
-    " use it for grep as well
     set grepprg=rg\ --vimgrep
     set grepformat^=%f:%l:%c:%m
 endif

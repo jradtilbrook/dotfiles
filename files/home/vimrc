@@ -24,16 +24,13 @@ call vundle#begin()
 
     " themes
     Plugin 'airblade/vim-gitgutter'
-    Plugin 'flazz/vim-colorschemes'
-    Plugin 'joshdick/onedark.vim'
+    Plugin 'chriskempson/base16-vim'
     Plugin 'mhinz/vim-signify'
     Plugin 'paranoida/vim-airlineish'
-    Plugin 'tyrannicaltoucan/vim-quantum'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
 
     " navigating
-    " Plugin 'christoomey/vim-tmux-navigator'
     Plugin 'ctrlpvim/ctrlp.vim' " or ctrlspace
     Plugin 'majutsushi/tagbar'
     Plugin 'scrooloose/nerdcommenter'
@@ -74,10 +71,9 @@ filetype plugin indent on       " re-enable filetype detection
 
 "---------------------------------- COLOURS -----------------------------------"
 syntax on                       " enable syntax highlighting
-let g:quantum_italics = 1
 " don't fail if colorscheme not found
-silent! colorscheme quantum
-" highlight Comment cterm=italic  " enable italics for comments
+silent! colorscheme base16-solarflare
+highlight Comment cterm=italic  " enable italics for comments
 set termguicolors
 
 
@@ -158,7 +154,7 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nmap <C-\> :NERDTreeToggle<cr>
 
 " toggle tag viewer
-nnoremap <C-M> :TagbarToggle<cr>
+nnoremap <Leader>tt :TagbarToggle<cr>
 
 " use space to toggle folding
 nnoremap <space> za

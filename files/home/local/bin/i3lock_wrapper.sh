@@ -17,37 +17,40 @@ mpc -h $HOME/.config/mpd/socket pause
 killall -SIGUSR1 dunst
 
 # create a temp file for resizing images
-RESIZED_IMAGE_PATH=$(mktemp)
-IMAGE_PATH=~/.screensaver
+# RESIZED_IMAGE_PATH=$(mktemp)
+# IMAGE_PATH=~/.screensaver
 # determine the current screen resolution. NB: this probably only works for a single screen
-RESOLUTION=$(xrandr -q | head -1 | sed -n 's:.*current\s\([0-9]\+\)\sx\s\([0-9]\+\).*:\1x\2:p')
-# LOCK_IMAGE="--blur 6"
+# RESOLUTION=$(xrandr -q | head -1 | sed -n 's:.*current\s\([0-9]\+\)\sx\s\([0-9]\+\).*:\1x\2:p')
+LOCK_IMAGE="--blur 8"
 # TODO: see if the processing time can be reduced - this conversion takes a few seconds
-convert $IMAGE_PATH -resize $RESOLUTION^ -gravity center -extent $RESOLUTION $RESIZED_IMAGE_PATH
-LOCK_IMAGE="-i $RESIZED_IMAGE_PATH -t"
+# convert $IMAGE_PATH -resize $RESOLUTION^ -gravity center -extent $RESOLUTION $RESIZED_IMAGE_PATH
+# LOCK_IMAGE="-i $RESIZED_IMAGE_PATH -t"
 
 # lock the screen
 i3lock \
 --ignore-empty-password \
 $LOCK_IMAGE \
---radius=100 \
+--radius=120 \
+--ring-width=10 \
 --indicator \
 --clock \
 --time-font='System San Francisco Display' \
---timecolor=dba300ff \
+--timecolor=52cbb0ff \
 --date-font='System San Francisco Display' \
---datecolor=dba300ff \
+--datecolor=52cbb0ff \
 --datestr='%a, %d %b' \
 --datesize=18 \
---insidevercolor=0000005c \
---insidewrongcolor=0000005c \
---insidecolor=0000003c \
---ringvercolor=000000fe \
---ringwrongcolor=fa334a80 \
---ringcolor=000000de \
---line-uses-inside \
---keyhlcolor=f4b601ff \
---bshlcolor=fa334a80 \
+--verifcolor=52cbb0ff \
+--wrongcolor=ef5253ff \
+--insidevercolor=222e388c \
+--insidewrongcolor=222e388c \
+--insidecolor=222e388c \
+--ringvercolor=52cbb0ff \
+--ringwrongcolor=ef5253ff \
+--ringcolor=222e38ff \
+--linecolor=000000ff \
+--keyhlcolor=52cbb0ff \
+--bshlcolor=ef5253ff \
 $*
 
 # resume dunst

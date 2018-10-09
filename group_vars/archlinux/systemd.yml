@@ -5,7 +5,7 @@
 system_services:
   - bluetooth.service
   - docker.socket # starts docker on demand when first trying to use it
-  - i3lock.service
+  # - i3lock.service # this can't be here because it is also _started_ which is annoying
   - systemd-networkd.service
   - systemd-resolved.service
   - ufw.service

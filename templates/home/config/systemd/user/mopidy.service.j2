@@ -7,7 +7,7 @@ Conflicts=mpd.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/mopidy
+ExecStart={{ ansible_user_dir }}/.virtualenvs/mopidy/bin/mopidy
 ProtectSystem=yes
 NoNewPrivileges=yes
 ProtectKernelTunables=yes

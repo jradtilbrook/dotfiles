@@ -1,17 +1,11 @@
 ---
-## ---------------------------
-## Vim plugins with Vundle.vim
-## ---------------------------
-- name: clone Vundle.vim for plugin management in vim
-  git:
-    repo: git://github.com/VundleVim/Vundle.vim.git
-    dest: "{{ ansible_user_dir }}/.vim/bundle/Vundle.vim"
-    update: no
-
-- name: install plugins with vundle
+## -------------------------
+## Vim plugins with vim-plug
+## -------------------------
+- name: install plugins with vim-plug
   shell: >
-    BEF=`ls ~/.vim/bundle/ | wc -l`; vim +PluginInstall +qa;
-    AFT=`ls ~/.vim/bundle | wc -l`; exit $(($AFT-$BEF))
+    BEF=`ls ~/.vim/plugged/ | wc -l`; vim +PlugInstall +qa;
+    AFT=`ls ~/.vim/plugged/ | wc -l`; exit $(($AFT-$BEF))
   register: vundle
   changed_when: vundle.rc > 0
   failed_when: no # this shouldn't ever actually fail

@@ -143,10 +143,13 @@ nmap <Leader><space> :nohlsearch<cr>
 " fzf map
 nnoremap <silent> <C-P> :Files<cr>
 nnoremap <silent> <C-B> :Buffers<cr>
-nnoremap <silent> <leader>m :Marks<cr>
+nnoremap <silent> <C-M> :Marks<cr>
 nnoremap <silent> <leader>t :BTags<cr>
 nnoremap <silent> <leader>gl :Commits<CR>
 nnoremap <silent> <leader>ga :BCommits<CR>
+" shortcuts for tab/buffer navigation
+nnoremap <silent> <leader>n :bprev<cr>
+nnoremap <silent> <leader>m :bnext<cr>
 
 " easier split movements
 nmap <C-H> <C-W><C-H>
@@ -191,26 +194,8 @@ map <Leader>gp :Gpush<CR>
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-" let g:airline_theme = 'onedark'
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-" let g:airline#extensions#tabline#left_sep = ''
-" let g:airline#extensions#tabline#left_alt_sep = ''
-" let g:airline#extensions#tabline#right_sep = ''
-" let g:airline#extensions#tabline#right_alt_sep = ''
-" shortcuts for tab/buffer navigation
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>n <Plug>AirlineSelectPrevTab
-nmap <leader>m <Plug>AirlineSelectNextTab
 let g:airline#extensions#tabline#buffer_nr_show = 0
-let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#buffer_min_count = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 
 " ultisnips
@@ -222,10 +207,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 let g:calendar_task = 1
-
-" vim-signify/vim-gitgutter
-" let g:signify_line_highlight = 1
-" let g:gitgutter_highlight_lines = 1
 
 " fzf
 let g:fzf_layout = {'down': '15'} " number of results to show

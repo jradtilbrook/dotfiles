@@ -9,8 +9,6 @@
     -f "{{ ansible_user_dir }}/.ssh/id_rsa"
   args:
     creates: "{{ ansible_user_dir }}/.ssh/id_rsa"
-  # TODO: check mode is still skipped. pending PR https://github.com/ansible/ansible/pull/40428
-  # TODO: it should be coming in the 2.7.0 release
 
 - name: check ssh key exists
   stat:

@@ -8,17 +8,18 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-plug'
 
     " extra languages
-    Plug 'chr4/nginx.vim'
-    Plug 'derekwyatt/vim-scala'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'mxw/vim-jsx'
+    Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
+    Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
     Plug 'pangloss/vim-javascript'
     Plug 'pearofducks/ansible-vim'
+    Plug 'posva/vim-vue', { 'for': ['vue', 'javascript'] }
     Plug 'scrooloose/syntastic'
 
     " themes
     Plug 'airblade/vim-gitgutter'
     Plug 'chriskempson/base16-vim'
+    Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+    Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
     Plug 'mhinz/vim-signify'
     Plug 'paranoida/vim-airlineish'
     Plug 'vim-airline/vim-airline'
@@ -28,7 +29,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'majutsushi/tagbar'
     Plug 'scrooloose/nerdcommenter'
-    Plug 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'wesQ3/vim-windowswap'
     Plug 'xolox/vim-easytags'
     Plug 'xolox/vim-misc'
@@ -36,16 +37,19 @@ call plug#begin('~/.vim/plugged')
 
     " syntax/linting
     Plug 'editorconfig/editorconfig-vim'
-    " Plug 'w0rp/ale'
 
     " completion
-    Plug 'honza/vim-snippets'
     Plug 'KabbAmine/zeavim.vim'
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'honza/vim-snippets'
+    Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
     Plug 'sirver/ultisnips'
-    " Plug 'valloric/youcompleteme'
+    Plug 'w0rp/ale'
 
     " other utils
     Plug 'itchyny/calendar.vim'
+    Plug 'junegunn/gv.vim', { 'on': 'GV' }
+    Plug 'junegunn/vim-peekaboo'
     Plug 'sjl/gundo.vim'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'tpope/vim-fugitive'
@@ -130,6 +134,13 @@ nmap <Leader>ei :tabedit $HOME/.config/i3/config<cr>
 nmap <Leader>ez :tabedit $HOME/.zshrc<cr>
 " remove highlighted search
 nmap <Leader><space> :nohlsearch<cr>
+" toggle limelight to only highlight paragraph around cursor
+nnoremap <silent> <Leader>ll :Limelight!!<cr>
+" toggle goyo for simple focussed editing
+nnoremap <silent> <Leader>yy :Goyo<cr>
+" Open new line below and above current line
+nnoremap <leader>o o<esc>
+nnoremap <leader>O O<esc>
 " fzf map
 nnoremap <silent> <C-P> :Files<cr>
 nnoremap <silent> <C-B> :Buffers<cr>
@@ -140,6 +151,8 @@ nnoremap <silent> <leader>ga :BCommits<CR>
 " shortcuts for tab/buffer navigation
 nnoremap <silent> <leader>n :bprev<cr>
 nnoremap <silent> <leader>m :bnext<cr>
+nnoremap ]b :bnext<cr>
+nnoremap [b :bprev<cr>
 
 " easier split movements
 nmap <C-H> <C-W><C-H>

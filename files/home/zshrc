@@ -119,25 +119,25 @@ _gen_fzf_default_opts() {
 _gen_fzf_default_opts
 
 # Aliases
-alias vimp='vim -p' # tab for each file
-alias vimo='vim -O' # vertical split
+alias clc='tput reset'
+alias f='fuck'
+alias free='free -h'
 alias l1='ls -1'
 alias llh='ll -h'
 alias tree='tree --du -h -C --dirsfirst' # show size and colour
-eval $(thefuck --alias)
-alias f='fuck'
-alias free='free -h'
-unalias rm
+alias vi='nvim'
+alias vim='nvim'
 alias xclip='xclip -selection c'
-alias clc='tput reset'
+eval $(thefuck --alias)
+unalias rm
 
 # Environment variables
-export EDITOR=vim
-export TERM=xterm-256color
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export PROJECT_HOME=$HOME/projects
+export EDITOR=nvim
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin"
+export PROJECT_HOME=$HOME/projects
+export TERM=xterm-256color
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
 
 # travis cli autocompletion
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh

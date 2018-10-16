@@ -63,6 +63,7 @@ pacman_packages:
   - mpv
   - namcap
   - ncmpcpp
+  - neovim
   - net-tools
   - nfs-utils
   - noto-fonts-emoji

@@ -25,6 +25,7 @@ pacman_packages:
   - ctags
   - deluge
   - dmenu
+  - dnsutils
   - docker
   - docker-compose
   - dosfstools

@@ -22,7 +22,7 @@
     name: "{{ item }}"
     enabled: yes
     state: started
-    user: yes
+    scope: user
   loop: "{{ user_services }}"
   failed_when: no # TODO: this fails on very first run because config files arent installed yet
 

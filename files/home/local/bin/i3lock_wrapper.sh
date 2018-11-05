@@ -11,7 +11,7 @@
 mpc -h $HOME/.config/mpd/socket pause
 
 # Ensure dmenu shading is removed before screenshot
-# sleep 0.2
+sleep 0.2
 
 # pause dunst
 killall -SIGUSR1 dunst

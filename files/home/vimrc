@@ -13,7 +13,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'pangloss/vim-javascript'
     Plug 'pearofducks/ansible-vim'
     Plug 'posva/vim-vue', { 'for': ['vue', 'javascript'] }
-    Plug 'scrooloose/syntastic'
 
     " themes
     Plug 'airblade/vim-gitgutter'
@@ -21,30 +20,28 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
     Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
     Plug 'mhinz/vim-signify'
-    Plug 'paranoida/vim-airlineish'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
     " navigating
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'junegunn/fzf.vim'
-    Plug 'majutsushi/tagbar'
     Plug 'scrooloose/nerdcommenter'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'wesQ3/vim-windowswap'
-    Plug 'xolox/vim-easytags'
     Plug 'xolox/vim-misc'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
 
     " syntax/linting
     Plug 'editorconfig/editorconfig-vim'
+    " Plug 'scrooloose/syntastic'
+    Plug 'w0rp/ale'
 
     " completion
     Plug 'KabbAmine/zeavim.vim'
-    Plug 'Shougo/deoplete.nvim'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'honza/vim-snippets'
     Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
     Plug 'sirver/ultisnips'
-    Plug 'w0rp/ale'
 
     " other utils
     Plug 'itchyny/calendar.vim'
@@ -52,10 +49,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-peekaboo'
     Plug 'sjl/gundo.vim'
     Plug 'terryma/vim-multiple-cursors'
+    Plug 'tommcdo/vim-fubitive'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-obsession'
     Plug 'tpope/vim-ragtag'
     Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-rhubarb'
     Plug 'tpope/vim-speeddating'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-unimpaired'
@@ -73,12 +72,15 @@ set termguicolors
 
 
 
+set shada='100,<1000,s100,h     " increase buffer sizes
 set number relativenumber       " display relative and normal line numbers
 set mouse=a                     " enable mouse for all modes
 set expandtab                   " expand tabs to spaces
 set smarttab                    " delete 'shiftwidth' spaces at a time
 set smartindent                 " add tabs by default
+set breakindent                 " similar indents with wrapped lines
 set autoindent                  " automatically indent
+set shiftround                  " round indents to multiple of shiftwidth
 set tabstop=4                   " number of spaces of <Tab>
 set shiftwidth=4                " number of spaces of indent
 set shiftround                  " round indents to nearest `shiftwidth`
@@ -87,6 +89,7 @@ set listchars+=tab:»\ ,trail:▫,eol:¬,space:·    " invisible characters
 set foldmethod=indent           " fold with equal indents
 set foldlevel=99                " leave all folds open by default
 set autowriteall                " write contents when switching away
+set nostartofline               " keep cursor in same column when moving
 
 set scrolloff=5                 " show 5 context lines when scrolling
 set sidescroll=1                " use continuous scrolling
@@ -100,16 +103,17 @@ set ignorecase                  " ignore case by default
 set smartcase                   " include case if present
 
 set t_Co=256                    " set terminal to 256 colours
-set cursorline                  " highlight current line
+" set cursorline                  " highlight current line
 "set cursorcolumn                " higlight current column
 set laststatus=2                " always show the status line
 set backspace=indent,start,eol  " backspace over everything
 
 set showcmd                     " show command line
 set wildmenu                    " show command completion matches
-set wildignore=*.swp,*.pyc,*.o  " ignore files when expanding wildcards
+set wildignore+=*.swp,*.pyc,*.o " ignore files when expanding wildcards
 set autoread                    " automatically update external changes
-" set clipboard=unnamed,unnamedplus       " share system clipboard
+set autowrite                   " automatically write file when moving away
+set clipboard=unnamedplus       " share system clipboard
 
 set splitbelow                  " but the new window below
 set splitright                  " put the new window to the right
@@ -117,8 +121,23 @@ set splitright                  " put the new window to the right
 set formatoptions+=ojr          " insert comment leader when using 'o' or 'O'
                                 " insert comment leader on <Enter>
                                 " remove comment leader when joining lines
-set pastetoggle=<F2>            " key to toggle paste mode
 
+
+
+"--------------------------- MAPPINGS TO REMEMBER -----------------------------"
+" 'gq' will perform a format. pass a range to format those lines
+" use 'gw' to keep the cursor at the same position
+
+" === From airblade/vim-gitgutter ===
+" <leader>hs stages hunk of current line
+" <leader>hp to preview hunk
+" hunk text objects: `ic` is everything in current hunk, `ac` includes surrounding empty lines
+
+" === from wesQ3/vim-windowswap ===
+" <leader>ww yank and paste windows to swap
+
+" === from tpope/vim-obsession ===
+" :Obsession starts a new session and keeps it updated
 
 
 "---------------------------------- MAPPINGS ----------------------------------"
@@ -160,14 +179,15 @@ nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-L> <C-W><C-L>
 
+" deo
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<tab>"
+
 " bind K to grep word under cursor using fzf
 nnoremap <silent> K :execute 'Rg' expand('<cword>')<CR>
 
 " toggle nerdtree
 nmap <C-\> :NERDTreeToggle<cr>
-
-" toggle tag viewer
-nnoremap <Leader>tt :TagbarToggle<cr>
 
 " use space to toggle folding
 nnoremap <space> za
@@ -180,6 +200,7 @@ map <Leader>gd :Gdiff<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gw :Gwrite<CR>
 map <Leader>gp :Gpush<CR>
+map <Leader>go :Gbrowse<CR>
 
 
 
@@ -197,19 +218,20 @@ map <Leader>gp :Gpush<CR>
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#buffer_nr_show = 0
-let g:airline#extensions#tabline#buffer_min_count = 0
-let g:airline#extensions#tabline#tab_min_count = 2
 
 " ultisnips
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<c-b>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+let g:UltiSnipsJumpForwardTrigger = '<c-h>'
 
 " calendar
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 let g:calendar_task = 1
+
+" ale
+let g:ale_lint_on_text_changed = 'never'
+
+" deocomplete
+let g:deoplete#enable_at_startup = 1
 
 " fzf
 let g:fzf_layout = {'down': '15'} " number of results to show
@@ -239,5 +261,5 @@ let g:jsx_ext_required = 0
 
 " KabbAmine/zeavim.vim
 let g:zv_file_types = {
-    \ 'php' : 'php,laravel,phpunit,yii,doctrine'
+    \ 'php' : 'php,laravel,phpunit,yii,doctrine,cakephp'
     \ }

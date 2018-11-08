@@ -45,6 +45,7 @@ pacman_packages:
   - gvim # normal vim doesnt come with `+clipboard`
   - htop
   - httpie
+  - hoogle
   - hub
   - hunspell
   - hunspell-en_AU
@@ -120,7 +121,7 @@ pacman_packages:
   - xautolock
   - xclip
   - xdotool
-  - xf86-video-intel # depending on graphics hardware
+  # - xf86-video-intel # depending on graphics hardware
   - xorg-server
   - xorg-xbacklight
   - xorg-xinit

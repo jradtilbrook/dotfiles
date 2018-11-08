@@ -59,7 +59,6 @@ plugins=(
     go \
     gpg-agent \
     httpie \
-    jira \
     kubectl \
     last-working-dir \
     node \
@@ -139,6 +138,6 @@ export TERM=xterm-256color
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
 
-# travis cli autocompletion
+# autocompletion
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 [ -f /usr/share/exercism-cli/completion/exercism_completion.zsh ] && source /usr/share/exercism-cli/completion/exercism_completion.zsh

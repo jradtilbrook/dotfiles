@@ -113,7 +113,6 @@ set wildmenu                    " show command completion matches
 set wildignore+=*.swp,*.pyc,*.o " ignore files when expanding wildcards
 set autoread                    " automatically update external changes
 set autowrite                   " automatically write file when moving away
-set clipboard=unnamedplus       " share system clipboard
 
 set splitbelow                  " but the new window below
 set splitright                  " put the new window to the right

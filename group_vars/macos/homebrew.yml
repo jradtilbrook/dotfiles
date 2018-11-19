@@ -41,7 +41,6 @@ homebrew_casks:
   - spectacle
   - spotify
   - suspicious-package
-  - vagrant
   - virtualbox
   - virtualbox-extension-pack
   - vlc

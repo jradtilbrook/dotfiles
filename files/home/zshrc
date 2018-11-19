@@ -67,7 +67,6 @@ plugins=(
     stack \
     sudo \
     systemd \
-    vagrant \
     virtualenvwrapper \
     yarn \
 )

@@ -112,7 +112,6 @@ pacman_packages:
   - ufw
   - unzip
   - util-linux
-  - vagrant
   - virtualbox
   - virtualbox-guest-iso
   - virtualbox-host-modules-arch

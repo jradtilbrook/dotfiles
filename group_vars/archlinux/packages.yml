@@ -147,6 +147,7 @@ aur_packages:
   - insomnia
   - jiq
   - kubectl-bin
+  - kubectx
   - lazygit
   - marp
   - minikube

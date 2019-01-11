@@ -34,7 +34,7 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -62,6 +62,7 @@ plugins=(
     httpie \
     kubectl \
     last-working-dir \
+    minikube \
     node \
     pip \
     python \
@@ -123,9 +124,11 @@ alias f='fuck'
 alias free='free -h'
 alias l1='ls -1'
 alias llh='ll -h'
+alias tb='taskbook'
 alias tree='tree --du -h -C --dirsfirst' # show size and colour
 alias vi='nvim'
 alias vim='nvim'
+alias vimdiff='nvim -d'
 alias xclip='xclip -selection c'
 eval $(thefuck --alias)
 unalias rm

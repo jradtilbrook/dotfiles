@@ -8,6 +8,7 @@ system_services:
   # - i3lock.service # this can't be here because it is also _started_ which is annoying
   - systemd-networkd.service
   - systemd-resolved.service
+  - systemd-timesyncd.service
   - ufw.service
 
 user_services:

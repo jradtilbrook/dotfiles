@@ -146,8 +146,10 @@ aur_packages:
   - i3lock-color-git
   - insomnia
   - jiq
+  - kubeadm-bin
   - kubectl-bin
   - kubectx
+  - kubernetic
   - lazygit
   - marp
   - minikube
@@ -163,6 +165,7 @@ aur_packages:
   - postman-bin
   - slack-desktop
   - sublime-text
+  - taskbook
   - ttf-symbola
   - zoom
 

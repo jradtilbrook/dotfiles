@@ -21,11 +21,13 @@ homebrew_casks:
   - font-roboto-mono-for-powerline
   - font-source-code-pro
   - font-source-code-pro-for-powerline
+  - ghc
   - google-chrome
   - google-drive-file-stream
   - insomnia
   - iterm2
   - keyboardcleantool
+  - minikube
   - ngrok
   - phpstorm
   - postman
@@ -40,10 +42,12 @@ homebrew_casks:
   - slack
   - spectacle
   - spotify
+  - stern
   - suspicious-package
   - virtualbox
   - virtualbox-extension-pack
   - vlc
+  - whatsapp
 homebrew_formulae:
   - ack
   - awscli
@@ -52,6 +56,7 @@ homebrew_formulae:
   - ctags
   - docker
   - dockutil
+  - fzf
   - gawk
   - git
   - git-lfs
@@ -59,15 +64,20 @@ homebrew_formulae:
   - gnupg
   # - gopass
   - gpg-agent
+  - helmfile
   - htop
   - httpie
   - hub
   - jq
+  - kubectx
+  - kubernetes-cli
+  - kubernetes-helm
   - libevent
+  - neovim
   - node
   - packer
   - pass
-  - php71
+  - php
   - pinentry-mac
   - postgresql
   - python3

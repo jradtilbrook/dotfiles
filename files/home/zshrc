@@ -135,11 +135,12 @@ unalias rm
 
 # Environment variables
 export EDITOR=nvim
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin"
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.local/bin:$HOME/go/bin"
 export PROJECT_HOME=$HOME/projects
 export TERM=xterm-256color
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
+export AWS_VAULT_PASS_PREFIX=aws-vault
 
 # autocompletion
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh

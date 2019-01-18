@@ -140,7 +140,8 @@ pacman_packages:
 ## AUR packages to install
 ## -----------------------
 aur_packages:
-  - aws-vault # need the git version for now until the password store is released
+  # - aws-vault # need the git version for now until the password store is released
+  - emoji-keyboard
   - exercism-cli
   - fac
   - gksu
@@ -150,6 +151,8 @@ aur_packages:
   - kubeadm-bin
   - kubectl-bin
   - kubectx
+  - kubernetes-helm-bin
+  - kubernetes-helmfile-bin
   - kubernetic
   - lazygit
   - marp

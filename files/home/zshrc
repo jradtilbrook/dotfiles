@@ -123,6 +123,7 @@ _gen_fzf_default_opts
 alias clc='tput reset'
 alias f='fuck'
 alias free='free -h'
+alias kx='kubectx'
 alias l1='ls -1'
 alias llh='ll -h'
 alias tb='taskbook'

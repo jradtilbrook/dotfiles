@@ -148,6 +148,7 @@ aur_packages:
   - i3lock-color-git
   - insomnia
   - jiq
+  - kubectl-bin
   - kubectx
   - kubernetes-helm-bin
   - kubernetes-helmfile-bin

@@ -148,8 +148,6 @@ aur_packages:
   - i3lock-color-git
   - insomnia
   - jiq
-  - kubeadm-bin
-  - kubectl-bin
   - kubectx
   - kubernetes-helm-bin
   - kubernetes-helmfile-bin
@@ -168,6 +166,7 @@ aur_packages:
   - phpstorm
   - postman-bin
   - slack-desktop
+  - stern-bin
   - sublime-text
   - taskbook
   - ttf-symbola

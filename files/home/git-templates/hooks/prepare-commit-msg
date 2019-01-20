@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# An example hook script to prepare the commit log message.
+# Called by "git commit" with the name of the file that has the
+# commit message, followed by the description of the commit
+# message's source.  The hook's purpose is to edit the commit
+# message file.  If the hook fails with a non-zero status,
+# the commit is aborted.
+#
+# To enable this hook, put it in the .git/hooks directory.
+
+# The first comments out the "Conflicts:" part of a merge commit.
+#
+# The rest will prepend the current branch to the commit message except when the
+# the commit is an amend.
+#
+
+case "$2,$3" in
+    merge,) # Commend out "Conflicts" part
+        /usr/bin/perl -i.bak -ne 's/^/# /, s/^# #/#/ if /^Conflicts/ .. /#/; print' "$1" ;;
+    commit,HEAD) # An amended commit - dont append
+        ;;
+    *) # Prepend the current branch to the commit
+        BRANCH_NAME=`git symbolic-ref --short HEAD`
+        case $BRANCH_NAME in
+            master|develop)
+                ;;
+            *)
+                sed -r "1s/^($BRANCH_NAME )?/$BRANCH_NAME /" -i $1 ;;
+                # sed -i "1s/^/`git symbolic-ref --short HEAD` /" $1 ;;
+        esac
+esac

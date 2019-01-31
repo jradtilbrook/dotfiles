@@ -164,6 +164,7 @@ aur_packages:
   - nerd-fonts-complete
   - ngrok
   - otf-hermit
+  - php-pear
   - phpstorm
   - postman-bin
   - slack-desktop

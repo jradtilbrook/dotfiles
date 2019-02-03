@@ -94,7 +94,7 @@ set nostartofline               " keep cursor in same column when moving
 set scrolloff=5                 " show 5 context lines when scrolling
 set sidescroll=1                " use continuous scrolling
 set sidescrolloff=10            " show 10 context columns when scrolling
-set nowrap                      " do not wrap lines by default
+set wrap                      " do not wrap lines by default
 set colorcolumn=121             " vertical line at column 121
 
 set hlsearch                    " highlight search matches

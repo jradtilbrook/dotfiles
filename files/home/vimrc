@@ -145,11 +145,11 @@ let mapleader=','
 " save pressing shift
 nmap ; :
 " shortcut to edit vimrc file
-nmap <Leader>ev :tabedit $MYVIMRC<cr>
+nmap <Leader>ev :edit $HOME/.vimrc<cr>
 " shortcut to edit i3 config
-nmap <Leader>ei :tabedit $HOME/.config/i3/config<cr>
+nmap <Leader>ei :edit $HOME/.config/i3/config<cr>
 " shortcut to edit Zsh config
-nmap <Leader>ez :tabedit $HOME/.zshrc<cr>
+nmap <Leader>ez :edit $HOME/.zshrc<cr>
 " remove highlighted search
 nmap <Leader><space> :nohlsearch<cr>
 " toggle limelight to only highlight paragraph around cursor

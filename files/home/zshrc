@@ -52,6 +52,7 @@ plugins=(
     archlinux \
     aws \
     aws-vault \
+    zsh-aws-vault \
     common-aliases \
     composer \
     docker \

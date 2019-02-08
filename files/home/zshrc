@@ -85,7 +85,7 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # helpful messages for unfound packages
-source /usr/share/doc/pkgfile/command-not-found.zsh
+[ -f /usr/share/doc/pkgfile/command-not-found.zsh ] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # do not kill background processes on exit
 setopt NO_HUP

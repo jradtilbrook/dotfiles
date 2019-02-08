@@ -5,23 +5,24 @@
 # TODO: these variables are effectively duplicates. look into consolidating
 dotfile_blacklist:
   - 40-libinput.conf
+  - 80-dhcp.network.j2
+  - 99-custom-udev.rules.j2
   - config
+  - config.rasi
   - default.pa
   - dunstrc
   - i3*
+  - monitor_hotplug.sh.j2
+  - mopidy*
   - mpd.conf
   - mpv.conf
   - ncmpcpp/config
+  - override.conf.j2
   - redshift.conf
   - xinitrc
   - xprofile
   - xserverrc
-  # templates
-  - i3*
-  - mopidy*
-  - override.conf.j2
 
 directory_blacklist:
-  - config
   - etc
   - local

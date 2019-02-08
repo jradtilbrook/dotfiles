@@ -2,14 +2,15 @@
 ## ------------------
 ## Homebrew variables
 ## ------------------
-homebrew_taps:
-  - caskroom/cask
-  - caskroom/fonts
-  - homebrew/php
+homebrew_taps: []
+  # - caskroom/cask
+  # - caskroom/fonts
+  # - homebrew/php
 homebrew_casks:
   - alfred
   - cheatsheet
   - dash
+  - deckhub
   - docker
   - firefox-developer-edition
   - font-anonymice-powerline
@@ -22,6 +23,7 @@ homebrew_casks:
   - font-source-code-pro
   - font-source-code-pro-for-powerline
   - ghc
+  - gitscout
   - google-chrome
   - google-drive-file-stream
   - insomnia

@@ -46,7 +46,8 @@ def get_all_keys(session):
     url = API_BASE + '/users/<user>/ssh-keys'
 
     r = session.request('GET', url)
-    for key in r.json()['values']:
+    for key in r['values']:
+    #  for key in r.json()['values']:
         yield key
 
 def create_key(session, name, pubkey, check_mode):

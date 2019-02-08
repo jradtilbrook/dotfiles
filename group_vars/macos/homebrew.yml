@@ -40,6 +40,7 @@ homebrew_casks:
   - qlvideo
   - quicklook-json
   - slack
+  - spectacle
   - spotify
   - suspicious-package
   - virtualbox

@@ -2,27 +2,29 @@
 ## ------------------
 ## Homebrew variables
 ## ------------------
-homebrew_taps: []
-  # - caskroom/cask
-  # - caskroom/fonts
-  # - homebrew/php
+homebrew_taps:
+  - caskroom/cask
+  - caskroom/fonts
+  - homebrew/cask-versions
 homebrew_casks:
   - alfred
+  - aws-vault
   - cheatsheet
   - dash
-  - deckhub
+  - devhub
   - docker
+  - dropbox
   - firefox-developer-edition
   - font-anonymice-powerline
   - font-droid-sans-mono-for-powerline
   - font-droidsansmono-nerd-font
   - font-droidsansmono-nerd-font-mono
   - font-fira-mono-for-powerline
+  - font-hermit-nerd-font-mono
   - font-meslo-for-powerline
   - font-roboto-mono-for-powerline
   - font-source-code-pro
   - font-source-code-pro-for-powerline
-  - ghc
   - gitscout
   - google-chrome
   - google-drive-file-stream
@@ -32,40 +34,33 @@ homebrew_casks:
   - minikube
   - ngrok
   - phpstorm
-  - postman
   - qlcolorcode
-  - qlimagesize
   - qlmarkdown
   - qlstephen
   - qlvideo
   - quicklook-json
-  - rambox
-  #- robomongo
   - slack
-  - spectacle
   - spotify
-  - stern
   - suspicious-package
   - virtualbox
   - virtualbox-extension-pack
   - vlc
-  - whatsapp
 homebrew_formulae:
   - ack
   - awscli
-  #- chromedriver
+  - chamber
   - composer
   - ctags
   - docker
   - dockutil
   - fzf
   - gawk
+  - ghc
   - git
   - git-lfs
   - gnu-sed
   - gnupg
-  # - gopass
-  - gpg-agent
+  - golang
   - helmfile
   - htop
   - httpie
@@ -83,15 +78,15 @@ homebrew_formulae:
   - pinentry-mac
   - postgresql
   - python3
+  - python@2
   - ranger
   - ripgrep
-  #- selenium-server-standalone
   - sha2
+  - stern
   - telnet
   - thefuck
   - tig
   - tree
-  - vim
   - wget
   - zsh
   - zsh-completions

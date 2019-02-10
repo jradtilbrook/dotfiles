@@ -62,9 +62,9 @@ homebrew_formulae:
   - git-lfs
   - gnu-sed
   - gnupg
+  - go-jira
   - golang
   - helmfile
-  - htop
   - httpie
   - hub
   - jq

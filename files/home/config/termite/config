@@ -26,7 +26,7 @@ foreground          = #A6AFB8
 foreground_bold     = #E8E9ED
 cursor              = #E8E9ED
 cursor_foreground   = #18262F
-background          = rgb(24, 38, 47)
+background          = #18262F
 # background          = rgba(24, 38, 47, 0.95)
 # 16 color space
 # Black, Gray, Silver, White
@@ -53,7 +53,7 @@ color13 = #A363D5
 color6  = #52CBB0
 color14 = #52CBB0
 # Extra colors
-color16 = #E66B2B
+color16 = #18262F
 color17 = #D73C9A
 color18 = #222E38
 color19 = #586875

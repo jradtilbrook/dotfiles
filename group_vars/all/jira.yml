@@ -1,0 +1,2 @@
+jira_endpoint: "{{ vault_jira_endpoint }}"
+jira_email: "{{ vault_jira_email }}"

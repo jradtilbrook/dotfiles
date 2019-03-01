@@ -145,6 +145,7 @@ aur_packages:
   - exercism-cli
   - fac
   - gksu
+  - gotop-bin
   - i3lock-color-git
   - insomnia
   - jiq

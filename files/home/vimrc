@@ -8,11 +8,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-plug'
 
     " extra languages
+    Plug 'fatih/vim-go', { 'for': 'go' }
     Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
     Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
     Plug 'pangloss/vim-javascript'
     Plug 'pearofducks/ansible-vim'
     Plug 'posva/vim-vue', { 'for': ['vue', 'javascript'] }
+    Plug 'roxma/LanguageServer-php-neovim',  {'do': 'rm -f composer.lock && composer install && composer run-script parse-stubs'}
 
     " themes
     Plug 'airblade/vim-gitgutter'
@@ -40,7 +42,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'KabbAmine/zeavim.vim'
     Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
     Plug 'honza/vim-snippets'
-    Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+    Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'rm -f composer.lock && composer install' }
     Plug 'sirver/ultisnips'
 
     " other utils
@@ -210,6 +212,8 @@ map <Leader>go :Gbrowse<CR>
 "     " source vimrc when it changes
 "     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " augroup END
+
+autocmd FileType php setl iskeyword+=$
 
 
 

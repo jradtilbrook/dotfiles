@@ -22,6 +22,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
     Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
     Plug 'mhinz/vim-signify'
+    Plug 'neovimhaskell/haskell-vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
@@ -44,6 +45,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'honza/vim-snippets'
     Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'rm -f composer.lock && composer install' }
     Plug 'sirver/ultisnips'
+    Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 
     " other utils
     Plug 'itchyny/calendar.vim'

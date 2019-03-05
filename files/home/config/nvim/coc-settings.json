@@ -5,6 +5,12 @@
             "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
             "filetypes": ["hs", "lhs", "haskell"],
             "initializationOptions": {}
+        },
+        "golang": {
+            "command": "bingo",
+            "args": ["--diagnostics-style=instant"],
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"]
         }
     }
 }

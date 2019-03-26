@@ -71,6 +71,7 @@ pacman_packages:
   - noto-fonts-emoji
   - ntfs-3g
   - openssh
+  - openvpn
   - pamixer
   - pass
   - pavucontrol
@@ -100,6 +101,7 @@ pacman_packages:
   - shotwell
   - stack
   - termite
+  - terraform
   - thefuck
   - tig
   - tmux

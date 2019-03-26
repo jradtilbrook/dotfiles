@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 
     " extra languages
     Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
+    Plug 'hashivim/vim-terraform'
     Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
     Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
     Plug 'pangloss/vim-javascript'

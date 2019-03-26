@@ -72,6 +72,7 @@ plugins=(
     stack \
     sudo \
     systemd \
+    terraform \
     virtualenvwrapper \
     yarn \
 )

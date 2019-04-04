@@ -9,7 +9,9 @@ call plug#begin('~/.vim/plugged')
 
     " extra languages
     Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
+    Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
     Plug 'hashivim/vim-terraform'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': 'markdown', 'on': 'MarkdownPreview' }
     Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
     Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
     Plug 'pangloss/vim-javascript'
@@ -265,3 +267,6 @@ let g:go_fmt_command = "goimports"
 let g:zv_file_types = {
     \ 'php' : 'php,laravel,phpunit,yii,doctrine,cakephp'
     \ }
+
+" iamcco/markdown-preview.nvim
+let g:mkdp_browser = 'firefox-developer-edition'

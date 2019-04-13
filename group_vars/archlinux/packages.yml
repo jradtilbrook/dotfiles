@@ -9,6 +9,7 @@
 pacman_packages:
   - ack
   - acpi
+  - adobe-source-code-pro-fonts
   - alsa-utils
   - arc-gtk-theme
   - archey3
@@ -17,6 +18,7 @@ pacman_packages:
   - bluez-firmware
   - bluez-libs
   - bluez-utils
+  - calibre
   - chromium
   - cmake
   - code
@@ -92,6 +94,7 @@ pacman_packages:
   - python2
   - python2-pip
   - ranger
+  - rclone
   - redshift
   - ripgrep
   - rofi
@@ -115,9 +118,6 @@ pacman_packages:
   - ufw
   - unzip
   - util-linux
-  - virtualbox
-  - virtualbox-guest-iso
-  - virtualbox-host-modules-arch
   - vlc
   - wget
   - xautolock
@@ -144,11 +144,13 @@ pacman_packages:
 ## -----------------------
 aur_packages:
   # - aws-vault # need the git version for now until the password store is released
+  - docker-credential-pass
   - emoji-keyboard
   - exercism-cli
   - fac
   - gksu
   - gotop-bin
+  - heroku-cli
   - i3lock-color-git
   - insomnia
   - jiq
@@ -175,7 +177,9 @@ aur_packages:
   - stern-bin
   - sublime-text
   - taskbook
+  - ttf-font-awesome-4
   - ttf-symbola
+  - ttf-twemoji-color
   - zoom
 
 ## -----------------------

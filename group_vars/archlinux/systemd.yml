@@ -12,5 +12,5 @@ system_services:
   - ufw.service
 
 user_services:
-  - redshift.service
   # - mpd.service # this is not enabled because it conflicts with mopidy
+  - redshift.service

@@ -4,31 +4,21 @@
 ## ---------------------------
 - name: find dotfiles to link to ~
   find:
-    paths: files/home/
+    paths:
+      - files/home/
+      - templates/home/
     recurse: yes
     excludes: "{{ dotfile_blacklist | default(omit) }}"
   register: home_files
 
-- name: find templates to import to ~
-  find:
-    paths: templates/home/
-    recurse: yes
-    excludes: "{{ dotfile_blacklist | default(omit) }}"
-  register: home_templates
-
 - name: find dotfiles to link to /etc
   find:
-    paths: files/etc/
+    paths:
+      - files/etc/
+      - templates/etc/
     recurse: yes
     excludes: "{{ dotfile_blacklist | default(omit) }}"
   register: etc_files
-
-- name: find templates to import to /etc
-  find:
-    paths: templates/etc/
-    recurse: yes
-    excludes: "{{ dotfile_blacklist | default(omit) }}"
-  register: etc_templates
 
 - name: find directories to create
   find:
@@ -44,6 +34,8 @@
     dest: "{{ ansible_user_dir }}/.{{ item.path | regex_replace('^(templates|files)/home/', '') }}"
     state: directory
   loop: "{{ home_dirs.files }}"
+  loop_control:
+    label: "{{ item.path }}"
   # if a blacklist is defined, use it, otherwise create all directories
   when: directory_blacklist is not defined or item.path is not search(directory_blacklist | join('|'))
 
@@ -53,6 +45,9 @@
     dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('files/home') }}"
     state: link
   loop: "{{ home_files.files }}"
+  loop_control:
+    label: "{{ item.path }}"
+  when: item.path | splitext | last != '.j2'
 
 - name: import dotfile templates to home directory
   template:
@@ -60,7 +55,10 @@
     dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('templates/home') | splitext | first }}"
     backup: yes
     mode: "{{ item.mode }}"
-  loop: "{{ home_templates.files }}"
+  loop: "{{ home_files.files }}"
+  loop_control:
+    label: "{{ item.path }}"
+  when: item.path | splitext | last == '.j2'
 
 - name: link dotfiles to etc directory
   become: yes
@@ -69,6 +67,9 @@
     dest: "/etc/{{ item.path | relpath('files/etc') }}"
     state: link
   loop: "{{ etc_files.files }}"
+  loop_control:
+    label: "{{ item.path }}"
+  when: item.path | splitext | last != '.j2'
 
 - name: import dotfile templates to etc directory
   become: yes
@@ -76,7 +77,10 @@
     src: "{{ item.path }}"
     dest: "/etc/{{ item.path | relpath('templates/etc') | splitext | first }}"
     backup: yes
-  loop: "{{ etc_templates.files }}"
+  loop: "{{ etc_files.files }}"
+  loop_control:
+    label: "{{ item.path }}"
+  when: item.path | splitext | last == '.j2'
 
 - name: link system files
   become: yes

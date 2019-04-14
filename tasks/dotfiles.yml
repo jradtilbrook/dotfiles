@@ -4,18 +4,14 @@
 ## ---------------------------
 - name: find dotfiles to link to ~
   find:
-    paths:
-      - files/home/
-      - templates/home/
+    paths: files/home/
     recurse: yes
     excludes: "{{ dotfile_blacklist | default(omit) }}"
   register: home_files
 
 - name: find dotfiles to link to /etc
   find:
-    paths:
-      - files/etc/
-      - templates/etc/
+    paths: files/etc/
     recurse: yes
     excludes: "{{ dotfile_blacklist | default(omit) }}"
   register: etc_files
@@ -23,15 +19,13 @@
 - name: find directories to create
   find:
     file_type: directory
-    paths:
-      - files/home/
-      - templates/home/
+    paths: files/home/
     recurse: yes
   register: home_dirs
 
 - name: ensure directories exist
   file:
-    dest: "{{ ansible_user_dir }}/.{{ item.path | regex_replace('^(templates|files)/home/', '') }}"
+    dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('files/home') }}"
     state: directory
   loop: "{{ home_dirs.files }}"
   loop_control:
@@ -52,7 +46,7 @@
 - name: import dotfile templates to home directory
   template:
     src: "{{ item.path }}"
-    dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('templates/home') | splitext | first }}"
+    dest: "{{ ansible_user_dir }}/.{{ item.path | relpath('files/home') | splitext | first }}"
     backup: yes
     mode: "{{ item.mode }}"
   loop: "{{ home_files.files }}"
@@ -75,7 +69,7 @@
   become: yes
   template:
     src: "{{ item.path }}"
-    dest: "/etc/{{ item.path | relpath('templates/etc') | splitext | first }}"
+    dest: "/etc/{{ item.path | relpath('files/etc') | splitext | first }}"
     backup: yes
   loop: "{{ etc_files.files }}"
   loop_control:

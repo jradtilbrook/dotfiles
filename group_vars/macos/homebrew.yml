@@ -53,6 +53,8 @@ homebrew_formulae:
   - composer
   - ctags
   - docker
+  - docker-machine
+  - docker-machine-driver-hyperkit
   - dockutil
   - fx
   - fzf
@@ -67,6 +69,7 @@ homebrew_formulae:
   - helmfile
   - httpie
   - hub
+  - hyperkit
   - jq
   - kubectx
   - kubernetes-cli

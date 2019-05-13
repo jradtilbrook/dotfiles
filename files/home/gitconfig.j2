@@ -1,4 +1,5 @@
 {{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
+# vi: ft=gitconfig noexpandtab
 [includeIf "gitdir:~/"]
 	path = .gitconfig-play
 [includeIf "gitdir:~/he/"]
@@ -24,6 +25,7 @@
 	ci = commit -v
 	ca = commit -v --amend
 	co = checkout
+	cb = checkout -b
 	st = status
 	s = status -s --branch
 	f = fetch
@@ -34,14 +36,15 @@
 	diffp = diff --cached @{push} # diff to what is currently pushed (without including pending)
 	diffcw = diff -w --cached
 	diffwc = diff -w --cached
-	showw = diff HEAD^
-	showww = diff HEAD^^
 	orig = !find . -name '*.orig' -delete
 	lol = log --graph --pretty=custom # pretty log display
 	lola = log --graph --pretty=custom --all # show all branches
 	lolan = log --graph --pretty=custom --all -n 15 # show all branches limited to 15 log entries
 	loln = log --graph --pretty=custom -n 10 # limit to 10 log entries
 	l = log --graph --pretty=custom -n 10 # limit to 10 log entries
+	reh = reset --hard @{push}
+	rebm = rebase -i origin/master
+	rebb = rebase -i origin/develop
 	uci = reset --soft HEAD^ # undo a commit to staging area
 	uns = reset HEAD -- # remove files from staging area
 	# show all commits on one branch not on the other

@@ -11,7 +11,7 @@
 # super key as modifier
 set $mod Mod4
 # workspace variables
-set $workspace1 "1 /"
+set $workspace1 "1 "
 set $workspace2 "2 "
 set $workspace3 "3 "
 set $workspace4 "4 "
@@ -64,9 +64,9 @@ focus_on_window_activation urgent
 default_border none
 default_floating_border none
 # gaps specific config
-gaps inner 5
-gaps outer 2
-# smart_gaps on
+gaps inner 2
+gaps outer 1
+smart_gaps on
 
 
 
@@ -173,7 +173,7 @@ bindsym $mod+Shift+Escape exec --no-startup-id ~/.local/bin/i3lock_wrapper.sh
 # bind for lock / sleep / shutdown / ...
 bindsym $mod+Shift+Delete exec --no-startup-id ~/.local/bin/i3exit.sh
 # use rofi instead of dmenu
-bindsym $mod+space exec --no-startup-id rofi -show run
+bindsym $mod+space exec --no-startup-id rofi -show run -terminal 'i3-sensible-terminal -r scratch' -ssh-command '{terminal} --hold -e "{ssh-client} {host}"'
 # simple password management
 bindsym $mod+g exec --no-startup-id gopass ls --flat | rofi -dmenu -p "password" | xargs --no-run-if-empty gopass show | xdotool type --clearmodifiers --file -
 
@@ -279,9 +279,9 @@ bar {
 ##
 # multimedia keys
 # using default i3blocks scripts (which use amixer) and trigger volume display update through a signal to i3blocks
-bindsym XF86AudioRaiseVolume exec --no-startup-id BLOCK_BUTTON=4 /usr/lib/i3blocks/volume 3% # && pkill -RTMIN+10 i3blocks # increase sound
-bindsym XF86AudioLowerVolume exec --no-startup-id BLOCK_BUTTON=5 /usr/lib/i3blocks/volume 3% # && pkill -RTMIN+10 i3blocks # decrease sound
-bindsym XF86AudioMute exec --no-startup-id BLOCK_BUTTON=3 /usr/lib/i3blocks/volume # && pkill -RTMIN+10 i3blocks # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id BLOCK_BUTTON=4 /usr/lib/i3blocks/volume 3% && pkill -RTMIN+10 i3blocks # increase sound
+bindsym XF86AudioLowerVolume exec --no-startup-id BLOCK_BUTTON=5 /usr/lib/i3blocks/volume 3% && pkill -RTMIN+10 i3blocks # decrease sound
+bindsym XF86AudioMute exec --no-startup-id BLOCK_BUTTON=3 /usr/lib/i3blocks/volume && pkill -RTMIN+10 i3blocks # mute sound
 # sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
@@ -322,13 +322,5 @@ exec_always --no-startup-id feh --no-fehbg --bg-fill ~/.wallpaper
 # run compton for pretty fading and opacity
 exec --no-startup-id compton -f -b -D 3
 
-# start syndaemon to disable touchpad whilst typing
-# exec --no-startup-id syndaemon -i 1.0 -K -t -d -R
-# allow scrolling on touchpad
-# exec_always --no-startup-id synclient HorizTwoFingerScroll=1 HorizEdgeScroll=1 #PalmDetect=1
-
-# enable screen turn off delay
-# exec --no-startup-id xset +dpms dpms 300 300 300
-
 # automatic screen lock and sleep
-exec --no-startup-id xautolock -detectsleep -time 5 -locker "~/.local/bin/i3lock_wrapper.sh" #-killtime 20 -killer "systemctl suspend"
+exec --no-startup-id xautolock -detectsleep -secure -time 5 -locker "~/.local/bin/i3lock_wrapper.sh" -killtime 25 -killer "systemctl suspend"

@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# capture current bluetooth controller/adapter power state
+POWER=`bt-adapter -i | sed -n "s/.*Powered:.*\(1\).*/On/p"`
+[ -z $POWER ] && POWER="Off"
+# capture headphones connection status
+DEVICE=`bt-device -i MDR-10RBT | sed -n "s/.*Connected:.*1.*/MDR-10RBT/p"`
+[ -z $DEVICE ] && DEVICE="Disconnected"
+
+# respond to a click event
+case $BLOCK_BUTTON in
+    1) # left click = connect/disconnect
+        [ $POWER = "Off" ] && break
+        if [ $DEVICE = "Disconnected" ]; then
+            ACTION='-c'
+            DEVICE="MDR-10RBT"
+        else
+            ACTION='-d'
+            DEVICE="Disconnected"
+        fi
+        bt-device $ACTION '57:D3:98:0C:9C:D6' > /dev/null &
+    ;;
+    3) # right click - power on/off
+        if [ $POWER = "On" ]; then
+            POWER=Off
+        else
+            POWER=On
+        fi
+        bt-adapter -s Powered $POWER > /dev/null
+    ;;
+esac
+
+# print the output for the current state
+if [ $POWER = "Off" ]; then
+    echo $POWER
+else
+    if [ $DEVICE = "Disconnected" ]; then
+        COLOUR='#FFAE00'
+    else
+        COLOUR='#33AF00'
+    fi
+
+    echo $DEVICE
+    echo $DEVICE
+    echo $COLOUR
+fi

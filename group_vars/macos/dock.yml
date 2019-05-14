@@ -11,6 +11,7 @@ dock_apps:
   - name: /Applications/Spotify.app
   - name: /Applications/Notes.app
   - name: /Applications/iTerm.app
+  - name: /Applications/Hyper.app
   - name: /Applications/Slack.app
   - name: /Applications/Insomnia.app
   - name: /Applications/PhpStorm.app

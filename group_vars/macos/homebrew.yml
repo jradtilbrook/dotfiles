@@ -28,6 +28,7 @@ homebrew_casks:
   - gitscout
   - google-chrome
   - google-drive-file-stream
+  - hyper
   - insomnia
   - iterm2
   - keyboardcleantool

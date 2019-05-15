@@ -32,7 +32,7 @@ background          = #18262F
 # Black, Gray, Silver, White
 color0  = #18262F
 color8  = #667581
-color7  = #A6AFB8
+color7  = #333349
 color15 = #F5F7FA
 # Red
 color1  = #EF5253

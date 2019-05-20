@@ -44,9 +44,12 @@ homebrew_casks:
   - spectacle
   - spotify
   - suspicious-package
+  - vanilla
+  - visual-studio-code
   - virtualbox
   - virtualbox-extension-pack
   - vlc
+  - zoomus
 homebrew_formulae:
   - ack
   - awscli

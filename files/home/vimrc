@@ -40,7 +40,6 @@ call plug#begin('~/.vim/plugged')
     " syntax/linting
     Plug 'editorconfig/editorconfig-vim'
     " Plug 'scrooloose/syntastic'
-    Plug 'w0rp/ale'
 
     " completion
     Plug 'KabbAmine/zeavim.vim'
@@ -230,9 +229,6 @@ let g:UltiSnipsJumpForwardTrigger = '<c-h>'
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 let g:calendar_task = 1
-
-" ale
-let g:ale_lint_on_text_changed = 'never'
 
 " fzf
 let g:fzf_layout = {'down': '15'} " number of results to show

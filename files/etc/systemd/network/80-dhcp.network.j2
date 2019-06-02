@@ -1,9 +1,0 @@
-{{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
-# automatically start DHCP on any wired or wireless interfaces
-[Match]
-Name=enp* wlp*
-Virtualization=no
-
-[Network]
-DHCP=ipv4
-IPv6AcceptRA=no

@@ -8,6 +8,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-plug'
 
     " extra languages
+    Plug 'Shougo/neosnippet-snippets'
+    Plug 'Shougo/neosnippet.vim' " TODO: how to enable
     Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
     Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
     Plug 'hashivim/vim-terraform'
@@ -17,7 +19,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'pangloss/vim-javascript'
     Plug 'pearofducks/ansible-vim'
     Plug 'posva/vim-vue', { 'for': ['vue', 'javascript'] }
-    Plug 'roxma/LanguageServer-php-neovim',  {'do': 'rm -f composer.lock && composer install && composer run-script parse-stubs'}
 
     " themes
     Plug 'airblade/vim-gitgutter'
@@ -39,14 +40,11 @@ call plug#begin('~/.vim/plugged')
 
     " syntax/linting
     Plug 'editorconfig/editorconfig-vim'
-    " Plug 'scrooloose/syntastic'
-    Plug 'w0rp/ale'
 
     " completion
     Plug 'KabbAmine/zeavim.vim'
     Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
     Plug 'honza/vim-snippets'
-    Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'rm -f composer.lock && composer install' }
     Plug 'sirver/ultisnips'
     Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 
@@ -54,6 +52,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'itchyny/calendar.vim'
     Plug 'junegunn/gv.vim', { 'on': 'GV' }
     Plug 'junegunn/vim-peekaboo'
+    Plug 'rhysd/committia.vim'
     Plug 'sjl/gundo.vim'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'tommcdo/vim-fubitive'
@@ -230,9 +229,6 @@ let g:UltiSnipsJumpForwardTrigger = '<c-h>'
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 let g:calendar_task = 1
-
-" ale
-let g:ale_lint_on_text_changed = 'never'
 
 " fzf
 let g:fzf_layout = {'down': '15'} " number of results to show

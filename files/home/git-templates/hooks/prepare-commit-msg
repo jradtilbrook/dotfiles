@@ -21,12 +21,8 @@ case "$2,$3" in
     commit,HEAD) # An amended commit - dont append
         ;;
     *) # Prepend the current branch to the commit
-        BRANCH_NAME=`git symbolic-ref --short HEAD`
-        case $BRANCH_NAME in
-            master|develop)
-                ;;
-            *)
-                sed -r "1s/^($BRANCH_NAME )?/$BRANCH_NAME /" -i $1 ;;
-                # sed -i "1s/^/`git symbolic-ref --short HEAD` /" $1 ;;
-        esac
+        BRANCH_NAME=$(git symbolic-ref --short HEAD | rg -o '\w+-\d+')
+        if [ -n $BRANCH_NAME ]; then
+            sed -r "1s/^($BRANCH_NAME )?/$BRANCH_NAME /" -i $1
+        fi
 esac

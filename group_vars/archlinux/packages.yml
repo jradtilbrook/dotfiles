@@ -83,6 +83,7 @@ pacman_packages:
   - php-pgsql
   - php-sodium
   - php-sqlite
+  - pigz
   - pkgfile
   - playerctl
   - pulseaudio

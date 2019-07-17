@@ -20,6 +20,7 @@ Reboot and log into the new user. Now the Ansible playbook can be run:
 1. Clone this repo (using https because no ssh key exists yet).
 2. Run the ansible playbook: `./dotfiles.yml`.
     - The playbook requires admin rights to install packages so run `sudo -v` beforehand to cache credentials.
+    - There seems to be a bug in ansible 2.8 so create a virtual env and install `ansible>=2.7,<2.8`
 3. Change any other app settings as desired.
 4. Change the repo url to use ssh.
 5. Install `yaourt` to help with AUR packages.
@@ -27,6 +28,13 @@ Reboot and log into the new user. Now the Ansible playbook can be run:
 
 Now perform other system admin/management/security tasks as needed that are not easily automated with Ansible. See the [References](#references) below.
 
+## Notes for future install
+
+Next install should make use of more disk partitions: one for /boot, one for / and one for /home. The latter two should
+be encrypted. The root partition could be unlocked on boot and the /home partition unlocked on user login (ideally
+automatically using a file key somewhere or something).  
+This would allow keeping user data separate from the OS to make completely wiping and starting again easier.  
+See https://wiki.archlinux.org/index.php/PAM, https://wiki.archlinux.org/index.php/GNOME/Keyring, https://wiki.archlinux.org/index.php/Polkit
 
 #### References
 

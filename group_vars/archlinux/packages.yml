@@ -176,6 +176,7 @@ aur_packages:
   - php-pear
   - phpstorm
   - postman-bin
+  - rofi-greenclip
   - slack-desktop
   - stern-bin
   - sublime-text

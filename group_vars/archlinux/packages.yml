@@ -60,6 +60,7 @@ pacman_packages:
   - jq
   - libglvnd # depending on graphics hardware
   - lm_sensors
+  - lxsession
   - mesa
   - mopidy
   - mpc

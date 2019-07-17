@@ -322,5 +322,8 @@ exec_always --no-startup-id feh --no-fehbg --bg-fill ~/.wallpaper
 # run compton for pretty fading and opacity
 exec --no-startup-id compton -f -b -D 3
 
+# start a polkit authentication agent
+exec --no-startup-id lxpolkit
+
 # automatic screen lock and sleep
 exec --no-startup-id xautolock -detectsleep -secure -time 5 -locker "~/.local/bin/i3lock_wrapper.sh" -killtime 25 -killer "systemctl suspend"

@@ -26,14 +26,8 @@ output = {
 # determine the OS and add aliases and extra variables as required
 if platform.system().lower() == 'darwin': # MacOS
     output['macos'] = ['localhost']
-    output['_meta']['hostvars']['localhost']['ansible_python_interpreter'] = '/usr/local/bin/python2'
-elif platform.system().lower() == 'linux': # Ubuntu or Arch Linux
-    if platform.linux_distribution()[0].lower() == 'ubuntu':
-        output['ubuntu'] = ['localhost']
-    else: # Arch Linux
-        output['archlinux'] = ['localhost']
-        # the default python is 3.x so must override
-        output['_meta']['hostvars']['localhost']['ansible_python_interpreter'] = '/usr/bin/python2'
+elif platform.system().lower() == 'linux': # Arch Linux
+    output['archlinux'] = ['localhost']
 
 # if called with --host, just print out the host variables
 if args.host:

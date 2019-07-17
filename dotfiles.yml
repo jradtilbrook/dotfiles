@@ -1,10 +1,10 @@
 #!/usr/bin/env ansible-playbook
 
-## -------------------------------------------------------------------------------
+## -------------------------------------------------------------
 ## Ansible playbook for setting up a new machine
 ##
-## This handles the 3 platforms that I generally use; Arch Linux, Ubuntu and MacOS
-## -------------------------------------------------------------------------------
+## This handles the 2 platforms that I use; Arch Linux and MacOS
+## -------------------------------------------------------------
 
 ---
 ## -------------------------
@@ -17,18 +17,6 @@
   become: yes
   tasks:
     - import_tasks: tasks/archlinux.yml
-
-
-## ---------------------
-## Ubuntu specific tasks
-## ---------------------
-- name: Configure Ubuntu
-  hosts: ubuntu
-  tags: ubuntu
-  gather_facts: no
-  become: yes
-  tasks:
-    - import_tasks: tasks/ubuntu.yml
 
 
 ## --------------------

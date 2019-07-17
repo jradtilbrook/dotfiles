@@ -187,7 +187,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Return exec i3-sensible-terminal -r scratch
 bindsym $mod+Shift+f exec firefox-developer-edition
 bindsym $mod+Shift+w exec chromium
-bindsym $mod+Shift+p exec --no-startup-id phpstorm
+bindsym $mod+Shift+p exec --no-startup-id code
 # screenshot
 bindsym --release Print exec scrot -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
 bindsym --release Shift+Print exec scrot -s -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
@@ -305,8 +305,8 @@ for_window [class="VirtualBox"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Pinentry"] floating enable
 for_window [class="eagle"] floating enable
-assign [class="jetbrains-phpstorm"] $workspace4
-no_focus [class="jetbrains-phpstorm"]
+assign [class="Code"] $workspace4
+no_focus [class="Code"]
 for_window [class="mpv"] floating enable sticky enable
 for_window [class="Pinentry-gtk-2"] floating enable sticky enable
 for_window [class="Termite" window_role="scratch"] floating enable, move scratchpad, scratchpad show

@@ -175,7 +175,9 @@ bindsym $mod+Shift+Delete exec --no-startup-id ~/.local/bin/i3exit.sh
 # use rofi instead of dmenu
 bindsym $mod+space exec --no-startup-id rofi -show-icons -modi 'drun#clipboard:greenclip print#window#ssh#run' -show drun -terminal 'i3-sensible-terminal -r scratch' -ssh-command '{terminal} --hold -e "{ssh-client} {host}"'
 # simple password management
-bindsym $mod+g exec --no-startup-id gopass ls --flat | rofi -dmenu -p "password" | xargs --no-run-if-empty gopass show | xdotool type --clearmodifiers --file -
+bindsym $mod+g exec --no-startup-id gopass ls --flat | rofi -dmenu -p "password" | xargs --no-run-if-empty gopass show | xdotool type --delay 1 --clearmodifiers --file -
+# clipboard management
+bindsym $mod+Shift+p exec --no-startup-id ~/.local/bin/greenclip.sh
 
 
 
@@ -187,7 +189,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Return exec i3-sensible-terminal -r scratch
 bindsym $mod+Shift+f exec firefox-developer-edition
 bindsym $mod+Shift+w exec chromium
-bindsym $mod+Shift+p exec --no-startup-id code
+bindsym $mod+Shift+e exec --no-startup-id code
 # screenshot
 bindsym --release Print exec scrot -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
 bindsym --release Shift+Print exec scrot -s -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"

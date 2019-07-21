@@ -146,6 +146,7 @@ pacman_packages:
 ## -----------------------
 aur_packages:
   # - aws-vault # need the git version for now until the password store is released
+  - bitwarden-rofi
   - docker-credential-pass
   - emoji-keyboard
   - exercism-cli

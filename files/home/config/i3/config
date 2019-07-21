@@ -286,9 +286,9 @@ bindsym XF86AudioMute exec --no-startup-id BLOCK_BUTTON=3 /usr/lib/i3blocks/volu
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
 # media player controls
-bindsym XF86AudioPlay exec --no-startup-id mpc -h $HOME/.config/mpd/socket toggle
-bindsym XF86AudioNext exec --no-startup-id mpc -h $HOME/.config/mpd/socket next
-bindsym XF86AudioPrev exec --no-startup-id mpc -h $HOME/.config/mpd/socket prev
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 
 

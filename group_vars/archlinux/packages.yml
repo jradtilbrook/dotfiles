@@ -171,6 +171,7 @@ aur_packages:
   - mopidy-local-sqlite
   - mopidy-spotify
   - mopidy-spotify-web
+  - mpdris2
   - nerd-fonts-complete
   - ngrok
   - otf-hermit
@@ -179,6 +180,7 @@ aur_packages:
   - postman-bin
   - rofi-greenclip
   - slack-desktop
+  - spotify
   - stern-bin
   - sublime-text
   - taskbook

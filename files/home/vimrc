@@ -12,8 +12,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
     Plug 'hashivim/vim-terraform'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': 'markdown', 'on': 'MarkdownPreview' }
-    Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
-    Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
+    Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'jsx', 'typescript'] }
+    Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx', 'typescript'] }
     Plug 'pangloss/vim-javascript'
     Plug 'pearofducks/ansible-vim'
     Plug 'posva/vim-vue', { 'for': ['vue', 'javascript'] }

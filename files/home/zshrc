@@ -59,22 +59,19 @@ plugins=(
     docker-compose \
     fzf \
     git \
-    go \
+    # golang \
     gpg-agent \
     helm \
     httpie \
     kubectl \
     last-working-dir \
-    minikube \
-    node \
-    pip \
-    python \
+    # minikube \
+    # pip \
     stack \
     sudo \
     systemd \
-    terraform \
+    # terraform \
     virtualenvwrapper \
-    yarn \
 )
 
 # User configuration

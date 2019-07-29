@@ -161,6 +161,6 @@ export AWS_VAULT_PASS_PREFIX=aws-vault
 export AWS_VAULT_BACKEND=pass
 
 # autocompletion
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
-[ -f /usr/share/exercism-cli/completion/exercism_completion.zsh ] && source /usr/share/exercism-cli/completion/exercism_completion.zsh
+# [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+# [ -f /usr/share/exercism-cli/completion/exercism_completion.zsh ] && source /usr/share/exercism-cli/completion/exercism_completion.zsh
 [ $(command -v jira) ] && eval "$(jira --completion-script-zsh)"

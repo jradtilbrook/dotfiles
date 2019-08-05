@@ -32,6 +32,8 @@ fi
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
+export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin
+
 # start i3
 exec i3
 # or with logging

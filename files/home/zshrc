@@ -59,22 +59,19 @@ plugins=(
     docker-compose \
     fzf \
     git \
-    go \
+    # golang \
     gpg-agent \
     helm \
     httpie \
     kubectl \
     last-working-dir \
-    minikube \
-    node \
-    pip \
-    python \
+    # minikube \
+    # pip \
     stack \
     sudo \
     systemd \
-    terraform \
+    # terraform \
     virtualenvwrapper \
-    yarn \
 )
 
 # User configuration
@@ -118,6 +115,7 @@ _gen_fzf_default_opts() {
     --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
     --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
     --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
+    --multi
     "
 }
 _gen_fzf_default_opts
@@ -154,7 +152,7 @@ unalias rm
 
 # Environment variables
 export EDITOR=nvim
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/go/bin"
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.yarn/bin"
 export PROJECT_HOME=$HOME/projects
 export TERM=xterm-256color
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
@@ -163,6 +161,6 @@ export AWS_VAULT_PASS_PREFIX=aws-vault
 export AWS_VAULT_BACKEND=pass
 
 # autocompletion
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
-[ -f /usr/share/exercism-cli/completion/exercism_completion.zsh ] && source /usr/share/exercism-cli/completion/exercism_completion.zsh
+# [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+# [ -f /usr/share/exercism-cli/completion/exercism_completion.zsh ] && source /usr/share/exercism-cli/completion/exercism_completion.zsh
 [ $(command -v jira) ] && eval "$(jira --completion-script-zsh)"

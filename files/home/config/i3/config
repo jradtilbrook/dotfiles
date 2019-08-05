@@ -139,6 +139,8 @@ bindsym $mod+d focus mode_toggle
 bindsym $mod+p focus parent
 # focus the child container
 bindsym $mod+c focus child
+# move window to centre
+bindsym $mod+Shift+x move position center
 
 
 
@@ -173,9 +175,11 @@ bindsym $mod+Shift+Escape exec --no-startup-id ~/.local/bin/i3lock_wrapper.sh
 # bind for lock / sleep / shutdown / ...
 bindsym $mod+Shift+Delete exec --no-startup-id ~/.local/bin/i3exit.sh
 # use rofi instead of dmenu
-bindsym $mod+space exec --no-startup-id rofi -show run -terminal 'i3-sensible-terminal -r scratch' -ssh-command '{terminal} --hold -e "{ssh-client} {host}"'
+bindsym $mod+space exec --no-startup-id rofi -show-icons -modi 'drun#clipboard:greenclip print#run#window#ssh' -show drun -terminal 'i3-sensible-terminal -r scratch' -ssh-command '{terminal} --hold -e "{ssh-client} {host}"'
 # simple password management
-bindsym $mod+g exec --no-startup-id gopass ls --flat | rofi -dmenu -p "password" | xargs --no-run-if-empty gopass show | xdotool type --clearmodifiers --file -
+bindsym $mod+g exec --no-startup-id bwmenu --auto-lock 3600
+# clipboard management
+bindsym $mod+Shift+p exec --no-startup-id ~/.local/bin/greenclip.sh
 
 
 
@@ -187,7 +191,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Return exec i3-sensible-terminal -r scratch
 bindsym $mod+Shift+f exec firefox-developer-edition
 bindsym $mod+Shift+w exec chromium
-bindsym $mod+Shift+p exec --no-startup-id phpstorm
+bindsym $mod+Shift+e exec --no-startup-id code
 # screenshot
 bindsym --release Print exec scrot -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
 bindsym --release Shift+Print exec scrot -s -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
@@ -286,9 +290,9 @@ bindsym XF86AudioMute exec --no-startup-id BLOCK_BUTTON=3 /usr/lib/i3blocks/volu
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
 # media player controls
-bindsym XF86AudioPlay exec --no-startup-id mpc -h $HOME/.config/mpd/socket toggle
-bindsym XF86AudioNext exec --no-startup-id mpc -h $HOME/.config/mpd/socket next
-bindsym XF86AudioPrev exec --no-startup-id mpc -h $HOME/.config/mpd/socket prev
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 
 
@@ -305,8 +309,8 @@ for_window [class="VirtualBox"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Pinentry"] floating enable
 for_window [class="eagle"] floating enable
-assign [class="jetbrains-phpstorm"] $workspace4
-no_focus [class="jetbrains-phpstorm"]
+assign [class="code"] $workspace4
+no_focus [class="code"]
 for_window [class="mpv"] floating enable sticky enable
 for_window [class="Pinentry-gtk-2"] floating enable sticky enable
 for_window [class="Termite" window_role="scratch"] floating enable, move scratchpad, scratchpad show
@@ -321,6 +325,9 @@ exec_always --no-startup-id feh --no-fehbg --bg-fill ~/.wallpaper
 
 # run compton for pretty fading and opacity
 exec --no-startup-id compton -f -b -D 3
+
+# start a polkit authentication agent
+exec --no-startup-id lxpolkit
 
 # automatic screen lock and sleep
 exec --no-startup-id xautolock -detectsleep -secure -time 5 -locker "~/.local/bin/i3lock_wrapper.sh" -killtime 25 -killer "systemctl suspend"

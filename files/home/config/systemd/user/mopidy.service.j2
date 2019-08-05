@@ -8,6 +8,7 @@ Conflicts=mpd.service
 [Service]
 Type=simple
 ExecStart={{ ansible_user_dir }}/.virtualenvs/mopidy/bin/mopidy
+ExecStartPre=/usr/bin/rm -f {{ ansible_user_dir }}/.config/mpd/socket
 ProtectSystem=yes
 NoNewPrivileges=yes
 ProtectKernelTunables=yes

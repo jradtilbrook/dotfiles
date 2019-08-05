@@ -7,8 +7,7 @@
 # changing settings, such as disabling forking.
 
 # stop music playing
-# playerctl pause
-mpc -h $HOME/.config/mpd/socket pause
+playerctl pause
 
 # Ensure dmenu shading is removed before screenshot
 sleep 0.2

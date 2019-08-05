@@ -1,6 +1,6 @@
 # My Dotfiles
 
-This repo holds my configuration files for the different OSes I use; Arch Linux, Ubuntu and MacOS.
+This repo holds my configuration files for the different OSes I use; Arch Linux and MacOS.
 
 I use Ansible to help automate the initial setup and manage changes. The [`dotfiles.yml`](./dotfiles.yml) file is the
 global playbook used to configure any of the above OSes. It installs the applications I use, moves dotfiles into place
@@ -17,7 +17,6 @@ outputs different aliases to allow specific tasks to be executed. See [`inventor
 ### OS specific notes
 
 - [Arch Linux](./archlinux.md)
-- [Ubuntu](./ubuntu.md)
 - [MacOS](./macbook.md)
 
 

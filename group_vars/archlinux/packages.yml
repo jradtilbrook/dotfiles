@@ -60,6 +60,7 @@ pacman_packages:
   - jq
   - libglvnd # depending on graphics hardware
   - lm_sensors
+  - lxsession
   - mesa
   - mopidy
   - mpc
@@ -83,6 +84,7 @@ pacman_packages:
   - php-pgsql
   - php-sodium
   - php-sqlite
+  - pigz
   - pkgfile
   - playerctl
   - pulseaudio
@@ -144,6 +146,7 @@ pacman_packages:
 ## -----------------------
 aur_packages:
   # - aws-vault # need the git version for now until the password store is released
+  - bitwarden-rofi
   - docker-credential-pass
   - emoji-keyboard
   - exercism-cli
@@ -169,13 +172,16 @@ aur_packages:
   - mopidy-local-sqlite
   - mopidy-spotify
   - mopidy-spotify-web
+  - mpdris2
   - nerd-fonts-complete
   - ngrok
   - otf-hermit
   - php-pear
   - phpstorm
   - postman-bin
+  - rofi-greenclip
   - slack-desktop
+  - spotify
   - stern-bin
   - sublime-text
   - taskbook

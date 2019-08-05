@@ -152,7 +152,7 @@ unalias rm
 
 # Environment variables
 export EDITOR=nvim
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/go/bin"
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.yarn/bin"
 export PROJECT_HOME=$HOME/projects
 export TERM=xterm-256color
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3

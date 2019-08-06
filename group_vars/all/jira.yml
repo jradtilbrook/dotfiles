@@ -1,2 +1,3 @@
 jira_endpoint: "{{ vault_jira_endpoint }}"
 jira_email: "{{ vault_jira_email }}"
+jira_user: "{{ vault_jira_user }}"

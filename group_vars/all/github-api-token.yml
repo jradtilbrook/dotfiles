@@ -3,3 +3,4 @@
 ## GitHub API token (vault protected)
 ## ----------------------------------
 github_api_token: "{{ vault_github_api_token }}"
+github_hub_cli_token: "{{ vault_github_hub_cli_token }}"

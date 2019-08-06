@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'posva/vim-vue', { 'for': ['vue', 'javascript'] }
     Plug 'rhysd/vim-syntax-codeowners'
     Plug 'roxma/LanguageServer-php-neovim',  {'do': 'rm -f composer.lock && composer install && composer run-script parse-stubs'}
+    Plug 'stephpy/vim-php-cs-fixer'
 
     " themes
     Plug 'airblade/vim-gitgutter'
@@ -216,6 +217,7 @@ map <Leader>go :Gbrowse<CR>
 " augroup END
 
 autocmd FileType php setl iskeyword+=$
+autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
 
 

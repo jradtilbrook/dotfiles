@@ -36,6 +36,7 @@ call plug#begin('~/.vim/plugged')
 
     " navigating
     Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug '/usr/local/opt/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdcommenter'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }

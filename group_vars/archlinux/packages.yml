@@ -188,6 +188,7 @@ aur_packages:
   - ttf-font-awesome-4
   - ttf-symbola
   - ttf-twemoji-color
+  - wtfutil
   - zoom
 
 ## -----------------------

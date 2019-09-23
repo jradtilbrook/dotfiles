@@ -154,6 +154,7 @@ aur_packages:
   - gksu
   - gotop-bin
   - heroku-cli
+  - i3blocks-contrib
   - i3lock-color-git
   - insomnia
   - jiq

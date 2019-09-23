@@ -283,9 +283,9 @@ bar {
 ##
 # multimedia keys
 # using default i3blocks scripts (which use amixer) and trigger volume display update through a signal to i3blocks
-bindsym XF86AudioRaiseVolume exec --no-startup-id BLOCK_BUTTON=4 /usr/lib/i3blocks/volume 3% && pkill -RTMIN+10 i3blocks # increase sound
-bindsym XF86AudioLowerVolume exec --no-startup-id BLOCK_BUTTON=5 /usr/lib/i3blocks/volume 3% && pkill -RTMIN+10 i3blocks # decrease sound
-bindsym XF86AudioMute exec --no-startup-id BLOCK_BUTTON=3 /usr/lib/i3blocks/volume && pkill -RTMIN+10 i3blocks # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id BLOCK_BUTTON=4 /usr/lib/i3blocks/volume/volume 3% && pkill -RTMIN+10 i3blocks # increase sound
+bindsym XF86AudioLowerVolume exec --no-startup-id BLOCK_BUTTON=5 /usr/lib/i3blocks/volume/volume 3% && pkill -RTMIN+10 i3blocks # decrease sound
+bindsym XF86AudioMute exec --no-startup-id BLOCK_BUTTON=3 /usr/lib/i3blocks/volume/volume && pkill -RTMIN+10 i3blocks # mute sound
 # sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness

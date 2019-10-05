@@ -4,7 +4,7 @@
 {% for section, hash in config.items() %}
 [{{ section }}]
 {% for key, value in hash.items() %}
-{{ key }} = {{ value }}
+{{ key }}={{ value }}
 {% endfor %}
 {% endfor %}
 {% endfor %}

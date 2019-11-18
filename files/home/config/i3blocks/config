@@ -45,7 +45,7 @@ markup=pango
 [bluetooth]
 label=
 separator=true
-command=./.config/i3blocks/$BLOCK_NAME
+command=~/.config/i3blocks/$BLOCK_NAME
 interval=4
 signal=10
 
@@ -103,7 +103,7 @@ interval=10
 separator=false
 
 [load_average]
-command=./.config/i3blocks/$BLOCK_NAME
+command=~/.config/i3blocks/$BLOCK_NAME
 label=
 interval=3
 separator=true

@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
     " extra languages
     Plug 'Shougo/neosnippet-snippets'
     Plug 'Shougo/neosnippet.vim' " TODO: how to enable
-    Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
+    Plug 'fatih/vim-go' ", { 'for': ['go', 'gotmpl'], 'do': ':GoUpdateBinaries' }
     Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
     Plug 'hashivim/vim-terraform'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': 'markdown', 'on': 'MarkdownPreview' }

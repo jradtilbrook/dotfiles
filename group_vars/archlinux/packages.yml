@@ -15,7 +15,6 @@ pacman_packages:
   - archey3
   - aws-cli
   - bluez
-  - bluez-firmware
   - bluez-libs
   - bluez-utils
   - calibre
@@ -26,6 +25,7 @@ pacman_packages:
   - compton
   - ctags
   - deluge
+  - dhcpcd
   - dmenu
   - dnsutils
   - docker
@@ -92,9 +92,6 @@ pacman_packages:
   - pulseaudio-bluetooth
   - python
   - python-pip
-  - python-virtualenvwrapper
-  - python2
-  - python2-pip
   - ranger
   - rclone
   - redshift

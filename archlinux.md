@@ -6,6 +6,7 @@ the pacstrap command. At the end of the `chroot` step perform the following:
 
 1. Install the following extra dependencies:
     - ansible
+    - dhcpcd
     - git
     - intel-ucode or amd-ucode
     - iw (if using wireless)

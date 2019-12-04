@@ -34,3 +34,18 @@
     value: ignore
     state: present
     backup: yes
+
+- name: create user group
+  group:
+    name: jradtilbrook
+    state: present
+
+- name: set user shell & groups
+  user:
+    name: jradtilbrook
+    state: present
+    shell: /bin/zsh
+    group: jradtilbrook
+    groups:
+      - wheel
+    append: yes

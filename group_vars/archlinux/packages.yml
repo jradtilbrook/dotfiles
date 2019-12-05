@@ -14,6 +14,7 @@ pacman_packages:
   - arc-gtk-theme
   - archey3
   - aws-cli
+  - bind-tools
   - bluez
   - bluez-libs
   - bluez-utils
@@ -22,12 +23,11 @@ pacman_packages:
   - cmake
   - code
   - composer
-  - compton
   - ctags
   - deluge
   - dhcpcd
   - dmenu
-  - dnsutils
+  - picom
   - docker
   - docker-compose
   - dosfstools
@@ -102,6 +102,7 @@ pacman_packages:
   - screen
   - scrot
   - shotwell
+  - socat
   - stack
   - termite
   - terraform

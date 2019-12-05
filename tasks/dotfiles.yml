@@ -87,7 +87,6 @@
   when: ansible_distribution != 'MacOSX'
 
 - name: ensure directories exist
-  tags: testing
   file:
     dest: "{{ item.dest | dirname }}"
     state: directory
@@ -96,7 +95,6 @@
     label: "{{ item.dest | dirname }}"
 
 - name: download files
-  tags: testing
   get_url:
     url: "{{ item.url }}"
     dest: "{{ item.dest }}"

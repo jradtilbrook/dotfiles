@@ -1,8 +1,0 @@
----
-## ----
-## Ruby
-## ----
-ruby_gems:
-  - bundler
-  - jekyll
-  - travis

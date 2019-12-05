@@ -2,10 +2,10 @@
 ## -------------------------
 ## Vim plugins with vim-plug
 ## -------------------------
-- name: install plugins with vim-plug
-  shell: >
-    BEF=`ls ~/.vim/plugged/ | wc -l`; vim +PlugInstall +qa;
-    AFT=`ls ~/.vim/plugged/ | wc -l`; exit $(($AFT-$BEF))
-  register: vundle
-  changed_when: vundle.rc > 0
-  failed_when: no # this shouldn't ever actually fail
+# - name: install plugins with vim-plug
+#   shell: >
+#     BEF=`ls ~/.vim/plugged/ | wc -l`; vim +PlugInstall +qa;
+#     AFT=`ls ~/.vim/plugged/ | wc -l`; exit $(($AFT-$BEF))
+#   register: vundle
+#   changed_when: vundle.rc > 0
+#   failed_when: no # this shouldn't ever actually fail

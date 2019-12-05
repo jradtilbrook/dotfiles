@@ -48,16 +48,11 @@
   hosts: all
   tags: common
   tasks:
+    - name: gather facts
+      tags: dotfiles
+      setup:
     - import_tasks: tasks/dotfiles.yml
       tags: dotfiles
-    - import_tasks: tasks/python.yml
-      become: "{% if ansible_distribution == 'MacOSX' %}no{% else %}yes{% endif %}"
-      tags: python
-    - import_tasks: tasks/node.yml
-      become: "{% if ansible_distribution == 'MacOSX' %}no{% else %}yes{% endif %}"
-      tags: node
-    - import_tasks: tasks/ruby.yml
-      tags: ruby
     - import_tasks: tasks/ssh.yml
       tags: ssh
     - import_tasks: tasks/git.yml

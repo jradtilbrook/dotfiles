@@ -1,9 +1,0 @@
----
-## -----------------------
-## Install python packages
-## -----------------------
-- name: install python packages (global)
-  # TODO: how to use pip3 on arch but pip on others
-  pip:
-    name: "{{ python_global_packages }}"
-    state: present

@@ -1,0 +1,7 @@
+---
+## ---------------------
+## Files to download
+## ---------------------
+download_files:
+  - url: https://raw.githubusercontent.com/99designs/aws-vault/master/completions/zsh/_aws-vault
+    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/aws-vault/aws-vault.plugin.zsh"

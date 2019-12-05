@@ -142,7 +142,7 @@ pacman_packages:
 ## AUR packages to install
 ## -----------------------
 aur_packages:
-  # - aws-vault # need the git version for now until the password store is released
+  - aws-vault
   - bitwarden-rofi
   - docker-credential-pass
   - emoji-keyboard

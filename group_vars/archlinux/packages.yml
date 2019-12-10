@@ -58,6 +58,8 @@ pacman_packages:
   - imagemagick
   - inotify-tools
   - jq
+  - kubectl
+  - kubectx
   - libglvnd # depending on graphics hardware
   - lm_sensors
   - lxsession
@@ -145,12 +147,13 @@ pacman_packages:
 aur_packages:
   - aws-vault
   - bitwarden-rofi
+  - chamber
   - docker-credential-pass
   - emoji-keyboard
   - exercism-cli
   - fac
   - gksu
-  - gotop-bin
+  - gotop
   - heroku-cli
   - i3blocks-contrib
   - i3lock-color-git
@@ -158,8 +161,6 @@ aur_packages:
   - jiq
   - k3s-bin
   - k9s-bin
-  - kubectl-bin
-  - kubectx
   - kubernetes-helm-bin
   - kubernetes-helmfile-bin
   - kubernetic
@@ -174,9 +175,12 @@ aur_packages:
   - mpdris2
   - nerd-fonts-complete
   - ngrok
+  - openvpn-update-systemd-resolved
   - otf-hermit
   - php-pear
   - phpstorm
+  - plymouth
+  - plymouth-theme-dark-arch
   - postman-bin
   - rofi-greenclip
   - slack-desktop

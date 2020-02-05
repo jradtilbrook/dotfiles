@@ -135,6 +135,7 @@ fh() {
 eval "$(dircolors ~/.dir_colors)"
 
 # Aliases
+alias cat='bat'
 alias clc='tput reset'
 alias f='fuck'
 alias free='free -h'
@@ -143,13 +144,15 @@ alias kx='kubectx'
 alias l1='ls -1'
 alias llh='ll -h'
 alias phpunit='vendor/bin/phpunit'
+alias vapor='vendor/bin/vapor'
+alias jip='jira in-progress'
+alias jit='jira take'
 alias tb='taskbook'
 alias tree='tree --du -h -C --dirsfirst' # show size and colour
 alias vi='nvim'
 alias vim='nvim'
 alias vimdiff='nvim -d'
 alias xclip='xclip -selection c'
-eval $(thefuck --alias)
 unalias rm
 
 # Environment variables
@@ -166,3 +169,5 @@ export AWS_VAULT_BACKEND=pass
 # [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 # [ -f /usr/share/exercism-cli/completion/exercism_completion.zsh ] && source /usr/share/exercism-cli/completion/exercism_completion.zsh
 [ $(command -v jira) ] && eval "$(jira --completion-script-zsh)"
+[ $(command -v rbenv) ] && eval "$(rbenv init -)"
+[ $(command -v thefuck) ] && eval $(thefuck --alias)

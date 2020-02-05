@@ -187,3 +187,6 @@ export AWS_VAULT_BACKEND=pass
 [ $(command -v jira) ] && eval "$(jira --completion-script-zsh)"
 [ $(command -v rbenv) ] && eval "$(rbenv init -)"
 [ $(command -v thefuck) ] && eval $(thefuck --alias)
+
+# finally, fun archey3 for pc info
+archey3

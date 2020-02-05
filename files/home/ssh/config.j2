@@ -1,0 +1,12 @@
+{{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
+AddKeysToAgent yes
+ServerAliveInterval 15
+ServerAliveCountMax 3
+
+{% for server, hash in ssh_config.items() %}
+Host {{ server }}
+    {% if hash.user %}User {{ hash.user }}
+    {% endif -%}
+    Hostname {{ hash.hostname }}
+    ForwardAgent {{ hash.forward_agent | default('yes') }}
+{% endfor %}

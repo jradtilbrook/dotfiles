@@ -134,6 +134,22 @@ fh() {
 
 eval "$(dircolors ~/.dir_colors)"
 
+# function shortcut to take, start and checkout a new ticket in jira
+jcb() {
+    eval jip $@
+    eval jit $@
+    eval gcd # checkout develop
+    eval gl
+    eval gcb $@
+}
+jcm() {
+    eval jip $@
+    eval jit $@
+    eval gcm # checkout master
+    eval gl
+    eval gcb $@
+}
+
 # Aliases
 alias cat='bat'
 alias clc='tput reset'

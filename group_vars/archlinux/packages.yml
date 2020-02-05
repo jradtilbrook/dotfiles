@@ -12,12 +12,16 @@ pacman_packages:
   - adobe-source-code-pro-fonts
   - alsa-utils
   - arc-gtk-theme
+  - arch-audit
   - archey3
   - aws-cli
+  - baobab
+  - bat
   - bind-tools
   - bluez
   - bluez-libs
   - bluez-utils
+  - broot
   - calibre
   - chromium
   - cmake
@@ -58,11 +62,15 @@ pacman_packages:
   - imagemagick
   - inotify-tools
   - jq
+  - k9s
   - kubectl
   - kubectx
   - libglvnd # depending on graphics hardware
   - lm_sensors
+  - lxappearance
   - lxsession
+  - man-db
+  - man-pages
   - mesa
   - mopidy
   - mpc
@@ -94,7 +102,6 @@ pacman_packages:
   - pulseaudio-bluetooth
   - python
   - python-pip
-  - ranger
   - rclone
   - redshift
   - ripgrep

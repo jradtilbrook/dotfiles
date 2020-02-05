@@ -132,8 +132,6 @@ fh() {
   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 }
 
-eval "$(dircolors ~/.dir_colors)"
-
 # function shortcut to take, start and checkout a new ticket in jira
 jcb() {
     eval jip $@
@@ -187,6 +185,7 @@ export AWS_VAULT_BACKEND=pass
 [ $(command -v jira) ] && eval "$(jira --completion-script-zsh)"
 [ $(command -v rbenv) ] && eval "$(rbenv init -)"
 [ $(command -v thefuck) ] && eval $(thefuck --alias)
+[ $(command -v dircolors) ] && eval "$(dircolors ~/.dir_colors)"
 
 # finally, fun archey3 for pc info
-archey3
+[ $(command -v archey3) ] && archey3

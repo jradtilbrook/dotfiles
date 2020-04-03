@@ -26,7 +26,7 @@ case "$2,$3" in
             master|develop)
                 ;;
             *)
-                SED=$(command -v gsed && echo gsed || echo sed)
-                $SED -ir "1s/^($BRANCH_NAME )?/$BRANCH_NAME /" $1 ;;
+                SED=$(command -v gsed >/dev/null && echo gsed || echo sed)
+                $SED -i -r "1s/^($BRANCH_NAME )?/$BRANCH_NAME /" $1 ;;
         esac
 esac

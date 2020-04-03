@@ -1,6 +1,0 @@
----
-## -------------------------------------------
-## Bitbucket API credentials (vault protected)
-## -------------------------------------------
-bitbucket_username: "{{ vault_bitbucket_username }}"
-bitbucket_password: "{{ vault_bitbucket_password }}"

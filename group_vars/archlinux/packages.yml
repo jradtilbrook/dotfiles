@@ -90,6 +90,7 @@ pacman_packages:
   - pass
   - pavucontrol
   - php
+  - phpdbg
   - php-memcached
   - php-pgsql
   - php-sodium
@@ -166,9 +167,7 @@ aur_packages:
   - i3lock-color-git
   - insomnia
   - jiq
-  - k3s-bin
-  - k9s-bin
-  - kubernetes-helm-bin
+  - kubernetes-helm2
   - kubernetes-helmfile-bin
   - kubernetic
   - lazygit

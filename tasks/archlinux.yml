@@ -34,3 +34,16 @@
     value: ignore
     state: present
     backup: yes
+
+- name: ignore pressing the power button
+  ini_file:
+    path: /etc/pacman.conf
+    section: options
+    option: IgnorePkg
+    value: >
+      iproute2
+      minikube
+      python
+      terraform
+    state: present
+    backup: yes

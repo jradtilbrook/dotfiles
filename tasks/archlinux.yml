@@ -35,7 +35,7 @@
     state: present
     backup: yes
 
-- name: ignore pressing the power button
+- name: ignore some pacman packages
   ini_file:
     path: /etc/pacman.conf
     section: options

@@ -7,4 +7,4 @@
     repo: "{{ item.url }}"
     dest: "{{ item.dest }}"
     update: no
-  loop: "{{ git_repos }}"
+  loop: "{{ git_repos | flatten }}"

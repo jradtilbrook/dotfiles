@@ -10,3 +10,4 @@ git_repos:
     # this is pretty hacky but works for now. if/when custom autoload scripts are added, it wont work
   - url: git@github.com:junegunn/vim-plug.git
     dest: "{{ ansible_user_dir }}/.vim/autoload" # this is pretty hacky
+  - "{{ vault_git_repos }}"

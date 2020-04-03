@@ -14,6 +14,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
     Plug 'hashivim/vim-terraform'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': 'markdown', 'on': 'MarkdownPreview' }
+    Plug 'jparise/vim-graphql', { 'for': 'graphql' }
     Plug 'jwalton512/vim-blade'
     Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'jsx', 'typescript'] }
     Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx', 'typescript'] }
@@ -23,6 +24,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'rhysd/vim-syntax-codeowners'
     Plug 'roxma/LanguageServer-php-neovim',  {'do': 'rm -f composer.lock && composer install && composer run-script parse-stubs'}
     Plug 'stephpy/vim-php-cs-fixer'
+    Plug 'chr4/nginx.vim'
 
     " themes
     Plug 'airblade/vim-gitgutter'
@@ -83,7 +85,7 @@ set termguicolors
 
 
 
-set shada='100,<1000,s100,h     " increase buffer sizes
+silent! set shada='100,<1000,s100,h     " increase buffer sizes
 set number relativenumber       " display relative and normal line numbers
 set mouse=a                     " enable mouse for all modes
 set expandtab                   " expand tabs to spaces
@@ -207,6 +209,9 @@ map <Leader>gc :Gcommit<CR>
 map <Leader>gw :Gwrite<CR>
 map <Leader>gp :Gpush<CR>
 map <Leader>go :Gbrowse<CR>
+
+" delete all buffers
+nmap <Leader>bda :bufdo bd <CR>
 
 
 

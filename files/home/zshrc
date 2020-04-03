@@ -150,6 +150,16 @@ jcm() {
     eval gcb $@
 }
 
+# shortcut to open vim using the previous session in the directory
+vim() {
+    if [ $# -ne 0 ]; then
+        nvim $@
+    else
+        # dont forget to start a session with :mksession or preferrably :Obsession
+        {[ -f 'Session.vim' ] && nvim -S} || nvim
+    fi
+}
+
 # Aliases
 alias cat='bat'
 alias clc='tput reset'
@@ -165,8 +175,6 @@ alias jip='jira in-progress'
 alias jit='jira take'
 alias tb='taskbook'
 alias tree='tree --du -h -C --dirsfirst' # show size and colour
-alias vi='nvim'
-alias vim='nvim'
 alias vimdiff='nvim -d'
 alias xclip='xclip -selection c'
 unalias rm
@@ -178,6 +186,7 @@ export PROJECT_HOME=$HOME/projects
 export TERM=xterm-256color
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
+export AWS_SDK_LOAD_CONFIG=true
 export AWS_VAULT_PASS_PREFIX=aws-vault
 export AWS_VAULT_BACKEND=pass
 

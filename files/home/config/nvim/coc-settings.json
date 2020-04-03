@@ -20,5 +20,23 @@
                 "storagePath": "/tmp/intelephense"
             }
         }
+    },
+    "python": {
+      "jediEnabled": true
+    },
+    "yaml": {
+      "validate": true,
+      "schemaStore": {
+        "enable": true
+      },
+      "schemas": {
+        "Kubernetes": "helm*/**/*.yaml"
+      },
+      "server": {
+        "trace": "verbose"
+      },
+      "customTags": [
+        "!Ref", "!Equals", "!Not", "!Select", "!If", "!Sub", "!GetAtt"
+      ]
     }
 }

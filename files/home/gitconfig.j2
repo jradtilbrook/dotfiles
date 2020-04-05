@@ -4,6 +4,10 @@
 	path = .gitconfig-play
 [includeIf "gitdir:~/he/"]
 	path = .gitconfig-he
+[user]
+	signingkey = 0A336FAEEE507041
+[commit]
+	gpgsign = true
 [core]
 	editor = nvim
 	longpaths = true # avoid Windows complaining about filename lengths

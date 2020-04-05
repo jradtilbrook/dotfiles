@@ -7,7 +7,7 @@
     pkg: "{{ pacman_packages }}"
     state: present
 
-# TODO: how to do aur/yaourt packages? create module or use shell/command module
+# TODO: how to do aur packages? create module or use shell/command module
 
 - name: start/enable system services
   systemd:

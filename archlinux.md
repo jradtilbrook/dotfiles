@@ -24,7 +24,7 @@ Reboot and log into the new user. Now the Ansible playbook can be run:
     - There seems to be a bug in ansible 2.8 so create a virtual env and install `ansible>=2.7,<2.8`
 3. Change any other app settings as desired.
 4. Change the repo url to use ssh.
-5. Install `yaourt` to help with AUR packages.
+5. Install `yay` to help with AUR packages.
 6. Change shell to Zsh.
 
 Now perform other system admin/management/security tasks as needed that are not easily automated with Ansible. See the [References](#references) below.

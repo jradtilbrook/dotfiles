@@ -49,7 +49,7 @@
   tags: common
   tasks:
     - name: gather facts
-      tags: dotfiles
+      tags: always
       setup:
     - import_tasks: tasks/dotfiles.yml
       tags: dotfiles
@@ -57,5 +57,3 @@
       tags: ssh
     - import_tasks: tasks/git.yml
       tags: git
-    - import_tasks: tasks/vim.yml
-      tags: vim

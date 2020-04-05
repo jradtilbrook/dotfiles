@@ -40,7 +40,7 @@
     path: /etc/pacman.conf
     section: options
     option: IgnorePkg
-    value: >
+    value: >-
       iproute2
       minikube
       python

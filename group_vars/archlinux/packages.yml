@@ -31,7 +31,6 @@ pacman_packages:
   - deluge
   - dhcpcd
   - dmenu
-  - picom
   - docker
   - docker-compose
   - dosfstools
@@ -49,9 +48,9 @@ pacman_packages:
   - gopass
   - gufw
   - gvim # normal vim doesnt come with `+clipboard`
+  - hoogle
   - htop
   - httpie
-  - hoogle
   - hub
   - hunspell
   - hunspell-en_AU
@@ -72,6 +71,7 @@ pacman_packages:
   - man-db
   - man-pages
   - mesa
+  - minikube
   - mopidy
   - mpc
   - mpd
@@ -90,11 +90,12 @@ pacman_packages:
   - pass
   - pavucontrol
   - php
-  - phpdbg
   - php-memcached
   - php-pgsql
+  - php-phpdbg
   - php-sodium
   - php-sqlite
+  - picom
   - pigz
   - pkgfile
   - playerctl
@@ -113,7 +114,6 @@ pacman_packages:
   - scrot
   - shotwell
   - socat
-  - stack
   - termite
   - terraform
   - thefuck
@@ -172,7 +172,6 @@ aur_packages:
   - kubernetic
   - lazygit
   - marp
-  - minikube
   - mons
   - mopidy-gmusic
   - mopidy-local-sqlite

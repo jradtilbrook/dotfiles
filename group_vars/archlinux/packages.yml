@@ -161,7 +161,6 @@ aur_packages:
   - exercism-cli
   - fac
   - gksu
-  - gotop
   - heroku-cli
   - i3blocks-contrib
   - i3lock-color-git
@@ -197,4 +196,5 @@ aur_packages:
   - ttf-symbola
   - ttf-twemoji-color
   - wtfutil
+  - ytop
   - zoom

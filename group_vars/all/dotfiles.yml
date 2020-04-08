@@ -26,3 +26,4 @@ env_vars:
 symlinks:
   # this goes with the systemd-resolved.service to ensure dns works
   /etc/resolv.conf: /run/systemd/resolve/stub-resolv.conf
+  "{{ ansible_user_dir }}/.config/mpv/scripts/mpris.so": /usr/lib/mpv/mpris.so

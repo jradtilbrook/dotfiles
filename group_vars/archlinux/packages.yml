@@ -177,6 +177,7 @@ aur_packages:
   - mopidy-spotify
   - mopidy-spotify-web
   - mpdris2
+  - mpv-mpris
   - nerd-fonts-complete
   - ngrok
   - openvpn-update-systemd-resolved

@@ -56,6 +56,7 @@ pacman_packages:
   - hunspell-en_AU
   - i3-gaps
   - i3blocks
+  - i3lock-color
   - i3status
   - iftop
   - imagemagick
@@ -163,7 +164,6 @@ aur_packages:
   - gksu
   - heroku-cli
   - i3blocks-contrib
-  - i3lock-color-git
   - insomnia
   - jiq
   - kubernetes-helm2

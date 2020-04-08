@@ -6,14 +6,17 @@
 # theme. It also appends any command line arguments to i3lock to dynamically allow
 # changing settings, such as disabling forking.
 
+# exit early if i3lock is already running
+pgrep -x i3lock >/dev/null && exit 0
+
+# pause dunst
+notify-send DUNST_COMMAND_PAUSE
+
 # stop music playing
 playerctl pause
 
 # Ensure dmenu shading is removed before screenshot
 sleep 0.2
-
-# pause dunst
-killall -SIGUSR1 dunst
 
 # create a temp file for resizing images
 # RESIZED_IMAGE_PATH=$(mktemp)
@@ -52,8 +55,7 @@ $LOCK_IMAGE \
 --bshlcolor=ef5253ff \
 $*
 
-# resume dunst
-killall -SIGUSR2 dunst
+notify-send DUNST_COMMAND_RESUME
 
 # cleanup temp files
 rm -f $RESIZED_IMAGE_PATH

@@ -68,7 +68,7 @@ plugins=(
     last-working-dir \
     # minikube \
     # pip \
-    stack \
+    # stack \
     sudo \
     systemd \
     # terraform \

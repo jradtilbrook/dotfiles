@@ -1,0 +1,16 @@
+{{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
+# allow frontend (e.g., wpa_cli) to be used by all users in 'wheel' group
+ctrl_interface=/run/wpa_supplicant
+ctrl_interface_group=wheel
+update_config=1
+
+# allow roaming between access points when signal is low
+bgscan="simple:30:-70:3600"
+
+{% for network in networks %}
+network={
+    ssid="{{ network.name }}"
+    psk={{ network.psk }}
+    priority={{ network.priority }}
+}
+{% endfor %}

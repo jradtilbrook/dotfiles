@@ -4,16 +4,13 @@
 ## ---------------------------
 system_services:
   - bluetooth.service
-  # dhcpcd will start and get an IP for all interfaces by default
-  # it will also try ipv6 so might want to modify /etc/dhcpcd.conf to stop it from constanty trying (`noipv6`)
-  - dhcpcd.service
   - docker.socket # starts docker on demand when first trying to use it
   # - i3lock.service # this can't be here because it is also _started_ which is annoying
-  # netctl-auto will connect to any profiles automatically but they need setting up in /etc/netctl
-  - netctl-auto@wlp1s0.service
+  - systemd-networkd.service
   - systemd-resolved.service
   - systemd-timesyncd.service
   - ufw.service
+  - wpa_supplicant@wlp1s0.service
 
 user_services:
   - greenclip.service

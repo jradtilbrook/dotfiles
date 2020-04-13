@@ -115,6 +115,7 @@ pacman_packages:
   - scrot
   - shotwell
   - socat
+  - systemd-resolvconf # im currently trying this out to see if it fixes the overwriting of /etc/resolv.conf
   - termite
   - terraform
   - thefuck

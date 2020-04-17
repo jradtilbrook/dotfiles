@@ -72,6 +72,7 @@ plugins=(
     sudo \
     systemd \
     # terraform \
+    thefuck \
     virtualenvwrapper \
 )
 
@@ -161,7 +162,7 @@ vim() {
 }
 
 # Aliases
-alias cat='bat'
+alias cat='bat --theme="Solarized (dark)"'
 alias clc='tput reset'
 alias f='fuck'
 alias free='free -h'
@@ -180,7 +181,7 @@ alias xclip='xclip -selection c'
 unalias rm
 
 # Environment variables
-export EDITOR=nvim
+export EDITOR=vim
 export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.yarn/bin"
 export PROJECT_HOME=$HOME/projects
 export TERM=xterm-256color
@@ -195,7 +196,6 @@ export AWS_VAULT_BACKEND=pass
 # [ -f /usr/share/exercism-cli/completion/exercism_completion.zsh ] && source /usr/share/exercism-cli/completion/exercism_completion.zsh
 [ $(command -v jira) ] && eval "$(jira --completion-script-zsh)"
 [ $(command -v rbenv) ] && eval "$(rbenv init -)"
-[ $(command -v thefuck) ] && eval $(thefuck --alias)
 
 # finally, fun archey3 for pc info
 archey3

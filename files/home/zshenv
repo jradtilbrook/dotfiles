@@ -1,0 +1,9 @@
+export EDITOR=nvim
+export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin:$HOME/.yarn/bin"
+export PROJECT_HOME=$HOME/projects
+export TERM=xterm-256color
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
+export AWS_SDK_LOAD_CONFIG=true
+export AWS_VAULT_PASS_PREFIX=aws-vault
+export AWS_VAULT_BACKEND=pass

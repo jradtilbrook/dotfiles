@@ -193,8 +193,13 @@ nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-L> <C-W><C-L>
 
+" define custom commands for Rg to include project files
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --hidden -g \"!.git\" --no-ignore ".shellescape(<q-args>), 1)
+" case insensitive version
+command! -bang -nargs=* Rgi call fzf#vim#grep("rg --column --line-number --no-heading --color=always --ignore-case --hidden -g \"!.git\" --no-ignore ".shellescape(<q-args>), 1)
 " bind K to grep word under cursor using fzf
-nnoremap <silent> K :execute 'Rg' expand('<cword>')<CR>
+nnoremap <silent> <leader>k :execute 'Rg' expand('<cword>')<CR>
+nnoremap <silent> <leader>K :execute 'Rgi' expand('<cword>')<CR>
 
 " toggle nerdtree
 nmap <C-\> :NERDTreeToggle<cr>

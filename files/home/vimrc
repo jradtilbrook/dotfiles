@@ -202,7 +202,7 @@ nmap <C-\> :NERDTreeToggle<cr>
 " use space to toggle folding
 nnoremap <space> za
 " search for word under cursor
-nnoremap // yiw/<C-R>"<CR>
+nnoremap // yiw/\c<C-R>"<CR>
 
 " vim-fugitive
 map <Leader>gs :Gstatus<CR>
@@ -240,7 +240,8 @@ let g:UltiSnipsJumpForwardTrigger = '<c-h>'
 
 " fzf
 let g:fzf_layout = {'down': '15'} " number of results to show
-let g:fzf_buffers_jump = 1  " jump to open buffer if possible
+" get :Files to show hidden files except for .git
+let $FZF_DEFAULT_COMMAND = 'rg --files --vimgrep --hidden -g "!.git" --no-ignore'
 
 " use rg for grep
 if executable('rg')

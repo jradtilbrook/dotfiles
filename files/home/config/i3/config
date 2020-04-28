@@ -11,7 +11,7 @@
 # super key as modifier
 set $mod Mod4
 # workspace variables
-set $workspace1 "1 "
+set $workspace1 "1 "
 set $workspace2 "2 "
 set $workspace3 "3 "
 set $workspace4 "4 "

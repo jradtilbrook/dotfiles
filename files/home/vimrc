@@ -56,7 +56,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': './install.sh' }
 
     " other utils
-    Plug 'itchyny/calendar.vim'
     Plug 'junegunn/gv.vim', { 'on': 'GV' }
     Plug 'junegunn/vim-peekaboo'
     Plug 'rhysd/committia.vim'
@@ -73,6 +72,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-unimpaired'
     " Plug 'skwp/greplace.vim'
     Plug 'wakatime/vim-wakatime'
+
+    " this must go last (at least after tpope/vim-obsession
+    Plug 'dhruvasagar/vim-prosession'
 call plug#end()
 
 
@@ -236,11 +238,6 @@ let g:airline_powerline_fonts = 1
 " ultisnips
 let g:UltiSnipsJumpForwardTrigger = '<c-h>'
 
-" calendar
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-let g:calendar_task = 1
-
 " fzf
 let g:fzf_layout = {'down': '15'} " number of results to show
 let g:fzf_buffers_jump = 1  " jump to open buffer if possible
@@ -253,6 +250,7 @@ endif
 
 " NERDTree
 let NERDTreeHijackNetrw = 0
+let g:NERDTreeQuitOnOpen = 1 " Close tree on opening a file
 
 " NERDCommenter
 let NERDCommentEmptyLines = 1
@@ -277,3 +275,6 @@ let g:zv_file_types = {
 
 " iamcco/markdown-preview.nvim
 let g:mkdp_browser = 'firefox-developer-edition'
+
+" dhruvasagar/vim-prosession
+let g:prosession_per_branch = 1

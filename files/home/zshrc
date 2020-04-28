@@ -151,16 +151,6 @@ jcm() {
     eval gcb $@
 }
 
-# shortcut to open vim using the previous session in the directory
-vim() {
-    if [ $# -ne 0 ]; then
-        nvim $@
-    else
-        # dont forget to start a session with :mksession or preferrably :Obsession
-        {[ -f 'Session.vim' ] && nvim -S} || nvim
-    fi
-}
-
 # Aliases
 alias cat='bat --theme="Solarized (dark)"'
 alias clc='tput reset'
@@ -171,11 +161,14 @@ alias kx='kubectx'
 alias l1='ls -1'
 alias llh='ll -h'
 alias phpunit='vendor/bin/phpunit'
+alias phpcs='vendor/bin/phpcs'
+alias phpcbf='vendor/bin/phpcbf'
 alias vapor='vendor/bin/vapor'
 alias jip='jira in-progress'
 alias jit='jira take'
 alias tb='taskbook'
 alias tree='tree --du -h -C --dirsfirst' # show size and colour
+alias vim=nvim
 alias vimdiff='nvim -d'
 alias xclip='xclip -selection c'
 unalias rm

@@ -41,7 +41,7 @@ call plug#begin('~/.vim/plugged')
     Plug '/usr/local/opt/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdcommenter'
-    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
     Plug 'wesQ3/vim-windowswap'
     Plug 'xolox/vim-misc'
 
@@ -203,6 +203,7 @@ nnoremap <silent> <leader>K :execute 'Rgi' expand('<cword>')<CR>
 
 " toggle nerdtree
 nmap <C-\> :NERDTreeToggle<cr>
+nmap <leader>\ :NERDTreeFind<cr>
 
 " use space to toggle folding
 nnoremap <space> za

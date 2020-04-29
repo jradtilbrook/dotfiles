@@ -57,6 +57,7 @@ signal=10
 [volume]
 label=
 instance=Master
+command=~/.config/i3blocks/$BLOCK_NAME
 interval=once
 signal=10
 

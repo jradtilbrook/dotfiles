@@ -21,7 +21,6 @@ Reboot and log into the new user. Now the Ansible playbook can be run:
 1. Clone this repo (using https because no ssh key exists yet).
 2. Run the ansible playbook: `./dotfiles.yml`.
     - The playbook requires admin rights to install packages so run `sudo -v` beforehand to cache credentials.
-    - There seems to be a bug in ansible 2.8 so create a virtual env and install `ansible>=2.7,<2.8`
 3. Change any other app settings as desired.
 4. Change the repo url to use ssh.
 5. Install `yay` to help with AUR packages.

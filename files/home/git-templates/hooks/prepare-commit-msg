@@ -20,8 +20,8 @@ shopt -s extglob
 case "$2,$3" in
     merge,) # Commend out "Conflicts" part
         /usr/bin/perl -i.bak -ne 's/^/# /, s/^# #/#/ if /^Conflicts/ .. /#/; print' "$1" ;;
-    commit,HEAD) # An amended commit - dont append
-        ;;
+    commit,HEAD) ;; # An amended commit - dont append
+    message,) ;; # a rebase ??
     *) # Prepend the current branch to the commit
         BRANCH_NAME=`git symbolic-ref --short HEAD`
         case $BRANCH_NAME in

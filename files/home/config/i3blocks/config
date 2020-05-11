@@ -28,13 +28,6 @@ command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-# cpu
-# uptime
-# backlight
-# music (mopidy/mpd)
-# weather
-# bluetooth
-
 [arch-update]
 command=/usr/lib/i3blocks/arch-update/arch-update.py -b "#5fff5f" -u "#FFFF85"
 separator=true
@@ -105,9 +98,7 @@ separator=true
 #
 # The battery instance defaults to 0.
 [battery]
-# label=BAT
 label=⚡
-#instance=1
 interval=30
 
 # Temperature

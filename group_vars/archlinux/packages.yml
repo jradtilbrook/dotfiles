@@ -48,7 +48,7 @@ pacman_packages:
   - gopass
   - gufw
   - gvim # normal vim doesnt come with `+clipboard`
-  - hoogle
+  # - hoogle # this installs so many things that maybe its not worth it - move to docker or something
   - htop
   - httpie
   - hub

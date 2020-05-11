@@ -171,6 +171,7 @@ alias tree='tree --du -h -C --dirsfirst' # show size and colour
 alias vim=nvim
 alias vimdiff='nvim -d'
 alias xclip='xclip -selection c'
+alias yay='yay --editmenu --nodiffmenu --save'
 unalias rm
 
 # autocompletion

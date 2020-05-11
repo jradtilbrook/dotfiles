@@ -144,7 +144,6 @@ pacman_packages:
   - yarn
   - youtube-dl
   - youtube-viewer
-  - zeal
   - zip
   - zsh
   # dzen
@@ -199,4 +198,5 @@ aur_packages:
   - ttf-twemoji-color
   - wtfutil
   - ytop
+  - zeal
   - zoom

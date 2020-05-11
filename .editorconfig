@@ -14,3 +14,6 @@ indent_size = 2
 
 [*.{md,diff}]
 trim_trailing_whitespace = false
+
+[files/home/config/i3blocks/config]
+trim_trailing_whitespace = false

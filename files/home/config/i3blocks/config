@@ -33,11 +33,13 @@ markup=pango
 # backlight
 # music (mopidy/mpd)
 # weather
-# unread mail
-# pacman updates
-# network
-# battery
 # bluetooth
+
+[arch-update]
+command=/usr/lib/i3blocks/arch-update/arch-update.py -b "#5fff5f" -u "#FFFF85"
+separator=true
+label= 
+interval=3600
 
 # Bluetooth
 #
@@ -83,25 +85,15 @@ interval=30
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
-instance=enp6s0
-color=#00FF00
-interval=10
-separator=true
-[iface]
-instance=enp12s0
-color=#00FF00
-interval=10
-separator=true
-[iface]
 instance=wlp1s0
 color=#00FF00
 interval=10
-separator=true
+separator=false
 
 [wifi]
 instance=wlp1s0
 interval=10
-separator=false
+separator=true
 
 [load_average]
 command=~/.config/i3blocks/$BLOCK_NAME

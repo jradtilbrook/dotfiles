@@ -11,7 +11,7 @@
 # super key as modifier
 set $mod Mod4
 # workspace variables
-set $workspace1 "1 "
+set $workspace1 "1 龜"
 set $workspace2 "2 "
 set $workspace3 "3 "
 set $workspace4 "4 "
@@ -19,7 +19,7 @@ set $workspace5 "5 "
 set $workspace6 "6 "
 set $workspace7 "7 "
 set $workspace8 "8 "
-set $workspace9 "9 "
+set $workspace9 "9 "
 set $workspace10 "10 "
 # resize window
 set $resize ""
@@ -302,6 +302,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 ##
 assign [class="Slack"] $workspace6
 assign [class="code"] $workspace4
+assign [class="discord"] $workspace9
 assign [class="spotify"] $workspace10
 for_window [class="Gufw.py"] floating enable
 for_window [class="Pavucontrol"] floating enable

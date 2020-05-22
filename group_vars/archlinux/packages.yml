@@ -9,6 +9,7 @@
 pacman_packages:
   - ack
   - acpi
+  - acpilight
   - adobe-source-code-pro-fonts
   - alsa-utils
   - arc-gtk-theme
@@ -137,7 +138,6 @@ pacman_packages:
   - xdotool
   # - xf86-video-intel # depending on graphics hardware
   - xorg-server
-  - xorg-xbacklight
   - xorg-xinit
   - xorg-xprop
   - xorg-xrandr

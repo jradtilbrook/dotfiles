@@ -303,6 +303,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 assign [class="Slack"] $workspace6
 assign [class="code"] $workspace4
 assign [class="discord"] $workspace9
+assign [class="firefoxdeveloperedition"] $workspace1
 assign [class="spotify"] $workspace10
 for_window [class="Gufw.py"] floating enable
 for_window [class="Pavucontrol"] floating enable

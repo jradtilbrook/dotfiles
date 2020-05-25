@@ -265,7 +265,7 @@ bar {
     position top
     colors {
         background $base00
-        separator $base06
+        separator $base02
         statusline $base04
 
         #                   border              background          text

@@ -25,11 +25,12 @@
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME
-separator_block_width=15
+separator_block_width=16
 markup=pango
 
 [arch-update]
-command=/usr/lib/i3blocks/arch-update/arch-update.py -b "#5fff5f" -u "#FFFF85"
+command=~/.config/i3blocks/$BLOCK_NAME -b "#585858" -u "#E66B2B"
+color=#585858
 separator=true
 label= 
 interval=3600
@@ -39,6 +40,7 @@ interval=3600
 # Shows bluetooth power and connection status
 [bluetooth]
 label= 
+color=#33B5E1
 separator=true
 command=~/.config/i3blocks/$BLOCK_NAME
 interval=4
@@ -51,6 +53,7 @@ signal=10
 # See the script for details.
 [volume]
 label= 
+color=#A363D5
 instance=Master
 command=~/.config/i3blocks/$BLOCK_NAME
 interval=once
@@ -61,6 +64,7 @@ signal=10
 # The type defaults to "mem" if the instance is not specified.
 [memory]
 label= 
+color=#52CBB0
 separator=false
 interval=30
 
@@ -71,6 +75,7 @@ interval=30
 # (defaults to 10 for 10%).
 [disk]
 label= 
+color=#52CBB0
 interval=30
 
 # Network interface monitoring
@@ -78,28 +83,31 @@ interval=30
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
+label= 
 instance=wlp1s0
-color=#67AF33
+color=#7CC844
 interval=10
 separator=false
 
 [wifi]
-instance=wlp1s0
+command=~/.config/i3blocks/$BLOCK_NAME
+label= 
 interval=10
 separator=true
 
 [load_average]
 command=~/.config/i3blocks/$BLOCK_NAME
 label= 
+color=#E66B2B
 interval=3
 separator=true
 
 # Battery indicator
 #
 # The battery instance defaults to 0.
-[battery]
-label=⚡
+[battery2]
 interval=30
+color=#F8F8F8
 
 # Temperature
 #
@@ -108,11 +116,13 @@ interval=30
 # see the script for details.
 [temperature]
 label= 
+color=#E4B51C
 interval=10
 
 # Date Time
 #
 [time]
 label= 
+color=#33B5E1
 command=date '+%a, %d-%b-%Y %H:%M:%S'
 interval=5

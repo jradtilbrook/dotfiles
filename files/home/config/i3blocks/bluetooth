@@ -11,22 +11,15 @@ DEVICE=$(bluetoothctl info | sed -n "s/.*Name:\s\+\(.*\)/\1/pI")
 case $BLOCK_BUTTON in
     1) # left click = connect/disconnect
         [ $POWER = "Off" ] && break
-        if [ $DEVICE = "Disconnected" ]; then
-            ACTION='-c'
-            DEVICE="MDR-10RBT"
-        else
-            ACTION='-d'
-            DEVICE="Disconnected"
-        fi
-        bt-device $ACTION '57:D3:98:0C:9C:D6' > /dev/null &
+        ~/.local/bin/bluetooth.sh
     ;;
     3) # right click - power on/off
         if [ $POWER = "On" ]; then
-            POWER=Off
+            SET_POWER=off
         else
-            POWER=On
+            SET_POWER=on
         fi
-        bt-adapter -s Powered $POWER > /dev/null
+        bluetoothctl power $SET_POWER >/dev/null
     ;;
 esac
 
@@ -35,9 +28,9 @@ if [ $POWER = "Off" ]; then
     echo $POWER
 else
     if [ "$DEVICE" = "Disconnected" ]; then
-        COLOUR='#CEA41A'
+        COLOUR='#E4B51C'
     else
-        COLOUR='#67AF33'
+        COLOUR='#33B5E1'
     fi
 
     echo $DEVICE

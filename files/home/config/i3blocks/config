@@ -124,5 +124,5 @@ interval=10
 [time]
 label= 
 color=#33B5E1
-command=date '+%a, %d-%b-%Y %H:%M:%S'
+command=date '+%a, %d-%b-%Y %H:%M:%S  '
 interval=5

@@ -25,6 +25,7 @@ Reboot and log into the new user. Now the Ansible playbook can be run:
 4. Change the repo url to use ssh.
 5. Install `yay` to help with AUR packages.
 6. Change shell to Zsh.
+7. Change `/etc/makepkg.conf` [to improve compression](https://wiki.archlinux.org/index.php/Makepkg#Utilizing_multiple_cores_on_compression)
 
 Now perform other system admin/management/security tasks as needed that are not easily automated with Ansible. See the [References](#references) below.
 

@@ -67,6 +67,8 @@ pacman_packages:
   - kubectl
   - kubectx
   - libglvnd # depending on graphics hardware
+  - libimobiledevice
+  - libreoffice-fresh
   - lm_sensors
   - lxappearance
   - lxsession
@@ -91,6 +93,7 @@ pacman_packages:
   - pamixer
   - pass
   - pavucontrol
+  - pbzip2
   - php
   - php-memcached
   - php-pgsql

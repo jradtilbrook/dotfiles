@@ -176,6 +176,7 @@ unalias rm
 # [ -f /usr/share/exercism-cli/completion/exercism_completion.zsh ] && source /usr/share/exercism-cli/completion/exercism_completion.zsh
 [ $(command -v jira) ] && eval "$(jira --completion-script-zsh)"
 [ $(command -v rbenv) ] && eval "$(rbenv init -)"
+[ $(command -v broot) ] && source ~/.config/broot/launcher/bash/br
 
 # finally, fun archey3 for pc info
 archey3

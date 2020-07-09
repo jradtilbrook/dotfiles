@@ -205,6 +205,10 @@ nnoremap <silent> <leader>K :execute 'Rgi' expand('<cword>')<CR>
 nmap <C-\> :NERDTreeToggle<cr>
 nmap <leader>\ :NERDTreeFind<cr>
 
+" splitting windows
+nmap <leader>\\ :vs<cr>
+nmap <leader>// :sp<cr>
+
 " use space to toggle folding
 nnoremap <space> za
 " search for word under cursor

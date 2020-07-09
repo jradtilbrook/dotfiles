@@ -35,6 +35,7 @@ pacman_packages:
   - docker
   - docker-compose
   - dosfstools
+  - dotnet-sdk
   - dunst
   - exfat-utils
   - fd

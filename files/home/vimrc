@@ -163,6 +163,8 @@ nmap ; :
 nmap <Leader>ev :edit $HOME/.vimrc<cr>
 " shortcut to edit i3 config
 nmap <Leader>ei :edit $HOME/.config/i3/config<cr>
+" shortcut to edit i3 lock script
+nmap <Leader>el :edit $HOME/.local/bin/i3lock_wrapper.sh<cr>
 " shortcut to edit Zsh config
 nmap <Leader>ez :edit $HOME/.zshrc<cr>
 " remove highlighted search

@@ -10,16 +10,20 @@ DEVICE=$(bluetoothctl info | sed -n "s/.*Name:\s\+\(.*\)/\1/pI")
 # respond to a click event
 case $BLOCK_BUTTON in
     1) # left click = connect/disconnect
-        [ $POWER = "Off" ] && break
-        ~/.local/bin/bluetooth.sh
+        [ $POWER = "Off" ] && bluetoothctl power on >/dev/null
+        ~/.local/bin/bluetooth.sh connect
     ;;
-    3) # right click - power on/off
+    2) # middle click - power on/off
         if [ $POWER = "On" ]; then
             SET_POWER=off
         else
             SET_POWER=on
         fi
         bluetoothctl power $SET_POWER >/dev/null
+    ;;
+    3) # right click = disconnect
+        [ $POWER = "Off" ] && break
+        ~/.local/bin/bluetooth.sh disconnect
     ;;
 esac
 

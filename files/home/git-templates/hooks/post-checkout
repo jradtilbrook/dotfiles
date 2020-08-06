@@ -16,6 +16,6 @@ shopt -s extglob
 
 # if we are changing branches
 if [ $3 -eq 1 ]; then
-    [ -f composer.lock ] && git diff --quiet $1 $2 -- composer.lock || i3-sensible-terminal -r scratch -d $(pwd) --hold -e 'composer install' 2&>1 >/dev/null &
-    [ -f yarn.lock ] && git diff --quiet $1 $2 -- yarn.lock || i3-sensible-terminal -r scratch -d $(pwd) --hold -e 'yarn' 2&>1 >/dev/null &
+    [ -f composer.lock ] && { git diff --quiet $1 $2 -- composer.lock || i3-sensible-terminal -r scratch -d $(pwd) --hold -e 'composer install' &>/dev/null & }
+    [ -f yarn.lock ] && { git diff --quiet $1 $2 -- yarn.lock || i3-sensible-terminal -r scratch -d $(pwd) --hold -e 'yarn' &>/dev/null & }
 fi

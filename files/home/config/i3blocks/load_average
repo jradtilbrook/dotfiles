@@ -33,5 +33,5 @@ awk -v cpus=$cpus -v cpuload=$load '
     }
 '
 case $BLOCK_BUTTON in
-    1) i3-sensible-terminal -r scratch -e 'ytop -c solarized-dark -abp' 2&>1 >/dev/null & ;; # left click
+    1) i3-sensible-terminal -r scratch -e 'ytop -c solarized-dark -abp' &>/dev/null & ;; # left click
 esac

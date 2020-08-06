@@ -36,5 +36,5 @@
   with_file: "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
   loop_control:
     label: "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
-  # TODO: creds will be in pass now instead so they need retrieving before running this step
   when: ssh_key.stat.exists
+  failed_when: no # TODO: creds will be in pass now instead so they need retrieving before running this step

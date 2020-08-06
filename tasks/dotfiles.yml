@@ -85,19 +85,4 @@
     force: yes
   loop: "{{ symlinks | dict2items }}"
   when: ansible_distribution != 'MacOSX'
-
-- name: ensure directories exist
-  file:
-    dest: "{{ item.dest | dirname }}"
-    state: directory
-  loop: "{{ download_files }}"
-  loop_control:
-    label: "{{ item.dest | dirname }}"
-
-- name: download files
-  get_url:
-    url: "{{ item.url }}"
-    dest: "{{ item.dest }}"
-  loop: "{{ download_files }}"
-  loop_control:
-    label: "{{ item.dest }}"
+  failed_when: no # TODO: this fails because mpris is an aur package not installed at first

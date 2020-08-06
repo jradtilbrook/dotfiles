@@ -8,3 +8,19 @@
     dest: "{{ item.dest }}"
     update: no
   loop: "{{ git_repos | flatten }}"
+
+- name: ensure directories exist
+  file:
+    dest: "{{ item.dest | dirname }}"
+    state: directory
+  loop: "{{ download_files }}"
+  loop_control:
+    label: "{{ item.dest | dirname }}"
+
+- name: download files
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+  loop: "{{ download_files }}"
+  loop_control:
+    label: "{{ item.dest }}"

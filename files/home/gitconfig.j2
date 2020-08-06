@@ -10,11 +10,10 @@
 	gpgsign = true
 [core]
 	editor = nvim
+	hooksPath = {{ ansible_user_dir }}/projects/dotfiles/files/home/git-templates/hooks
 	longpaths = true # avoid Windows complaining about filename lengths
 	pager = less -F -X
 	whitespace = space-before-tab,-indent-with-non-tab,tab-in-indent,trailing-space
-[init]
-	templateDir = {{ ansible_user_dir }}/projects/dotfiles/files/home/git-templates/
 [color]
 	ui = true # show colour by default
 [diff]

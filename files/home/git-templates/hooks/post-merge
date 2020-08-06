@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Invoked when git-merge is run.
+# $1 = flag specifying whether or not the merge being done was a squash merge
+#
+# To enable this hook, put it in the .git/hooks directory.
+#
+
+#
+# Check for a composer.lock file and run composer install in a new terminal
+# Check for a yarn.lock file and run yarn in a new terminal
+#
+
+shopt -s extglob
+
+if ! git diff-tree -r --quiet $1 $2 -- composer.lock yarn.lock; then
+    $(dirname $0)/update-composer
+    $(dirname $0)/update-yarn
+fi

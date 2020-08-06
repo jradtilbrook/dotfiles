@@ -1,0 +1,3 @@
+#!/bin/sh
+
+[ -f composer.lock ] && i3-sensible-terminal -r popup -d $(pwd) --hold -e 'composer install' &>/dev/null &

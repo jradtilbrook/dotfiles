@@ -18,7 +18,7 @@ pacman_packages:
   - aws-cli
   - baobab
   - bat
-  - bind-tools
+  - bind
   - bluez
   - bluez-libs
   - bluez-utils

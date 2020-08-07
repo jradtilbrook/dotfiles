@@ -1,0 +1,11 @@
+[Unit]
+Description=Bind mount /tmp/hostpath-provisioner so minikube PVC are actually persistent
+
+[Mount]
+What=/var/tmp/hostpath-provisioner
+Where=/tmp/hostpath-provisioner
+Type=none
+Options=bind
+
+[Install]
+WantedBy=local-fs.target

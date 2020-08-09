@@ -49,8 +49,6 @@ pacman_packages:
   - go
   - gopass
   - gufw
-  - gvim # normal vim doesnt come with `+clipboard`
-  # - hoogle # this installs so many things that maybe its not worth it - move to docker or something
   - htop
   - httpie
   - hub
@@ -167,6 +165,7 @@ aur_packages:
   - exercism-cli
   - fac
   - gksu
+  - go-jira-bin
   - heroku-cli
   - i3blocks-contrib
   - insomnia

@@ -311,7 +311,7 @@ for_window [class="Pinentry"] floating enable
 for_window [class="Pinentry-gtk-2"] floating enable sticky enable
 for_window [class="Slic3r"] floating enable
 for_window [class="Termite" window_role="scratch"] floating enable, move scratchpad, scratchpad show
-for_window [class="Termite" window_role="popup"] floating enable
+for_window [class="Termite" window_role="popup"] floating enable sticky enable
 no_focus [class="Termite" window_role="popup"]
 for_window [class="VirtualBox"] floating enable
 for_window [class="Zeal"] floating enable

@@ -147,6 +147,7 @@ pacman_packages:
   - yarn
   - youtube-dl
   - youtube-viewer
+  - yq
   - zip
   - zsh
   # dzen
@@ -157,7 +158,7 @@ pacman_packages:
 ## AUR packages to install
 ## -----------------------
 aur_packages:
-  - aws-vault
+  - aws-vault-bin
   - bitwarden-rofi
   - chamber
   - docker-credential-pass

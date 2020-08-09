@@ -35,6 +35,15 @@
     state: present
     backup: yes
 
+- name: sleep with delayed hibernate
+  ini_file:
+    path: /etc/systemd/logind.conf
+    section: Login
+    option: HandleLidSwitch
+    value: suspend-then-hibernate
+    state: present
+    backup: yes
+
 - name: ignore some pacman packages
   ini_file:
     path: /etc/pacman.conf

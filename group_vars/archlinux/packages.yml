@@ -112,6 +112,7 @@ pacman_packages:
   - python-pip
   - rclone
   - redshift
+  - reflector
   - ripgrep
   - rofi
   - rsync

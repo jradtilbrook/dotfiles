@@ -10,19 +10,19 @@ theme="listview { lines: 6; } element selected.normal { text-color: #EF5253; }"
 select=$(echo -e $options | rofi -dmenu -p "exit" -theme-str "$theme")
 # do the appropriate action
 case $select in
-    "Lock") # Lock
+    "Lock")
         ~/.local/bin/i3lock_wrapper.sh
         ;;
-    "Sleep") # Sleep
-        systemctl suspend
+    "Sleep")
+        systemctl suspend-then-hibernate
         ;;
-    "Log out") # Log out
+    "Log out")
         i3-msg exit
         ;;
-    "Shutdown") # Shutdown
+    "Shutdown")
         systemctl poweroff
         ;;
-    "Restart") # Restart
+    "Restart")
         systemctl reboot
         ;;
 esac

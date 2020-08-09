@@ -337,4 +337,4 @@ exec --no-startup-id compton -f -b -D 3
 exec --no-startup-id lxpolkit
 
 # automatic screen lock and sleep
-exec --no-startup-id xautolock -detectsleep -secure -time 5 -locker "~/.local/bin/i3lock_wrapper.sh -n" -killtime 25 -killer "systemctl suspend"
+exec --no-startup-id xautolock -detectsleep -secure -time 5 -locker "~/.local/bin/i3lock_wrapper.sh -n" -killtime 25 -killer "systemctl suspend-then-hibernate"

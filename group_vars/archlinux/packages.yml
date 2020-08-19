@@ -167,11 +167,11 @@ aur_packages:
   - fac
   - gksu
   - go-jira-bin
+  - helm2-bin
   - heroku-cli
   - i3blocks-contrib
   - insomnia
   - jiq
-  - kubernetes-helm2
   - kubernetes-helmfile-bin
   - kubernetic
   - lazygit

@@ -165,6 +165,7 @@ alias jip='jira in-progress'
 alias jit='jira take'
 alias tb='taskbook'
 alias tree='tree --du -h -C --dirsfirst' # show size and colour
+alias v=vim
 alias vim=nvim
 alias vimdiff='nvim -d'
 alias xclip='xclip -selection c'

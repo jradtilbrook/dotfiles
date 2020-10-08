@@ -178,6 +178,3 @@ unalias rm
 [ $(command -v jira) ] && eval "$(jira --completion-script-zsh)"
 [ $(command -v rbenv) ] && eval "$(rbenv init -)"
 [ $(command -v broot) ] && source ~/.config/broot/launcher/bash/br
-
-# finally, fun archey3 for pc info
-archey3

@@ -177,7 +177,7 @@ bindsym $mod+Shift+Delete exec --no-startup-id ~/.local/bin/i3exit.sh
 # use rofi instead of dmenu
 bindsym $mod+space exec --no-startup-id rofi -show-icons -modi 'drun#clipboard:greenclip print#run#window#ssh' -show drun -terminal 'i3-sensible-terminal -r scratch' -ssh-command '{terminal} --hold -e "{ssh-client} {host}"'
 # simple password management
-bindsym $mod+g exec --no-startup-id bwmenu --auto-lock 3600
+bindsym $mod+g exec --no-startup-id ~/projects/bitwarden-rofi/bwmenu --auto-lock 21600
 # clipboard management
 bindsym $mod+Shift+p exec --no-startup-id ~/.local/bin/greenclip.sh
 

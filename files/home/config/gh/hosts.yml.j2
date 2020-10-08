@@ -1,0 +1,6 @@
+{{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
+# vi: ft=yaml
+github.com:
+    user: jradtilbrook
+    oauth_token: "{{ github_cli_token }}"
+    git_protocol: ssh

@@ -1,0 +1,11 @@
+# What protocol to use when performing git operations. Supported values: ssh, https
+git_protocol: https
+# What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
+editor:
+# Aliases allow you to create nicknames for gh commands
+aliases:
+    co: pr checkout
+    cr: pr create
+    crd: pr create -d
+    show: pr view -w
+    browse: repo view -w

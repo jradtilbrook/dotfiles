@@ -5,6 +5,8 @@
 git_repos:
   - url: git@github.com:jradtilbrook/oh-my-zsh.git
     dest: "{{ ansible_user_dir }}/.oh-my-zsh"
+  - url: git@github.com:jradtilbrook/bitwarden-rofi.git
+    dest: "{{ ansible_user_dir }}/projects/bitwarden-rofi"
   - url: git@github.com:blimmer/zsh-aws-vault.git
     dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-aws-vault"
     # this is pretty hacky but works for now. if/when custom autoload scripts are added, it wont work

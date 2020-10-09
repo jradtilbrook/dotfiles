@@ -7,5 +7,6 @@ aliases:
     co: pr checkout
     cr: pr create
     crd: pr create -d
-    show: pr view -w
-    browse: repo view -w
+    v: pr view -w
+    b: repo view -w
+    al: alias list

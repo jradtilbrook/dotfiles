@@ -37,6 +37,7 @@ pacman_packages:
   - dosfstools
   - dotnet-sdk
   - dunst
+  - entr
   - exfat-utils
   - fd
   - feh
@@ -46,6 +47,7 @@ pacman_packages:
   - gimp
   - git
   - git-lfs
+  - github-cli
   - go
   - gopass
   - gufw

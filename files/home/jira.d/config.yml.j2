@@ -1,22 +1,14 @@
 {{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
 ---
 endpoint: {{ jira_endpoint }}
-authentication-method: api-token
 login: {{ jira_email }}
-user: {{ jira_user }}
 password-source: pass
 
 custom-commands:
   - name: mine
     help: display issues assigned to me
     script: |-
-      if [ -n "$JIRA_PROJECT" ]; then
-          # if `project: ...` configured just list the issues for current project
-          {% raw %}{{jira}}{% endraw %} list --template table --query "resolution = unresolved and assignee=currentuser() and project = $JIRA_PROJECT ORDER BY priority asc, created"
-      else
-          # otherwise list issues for all project
-          {% raw %}{{jira}}{% endraw %} list --template table --query "assignee = currentUser() AND status not in (Done, Closed) ORDER BY updatedDate DESC"
-      fi
+      {% raw %}{{jira}}{% endraw %} list --template table --query "assignee = currentUser() AND status not in (Done, Closed) ORDER BY updatedDate DESC"
   - name: br
     help: open ticket matching current branch
     script: |-

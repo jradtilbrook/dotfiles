@@ -18,17 +18,17 @@
 shopt -s extglob
 
 case "$2,$3" in
-    merge,) # Commend out "Conflicts" part
+    merge,) # Comment out "Conflicts" part
         /usr/bin/perl -i.bak -ne 's/^/# /, s/^# #/#/ if /^Conflicts/ .. /#/; print' "$1" ;;
     commit,HEAD) ;; # An amended commit - dont append
     message,) ;; # a rebase ??
     *) # Prepend the current branch to the commit
-        BRANCH_NAME=`git symbolic-ref --short HEAD`
+        SED=$(command -v gsed >/dev/null && echo gsed || echo sed)
+        BRANCH_NAME=$(git symbolic-ref --short HEAD | $SED -r "s/([[:upper:]][[:upper:]]+-[[:digit:]]+).*/\1/g")
         case $BRANCH_NAME in
             master|develop)
                 ;;
             [[:upper:]]+([[:upper:]])-+([[:digit:]]))
-                SED=$(command -v gsed >/dev/null && echo gsed || echo sed)
                 $SED -i -r "1s/^($BRANCH_NAME )?/$BRANCH_NAME /" $1 ;;
         esac
 esac

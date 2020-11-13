@@ -4,7 +4,7 @@
 
 \set PROMPT2 '%[%033[1;31m%]%x%[%033[0m%]   %R%# '
 
-\pset null '[null]'
+\pset null '¤'
 
 \set COMP_KEYWORD_CASE upper
 

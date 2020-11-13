@@ -37,6 +37,7 @@ pacman_packages:
   - dosfstools
   - dotnet-sdk
   - dunst
+  - emacs
   - entr
   - exfat-utils
   - fd

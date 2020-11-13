@@ -3,6 +3,8 @@
 ## Custom repos to clone
 ## ---------------------
 git_repos:
+  - url: git@github.com:hlissner/doom-emacs
+    dest: "{{ ansible_user_dir }}/.emacs.d"
   - url: git@github.com:jradtilbrook/oh-my-zsh.git
     dest: "{{ ansible_user_dir }}/.oh-my-zsh"
   - url: git@github.com:jradtilbrook/bitwarden-rofi.git

@@ -330,8 +330,8 @@ no_focus [class="code"]
 # change wallpaper
 exec_always --no-startup-id feh --no-fehbg --bg-fill ~/.wallpaper
 
-# run compton for pretty fading and opacity
-exec --no-startup-id compton -f -b -D 3
+# run picom for pretty fading and opacity
+exec --no-startup-id picom -b
 
 # start a polkit authentication agent
 exec --no-startup-id lxpolkit

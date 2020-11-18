@@ -15,6 +15,4 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", \
     SYMLINK+="stm32_dfu"
 
 # trigger volume i3block update when new sound sources
-# TODO: add doesnt work. need to further filter it down or listen to audio device added since theres probably a delay in bluetooth connection and audio configured
-ACTION=="add", SUBSYSTEM=="input", ID_BUS=="bluetooth", RUN+="/usr/bin/pkill -RTMIN+10 i3blocks"
 ACTION=="remove", SUBSYSTEM=="bluetooth", RUN+="/usr/bin/pkill -RTMIN+10 i3blocks"

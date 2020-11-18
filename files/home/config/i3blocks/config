@@ -56,7 +56,7 @@ label=
 color=#A363D5
 instance=Master
 command=~/.config/i3blocks/$BLOCK_NAME
-interval=once
+interval=5
 signal=10
 
 # Memory usage

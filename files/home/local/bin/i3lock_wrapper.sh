@@ -15,18 +15,8 @@ notify-send DUNST_COMMAND_PAUSE
 # stop music playing
 playerctl pause
 
-# Ensure dmenu shading is removed before screenshot
-sleep 0.2
-
-# create a temp file for resizing images
-# RESIZED_IMAGE_PATH=$(mktemp)
-# IMAGE_PATH=~/.screensaver
-# determine the current screen resolution. NB: this probably only works for a single screen
-# RESOLUTION=$(xrandr -q | head -1 | sed -n 's:.*current\s\([0-9]\+\)\sx\s\([0-9]\+\).*:\1x\2:p')
 LOCK_IMAGE="--blur 8"
-# TODO: see if the processing time can be reduced - this conversion takes a few seconds
-# convert $IMAGE_PATH -resize $RESOLUTION^ -gravity center -extent $RESOLUTION $RESIZED_IMAGE_PATH
-# LOCK_IMAGE="-i $RESIZED_IMAGE_PATH -t"
+# LOCK_IMAGE="-i ~/.screensaver -C"
 
 # lock the screen
 i3lock \
@@ -56,8 +46,5 @@ $LOCK_IMAGE \
 $*
 
 notify-send DUNST_COMMAND_RESUME
-
-# cleanup temp files
-rm -f $RESIZED_IMAGE_PATH
 
 exit 0

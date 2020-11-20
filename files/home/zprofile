@@ -1,7 +1,7 @@
 # start X on login through TTY1
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
     # logout when exiting X
-    # exec startx
+    exec startx
     # stay logged in when exiting X
-    startx
+    # startx
 fi

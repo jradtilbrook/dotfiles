@@ -171,7 +171,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # lock screen shortcut
-bindsym $mod+Shift+Escape exec --no-startup-id ~/.local/bin/i3lock_wrapper.sh -n
+bindsym $mod+Shift+Escape exec --no-startup-id xautolock -locknow
 # bind for lock / sleep / shutdown / ...
 bindsym $mod+Shift+Delete exec --no-startup-id ~/.local/bin/i3exit.sh
 # use rofi instead of dmenu
@@ -337,4 +337,4 @@ exec --no-startup-id picom -b
 exec --no-startup-id lxpolkit
 
 # automatic screen lock and sleep
-exec --no-startup-id xautolock -detectsleep -secure -time 5 -locker "~/.local/bin/i3lock_wrapper.sh -n" -killtime 25 -killer "systemctl suspend-then-hibernate"
+exec --no-startup-id xautolock -detectsleep -time 5 -locker "~/.local/bin/i3lock_wrapper.sh -n" -killtime 25 -killer "systemctl suspend-then-hibernate"

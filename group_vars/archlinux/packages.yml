@@ -16,6 +16,7 @@ pacman_packages:
   - arch-audit
   # - archey3
   # - aws-cli
+  - aws-vault
   - baobab
   - bat
   - bind
@@ -24,7 +25,7 @@ pacman_packages:
   - bluez-utils
   - broot
   # - calibre
-  - chromium
+  # - chromium
   - cmake
   - code
   - composer
@@ -59,7 +60,6 @@ pacman_packages:
   - hunspell-en_AU
   - i3-gaps
   - i3blocks
-  - i3lock-color
   - i3status
   - iftop
   - imagemagick
@@ -91,6 +91,7 @@ pacman_packages:
   - ntfs-3g
   - openssh
   - openvpn
+  - otf-hermit
   - pacman-contrib
   - pamixer
   - pass
@@ -161,7 +162,6 @@ pacman_packages:
 ## AUR packages to install
 ## -----------------------
 aur_packages:
-  - aws-vault-bin
   - bitwarden-rofi
   - chamber
   - docker-credential-pass
@@ -173,6 +173,7 @@ aur_packages:
   - helm2-bin
   - heroku-cli
   - i3blocks-contrib
+  - i3lock-color
   - insomnia
   - jiq
   - kubernetes-helmfile-bin
@@ -189,7 +190,6 @@ aur_packages:
   - nerd-fonts-complete
   - ngrok
   - openvpn-update-systemd-resolved
-  - otf-hermit
   - php-pear
   - phpstorm
   - plymouth

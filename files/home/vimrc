@@ -11,13 +11,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/neosnippet-snippets'
     Plug 'Shougo/neosnippet.vim' " TODO: how to enable
     Plug 'fatih/vim-go' ", { 'for': ['go', 'gotmpl'], 'do': ':GoUpdateBinaries' }
-    Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
+    " Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
     Plug 'hashivim/vim-terraform'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': 'markdown', 'on': 'MarkdownPreview' }
     Plug 'jparise/vim-graphql', { 'for': 'graphql' }
     Plug 'jwalton512/vim-blade'
     Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'jsx', 'typescript'] }
     Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx', 'typescript'] }
+    Plug 'OrangeT/vim-csharp'
     Plug 'pangloss/vim-javascript'
     Plug 'pearofducks/ansible-vim'
     Plug 'posva/vim-vue', { 'for': ['vue', 'javascript'] }
@@ -253,7 +254,7 @@ let g:UltiSnipsJumpForwardTrigger = '<c-h>'
 " fzf
 let g:fzf_layout = {'down': '15'} " number of results to show
 " get :Files to show hidden files except for .git
-let $FZF_DEFAULT_COMMAND = 'rg --files --vimgrep --hidden -g "!.git" --no-ignore'
+let $FZF_DEFAULT_COMMAND = 'rg --files --vimgrep --hidden -g "!.git|!coverage" --no-ignore'
 
 " use rg for grep
 if executable('rg')

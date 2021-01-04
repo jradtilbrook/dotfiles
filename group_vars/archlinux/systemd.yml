@@ -3,7 +3,7 @@
 ## Arch Linux systemd services
 ## ---------------------------
 system_services:
-  - blinkstick.service
+  - blinkstick-off.service
   - bluetooth.service
   - docker.socket # starts docker on demand when first trying to use it
   # - i3lock.service # this can't be here because it is also _started_ which is annoying
@@ -13,7 +13,8 @@ system_services:
   - systemd-timesyncd.service
   - tmp-hostpath\x2dprovisioner.mount
   - ufw.service
-  - wpa_supplicant@wlp1s0.service
+  # TODO: can filter wpa_supplicant out if wlp1s0 is not in the `ansible_interfaces` list from the setup/global vars
+  # - wpa_supplicant@wlp1s0.service
 
 user_services:
   - greenclip.service

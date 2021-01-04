@@ -192,7 +192,7 @@ bindsym $mod+Shift+Return exec i3-sensible-terminal -r scratch
 bindsym $mod+Shift+f exec firefox-developer-edition
 bindsym $mod+Shift+w exec chromium
 bindsym $mod+Shift+s exec slack
-bindsym $mod+Shift+e exec --no-startup-id code
+bindsym $mod+Shift+e exec --no-startup-id emacs
 # screenshot
 bindsym --release Print exec scrot -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
 bindsym --release Shift+Print exec scrot -s -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
@@ -331,10 +331,11 @@ no_focus [class="code"]
 exec_always --no-startup-id feh --no-fehbg --bg-fill ~/.wallpaper
 
 # run picom for pretty fading and opacity
-exec --no-startup-id picom -b
+#
+# exec --no-startup-id picom -b
 
 # start a polkit authentication agent
 exec --no-startup-id lxpolkit
 
 # automatic screen lock and sleep
-exec --no-startup-id xautolock -detectsleep -time 5 -locker "~/.local/bin/i3lock_wrapper.sh -n" -killtime 90 -killer "systemctl suspend-then-hibernate"
+exec --no-startup-id xautolock -detectsleep -time 5 -locker "~/.local/bin/i3lock_wrapper.sh -n" -killtime 90 -killer "systemctl suspend"

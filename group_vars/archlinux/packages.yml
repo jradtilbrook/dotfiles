@@ -14,8 +14,8 @@ pacman_packages:
   - alsa-utils
   - arc-gtk-theme
   - arch-audit
-  - archey3
-  - aws-cli
+  # - archey3
+  # - aws-cli
   - baobab
   - bat
   - bind
@@ -23,7 +23,7 @@ pacman_packages:
   - bluez-libs
   - bluez-utils
   - broot
-  - calibre
+  # - calibre
   - chromium
   - cmake
   - code
@@ -110,7 +110,7 @@ pacman_packages:
   - pulseaudio-alsa
   - pulseaudio-bluetooth
   - python
-  - python-pip
+  # - python-pip
   - rclone
   - redshift
   - reflector

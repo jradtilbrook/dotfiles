@@ -133,16 +133,8 @@ fh() {
   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 }
 
-eval "$(dircolors ~/.dir_colors)"
+# eval "$(dircolors ~/.dir_colors)"
 
-# function shortcut to take, start and checkout a new ticket in jira
-jcb() {
-    eval jip $@
-    eval jit $@
-    eval gcd # checkout develop
-    eval gl
-    eval gcb $@
-}
 jcm() {
     eval jip $@
     eval jit $@
@@ -152,6 +144,7 @@ jcm() {
 }
 
 # Aliases
+alias artisan='php artisan'
 alias cat='bat --theme="Solarized (dark)"'
 alias clc='tput reset'
 alias f='fuck'
@@ -164,6 +157,7 @@ alias vapor='vendor/bin/vapor'
 alias jip='jira in-progress'
 alias jit='jira take'
 alias tb='taskbook'
+alias ti='php artisan tinker'
 alias tree='tree --du -h -C --dirsfirst' # show size and colour
 alias v=vim
 alias vim=nvim

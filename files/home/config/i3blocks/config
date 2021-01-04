@@ -84,16 +84,16 @@ interval=30
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
 label= 
-instance=wlp1s0
+instance=enp6s0
 color=#7CC844
 interval=10
 separator=false
 
-[wifi]
-command=~/.config/i3blocks/$BLOCK_NAME
-label= 
-interval=10
-separator=true
+# [wifi]
+# command=~/.config/i3blocks/$BLOCK_NAME
+# label= 
+# interval=10
+# separator=true
 
 [load_average]
 command=~/.config/i3blocks/$BLOCK_NAME
@@ -105,9 +105,9 @@ separator=true
 # Battery indicator
 #
 # The battery instance defaults to 0.
-[battery2]
-interval=30
-color=#F8F8F8
+# [battery2]
+# interval=30
+# color=#F8F8F8
 
 # Temperature
 #

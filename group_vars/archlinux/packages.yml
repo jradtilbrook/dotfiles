@@ -23,7 +23,6 @@ pacman_packages:
   - broot
   - chromium
   - cmake
-  - code
   - composer
   - ctags
   - dhcpcd
@@ -191,6 +190,7 @@ aur_packages:
   - ttf-font-awesome-4
   - ttf-symbola
   - ttf-twemoji-color
+  - visual-studio-code-bin
   - wtfutil
   - ytop
   - zeal

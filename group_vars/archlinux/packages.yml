@@ -110,6 +110,7 @@ pacman_packages:
   - screen
   - scrot
   - shotwell
+  - signal-desktop
   - socat
   - systemd-resolvconf # im currently trying this out to see if it fixes the overwriting of /etc/resolv.conf
   - termite

@@ -3,7 +3,7 @@
 ## Arch Linux systemd services
 ## ---------------------------
 system_services:
-  - blinkstick.service
+  - blinkstick-off.service
   - bluetooth.service
   - docker.socket # starts docker on demand when first trying to use it
   # - i3lock.service # this can't be here because it is also _started_ which is annoying

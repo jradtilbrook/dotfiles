@@ -14,8 +14,6 @@ pacman_packages:
   - alsa-utils
   - arc-gtk-theme
   - arch-audit
-  # - archey3
-  # - aws-cli
   - aws-vault
   - baobab
   - bat
@@ -24,13 +22,10 @@ pacman_packages:
   - bluez-libs
   - bluez-utils
   - broot
-  # - calibre
-  # - chromium
+  - chromium
   - cmake
-  - code
   - composer
   - ctags
-  - deluge
   - dhcpcd
   - dmenu
   - docker
@@ -45,7 +40,6 @@ pacman_packages:
   - feh
   - firefox-developer-edition
   - fzf
-  - ghc
   - gimp
   - git
   - git-lfs
@@ -70,7 +64,6 @@ pacman_packages:
   - kubectx
   - libglvnd # depending on graphics hardware
   - libimobiledevice
-  - libreoffice-fresh
   - lm_sensors
   - lxappearance
   - lxsession
@@ -78,9 +71,6 @@ pacman_packages:
   - man-pages
   - mesa
   - minikube
-  - mopidy
-  - mpc
-  - mpd
   - mpv
   - namcap
   - ncmpcpp
@@ -110,8 +100,7 @@ pacman_packages:
   - pulseaudio
   - pulseaudio-alsa
   - pulseaudio-bluetooth
-  - python
-  # - python-pip
+  - python-virtualenvwrapper
   - rclone
   - redshift
   - reflector
@@ -138,7 +127,6 @@ pacman_packages:
   - ufw
   - unzip
   - util-linux
-  - vlc
   - wget
   - xautolock
   - xclip
@@ -149,8 +137,6 @@ pacman_packages:
   - xorg-xprop
   - xorg-xrandr
   - yarn
-  - youtube-dl
-  - youtube-viewer
   - yq
   - zip
   - zsh
@@ -204,6 +190,7 @@ aur_packages:
   - ttf-font-awesome-4
   - ttf-symbola
   - ttf-twemoji-color
+  - visual-studio-code-bin
   - wtfutil
   - ytop
   - zeal

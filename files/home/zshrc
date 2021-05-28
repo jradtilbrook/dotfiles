@@ -52,28 +52,18 @@ plugins=(
     archlinux \
     aws \
     aws-vault \
-    dircycle \
-    zsh-aws-vault \
-    common-aliases \
     composer \
     docker \
     docker-compose \
     fzf \
     git \
-    # golang \
     gpg-agent \
-    helm \
-    httpie \
     kubectl \
     last-working-dir \
-    # minikube \
-    # pip \
-    # stack \
+    pyenv \
     sudo \
     systemd \
-    # terraform \
-    thefuck \
-    virtualenvwrapper \
+    zsh-aws-vault \
 )
 
 # User configuration
@@ -136,35 +126,61 @@ fh() {
 # eval "$(dircolors ~/.dir_colors)"
 
 jcm() {
-    eval jip $@
-    eval jit $@
-    eval gcm # checkout master
-    eval gl
-    eval gcb $@
+    jira in-progress $@ && \
+    jira take $@ && \
+    git fetch -n origin master && \
+    git branch $@ origin/master --no-track && \
+    git checkout $@
 }
 
+# laravel helpers
+art() {
+    if [ -f ./artisan ]
+    then
+        php artisan $@
+    elif [ -f ./laravel/artisan ]
+    then
+        php laravel/artisan $@
+    fi
+}
+routes() {
+    if [ $# -eq 0 ]
+    then
+        art route:list -r --columns=method,uri,name,action,middleware | fzf
+    else
+        art route:list | rg ${1}
+    fi
+}
+
+
+# check out main or master
+unalias gcm
+gcm() {
+    if git branch -a | rg -q main
+    then
+        git checkout main
+    else
+        git checkout master
+    fi
+
+}
+
+
 # Aliases
-alias artisan='php artisan'
+
 alias cat='bat --theme="Solarized (dark)"'
 alias clc='tput reset'
-alias f='fuck'
 alias free='free -h'
+alias j=jira
+alias ls='exa --long --header --git'
 alias kns='kubens'
 alias kx='kubectx'
-alias l1='ls -1'
-alias llh='ll -h'
-alias vapor='vendor/bin/vapor'
-alias jip='jira in-progress'
-alias jit='jira take'
-alias tb='taskbook'
-alias ti='php artisan tinker'
-alias tree='tree --du -h -C --dirsfirst' # show size and colour
+alias tink='art tinker'
 alias vim=nvim
 alias v=vim
 alias vimdiff='nvim -d'
 alias xclip='xclip -selection c'
 alias yay='yay --editmenu --nodiffmenu --save'
-unalias rm
 
 # autocompletion
 # [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh

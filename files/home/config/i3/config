@@ -192,7 +192,7 @@ bindsym $mod+Shift+Return exec i3-sensible-terminal -r scratch
 bindsym $mod+Shift+f exec firefox-developer-edition
 bindsym $mod+Shift+w exec chromium
 bindsym $mod+Shift+s exec slack
-bindsym $mod+Shift+e exec --no-startup-id emacs
+bindsym $mod+Shift+e exec --no-startup-id code
 # screenshot
 bindsym --release Print exec scrot -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
 bindsym --release Shift+Print exec scrot -s -q 100 "$HOME/pictures/%Y-%m-%d_%H:%M:%S.png"
@@ -338,5 +338,5 @@ exec_always --no-startup-id feh --no-fehbg --bg-fill ~/.wallpaper
 # start a polkit authentication agent
 exec --no-startup-id lxpolkit
 
-# automatic screen lock and sleep
-exec --no-startup-id xautolock -detectsleep -time 5 -locker "~/.local/bin/i3lock_wrapper.sh -n" -killtime 90 -killer "systemctl suspend"
+# automatic screen lock
+exec --no-startup-id xautolock -time 5 -locker "~/.local/bin/i3lock_wrapper.sh -n"

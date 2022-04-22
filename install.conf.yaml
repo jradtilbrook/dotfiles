@@ -1,0 +1,18 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.config/nvim: nvim
+
+- create:
+    - ~/Developer
+    - ~/Sites
+    - ~/intelephense
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - description: Hush login
+    command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"

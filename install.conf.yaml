@@ -4,13 +4,15 @@
 
 - clean: ['~']
 
-- link:
-    ~/.config/nvim: nvim
-
 - create:
     - ~/Developer
     - ~/Sites
     - ~/intelephense
+
+- link:
+    ~/.config/nvim:
+    ~/.zshenv:
+    ~/.zshrc:
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

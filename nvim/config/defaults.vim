@@ -7,6 +7,7 @@ set expandtab
 set hlsearch
 set incsearch
 set ignorecase
+set laststatus=3
 set lazyredraw
 set listchars+=tab:»\ ,trail:▫
 set matchpairs+=<:>

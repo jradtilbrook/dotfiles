@@ -69,9 +69,7 @@ function! SourceryMappings()
   nmap <buffer> gc <Plug>SourceryGoToRelatedConfig
 endfunction
 
-" TODO: why is <c-k><c-i> not working as of 22/4/22
 autocmd FileType php nmap <buffer> <silent> <c-k><c-i> :call phpactor#UseAdd()<cr>
-autocmd FileType php nmap <buffer> <silent> <leader>k :call phpactor#UseAdd()<cr>
 
 " Make window only window
 nnoremap <Leader>o <C-w>o

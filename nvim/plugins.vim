@@ -13,6 +13,9 @@ Plug 'neovim/nvim-lspconfig'
 " Fancy commands for running tests
 Plug 'vim-test/vim-test'
 
+" Cool statusline
+Plug 'nvim-lualine/lualine.nvim'
+
 " Colorschemes
 Plug 'projekt0n/github-nvim-theme'
 

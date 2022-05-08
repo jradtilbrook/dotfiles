@@ -46,4 +46,4 @@ Plug 'phpactor/phpactor'
 Plug 'sbdchd/neoformat'
 
 " Git gutters
-Plug 'mhinz/vim-signify'
+Plug 'lewis6991/gitsigns.nvim'

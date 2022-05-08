@@ -1,6 +1,8 @@
 " Simplify management of vim configuration
 Plug 'jesseleite/vim-sourcery'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " Telescope and dependencies
 Plug 'nvim-lua/plenary.nvim' | Plug 'nvim-lua/popup.nvim' | Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -11,8 +13,8 @@ Plug 'neovim/nvim-lspconfig'
 " Fancy commands for running tests
 Plug 'vim-test/vim-test'
 
-" Carbon colorscheme
-Plug 'michaeldyrynda/carbon'
+" Colorschemes
+Plug 'projekt0n/github-nvim-theme'
 
 " Syntax highlighting for Laravel Blade
 Plug 'jwalton512/vim-blade'

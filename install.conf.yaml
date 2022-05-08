@@ -11,6 +11,7 @@
 
 - link:
     ~/.config/nvim:
+    ~/.config/kitty:
     ~/.zshenv:
     ~/.zshrc:
 

@@ -7,8 +7,13 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim' | Plug 'nvim-lua/popup.nvim' | Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
-" Quickstart config for the nvim LSP client
+" LSP stuff
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
+
+let g:sourcery#explicit_plugin_bindings = {
+  \ 'williamboman/nvim-lsp-installer': 'lspconfig',
+  \ }
 
 " Fancy commands for running tests
 Plug 'vim-test/vim-test'

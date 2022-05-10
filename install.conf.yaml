@@ -12,8 +12,7 @@
 - link:
     ~/.config/nvim:
     ~/.config/kitty:
-    ~/.tmux.conf: tmux/tmux.conf
-    ~/.tmux:
+    ~/.config/tmux:
     ~/.zshenv:
     ~/.zshrc:
 

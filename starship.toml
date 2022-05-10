@@ -1,0 +1,25 @@
+add_newline = false
+# might be useful to move some stuff to the right? https://starship.rs/advanced-config/#enable-right-prompt
+# right_format = ""
+
+# show battery module for 30% and below
+[[battery.display]]
+threshold = 30
+
+[character]
+error_symbol = "[✗](bold red) "
+
+[cmd_duration]
+disabled = true
+
+[git_metrics]
+disabled = false
+
+[nodejs]
+disabled = true
+
+[python]
+disabled = true
+
+[sudo]
+disabled = false

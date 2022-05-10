@@ -10,8 +10,9 @@
     - ~/intelephense
 
 - link:
-    ~/.config/nvim:
     ~/.config/kitty:
+    ~/.config/nvim:
+    ~/.config/starship.toml:
     ~/.config/tmux:
     ~/.zshenv:
     ~/.zshrc:

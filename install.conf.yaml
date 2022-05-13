@@ -10,6 +10,7 @@
     - ~/intelephense
 
 - link:
+    ~/.config/i3:
     ~/.config/kitty:
     ~/.config/nvim:
     ~/.config/starship.toml:

@@ -300,11 +300,9 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 ##
 ## Application specific settings
 ##
-assign [class="firefoxdeveloperedition"] $workspace1
-assign [class="Code"] $workspace4
-assign [class="Slack"] $workspace6
-assign [class="discord"] $workspace9
-assign [class="Insomnia"] $workspace9
+assign [class="firefoxdeveloperedition"] $workspace2
+assign [class="Slack"] $workspace3
+assign [class="Insomnia"] $workspace5
 assign [class="spotify"] $workspace10
 for_window [class="Gufw.py"] floating enable
 for_window [class="Pavucontrol"] floating enable

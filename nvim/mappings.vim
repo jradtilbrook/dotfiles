@@ -8,8 +8,8 @@ nmap ; :
 nmap <Leader>a <C-^>
 nmap <c-k><c-k> <C-^>
 
-" Keep search results centered and open folds from vim-noh
-noremap <Plug>NohAfter zz
+" search for word under cursor
+nnoremap // yiw/\c<C-R>"<CR>
 
 " Keep cursor in place when joining lines
 nnoremap J mzJ`z

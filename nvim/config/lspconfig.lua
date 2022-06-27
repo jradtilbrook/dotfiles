@@ -14,6 +14,8 @@ lspconfig.graphql.setup{}
 
 lspconfig.intelephense.setup{}
 
+lspconfig.solargraph.setup{}
+
 lspconfig.sumneko_lua.setup{}
 
 lspconfig.tailwindcss.setup{}

@@ -147,7 +147,7 @@ alias tink='art tinker'
 alias v=vim
 alias vim=nvim
 alias vimdiff='nvim -d'
-alias tree='exa --tree'
+alias tree='exa --tree --color=always'
 test -e /Users/jradtilbrook/.iterm2_shell_integration.zsh && source /Users/jradtilbrook/.iterm2_shell_integration.zsh || true
 
 # Initialise starship prompt

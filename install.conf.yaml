@@ -15,6 +15,7 @@
     ~/.config/nvim:
     ~/.config/starship.toml:
     ~/.config/tmux:
+    ~/.gitconfig:
     ~/.local/bin/tat: bin/tat
     ~/.zshenv:
     ~/.zshrc:

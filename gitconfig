@@ -1,0 +1,70 @@
+# vi: ft=gitconfig noexpandtab
+[user]
+	name = jradtilbrook
+	email = jarryd@tilbrooktech.com
+	signingkey = 12DC569AAB4B4149
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+	hooksPath = ~/.git-templates/hooks
+	; pager = delta
+	whitespace = space-before-tab,-indent-with-non-tab,tab-in-indent,trailing-space
+	excludesfile = ~/.git-templates/.gitignore_global
+[color]
+	ui = true # show colour by default
+[diff]
+	submodule = log
+	colorMoved = default
+	colorMovedWS = ignore-all-space
+[interactive]
+	; diffFilter = delta --color-only
+[grep]
+	linenumber = true
+[alias]
+	dp = diff --cached @{push} # diff to what is currently pushed (without including pending)
+	orig = !find . -name '*.orig' -delete
+	ca = commit -v --amend
+	op = push -u origin HEAD
+	om = merge origin/main
+	reh = reset --hard @{push}
+	l = log --graph --pretty=custom -n 10 # limit to 10 log entries
+	rebm = rebase -i origin/main
+	uci = reset --soft HEAD^ # undo a commit to staging area
+	uns = reset HEAD -- # remove files from staging area
+	zap = fetch -p # prune remote tracked branches
+	wip = rebase -i @{push}
+[pretty]
+	custom = format:%w(80,0,4)%C(auto)%d %h [%cn %cr]%Creset%n %s
+[log]
+	date = local # default to local time in logs
+	decorate = true # show ref names by default
+[status]
+	submoduleSummary = true
+[push]
+	default = simple # only push to registered tracking branch
+	followTags = true
+[credential]
+	#helper = cache --timeout=900 # remember credentials for 15mins
+[merge]
+	conflictstyle = diff3 # also show original text in merge conflicts
+	tool = vimdiff # use vim for conflict resolution in terminal
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[rerere]
+	enabled = true
+[pull]
+	ff = only
+	; rebase = merges
+# special config for custom diff program
+[delta]
+	syntax-theme = OneHalfDark
+	word-diff-regex = .
+	file-style = omit
+	hunk-header-decoration-style = ul
+	hunk-header-line-number-style = white

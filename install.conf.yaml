@@ -18,6 +18,7 @@
     ~/.gitconfig:
     ~/.git-templates:
     ~/.local/bin/tat: bin/tat
+    ~/.Xmodmap:
     ~/.zshenv:
     ~/.zshrc:
 

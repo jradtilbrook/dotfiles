@@ -13,7 +13,7 @@
 
 shopt -s extglob
 
-if ! git diff-tree -r --quiet HEAD@{0} HEAD@{1} -- composer.lock yarn.lock; then
+if ! git diff-tree -r --quiet HEAD@{0} HEAD@{1} -- composer.lock package-lock.json yarn.lock; then
     ~/.git-templates/hooks/update-composer
-    ~/.git-templates/hooks/update-yarn
+    ~/.git-templates/hooks/update-node
 fi

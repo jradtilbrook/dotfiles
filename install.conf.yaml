@@ -16,6 +16,7 @@
     ~/.config/starship.toml:
     ~/.config/tmux:
     ~/.gitconfig:
+    ~/.git-templates:
     ~/.local/bin/tat: bin/tat
     ~/.zshenv:
     ~/.zshrc:

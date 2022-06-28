@@ -175,7 +175,7 @@ bindsym $mod+Shift+Escape exec --no-startup-id xautolock -locknow
 # bind for lock / sleep / shutdown / ...
 bindsym $mod+Shift+Delete exec --no-startup-id ~/.local/bin/i3exit.sh
 # use rofi instead of dmenu
-bindsym $mod+space exec --no-startup-id rofi -show-icons -modi 'drun#clipboard:greenclip print#run#window#ssh' -show drun -terminal 'i3-sensible-terminal -r scratch' -ssh-command '{terminal} --hold -e "{ssh-client} {host}"'
+bindsym $mod+space exec --no-startup-id rofi -show-icons -modi 'drun#clipboard:greenclip print#run#window#ssh' -show drun -terminal 'kitty --name scratch' -ssh-command '{terminal} --hold {ssh-client} {host}'
 # simple password management
 bindsym $mod+g exec --no-startup-id ~/projects/bitwarden-rofi/bwmenu --auto-lock 21600
 # clipboard management
@@ -188,7 +188,7 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.local/bin/greenclip.sh
 ##
 # start a terminal
 bindsym $mod+Return exec kitty
-bindsym $mod+Shift+Return exec i3-sensible-terminal -r scratch
+bindsym $mod+Shift+Return exec kitty --name scratch -d ~ tat scratch
 bindsym $mod+Shift+f exec firefox-developer-edition
 bindsym $mod+Shift+w exec chromium
 bindsym $mod+Shift+s exec slack
@@ -310,6 +310,9 @@ for_window [class="Pinentry"] floating enable
 for_window [class="Pinentry-gtk-2"] floating enable sticky enable
 for_window [class="Slic3r"] floating enable
 for_window [class="Termite" window_role="scratch"] floating enable, move scratchpad, scratchpad show
+for_window [class="kitty" instance="scratch"] floating enable, move scratchpad, scratchpad show
+for_window [class="kitty" instance="popup"] floating enable sticky enable
+no_focus [class="kitty" instance="popup"]
 for_window [class="Termite" window_role="popup"] floating enable sticky enable
 no_focus [class="Termite" window_role="popup"]
 for_window [class="VirtualBox"] floating enable

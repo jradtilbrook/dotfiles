@@ -1,3 +1,0 @@
-#!/bin/sh
-
-[ -f yarn.lock ] && i3-sensible-terminal -r popup -d $(pwd) -e 'yarn' &>/dev/null &

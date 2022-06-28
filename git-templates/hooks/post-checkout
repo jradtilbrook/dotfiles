@@ -25,11 +25,11 @@ shopt -s extglob
 if [ $1 = 0000000000000000000000000000000000000000 ]; then # if its a fresh clone with null ref
     # try run updates regardless of checking changes
     ~/.git-templates/hooks/update-composer
-    ~/.git-templates/hooks/update-yarn
+    ~/.git-templates/hooks/update-node
 elif [ $3 -eq 1 ]; then # if we are changing branches
     # only update if changed
-    if ! git diff-tree -r --quiet $1 $2 -- composer.lock yarn.lock; then
+    if ! git diff-tree -r --quiet $1 $2 -- composer.lock package-lock.json yarn.lock; then
         ~/.git-templates/hooks/update-composer
-        ~/.git-templates/hooks/update-yarn
+        ~/.git-templates/hooks/update-node
     fi
 fi

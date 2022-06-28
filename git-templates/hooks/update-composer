@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# TODO: would be cool to do this in a tmux pane instead i think. check out vimux and vim-test for ideas to push things to tmux pane
+[ -f composer.lock ] && kitty --name popup -d $(pwd) --detach composer install &>/dev/null

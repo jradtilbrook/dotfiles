@@ -11,5 +11,7 @@ call plug#begin()
     source ~/.config/nvim/plugins.vim
 call plug#end()
 
+" Transitioning to lua config so source some custom files
+call sourcery#source_path('mappings.lua')
 
 call sourcery#init()

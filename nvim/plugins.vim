@@ -27,6 +27,9 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'saadparwaiz1/cmp_luasnip'
 
+" Snippets
+Plug 'L3MON4D3/LuaSnip'
+
 " Fancy commands for running tests
 Plug 'vim-test/vim-test'
 

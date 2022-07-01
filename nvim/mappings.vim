@@ -4,12 +4,12 @@ let mapleader = ','
 nmap ; :
 
 " Edit the alternate / previously edited file
-" TODO: decide between one of these
-nmap <Leader>a <C-^>
-nmap <c-k><c-k> <C-^>
+nmap <leader>a <C-^>
 
 " search for word under cursor
 nnoremap // yiw/\c<C-R>"<CR>
+" remove highlighted search
+nmap <leader><space> :nohlsearch<cr>
 
 " Keep cursor in place when joining lines
 nnoremap J mzJ`z
@@ -25,11 +25,7 @@ nnoremap J mzJ`z
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
-" Move lines up and down
-inoremap <c-j> <esc>:m .+1<cr>==a
-inoremap <c-k> <esc>:m .-2<cr>==a
-
-" Telescope
+" Mappings: telescope
 nmap <c-p> :Telescope git_files<cr>
 nmap <c-k><c-p> :Telescope find_files<cr>
 nmap <c-b> :Telescope buffers sort_lastused=true<cr>

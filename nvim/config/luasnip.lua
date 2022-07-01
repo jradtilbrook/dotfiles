@@ -10,6 +10,7 @@ local d = ls.dynamic_node
 local r = ls.restore_node
 local types = require "luasnip.util.types"
 local rep = require "luasnip.extras".rep -- repeat node
+local fmt = require "luasnip.extras.fmt".fmt -- easier formatting
 
 ls.config.set_config {
   -- Tell luasnip to remember the last snippet. You can jump back into it even
@@ -22,33 +23,40 @@ ls.config.set_config {
 
 ls.add_snippets("php", {
   -- trigger from `met` a class function definition
-  s("met", {
-    -- TODO: add docblock here or as a separate snippet? if its here it could use treesitter to discover the variable types
-    c(1, {
-      t("public "),
-      t("private "),
-      t("protected "),
-    }),
-    t("function "),
-    i(2, "name"),
-    t("("),
-    i(3, "$arg1"),
-    t({")", "{", "\t"}), -- TODO: allow specifying return type with a choice node
-    i(0), -- TODO: put a new line (or a choice node here for newline)
-    -- c(0, {
-    --   t("foo"),
-    --   t({""}),
-    -- }),
-    c(4, {
-      t("return;"),
-      sn(nil, {
-        t("return "),
-        r(1, "", i(1)),
-        t(";")
+  -- TODO: add docblock here or as a separate snippet? if its here it could use treesitter to discover the variable types
+  s("met", fmt([[
+      <> function <>(<>)<>
+      {<>
+          return<>;
+      }
+    ]], {
+      c(1, {
+        t("public"),
+        t("private"),
+        t("protected"),
       }),
-    }),
-    t({"", "}"}),
-  }),
+      i(2, "name"),
+      i(3, "$arg1"),
+      c(4, {
+        t(": void"),
+        { t(": "), i(1) },
+        t(""),
+      }),
+      c(6, {
+        t(""),
+        { t({"", "\t"}), i(1) },
+      }),
+      c(5, {
+        t(""),
+        sn(nil, {
+          t(" "),
+          r(1, "", i(1)),
+        }),
+      }),
+    }, {
+      delimiters = "<>"
+    })
+  ),
   -- trigger from `tink` a tinker interactive session
   s("tink", {
     t("eval(\\Psy\\sh());"),
@@ -75,6 +83,11 @@ ls.add_snippets("php", {
     i(0, "// "),
     t({"", "});"}),
   }),
+  -- Other ideas:
+  -- + static methods
+  -- + laravel route
+  -- + class property
+  -- + blade or livewire stuff
 }, {
   key = "php"
 })

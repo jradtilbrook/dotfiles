@@ -25,4 +25,6 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - description: Hush login
-    command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
+    command: '[ -f ~/.hushlogin ] || touch ~/.hushlogin'
+  - description: Install artisan zsh plugin
+    command: '[ -d ~/.oh-my-zsh/custom/plugins/artisan ] || gh repo clone jessarcher/zsh-artisan ~/.oh-my-zsh/custom/plugins/artisan'

@@ -126,13 +126,12 @@ routes() {
 }
 
 # check out main or master
-unalias gcm
-gcm() {
+gsm() {
     if git branch -a | rg -q main
     then
-        git checkout main $@
+        git switch main $@
     else
-        git checkout master $@
+        git switch master $@
     fi
 
 }
@@ -143,12 +142,12 @@ compdef _artisan_add_completion art
 alias cat='bat --theme="Solarized (dark)"'
 alias ls='exa --long --header --git'
 alias la='ls -a'
-alias tink='art tinker'
-alias v=vim
-alias vim=nvim
+alias t=tmux
+alias tl='tmux list-sessions'
+alias tink='artisan tinker'
+alias v=nvim
 alias vimdiff='nvim -d'
 alias tree='exa --tree --color=always'
-test -e /Users/jradtilbrook/.iterm2_shell_integration.zsh && source /Users/jradtilbrook/.iterm2_shell_integration.zsh || true
 
 # Initialise starship prompt
 eval "$(starship init zsh)"

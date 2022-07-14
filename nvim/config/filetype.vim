@@ -8,6 +8,4 @@ augroup default_filetype_settings
     autocmd FileType json setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab formatoptions-=o iskeyword+=$
-    " allow undoing up to the arrow for PHP only
-    autocmd FileType php inoremap -> -><c-g>u
 augroup END

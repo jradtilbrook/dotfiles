@@ -54,13 +54,13 @@ nmap <silent> <leader>tv :w<cr>:TestVisit<cr>
 imap ,, <Esc>%a,<Esc>h%i
 
 
-function! SourceryMappings()
-  nmap <buffer> gp <Plug>SourceryGoToRelatedPluginDefinition
-  nmap <buffer> gm <Plug>SourceryGoToRelatedMappings
-  nmap <buffer> gc <Plug>SourceryGoToRelatedConfig
-endfunction
-
-autocmd FileType php nmap <buffer> <silent> <c-k><c-i> :call phpactor#UseAdd()<cr>
+" Mappings: phpactor
+augroup php_mappings
+  autocmd!
+  autocmd FileType php nnoremap <buffer> <leader>i :call phpactor#UseAdd()<cr>
+  " allow undoing up to the arrow for PHP only
+  autocmd FileType php inoremap <buffer> -> -><c-g>u
+augroup END
 
 " Make window only window
 nnoremap <Leader>o <C-w>o

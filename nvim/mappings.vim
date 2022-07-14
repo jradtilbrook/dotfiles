@@ -20,7 +20,6 @@ nnoremap J mzJ`z
 "inoremap ! !<c-g>u
 "inoremap ? ?<c-g>u
 "inoremap = =<c-g>u
-inoremap -> -><c-g>u
 
 " Add relative movements to jump list so you can use ctrl-i/o
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'

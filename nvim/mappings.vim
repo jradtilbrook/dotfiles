@@ -35,14 +35,10 @@ nmap <c-k><c-v> :Telescope edit_vim<cr>
 " TODO: more telescope shortcuts
 
 " Mappings: test
-" TODO: leader key or <c-k><c-???> like in vs code?
 nmap <silent> <leader>tn :w<cr>:TestNearest<cr>
-" ctrl-k ctrl-r like vs code: testing this out instead
-nmap <silent> <c-k><c-r> :w<cr>:TestNearest<cr>
 nmap <silent> <leader>tf :w<cr>:TestFile<cr>
 nmap <silent> <leader>ts :w<cr>:TestSuite<cr>
-" tp for test previous
-nmap <silent> <leader>tp :w<cr>:TestLast<cr>
+nmap <silent> <leader>tl :w<cr>:TestLast<cr>
 nmap <silent> <leader>tv :w<cr>:TestVisit<cr>
 
 " " Vertical split

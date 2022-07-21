@@ -2,3 +2,6 @@
 
 [ -f yarn.lock ] && kitty --name popup -d $(pwd) --detach yarn &>/dev/null
 [ -f package-lock.json ] && kitty --name popup -d $(pwd) --detach npm ci &>/dev/null
+
+# regardless of what happens above, lets just be happy
+exit 0

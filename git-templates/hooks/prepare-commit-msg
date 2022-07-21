@@ -26,7 +26,7 @@ case "$2,$3" in
         SED=$(command -v gsed >/dev/null && echo gsed || echo sed)
         BRANCH_NAME=$(git symbolic-ref --short HEAD | $SED -r "s/([[:upper:]][[:upper:]]+-[[:digit:]]+).*/\1/g")
         case $BRANCH_NAME in
-            master|develop)
+            master|main|develop)
                 ;;
             [[:upper:]]+([[:upper:]])-+([[:digit:]]))
                 $SED -i -r "1s/^($BRANCH_NAME )?/$BRANCH_NAME /" $1 ;;

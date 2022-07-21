@@ -30,7 +30,7 @@
 	op = push -u origin HEAD
 	om = merge origin/main
 	reh = reset --hard @{push}
-	l = log --graph --pretty=custom -n 10 # limit to 10 log entries
+	l = log --graph --pretty=custom
 	rebm = rebase -i origin/main
 	uci = reset --soft HEAD^ # undo a commit to staging area
 	uns = reset HEAD -- # remove files from staging area
@@ -50,7 +50,7 @@
 	#helper = cache --timeout=900 # remember credentials for 15mins
 [merge]
 	conflictstyle = diff3 # also show original text in merge conflicts
-	tool = vimdiff # use vim for conflict resolution in terminal
+	tool = nvimdiff # use vim for conflict resolution in terminal
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

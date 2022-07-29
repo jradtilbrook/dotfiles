@@ -41,6 +41,9 @@ Plug 'editorconfig/editorconfig'
 " Syntax highlighting for Laravel Blade
 Plug 'jwalton512/vim-blade'
 
+" Terraform highlighting
+Plug 'hashivim/vim-terraform'
+
 " Smart comments with keybindings
 Plug 'numToStr/Comment.nvim'
 
@@ -62,6 +65,10 @@ Plug 'sbdchd/neoformat'
 
 " Git gutters
 Plug 'lewis6991/gitsigns.nvim'
+
+" Git/Github helpers
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " GraphQL filetype
 Plug 'jparise/vim-graphql'

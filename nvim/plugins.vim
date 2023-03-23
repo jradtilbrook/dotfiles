@@ -1,14 +1,21 @@
+Plug 'folke/trouble.nvim'
+
 " Simplify management of vim configuration
 Plug 'jesseleite/vim-sourcery'
 
+" Better syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Plugin that shows method context header (useful for exploring new repos or old ones)
 Plug 'nvim-treesitter/nvim-treesitter-context'
 
 " Telescope and dependencies
-Plug 'nvim-lua/plenary.nvim' | Plug 'nvim-lua/popup.nvim' | Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+" live grep
+" 'nvim-telescope/telescope-live-grep-raw.nvim'
 
 " LSP stuff
 Plug 'williamboman/nvim-lsp-installer'
@@ -20,6 +27,7 @@ let g:sourcery#explicit_plugin_bindings = {
   \ }
 
 " Completion
+" check youtube video from tj devries on cmp
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
@@ -38,6 +46,7 @@ Plug 'nvim-lualine/lualine.nvim'
 
 " Colorschemes
 Plug 'projekt0n/github-nvim-theme'
+Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'editorconfig/editorconfig'
 
@@ -47,10 +56,15 @@ Plug 'jwalton512/vim-blade'
 " Terraform highlighting
 Plug 'hashivim/vim-terraform'
 
+" Niceness for Go
+" Plug 'fatih/vim-go' ", { 'for': ['go', 'gotmpl'], 'do': ':GoUpdateBinaries' }
+
 " Smart comments with keybindings
 Plug 'numToStr/Comment.nvim'
 
-" projectionist: make switching between test file and class easy (among other things)
+" Some better switching between files
+Plug 'ThePrimeagen/harpoon'
+Plug 'tpope/vim-projectionist'
 
 " time tracking
 Plug 'wakatime/vim-wakatime'
@@ -64,7 +78,11 @@ Plug 'phpactor/phpactor'
 " Plug 'wesQ3/vim-windowswap'
 
 " Code formatter
-Plug 'sbdchd/neoformat'
+" can this do stuff like ale can?
+" Plug 'sbdchd/neoformat'
+
+" Laravel Tinkeray
+Plug 'jesseleite/vim-tinkeray'
 
 " Git gutters
 Plug 'lewis6991/gitsigns.nvim'
@@ -78,3 +96,35 @@ Plug 'jparise/vim-graphql'
 
 " Improve behaviour of built-in netrw
 Plug 'tpope/vim-vinegar'
+
+Plug 'tpope/vim-surround'
+
+" PLUGINS TO RESEARCH
+" syntax analysis and linting
+" Plug 'dense-analysis/ale'
+"
+" custom text objects (useful for html and others?)
+" 'kana/vim-textobj-user'
+" 'whatyouhide/vim-textobj-xmlattr'
+"
+" html shorthand expansion (i think)
+" 'mattn/emmet-vim'
+"
+" bracket pair stuff
+" 'tpope/vim-unimpaired'
+" 'jiangmiao/auto-pairs'
+"
+" git
+Plug 'ThePrimeagen/git-worktree.nvim'
+" 'tpope/vim-fugitive'
+" 'rhubarb'
+" 'ThePrimeagen/git-worktree.nvim'
+"
+" goyo: might be useful for pairing
+"
+" tmux
+" Plug 'christoomey/vim-tmux-navigator' " Im not sure if i like this or would prefer to use a prefix
+Plug 'preservim/vimux'
+"
+" show register content
+" 'junegunn/vim-peekaboo'

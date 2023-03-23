@@ -2,9 +2,10 @@ local telescope = require('telescope')
 local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
 
+--  TODO: install lua formatter
 telescope.setup {
   mappings = {
-  defaults = {
+    defaults = {
       i = {
         ["<esc>"] = actions.close,
         ["<c-u>"] = false,
@@ -66,7 +67,7 @@ end
 
 builtin.dotfiles = function ()
   builtin.find_files(require('telescope.themes').get_dropdown{
-    cwd = "$HOME/Developer/dotfiles",
+    cwd = "$HOME/projects/dotfiles",
     prompt_title = 'Dotfiles',
     previewer = false,
   })
@@ -75,3 +76,5 @@ end
 -- TODO: i don't like the built in fzf, it finds things weirdly. check what config i can set or just use the real fzf
 telescope.load_extension('fzf')
 telescope.load_extension('sourcery')
+telescope.load_extension('harpoon')
+telescope.load_extension("git_worktree")

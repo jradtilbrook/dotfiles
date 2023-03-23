@@ -23,13 +23,20 @@ ls.config.set_config {
 
 ls.add_snippets("php", {
   -- trigger from `met` a class function definition
-  -- TODO: add docblock here or as a separate snippet? if its here it could use treesitter to discover the variable types
+  -- TODO: add docblock here or as a separate snippet? if its here it could use fancy snippet tech to copy the variable types
   s("met", fmt([[
-      <> function <>(<>)<>
-      {<>
-          return<>;
-      }
+    /**
+     * @return {}
+     */
+    {} function {}({}){}
+    {{{}
+        return{};
+    }}
     ]], {
+      f(function(arg)
+        local parts = vim.split(arg[1][1], " ", true)
+        return parts[#parts] or ""
+      end, { 4 }),
       c(1, {
         t("public"),
         t("private"),
@@ -46,15 +53,7 @@ ls.add_snippets("php", {
         t(""),
         { t({"", "\t"}), i(1) },
       }),
-      c(5, {
-        t(""),
-        sn(nil, {
-          t(" "),
-          r(1, "", i(1)),
-        }),
-      }),
-    }, {
-      delimiters = "<>"
+      i(5), -- TODO: change to choice node - sometimes i dont want to return anything
     })
   ),
   -- trigger from `tink` a tinker interactive session

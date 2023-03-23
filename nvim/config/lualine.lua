@@ -55,6 +55,14 @@ local function process_sections(sections)
   return sections
 end
 
+local function harpoon_status()
+    local status = require("harpoon.mark").status()
+    if status == "" then
+        status = "N"
+    end
+    return string.format("H:%s", status)
+end
+
 local function search_result()
   if vim.v.hlsearch == 0 then
     return ''
@@ -69,7 +77,7 @@ end
 
 require('lualine').setup {
   options = {
-    theme = inspired_github,
+    theme = 'github_dimmed',
     component_separators = '',
     globalstatus = true,
   },
@@ -101,6 +109,6 @@ require('lualine').setup {
     lualine_c = {},
     lualine_x = {},
     lualine_y = { search_result, 'filetype' },
-    lualine_z = { 'location', '%p%%/%L' },
+    lualine_z = { harpoon_status, 'location', '%p%%/%L' },
   },
 }

@@ -1,8 +1,6 @@
 set autoread
 set autowriteall
 set completeopt=menu,menuone,noselect,preview
-set colorcolumn=121
-" set cursorline
 set expandtab
 set hlsearch
 set incsearch
@@ -12,7 +10,7 @@ set lazyredraw
 set listchars+=tab:»\ ,trail:▫
 set matchpairs+=<:>
 set nobackup
-set noshowmode " Maybe remove this? It's a little weird not seeing te mode
+set noshowmode
 set noswapfile
 set nowrap
 set number relativenumber

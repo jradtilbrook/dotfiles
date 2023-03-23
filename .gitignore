@@ -3,3 +3,4 @@
 __pycache__
 .notags
 .vault_password
+nvim/lazy-lock.json

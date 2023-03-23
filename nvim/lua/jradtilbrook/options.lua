@@ -1,8 +1,9 @@
--- TODO: set up language folding
 vim.o.autoread = true
 vim.o.autowriteall = true
 vim.o.backup = false
 vim.o.expandtab = true
+vim.o.foldlevel = 99
+vim.o.foldmethod = 'indent'
 vim.o.hlsearch = true
 vim.o.ignorecase = true
 vim.o.incsearch = true

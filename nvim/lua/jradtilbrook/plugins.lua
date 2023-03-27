@@ -7,6 +7,8 @@ return {
     end
   },
 
+  'wakatime/vim-wakatime',
+
   -- Add more languages
   'sheerun/vim-polyglot',
 

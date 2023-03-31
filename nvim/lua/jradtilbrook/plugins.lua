@@ -13,7 +13,15 @@ return {
   'sheerun/vim-polyglot',
 
   -- Git markers in the signcolumn
-  { 'lewis6991/gitsigns.nvim', opts = { } },
+  {
+    'lewis6991/gitsigns.nvim',
+    lazy = false,
+    opts = { },
+    keys = {
+      {'[h', '<cmd>Gitsigns prev_hunk<cr>'},
+      {']h', '<cmd>Gitsigns next_hunk<cr>'},
+    }
+  },
 
   -- Show indent markers
   {

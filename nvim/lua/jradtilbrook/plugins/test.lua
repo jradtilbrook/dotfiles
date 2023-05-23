@@ -1,5 +1,6 @@
 return {
   'vim-test/vim-test',
+  lazy = false,
   keys = {
     { '<leader>tn', '<cmd>TestNearest<CR>', desc = '[T]est [N]earest' },
     { '<leader>tf', '<cmd>TestFile<CR>', desc = '[T]est [F]ile' },
@@ -7,6 +8,11 @@ return {
     { '<leader>tl', '<cmd>TestLast<CR>', desc = '[T]est [L]ast' },
     { '<leader>tv', '<cmd>TestVisit<CR>', desc = '[T]est [V]isit' },
   },
-  config = function()
+  init = function()
+    -- Running PHP tests defaults to pest if installed, so change it to PHPUnit
+    -- which supports sail
+    vim.cmd([[
+      let g:test#enabled_runners = ['php#phpunit']
+    ]])
   end
 }

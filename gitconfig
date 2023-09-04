@@ -2,7 +2,7 @@
 [user]
 	name = jradtilbrook
 	email = jarryd@tilbrooktech.com
-	signingkey = 12DC569AAB4B4149
+	signingkey = 7C052B758472E5CBBE3E3F8C7EDAAA604BA2C2F4
 [commit]
 	gpgsign = true
 [init]
@@ -11,7 +11,7 @@
 	editor = nvim
 	hooksPath = ~/.git-templates/hooks
 	; pager = delta
-	whitespace = space-before-tab,-indent-with-non-tab,tab-in-indent,trailing-space
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 	excludesfile = ~/.git-templates/.gitignore_global
 [color]
 	ui = true # show colour by default
@@ -19,10 +19,16 @@
 	submodule = log
 	colorMoved = default
 	colorMovedWS = ignore-all-space
+	; external = difft
+	; tool = difftastic
+[difftool]
+	prompt = false
 [interactive]
 	; diffFilter = delta --color-only
 [grep]
 	linenumber = true
+[fetch]
+	prune = true
 [alias]
 	dp = diff --cached @{push} # diff to what is currently pushed (without including pending)
 	orig = !find . -name '*.orig' -delete
@@ -61,7 +67,11 @@
 [pull]
 	ff = only
 	; rebase = merges
+[pager]
+	difftool = true
 # special config for custom diff program
+[difftool "difftastic"]
+	cmd = difft ---background dark --color always --tab-width 4 "$LOCAL" "$REMOTE"
 [delta]
 	syntax-theme = OneHalfDark
 	word-diff-regex = .

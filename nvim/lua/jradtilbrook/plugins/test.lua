@@ -12,7 +12,7 @@ return {
     -- Running PHP tests defaults to pest if installed, so change it to PHPUnit
     -- which supports sail
     vim.cmd([[
-      let g:test#enabled_runners = ['php#phpunit']
+      let g:test#enabled_runners = ['php#phpunit', 'go#gotest']
     ]])
   end
 }

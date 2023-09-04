@@ -26,8 +26,8 @@ return {
         ['app/*.php'] = {
           type = 'source',
           alternate = {
-            'tests/Unit/{}Test.php',
             'tests/Feature/{}Test.php',
+            'tests/Unit/{}Test.php',
           },
         },
         ['tests/Feature/*Test.php'] = {

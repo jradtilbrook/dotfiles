@@ -3,7 +3,10 @@ return {
     'catppuccin/nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'catppuccin-macchiato'
+      vim.cmd([[
+        highlight WinSeparator guifg=#494d64
+        colorscheme catppuccin-macchiato
+      ]])
     end
   },
 
@@ -41,6 +44,7 @@ return {
   { 'numToStr/Comment.nvim', opts = { } },
 
   'tpope/vim-eunuch',
+  'tpope/vim-abolish',
   'tpope/vim-fugitive',
   'tpope/vim-repeat',
   'tpope/vim-rhubarb',

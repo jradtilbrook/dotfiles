@@ -1,6 +1,7 @@
+format = '$jobs$directory$git_branch$character'
 add_newline = false
 # might be useful to move some stuff to the right? https://starship.rs/advanced-config/#enable-right-prompt
-# right_format = ""
+right_format = "$status"
 
 # show battery module for 30% and below
 [[battery.display]]
@@ -13,13 +14,19 @@ error_symbol = "[✗](bold red) "
 disabled = true
 
 [git_metrics]
-disabled = false
+disabled = true
+
+[git_status]
+disabled = true
 
 [nodejs]
 disabled = true
 
 [python]
 disabled = true
+
+[status]
+disabled = false
 
 [sudo]
 disabled = false

@@ -11,11 +11,13 @@
 
 - link:
     ~/.config/i3:
+    ~/.config/karabiner/karabiner.json: karabiner.json
     ~/.config/kitty:
     ~/.config/nvim:
     ~/.config/starship.toml:
     ~/.config/tmux:
     ~/.gitconfig:
+    ~/.gitconfig-bk:
     ~/.git-templates:
     ~/.local/bin/tat: bin/tat
     ~/.Xmodmap:
@@ -26,5 +28,9 @@
   - [git submodule update --init --recursive, Installing submodules]
   - description: Hush login
     command: '[ -f ~/.hushlogin ] || touch ~/.hushlogin'
+  - description: Install oh-my-zsh
+    command: '[ -d ~/.oh-my-zsh ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
   - description: Install artisan zsh plugin
     command: '[ -d ~/.oh-my-zsh/custom/plugins/artisan ] || gh repo clone jessarcher/zsh-artisan ~/.oh-my-zsh/custom/plugins/artisan'
+  - description: Install aws-vault zsh plugin
+    command: '[ -d ~/.oh-my-zsh/custom/plugins/zsh-aws-vault ] || gh repo clone blimmer/zsh-aws-vault ~/.oh-my-zsh/custom/plugins/zsh-aws-vault'

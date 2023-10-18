@@ -65,7 +65,7 @@ return {
           { name = 'intelephense' },
           { name = 'luasnip' },
         }, {
-          { name = 'buffer' },
+          -- { name = 'buffer' },
           { name = 'path' },
         })
       }

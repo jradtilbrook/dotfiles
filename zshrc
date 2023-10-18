@@ -51,16 +51,13 @@ DISABLE_AUTO_TITLE="true"
 plugins=(
     artisan
     aws
-    aws-vault
     composer
     docker
     docker-compose
     fzf
     git
     gpg-agent
-    # kubectl
     last-working-dir
-    # pyenv
     sudo
     zsh-aws-vault
 )
@@ -140,14 +137,14 @@ gsm() {
 alias art=artisan
 compdef _artisan_add_completion art
 alias cat='bat --theme="Solarized (dark)"'
-alias ls='exa --long --header --git'
+alias ls='eza --long --header --git'
 alias la='ls -a'
 alias t=tmux
 alias tl='tmux list-sessions'
 alias tink='artisan tinker'
 alias v=nvim
 alias vimdiff='nvim -d'
-alias tree='exa --tree --color=always'
+alias tree='eza --tree --color=always'
 
 # Initialise starship prompt
 eval "$(starship init zsh)"

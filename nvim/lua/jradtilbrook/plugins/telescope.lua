@@ -14,6 +14,11 @@ return {
                                 ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
                             },
                         },
+                        previewer = false,
+                        layout_config = {
+                            width = 0.5,
+                            height = 0.4,
+                        },
                     },
                     git_files = {
                         mappings = {

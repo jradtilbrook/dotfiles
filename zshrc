@@ -57,6 +57,7 @@ plugins=(
     fzf
     git
     gpg-agent
+    kubectl
     last-working-dir
     sudo
     zsh-aws-vault
@@ -148,3 +149,11 @@ alias tree='eza --tree --color=always'
 
 # Initialise starship prompt
 eval "$(starship init zsh)"
+
+
+# Herd injected PHP binary.
+export PATH="/Users/jradtilbrook/Library/Application Support/Herd/bin/":$PATH
+
+
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/jradtilbrook/Library/Application Support/Herd/config/php/82/"

@@ -17,7 +17,7 @@ return {
                         previewer = false,
                         layout_config = {
                             width = 0.5,
-                            height = 0.4,
+                            height = 0.7,
                         },
                     },
                     git_files = {

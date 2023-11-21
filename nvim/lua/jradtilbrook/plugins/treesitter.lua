@@ -28,7 +28,6 @@ return {
                     node_decremental = "<C-S-space>",
                 },
             },
-            context_commentstring = { enable = true },
             textobjects = {
                 select = {
                     enable = true,
@@ -44,5 +43,8 @@ return {
                 },
             },
         })
+
+        require("ts_context_commentstring").setup({})
+        vim.g.skip_ts_context_commentstring_module = true
     end,
 }

@@ -73,6 +73,7 @@ return {
 
             require("telescope").load_extension("fzf")
             require("telescope").load_extension("file_browser")
+            require("telescope").load_extension("neoclip")
             local builtin = require("telescope.builtin")
 
             -- a function to fall back to find_files if not in a git repo

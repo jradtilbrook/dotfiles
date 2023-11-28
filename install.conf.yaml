@@ -19,6 +19,7 @@
     ~/.gitconfig:
     ~/.gitconfig-bk:
     ~/.git-templates:
+    ~/.hammerspoon:
     ~/.local/bin/tat: bin/tat
     ~/.Xmodmap:
     ~/.zshenv:

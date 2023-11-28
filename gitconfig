@@ -53,7 +53,6 @@
 	submoduleSummary = true
 [push]
 	default = simple # only push to registered tracking branch
-	followTags = true
 [credential]
 	#helper = cache --timeout=900 # remember credentials for 15mins
 [merge]

@@ -27,11 +27,14 @@ return {
                                 ["<c-a>"] = function(prompt_bufnr)
                                     local action_state = require("telescope.actions.state")
                                     local current_picker = action_state.get_current_picker(prompt_bufnr)
+                                    local selection = action_state.get_current_line()
                                     local pickers = require("telescope.pickers")
                                     local finders = require("telescope.finders")
                                     local conf = require("telescope.config").values
                                     local picker = pickers
-                                        .new({}, {
+                                        .new({
+                                            default_text = selection,
+                                        }, {
                                             prompt_title = "Git Files (No .gitignore)",
                                             finder = finders.new_oneshot_job({
                                                 "rg",
@@ -41,7 +44,7 @@ return {
                                                 "--hidden",
                                                 "--glob",
                                                 "!**/.git/*",
-                                            }),
+                                            }, {}),
                                             previewer = conf.file_previewer({}),
                                             sorter = conf.file_sorter({}),
                                         })

@@ -45,9 +45,6 @@ return {
         },
     },
 
-    -- Show pending keybindings
-    { "folke/which-key.nvim",  opts = {} },
-
     -- Keybindings for comments
     { "numToStr/Comment.nvim", opts = {} },
 

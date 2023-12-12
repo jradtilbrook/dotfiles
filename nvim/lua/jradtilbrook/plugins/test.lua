@@ -13,9 +13,7 @@ return {
         -- which supports sail
         vim.cmd([[
             let g:test#enabled_runners = ['php#phpunit', 'go#gotest']
-            let test#strategy = "neovim_sticky"
-            let test#neovim_sticky#reopen_window = 1
-            let test#neovim#term_position = "vert"
+            let test#strategy = "floaterm"
         ]])
     end,
 }

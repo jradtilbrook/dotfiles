@@ -2,11 +2,17 @@ return {
     {
         "catppuccin/nvim",
         priority = 1000,
-        config = function()
-            vim.cmd([[
-        highlight WinSeparator guifg=#494d64
-        colorscheme catppuccin-macchiato
-      ]])
+        opts = {
+            custom_highlights = function(colors)
+                return {
+                    FloatermBorder = { bg = colors.base, fg = colors.blue },
+                    WinSeparator = { fg = colors.surface1 },
+                }
+            end,
+        },
+        config = function(plugin, opts)
+            require("catppuccin").setup(opts)
+            vim.cmd.colorscheme("catppuccin-macchiato")
         end,
     },
 

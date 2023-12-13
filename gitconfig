@@ -12,7 +12,7 @@
 [core]
 	editor = nvim
 	hooksPath = ~/.git-templates/hooks
-	; pager = delta
+	pager = delta
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 	excludesfile = ~/.git-templates/.gitignore_global
 [color]
@@ -21,12 +21,8 @@
 	submodule = log
 	colorMoved = default
 	colorMovedWS = ignore-all-space
-	; external = difft
-	; tool = difftastic
-[difftool]
-	prompt = false
 [interactive]
-	; diffFilter = delta --color-only
+	diffFilter = delta --color-only --features=interactive
 [grep]
 	linenumber = true
 [fetch]
@@ -68,17 +64,19 @@
 [pull]
 	ff = only
 	; rebase = merges
-[pager]
-	difftool = true
 # special config for custom diff program
-[difftool "difftastic"]
-	cmd = difft ---background dark --color always --tab-width 4 "$LOCAL" "$REMOTE"
 [delta]
-	syntax-theme = OneHalfDark
-	word-diff-regex = .
+	features = decorations navigate
+	line-numbers = true
 	file-style = omit
-	hunk-header-decoration-style = ul
-	hunk-header-line-number-style = white
+    hunk-header-decoration-style = blue ul ol
+    hunk-header-line-number-style = red
+    hunk-header-style = file line-number syntax
+	syntax-theme = Catppuccin-macchiato
+	minus-style = "syntax #3B2C37"
+    minus-emph-style = "syntax #613038"
+	plus-style = "syntax #2A363B"
+    plus-emph-style = "syntax #2D4E45"
 [credential "https://github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential

@@ -137,7 +137,7 @@ gsm() {
 # Aliases
 alias art=artisan
 compdef _artisan_add_completion art
-alias cat='bat --theme="Solarized (dark)"'
+alias cat='bat --theme="Catppuccin-macchiato"'
 alias ls='eza --long --header --git'
 alias la='ls -a'
 alias t=tmux

@@ -14,6 +14,9 @@ return {
             h = {
                 name = "[H]arpoon",
             },
+            g = {
+                name = "[G]itsigns",
+            },
             f = {
                 name = "[F]loaterm",
             },

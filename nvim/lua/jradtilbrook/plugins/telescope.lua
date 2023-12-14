@@ -82,11 +82,11 @@ return {
             -- a function to fall back to find_files if not in a git repo
             -- cache the results of git rev-parse
             local is_inside_work_tree = {}
-            project_files = function()
+            local project_files = function()
                 local cwd = vim.fn.getcwd()
                 if is_inside_work_tree[cwd] == nil then
-                    vim.fn.system("git rev-parse --is-inside-work-tree")
-                    is_inside_work_tree[cwd] = vim.v.shell_error == 0
+                    local stdout = vim.fn.system("git rev-parse --is-inside-work-tree")
+                    is_inside_work_tree[cwd] = stdout == "false"
                 end
 
                 if is_inside_work_tree[cwd] then

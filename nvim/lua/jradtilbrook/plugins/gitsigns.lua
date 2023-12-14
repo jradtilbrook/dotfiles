@@ -14,6 +14,7 @@ return {
         { "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>",              desc = "Preview hunk" },
         { "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>",                desc = "Stage hunk" },
         { "<leader>gS", "<cmd>Gitsigns undo_stage_hunk<cr>",           desc = "Unstage hunk" },
+        { "<leader>gu", "<cmd>Gitsigns reset_hunk<cr>",                desc = "Undo hunk" },
         { "<leader>gw", "<cmd>Gitsigns toggle_word_diff<cr>",          desc = "Toggle word diff" },
     },
     config = function(plugin, opts)

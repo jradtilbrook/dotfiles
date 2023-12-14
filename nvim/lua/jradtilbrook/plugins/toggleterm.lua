@@ -5,7 +5,7 @@ return {
         "ToggleTerm",
     },
     keys = {
-        { "<leader>ft", "<cmd>ToggleTerm name=scratch<CR>", desc = "[F]loaterm [T]oggle" },
+        { "<leader>ft", "<cmd>ToggleTerm name=scratch<CR>", desc = "Toggle terminal" },
     },
     opts = {
         float_opts = {

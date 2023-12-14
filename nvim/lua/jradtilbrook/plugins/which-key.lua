@@ -6,22 +6,23 @@ return {
 
         wk.register({
             t = {
-                name = "[T]esting",
+                name = "Testing",
             },
             s = {
-                name = "[S]earching",
+                name = "Searching",
             },
             h = {
-                name = "[H]arpoon",
+                name = "Harpoon",
             },
             g = {
-                name = "[G]itsigns",
+                name = "Git",
+                mode = { "n", "v" },
             },
             f = {
-                name = "[F]loaterm",
+                name = "Terminal",
             },
             w = {
-                name = "LSP [W]orkspace",
+                name = "LSP Workspace",
             },
         }, { prefix = "<leader>" })
     end,

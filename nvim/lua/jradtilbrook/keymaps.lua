@@ -22,7 +22,7 @@ vim.keymap.set("v", "Y", "myY`y")
 vim.keymap.set("n", "<leader>k", ":nohlsearch<CR>")
 
 -- close all buffers
-vim.keymap.set("n", "<leader>cc", ":bufdo bd<CR>", { desc = "Close all buffers" })
+vim.keymap.set("n", "<leader>bd", ":bufdo bd<CR>", { desc = "Close all buffers" })
 
 -- shortcut for normal mode in terminal
 vim.keymap.set("t", "<esc>", "<c-\\><c-n>")

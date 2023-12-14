@@ -96,18 +96,19 @@ return {
                 end
             end
 
-            vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+            vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "Find existing buffers" })
+            vim.keymap.set("n", "<leader>sc", builtin.commands, { desc = "Find available commands" })
             vim.keymap.set(
                 "n",
                 "<leader>-",
                 require("telescope").extensions.file_browser.file_browser,
-                { desc = "[-] File browser" }
+                { desc = "File browser" }
             )
             vim.keymap.set(
                 "n",
                 "<leader>/",
                 require("telescope.builtin").current_buffer_fuzzy_find,
-                { desc = "[/] Fuzzily search in current buffer" }
+                { desc = "Fuzzily search in current buffer" }
             )
             vim.keymap.set("n", "<leader>st", builtin.builtin, { desc = "[S]earch [T]elescope" })
             vim.keymap.set("n", "<leader>sf", project_files, { desc = "[S]earch [F]iles" })

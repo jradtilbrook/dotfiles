@@ -5,6 +5,15 @@ return {
         wk.setup({})
 
         wk.register({
+            b = {
+                name = "Buffers",
+            },
+            c = {
+                name = "Code actions",
+            },
+            d = {
+                name = "Debugging",
+            },
             t = {
                 name = "Testing",
             },

@@ -81,11 +81,31 @@ return {
     -- Automatically fix indentation when pasting
     {
         "sickill/vim-pasta",
-        setup = function()
+        init = function()
             vim.g.pasta_disabled_filetypes = { "fugitive" }
         end,
     },
 
     -- Keybindings for moving focus
     "christoomey/vim-tmux-navigator",
+
+    {
+        "ThePrimeagen/git-worktree.nvim",
+        opts = {
+            update_on_change_command = "Telescope git_files",
+        },
+        config = function(plugin, opts)
+            local worktree = require("git-worktree")
+            worktree.setup(opts)
+            worktree.on_tree_change(function(op, metadata)
+                if op == worktree.Operations.Switch then
+                    -- update all other buffers to the worktree directory
+                    local windows = vim.api.nvim_list_wins()
+                    local buffers = vim.tbl_filter(function(bufn)
+                        return vim.api.nvim_buf_is_valid(bufn) and vim.api.nvim_buf_get_option(bufn, "buflisted")
+                    end, vim.api.nvim_list_bufs())
+                end
+            end)
+        end,
+    },
 }

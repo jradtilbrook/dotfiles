@@ -8,6 +8,7 @@ return {
         { "<leader>ft", "<cmd>ToggleTerm name=scratch<CR>", desc = "Toggle terminal" },
     },
     opts = {
+        autochdir = true,
         float_opts = {
             border = "curved",
         },

@@ -77,6 +77,7 @@ return {
             require("telescope").load_extension("fzf")
             require("telescope").load_extension("file_browser")
             require("telescope").load_extension("neoclip")
+            require("telescope").load_extension("git_worktree")
             local builtin = require("telescope.builtin")
 
             -- a function to fall back to find_files if not in a git repo
@@ -110,7 +111,9 @@ return {
                 require("telescope.builtin").current_buffer_fuzzy_find,
                 { desc = "Fuzzily search in current buffer" }
             )
-            vim.keymap.set("n", "<leader>st", builtin.builtin, { desc = "[S]earch [T]elescope" })
+            vim.keymap.set("n", "<leader>st", function()
+                builtin.builtin({ include_extensions = true })
+            end, { desc = "[S]earch [T]elescope" })
             vim.keymap.set("n", "<leader>sf", project_files, { desc = "[S]earch [F]iles" })
             vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
             vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })

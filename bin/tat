@@ -19,7 +19,10 @@ create_detached_session() {
 
 create_if_needed_and_attach() {
   if not_in_tmux; then
-    tmux new-session -As "$session_name"
+    session=$(echo $session_name | (tmux list-sessions -F "#{session_name}" && cat) | sort | uniq | gum filter --no-strict --placeholder="session...")
+    if [ -n "$session" ]; then
+        tmux new-session -As $session
+    fi
   else
     if ! session_exists; then
       create_detached_session

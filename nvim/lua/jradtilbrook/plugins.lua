@@ -41,7 +41,9 @@ return {
     },
 
     -- Keybindings for comments
-    { "numToStr/Comment.nvim", opts = {} },
+    { "numToStr/Comment.nvim",    config = true },
+
+    { "folke/todo-comments.nvim", config = true },
 
     "tpope/vim-eunuch",
     "tpope/vim-abolish",

@@ -13,7 +13,7 @@ return {
         -- which supports sail
         vim.cmd([[
             let g:test#enabled_runners = ['php#phpunit', 'go#gotest']
-            let test#strategy = "floaterm"
+            let test#strategy = "toggleterm"
         ]])
     end,
 }

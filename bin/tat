@@ -9,8 +9,12 @@ not_in_tmux() {
   [ -z "$TMUX" ]
 }
 
+tmux_running() {
+  tmux list-sessions &>/dev/null
+}
+
 session_exists() {
-  tmux has-session -t "=$session_name"
+  tmux has-session -t "=$session_name" &>/dev/null
 }
 
 create_detached_session() {
@@ -19,9 +23,13 @@ create_detached_session() {
 
 create_if_needed_and_attach() {
   if not_in_tmux; then
-    session=$(echo $session_name | (tmux list-sessions -F "#{session_name}" && cat) | sort | uniq | gum filter --no-strict --placeholder="session...")
+    if tmux_running; then
+      session=$(echo $session_name | (tmux list-sessions -F "#{session_name}" && cat) | sort | uniq | gum filter --no-strict --placeholder="session...")
+    else
+      session=$session_name
+    fi
     if [ -n "$session" ]; then
-        tmux new-session -As $session
+      tmux new-session -As $session
     fi
   else
     if ! session_exists; then

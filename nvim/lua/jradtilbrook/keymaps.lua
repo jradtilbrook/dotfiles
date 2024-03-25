@@ -19,7 +19,7 @@ vim.keymap.set("v", "y", "myy`y")
 vim.keymap.set("v", "Y", "myY`y")
 
 -- Turn off highlighting
-vim.keymap.set("n", "<leader>k", ":nohlsearch<CR>")
+vim.keymap.set("n", "<leader>k", ":nohlsearch | :lua vim.lsp.buf.clear_references()<CR>")
 
 -- close all buffers
 vim.keymap.set("n", "<leader>bd", ":%bdelete<CR>", { desc = "Close all buffers" })

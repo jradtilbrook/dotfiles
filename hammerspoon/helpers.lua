@@ -70,19 +70,30 @@ end
 -- Modal Helpers
 --------------------------------------------------------------------------------
 
-function activateModal(mods, key, timeout)
+function activateModal(mods, key, timeout, message)
     timeout = timeout or false
-    local modal = hs.hotkey.modal.new(mods, key)
+    -- there is a bug in hammerspoon hs.hotkey.modal.new() that prevents the use of the pressedfn so we create the modal
+    -- manually
+    local modal = setmetatable({ keys = {} }, hs.hotkey.modal)
+    local hotkey = hs.hotkey.new(mods, key, function()
+        modal:enter()
+    end)
+    hotkey:enable()
+
     local timer = hs.timer.new(3, function()
         modal:exit()
     end)
-    modal:bind("", "escape", nil, function()
+    modal:bind(mods, key, nil, function()
         modal:exit()
     end)
-    modal:bind("ctrl", "c", nil, function()
+    modal:bind("", "escape", function()
+        modal:exit()
+    end)
+    modal:bind("ctrl", "c", function()
         modal:exit()
     end)
     function modal:entered()
+        hs.alert.show(message)
         if timeout then
             timer:start()
         end
@@ -90,6 +101,7 @@ function activateModal(mods, key, timeout)
     end
 
     function modal:exited()
+        hs.alert.closeAll()
         if timeout then
             timer:stop()
         end
@@ -119,10 +131,10 @@ function registerKeyBindings(mods, bindings)
     end
 end
 
-function registerModalBindings(mods, key, bindings, exitAfter)
+function registerModalBindings(mods, key, bindings, exitAfter, message)
     exitAfter = exitAfter or false
     local timeout = exitAfter == true
-    local modal = activateModal(mods, key, timeout)
+    local modal = activateModal(mods, key, timeout, message)
     for modalKey, binding in pairs(bindings) do
         modalBind(modal, modalKey, binding, exitAfter)
     end

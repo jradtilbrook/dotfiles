@@ -1,11 +1,10 @@
-local hyper = { "cmd", "ctrl", "alt", "shift" }
--- used as a nested modal
--- local webModal = hs.hotkey.modal.new(nil, nil, nil)
-
 require("helpers")
 apps = require("apps")
 local summon = require("summon")
 
+--
+-- Modal bindings
+--
 -- map table of apps to key binding -> bundle ID
 local summonModalBindings = tableFlip(hs.fnutils.map(apps, function(app)
     return app.summonModal
@@ -16,37 +15,21 @@ summonModalBindings = hs.fnutils.map(summonModalBindings, function(app)
     end
 end)
 
-summonModalBindings["r"] = hs.reload
 summonModalBindings["a"] = hs.spaces.toggleLaunchPad
 summonModalBindings["d"] = hs.spaces.toggleShowDesktop
+summonModalBindings["r"] = hs.reload
 
-registerModalBindings(hyper, "return", summonModalBindings, true)
+registerModalBindings(nil, "f19", summonModalBindings, true, "switcher")
 
--- modal:bind(nil, "b", nil, function()
---     webModal:enter()
---     modal:exit()
--- end)
+-- TODO: add modal binding for switching chrome profiles
+
 --
--- -- a sub modal to focus a specific instance of google chrome
--- -- TODO: switch to the specific chrome profile for work/home
--- webModal:bind(nil, "h", nil, function()
---     local name = "google chrome"
---     local app = hs.application(name)
---     if app == nil then
---         -- launch it if not running
---         hs.application.open(name)
---     else
---         -- otherwise if its focused, hide it
---         if app:isFrontmost() then
---             app:hide()
---         else
---             -- or focus profile window
---             -- TODO
---             app:activate()
---         end
---     end
---     webModal:exit()
--- end)
+-- Window management
+--
+hs.window.animationDuration = 0
+hs.grid.setGrid("60x20")
+hs.grid.setMargins("15x15")
+hs.screen.watcher.new(hs.reload):start()
 
 -- start a watcher to automatically reload on changes
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", hs.reload):start()

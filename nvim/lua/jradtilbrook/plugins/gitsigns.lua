@@ -33,21 +33,5 @@ return {
     },
     config = function(plugin, opts)
         require("gitsigns").setup(opts)
-
-        local Terminal = require("toggleterm.terminal").Terminal
-        local lazygit = Terminal:new({
-            cmd = "lazygit",
-            hidden = true,
-            direction = "float",
-            name = "Lazygit",
-            on_open = function(term)
-                vim.cmd("startinsert!")
-                vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-            end,
-        })
-
-        vim.keymap.set({ "n", "t" }, "<leader>gg", function()
-            lazygit:toggle()
-        end, { desc = "Toggle lazygit terminal" })
     end,
 }

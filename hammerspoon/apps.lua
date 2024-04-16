@@ -15,9 +15,9 @@ return {
         id = "com.mimestream.Mimestream",
         summonModal = "e", -- email
     },
-    Notion = {
-        id = "notion.id",
-        summonModal = "n",
+    Obsidian = {
+        id = "md.obsidian",
+        summonModal = "o",
     },
     Slack = {
         id = "com.tinyspeck.slackmacgap",

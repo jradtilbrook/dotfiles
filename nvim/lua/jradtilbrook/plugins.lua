@@ -52,8 +52,8 @@ return {
     {
         "tpope/vim-rhubarb",
         keys = {
-            { "<leader>gy", ":silent GBrowse!<cr>", desc = "Copy git URL",    mode = { "n", "v" }, silent = true },
-            { "<leader>gv", ":silent GBrowse<cr>",  desc = "View in browser", mode = { "n", "v" }, silent = true },
+            { "<leader>gy", ":GBrowse!<cr>", desc = "Copy git URL",    mode = { "n", "v" }, silent = true },
+            { "<leader>gv", ":GBrowse<cr>",  desc = "View in browser", mode = { "n", "v" }, silent = true },
         },
     },
     "tpope/vim-surround",

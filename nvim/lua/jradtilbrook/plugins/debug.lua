@@ -9,6 +9,8 @@ return {
 
         -- Add your own debuggers here
         "leoluz/nvim-dap-go",
+        --
+        "theHamsta/nvim-dap-virtual-text",
     },
     config = function()
         local dap = require("dap")
@@ -45,6 +47,9 @@ return {
         vim.keymap.set("n", "<leader>dB", function()
             dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
         end, { desc = "Set conditional breakpoint" })
+        vim.keymap.set("n", "<leader>de", function()
+            dapui.eval(nil, { enter = true })
+        end)
 
         -- Dap UI setup
         dapui.setup()
@@ -54,5 +59,7 @@ return {
 
         -- Install golang specific config
         dap_go.setup()
+
+        require("nvim-dap-virtual-text").setup()
     end,
 }

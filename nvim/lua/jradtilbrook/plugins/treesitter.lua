@@ -1,14 +1,11 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    commit = "f2778bd",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-context",
-        "nvim-treesitter/nvim-treesitter-textobjects",
         "JoosepAlviste/nvim-ts-context-commentstring",
     },
     config = function()
         require("nvim-treesitter.install").update({ with_sync = true })
-        -- Disable context info by default. Can use :TSContextToggle to turn it on
         require("treesitter-context").setup({
             enable = true,
             max_lines = 0,
@@ -28,23 +25,9 @@ return {
                     node_decremental = "<C-S-space>",
                 },
             },
-            textobjects = {
-                select = {
-                    enable = true,
-                    lookahead = true,
-                    keymaps = {
-                        ["aa"] = "@parameter.outer",
-                        ["ia"] = "@parameter.inner",
-                        ["af"] = "@function.outer",
-                        ["if"] = "@function.inner",
-                        ["ac"] = "@class.outer",
-                        ["ic"] = "@class.inner",
-                    },
-                },
-            },
         })
 
-        require("ts_context_commentstring").setup({})
         vim.g.skip_ts_context_commentstring_module = true
+        require("ts_context_commentstring").setup({})
     end,
 }

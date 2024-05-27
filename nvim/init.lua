@@ -42,6 +42,5 @@ require("lazy").setup("jradtilbrook.plugins", {
 })
 
 require("jradtilbrook.options")
-require("jradtilbrook.highlight")
 require("jradtilbrook.keymaps")
 require("jradtilbrook.snippets")

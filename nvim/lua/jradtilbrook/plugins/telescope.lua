@@ -93,7 +93,6 @@ return {
 
             require("telescope").load_extension("fzf")
             require("telescope").load_extension("file_browser")
-            require("telescope").load_extension("git_worktree")
             local builtin = require("telescope.builtin")
 
             -- a function to fall back to find_files if not in a git repo
@@ -103,7 +102,7 @@ return {
                 local cwd = vim.fn.getcwd()
                 if is_inside_work_tree[cwd] == nil then
                     local stdout = vim.fn.system("git rev-parse --is-inside-work-tree")
-                    is_inside_work_tree[cwd] = stdout == "false"
+                    is_inside_work_tree[cwd] = stdout == "true\n"
                 end
 
                 if is_inside_work_tree[cwd] then

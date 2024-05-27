@@ -108,6 +108,8 @@ return {
                     end, vim.api.nvim_list_bufs())
                 end
             end)
+
+            require("telescope").load_extension("git_worktree")
         end,
     },
 }

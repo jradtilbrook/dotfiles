@@ -19,7 +19,7 @@ summonModalBindings["a"] = hs.spaces.toggleLaunchPad
 summonModalBindings["d"] = hs.spaces.toggleShowDesktop
 summonModalBindings["r"] = hs.reload
 
-registerModalBindings(nil, "f19", summonModalBindings, true, "switcher")
+registerModalBindings({ "alt" }, "space", summonModalBindings, true, "switcher")
 
 -- TODO: add modal binding for switching chrome profiles
 

@@ -6,11 +6,15 @@
 
 - create:
     - ~/.config/bat/themes
+    - ~/.config/aerospace
+    - ~/.config/borders
     - ~/Developer
     - ~/Sites
     - ~/intelephense
 
 - link:
+    ~/.config/aerospace/aerospace.toml: aerospace.toml
+    ~/.config/borders/bordersrc: bordersrc
     ~/.config/i3:
     ~/.config/karabiner/karabiner.json: karabiner.json
     ~/.config/kitty:
@@ -20,7 +24,6 @@
     ~/.gitconfig:
     ~/.gitconfig-bk:
     ~/.hammerspoon:
-    ~/.local/bin/tat: bin/tat
     ~/.Xmodmap:
     ~/.zshenv:
     ~/.zshrc:

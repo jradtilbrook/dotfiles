@@ -32,6 +32,7 @@
 	op = push -u origin HEAD
 	om = merge origin/main
 	reh = reset --hard @{push}
+	fetch-pr = "!f() { git fetch origin pull/$1/head:pr-$1; }; f"
 	l = log --graph --pretty=custom
 	rebm = rebase -i origin/main
 	uci = reset --soft HEAD^ # undo a commit to staging area

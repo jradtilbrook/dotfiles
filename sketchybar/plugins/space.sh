@@ -8,7 +8,8 @@ if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
                             label.color=$BAR_COLOR \
                             icon.color=$BAR_COLOR
 else
-    sketchybar --set $NAME background.drawing=off \
+    sketchybar --set $NAME background.drawing=on \
+                            background.color=$ITEM_BG_COLOR \
                             label.color=$ACCENT_COLOR \
                             icon.color=$ACCENT_COLOR
 fi

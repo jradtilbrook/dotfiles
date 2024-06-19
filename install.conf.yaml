@@ -19,6 +19,7 @@
     ~/.config/i3:
     ~/.config/karabiner/karabiner.json: karabiner.json
     ~/.config/kitty:
+    ~/.config/alacritty:
     ~/.config/nvim:
     ~/.config/starship.toml:
     ~/.config/tmux:

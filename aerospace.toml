@@ -10,7 +10,7 @@ exec-on-workspace-change = [
 ]
 
 [mode.main.binding]
-alt-enter = 'exec-and-forget open -a /Applications/kitty.app'
+alt-enter = 'exec-and-forget open -a /Applications/Alacritty.app'
 
 alt-h = 'focus left'
 alt-j = 'focus down'

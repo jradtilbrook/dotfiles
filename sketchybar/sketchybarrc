@@ -65,6 +65,7 @@ sketchybar --add item apps left \
         --subscribe apps space_windows_change \
         --set apps \
         drawing=off                                     \
+        update_freq=5 \
         script="$PLUGIN_DIR/space_windows.sh"
 
 ##### Adding Right Items #####

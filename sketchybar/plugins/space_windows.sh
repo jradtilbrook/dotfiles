@@ -1,7 +1,7 @@
 #!/bin/bash
 # Show icons for apps in each space
 
-if [ "$SENDER" = "space_windows_change" ]; then
+if [ "$SENDER" = "space_windows_change" -o "$SENDER" = "routine" ]; then
   for sid in $(/opt/homebrew/bin/aerospace list-workspaces --all); do
       icon_strip=" "
       windows=$(/opt/homebrew/bin/aerospace list-windows --workspace $sid --format '%{app-name}')

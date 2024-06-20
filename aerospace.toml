@@ -80,10 +80,6 @@ outer.top = [{ monitor.'^built-in retina display$' = 4 }, 34]
 outer.right = 4
 
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-if.window-title-regex-substring = 'Jarryd (Buildkite)'
-run = 'move-node-to-workspace 01'
-[[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace 02'
 [[on-window-detected]]
@@ -95,10 +91,6 @@ run = 'move-node-to-workspace 04'
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = 'move-node-to-workspace 06'
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-if.window-title-regex-substring = 'Jarryd'
-run = 'move-node-to-workspace 07'
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace 09'

@@ -3,6 +3,10 @@ name = "dotfiles"
 path = "~/Developer/dotfiles/"
 
 [[session]]
+name = "bk/playground"
+path = "~/Developer/bk/playground/"
+
+[[session]]
 name = "bk/cli/v3"
 path = "~/Developer/bk/cli/3.x/"
 

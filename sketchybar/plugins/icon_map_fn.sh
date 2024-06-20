@@ -200,7 +200,7 @@ function icon_map() {
   "MAMP" | "MAMP PRO")
     icon_result=":mamp:"
     ;;
-  "Canary Mail" | "HEY" | "Mail" | "Mailspring" | "MailMate" | "邮件")
+  "Canary Mail" | "HEY" | "Mail" | "Mailspring" | "MailMate" | "邮件" | "Mimestream")
     icon_result=":mail:"
     ;;
   "WebStorm")

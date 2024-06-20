@@ -1,0 +1,11 @@
+[[session]]
+name = "dotfiles"
+path = "~/Developer/dotfiles/"
+
+[[session]]
+name = "bk/cli/v3"
+path = "~/Developer/bk/cli/3.x/"
+
+[[session]]
+name = "bk/cli/pr-review"
+path = "~/Developer/bk/cli/pr-review/"

@@ -21,6 +21,7 @@
     ~/.config/kitty:
     ~/.config/nvim:
     ~/.config/starship.toml:
+    ~/.config/sesh:
     ~/.config/tmux:
     ~/.gitconfig:
     ~/.gitconfig-bk:

@@ -95,5 +95,14 @@ run = 'move-node-to-workspace 06'
 if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace 09'
 [[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+[[on-window-detected]]
 if.app-id = 'us.zoom.xos'
 run = 'layout floating'

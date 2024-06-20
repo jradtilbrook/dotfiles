@@ -1,6 +1,6 @@
 return {
-    Alacritty = {
-        id = "org.alacritty",
+    Kitty = {
+        id = "net.kovidgoyal.kitty",
         summonModal = "t", -- terminal
     },
     Linear = {

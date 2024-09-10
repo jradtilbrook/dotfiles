@@ -5,14 +5,17 @@ return {
         opts = {
             custom_highlights = function(colors)
                 return {
-                    FloatermBorder = { bg = colors.base, fg = colors.blue },
                     WinSeparator = { fg = colors.surface1 },
                 }
             end,
+            background = {
+                light = "latte",
+                dark = "macchiato",
+            },
         },
-        config = function(plugin, opts)
+        config = function(_, opts)
             require("catppuccin").setup(opts)
-            vim.cmd.colorscheme("catppuccin-macchiato")
+            vim.cmd.colorscheme("catppuccin")
         end,
     },
 
@@ -41,9 +44,48 @@ return {
     },
 
     -- Keybindings for comments
-    { "numToStr/Comment.nvim",    config = true },
+    {
+        "numToStr/Comment.nvim",
+        opts = {
+            extra = {
+                eol = "gca", -- decapitalise A for ease of rolling
+            },
+            -- use treesitter plugin to set the correct comment string value
+            pre_hook = function(ctx)
+                local fn = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+                return fn(ctx)
+            end,
+        },
+    },
 
-    { "folke/todo-comments.nvim", config = true },
+    {
+        "folke/todo-comments.nvim",
+        event = "VimEnter",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {
+            signs = false,
+        },
+        keys = {
+            {
+                "[t",
+                function()
+                    require("todo-comments").jump_prev()
+                end,
+                desc = "Previous todo comment",
+                mode = { "n" },
+                silent = true,
+            },
+            {
+                "]t",
+                function()
+                    require("todo-comments").jump_next()
+                end,
+                desc = "Next todo comment",
+                mode = { "n" },
+                silent = true,
+            },
+        },
+    },
 
     "tpope/vim-eunuch",
     "tpope/vim-abolish",
@@ -51,6 +93,7 @@ return {
     "tpope/vim-repeat",
     {
         "tpope/vim-rhubarb",
+        lazy = false,
         keys = {
             { "<leader>gy", ":GBrowse!<cr>", desc = "Copy git URL",    mode = { "n", "v" }, silent = true },
             { "<leader>gv", ":GBrowse<cr>",  desc = "View in browser", mode = { "n", "v" }, silent = true },
@@ -68,16 +111,16 @@ return {
     },
 
     -- Automatically insert matching brackets
-    { "windwp/nvim-autopairs", opts = {} },
+    { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
 
     -- Handy keymapping to split/join lines (eg arrays)
     {
-        "AndrewRadev/splitjoin.vim",
-        init = function()
-            vim.g.splitjoin_html_attributes_bracket_on_new_line = 1
-            vim.g.splitjoin_trailing_comma = 1
-            vim.g.splitjoin_php_method_chain_full = 1
-        end,
+        "bennypowers/splitjoin.nvim",
+        event = "VimEnter",
+        keys = {
+            { "<leader>cj", function() end, mode = { "n", "v" }, desc = "Join object under cursor" },
+            { "<leader>c,", function() end, mode = { "n", "v" }, desc = "Split object under cursor" },
+        },
     },
 
     -- Automatically fix indentation when pasting

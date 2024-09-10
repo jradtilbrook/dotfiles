@@ -3,8 +3,8 @@
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- Remap for dealing with word wrap
-vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Paste replace visual selection without copying it
 vim.keymap.set("v", "p", '"_dP')
@@ -19,10 +19,10 @@ vim.keymap.set("v", "y", "myy`y")
 vim.keymap.set("v", "Y", "myY`y")
 
 -- Turn off highlighting
-vim.keymap.set("n", "<leader>k", ":nohlsearch | :lua vim.lsp.buf.clear_references()<CR>")
+vim.keymap.set("n", "<esc>", ":nohlsearch<CR>", { silent = true })
 
 -- close all buffers
 vim.keymap.set("n", "<leader>bd", ":%bdelete<CR>", { desc = "Close all buffers" })
 
 -- shortcut for normal mode in terminal
-vim.keymap.set("t", "<esc>", "<c-\\><c-n>")
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Exit terminal mode" })

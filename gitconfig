@@ -2,7 +2,7 @@
 [user]
 	name = jradtilbrook
 	email = jarryd@tilbrooktech.com
-	signingkey = 7C052B758472E5CBBE3E3F8C7EDAAA604BA2C2F4
+	signingkey = 43D5A065FC794FD1
 [includeIf "gitdir:~/Developer/bk/"]
 	path = .gitconfig-bk
 [commit]
@@ -78,7 +78,7 @@
     plus-emph-style = "syntax #2D4E45"
 [credential "https://github.com"]
 	helper =
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper =
-	helper = !/opt/homebrew/bin/gh auth git-credential
+	helper = !/usr/bin/gh auth git-credential

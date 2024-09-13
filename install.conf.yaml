@@ -6,18 +6,11 @@
 
 - create:
     - ~/.config/bat/themes
-    - ~/.config/aerospace
-    - ~/.config/borders
-    - ~/Developer
-    - ~/Sites
+    - ~/developer
     - ~/intelephense
 
 - link:
-    ~/.config/aerospace/aerospace.toml: aerospace.toml
-    ~/.config/borders/bordersrc: bordersrc
-    ~/.config/sketchybar:
     ~/.config/i3:
-    ~/.config/karabiner/karabiner.json: karabiner.json
     ~/.config/kitty:
     ~/.config/nvim:
     ~/.config/starship.toml:

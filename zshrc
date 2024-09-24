@@ -117,17 +117,9 @@ gsm() {
 alias art=artisan
 compdef _artisan_add_completion art
 alias cat='bat --theme="Catppuccin-macchiato"'
-alias ls='eza --long --header --git'
-alias la='ls -a'
 alias sc='sesh connect "$(sesh list -i | gum filter --limit 1 --placeholder "Pick a sesh" --prompt="⚡")"'
-alias t=tmux
-alias tl='tmux list-sessions'
 alias tink='artisan tinker'
-alias v=nvim
-alias vimdiff='nvim -d'
 alias tree='eza --tree --color=always'
 
 # Initialise starship prompt
 eval "$(starship init zsh)"
-
-eval "$(zoxide init zsh --cmd cd)"

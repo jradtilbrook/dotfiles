@@ -33,8 +33,6 @@ return {
         end,
     },
     keys = {
-        { "[h",         "<cmd>Gitsigns prev_hunk<cr>",                 desc = "Previous hunk" },
-        { "]h",         "<cmd>Gitsigns next_hunk<cr>",                 desc = "Next hunk" },
         { "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle line blame virtual text" },
         { "<leader>gl", "<cmd>Gitsigns blame_line<cr>",                desc = "Blame line" },
         { "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>",              desc = "Preview hunk" },

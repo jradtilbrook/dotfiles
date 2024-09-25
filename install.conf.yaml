@@ -18,6 +18,7 @@
     ~/.config/tmux:
     ~/.gitconfig:
     ~/.gitconfig-bk:
+    ~/.gitconfig-he:
     ~/.hammerspoon:
     ~/.zsh:
     ~/.zshenv:

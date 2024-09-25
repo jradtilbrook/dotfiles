@@ -5,6 +5,8 @@
 	signingkey = 43D5A065FC794FD1
 [includeIf "gitdir:~/Developer/bk/"]
 	path = .gitconfig-bk
+[includeIf "gitdir:~/developer/he/"]
+	path = .gitconfig-he
 [commit]
 	gpgsign = true
 [init]

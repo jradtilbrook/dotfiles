@@ -1,0 +1,7 @@
+# vi: ft=gitconfig noexpandtab
+[user]
+	name = Jarryd Tilbrook
+	email = jarryd.tilbrook@healthengine.com.au
+	signingkey = C7D2BF3D2A44AE96
+[commit]
+	gpgsign = true

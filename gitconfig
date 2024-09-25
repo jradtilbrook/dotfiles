@@ -73,7 +73,7 @@
     hunk-header-decoration-style = blue ul ol
     hunk-header-line-number-style = red
     hunk-header-style = file line-number syntax
-	syntax-theme = Catppuccin-macchiato
+	syntax-theme = Catppuccin Macchiato
 	minus-style = "syntax #3B2C37"
     minus-emph-style = "syntax #613038"
 	plus-style = "syntax #2A363B"

@@ -5,11 +5,11 @@
 - clean: ['~']
 
 - create:
-    - ~/.config/bat/themes
     - ~/developer
     - ~/intelephense
 
 - link:
+    ~/.config/bat:
     ~/.config/i3:
     ~/.config/kitty:
     ~/.config/nvim:
@@ -30,5 +30,3 @@
     command: '[ -f ~/.hushlogin ] || touch ~/.hushlogin'
   - description: Install oh-my-zsh
     command: '[ -d ~/.oh-my-zsh ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
-  - description: Install catppuccin/bat theme repo
-    command: '[ -f ~/.config/bat/themes/Catppuccin-macchiato.tmTheme ] || curl -fsSL https://raw.githubusercontent.com/catppuccin/bat/main/Catppuccin-macchiato.tmTheme -o ~/.config/bat/themes/Catppuccin-macchiato.tmTheme && bat cache --build'

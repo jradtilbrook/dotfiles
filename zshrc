@@ -76,6 +76,7 @@ plugins=(
   kitty
   kubectl
   kubectx
+  nvm
   starship
   sudo
   systemd

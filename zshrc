@@ -81,6 +81,7 @@ plugins=(
   sudo
   systemd
   tmux
+  zoxide
   zsh-aws-vault
 )
 
@@ -102,4 +103,4 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#494d64 \
 --multi"
 
-eval "$(zoxide init zsh)"
+source /usr/share/nvm/init-nvm.sh

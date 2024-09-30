@@ -102,4 +102,4 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#494d64 \
 --multi"
 
-eval "$(zoxide init zsh --cmd cd)"
+eval "$(zoxide init zsh)"

@@ -1,15 +1,12 @@
 [[session]]
 name = "dotfiles"
-path = "~/Developer/dotfiles/"
+path = "~/developer/dotfiles/"
 
 [[session]]
-name = "bk/playground"
-path = "~/Developer/bk/playground/"
+name = "megatron"
+path = "~/developer/he/megatron/"
 
 [[session]]
-name = "bk/cli/v3"
-path = "~/Developer/bk/cli/3.x/"
-
-[[session]]
-name = "bk/cli/pr-review"
-path = "~/Developer/bk/cli/pr-review/"
+name = "k8s"
+path = "~/developer/he/k8s/"
+startup_command = "export AWS_PROFILE=hedev"

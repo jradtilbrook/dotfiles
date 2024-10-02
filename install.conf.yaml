@@ -5,6 +5,7 @@
 - clean: ['~']
 
 - create:
+    - ~/.local/bin/
     - ~/developer
     - ~/intelephense
 

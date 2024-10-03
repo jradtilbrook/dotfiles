@@ -14,3 +14,15 @@ plugins:
       - $NAMESPACE
       - $CONTEXT
       - $NAME
+  deployhelm:
+    shortCut: Ctrl-U
+    confirm: false
+    description: "Deploy helm"
+    scopes:
+    - helm
+    command: kubectl
+    background: false
+    args:
+    - deployhelm
+    - $CONTEXT
+    - $NAME

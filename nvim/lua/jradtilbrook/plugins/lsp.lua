@@ -66,134 +66,71 @@ return {
         },
     },
     config = function()
-        -- Switch for controlling whether you want autoformatting.
-        --  Use :FormatToggle to toggle autoformatting on or off
-        local format_is_enabled = true
-        vim.api.nvim_create_user_command("FormatToggle", function()
-            format_is_enabled = not format_is_enabled
-            print("Setting autoformatting to: " .. tostring(format_is_enabled))
-        end, {})
-        -- Create an augroup that is used for managing our formatting autocmds.
-        --      We need one augroup per client to make sure that multiple clients
-        --      can attach to the same buffer without interfering with each other.
-        local _augroups = {}
-        local get_augroup = function(client)
-            if not _augroups[client.id] then
-                local group_name = "lsp-format-" .. client.name
-                local id = vim.api.nvim_create_augroup(group_name, { clear = true })
-                _augroups[client.id] = id
-            end
-
-            return _augroups[client.id]
-        end
-        -- Whenever an LSP attaches to a buffer, we will run this function.
-        --
-        -- See `:help LspAttach` for more information about this autocmd event.
+        --  This function gets run when an LSP connects to a particular buffer.
         vim.api.nvim_create_autocmd("LspAttach", {
-            -- This is where we attach the autoformatting for reasonable clients
-            callback = function(args)
-                local client_id = args.data.client_id
-                local client = vim.lsp.get_client_by_id(client_id)
-                local bufnr = args.buf
-
-                -- Only attach to clients that support document formatting
-                if not client.server_capabilities.documentFormattingProvider then
-                    return
+            callback = function(event)
+                local map = function(keys, func, desc, mode)
+                    mode = mode or "n"
+                    vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
                 end
 
-                -- Tsserver usually works poorly. Sorry you work with bad languages
-                -- You can remove this line if you know what you're doing :)
-                if client.name == "tsserver" then
-                    return
+                map("<leader>cr", vim.lsp.buf.rename, "[R]ename")
+                map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+                map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+                map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+                map("gv", function()
+                    require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" })
+                end, "[G]oto [D]efinition (split)")
+                map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+                map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+                map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+                map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+                map("<leader>dd", "<cmd>Trouble diagnostics<cr>", "[D]ocument [D]iagnostics") -- TODO: does this work?
+                map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+
+                map("K", vim.lsp.buf.hover, "Hover Documentation")
+                map("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+
+                map("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
+                map("]d", vim.diagnostic.goto_next, "Next diagnostic")
+                map("<leader>e", vim.diagnostic.open_float, "Open diagnostic [E]rrors")
+
+                -- When you move your cursor, the highlights will be cleared (the second autocommand).
+                local client = vim.lsp.get_client_by_id(event.data.client_id)
+                if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+                    local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+                    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+                        buffer = event.buf,
+                        group = highlight_augroup,
+                        callback = vim.lsp.buf.document_highlight,
+                    })
+
+                    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+                        buffer = event.buf,
+                        group = highlight_augroup,
+                        callback = vim.lsp.buf.clear_references,
+                    })
+
+                    vim.api.nvim_create_autocmd("LspDetach", {
+                        group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
+                        callback = function(event2)
+                            vim.lsp.buf.clear_references()
+                            vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = event2.buf })
+                        end,
+                    })
                 end
 
-                -- Create an autocmd that will run *before* we save the buffer.
-                --  Run the formatting command for the LSP that has just attached.
-                vim.api.nvim_create_autocmd("BufWritePre", {
-                    group = get_augroup(client),
-                    buffer = bufnr,
-                    callback = function()
-                        if not format_is_enabled then
-                            return
-                        end
-
-                        vim.lsp.buf.format({
-                            async = false,
-                            filter = function(c)
-                                return c.id == client.id
-                            end,
-                        })
-                    end,
-                })
+                -- The following code creates a keymap to toggle inlay hints in your
+                -- code, if the language server you are using supports them
+                --
+                -- This may be unwanted, since they displace some of your code
+                if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+                    map("<leader>th", function()
+                        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+                    end, "[T]oggle Inlay [H]ints")
+                end
             end,
         })
-
-        --  This function gets run when an LSP connects to a particular buffer.
-        local on_attach = function(client, bufnr)
-            local nmap = function(keys, func, desc)
-                if desc then
-                    desc = "LSP: " .. desc
-                end
-
-                vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-            end
-
-            nmap("<leader>cr", vim.lsp.buf.rename, "Rename")
-            nmap("<leader>ca", vim.lsp.buf.code_action, "Code action")
-
-            nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-            nmap("gv", function()
-                require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" })
-            end, "[G]oto [D]efinition")
-            nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-            nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-            nmap("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-            nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-            nmap("<leader>dd", "<cmd>TroubleToggle document_diagnostics<cr>", "[D]ocument [D]iagnostics")
-            nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
-
-            -- Diagnostic keymaps
-            nmap("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
-            nmap("]d", vim.diagnostic.goto_next, "Next diagnostic")
-            nmap("<leader>e", vim.diagnostic.open_float, "Open diagnostic errors")
-            nmap("<leader>q", vim.diagnostic.setloclist, "Show location list diagnostic errors")
-
-            -- See `:help K` for why this keymap
-            nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-            -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-
-            -- Lesser used LSP functionality
-            nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-            nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
-            nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
-            nmap("<leader>wl", function()
-                print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-            end, "[W]orkspace [L]ist Folders")
-
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                pattern = "*.go",
-                callback = function()
-                    vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true })
-                end,
-            })
-
-            -- add cursor highlighting of word under cursor
-            if client.server_capabilities.documentHighlightProvider then
-                vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
-                vim.api.nvim_create_autocmd("CursorHold", {
-                    callback = vim.lsp.buf.document_highlight,
-                    buffer = bufnr,
-                    group = "lsp_document_highlight",
-                    desc = "Document Highlight",
-                })
-                vim.api.nvim_create_autocmd("CursorMoved", {
-                    callback = vim.lsp.buf.clear_references,
-                    buffer = bufnr,
-                    group = "lsp_document_highlight",
-                    desc = "Clear All the References",
-                })
-            end
-        end
 
         -- Enable the following language servers
         local servers = {
@@ -251,35 +188,19 @@ return {
         -- Setup mason so it can manage external tooling
         require("mason").setup()
 
-        local formatting = require("null-ls").builtins.formatting
-        local diagnostic = require("null-ls").builtins.diagnostics
-        require("null-ls").setup({
-            sources = {
-                formatting.gofmt,
-                formatting.pint,
-                formatting.stylua,
-                diagnostic.golangci_lint,
-            },
-        })
-        require("mason-null-ls").setup({
-            automatic_installation = true,
-        })
-
         -- Ensure the servers above are installed
-        local mason_lspconfig = require("mason-lspconfig")
-
-        mason_lspconfig.setup({
+        require("mason-lspconfig").setup({
             ensure_installed = vim.tbl_keys(servers),
-        })
-
-        mason_lspconfig.setup_handlers({
-            function(server_name)
-                require("lspconfig")[server_name].setup({
-                    capabilities = capabilities,
-                    on_attach = on_attach,
-                    settings = servers[server_name],
-                })
-            end,
+            handlers = {
+                function(server_name)
+                    local server = servers[server_name] or {}
+                    -- This handles overriding only values explicitly passed
+                    -- by the server configuration above. Useful when disabling
+                    -- certain features of an LSP (for example, turning off formatting for ts_ls)
+                    server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+                    require("lspconfig")[server_name].setup(server)
+                end,
+            },
         })
 
         -- Diagnostic configuration

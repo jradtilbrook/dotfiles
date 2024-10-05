@@ -5,7 +5,7 @@ return {
         "ToggleTerm",
     },
     keys = {
-        { "<leader>ft", "<cmd>ToggleTerm name=scratch<CR>", desc = "Toggle terminal" },
+        { "<leader>tt", "<cmd>ToggleTerm name=scratch<CR>", desc = "Toggle terminal" },
     },
     opts = {
         autochdir = true,

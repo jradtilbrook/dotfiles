@@ -81,7 +81,6 @@ return {
                 end, "[G]oto [D]efinition (split)")
                 map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
                 map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-                map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
                 map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
                 map("<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", "Document Diagnostics")
                 map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
@@ -91,7 +90,6 @@ return {
 
                 map("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
                 map("]d", vim.diagnostic.goto_next, "Next diagnostic")
-                map("<leader>e", vim.diagnostic.open_float, "Open diagnostic [E]rrors")
 
                 -- When you move your cursor, the highlights will be cleared (the second autocommand).
                 local client = vim.lsp.get_client_by_id(event.data.client_id)

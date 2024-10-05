@@ -150,6 +150,7 @@ return {
                 },
             },
             tailwindcss = {},
+            ts_ls = {},
             yamlls = {
                 yaml = {
                     schemaStore = {

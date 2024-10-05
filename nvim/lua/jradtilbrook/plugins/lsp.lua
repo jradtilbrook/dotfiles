@@ -56,8 +56,10 @@ return {
 
         {
             "folke/trouble.nvim",
+            cmd = { "Trouble" },
             opts = {
-                mode = "document_diagnostics",
+                restore = false, -- start back at the top of the list
+                follow = false, -- dont automatically follow
             },
         },
     },
@@ -81,7 +83,7 @@ return {
                 map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
                 map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
                 map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-                map("<leader>dd", "<cmd>Trouble diagnostics<cr>", "[D]ocument [D]iagnostics") -- TODO: does this work?
+                map("<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", "Document Diagnostics")
                 map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
                 map("K", vim.lsp.buf.hover, "Hover Documentation")

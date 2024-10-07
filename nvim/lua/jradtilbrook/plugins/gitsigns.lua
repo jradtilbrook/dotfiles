@@ -2,6 +2,7 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "VimEnter",
     opts = {
+        current_line_blame = true, -- toggle with <leader>gb
         current_line_blame_opts = {
             delay = 200,
         },
@@ -34,12 +35,12 @@ return {
     },
     keys = {
         { "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle line blame virtual text" },
-        { "<leader>gl", "<cmd>Gitsigns blame_line<cr>",                desc = "Blame line" },
-        { "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>",              desc = "Preview hunk" },
-        { "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>",                desc = "Stage hunk" },
-        { "<leader>gS", "<cmd>Gitsigns undo_stage_hunk<cr>",           desc = "Unstage hunk" },
-        { "<leader>gu", "<cmd>Gitsigns reset_hunk<cr>",                desc = "Undo hunk" },
-        { "<leader>gw", "<cmd>Gitsigns toggle_word_diff<cr>",          desc = "Toggle word diff" },
+        { "<leader>gl", "<cmd>Gitsigns blame_line<cr>", desc = "Blame line" },
+        { "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", desc = "Preview hunk" },
+        { "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", desc = "Stage hunk" },
+        { "<leader>gS", "<cmd>Gitsigns undo_stage_hunk<cr>", desc = "Unstage hunk" },
+        { "<leader>gu", "<cmd>Gitsigns reset_hunk<cr>", desc = "Undo hunk" },
+        { "<leader>gw", "<cmd>Gitsigns toggle_word_diff<cr>", desc = "Toggle word diff" },
         {
             "<leader>gtc",
             function()

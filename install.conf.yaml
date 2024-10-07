@@ -19,6 +19,7 @@
     ~/.config/sesh:
     ~/.config/sway:
     ~/.config/swaylock:
+    ~/.config/swaync:
     ~/.config/tmux:
     ~/.gitconfig:
     ~/.gitconfig-bk:

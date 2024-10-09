@@ -21,6 +21,7 @@
     ~/.config/swaylock:
     ~/.config/swaync:
     ~/.config/tmux:
+    ~/.config/zellij:
     ~/.gitconfig:
     ~/.gitconfig-bk:
     ~/.gitconfig-he:

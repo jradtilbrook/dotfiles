@@ -82,7 +82,7 @@ plugins=(
   systemd
   tmux
   zoxide
-  zsh-aws-vault
+  # zsh-aws-vault
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -104,3 +104,4 @@ export FZF_DEFAULT_OPTS=" \
 --multi"
 
 source /usr/share/nvm/init-nvm.sh
+source <(av completion zsh)

@@ -21,6 +21,7 @@ return {
 
     -- Add more languages
     "sheerun/vim-polyglot",
+    "aviator-co/av-vim-plugin",
 
     {
         "stevearc/dressing.nvim",

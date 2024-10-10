@@ -10,6 +10,7 @@
     - ~/intelephense
 
 - link:
+    ~/.config/av:
     ~/.config/bat:
     ~/.config/i3:
     ~/.config/k9s:

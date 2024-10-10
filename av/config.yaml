@@ -1,0 +1,10 @@
+pullRequest:
+    draft: true
+
+    # If true, open a web browser to the pull request page whenever a pull
+    # request is created for the first time.
+    openBrowser: true
+
+    # If true, the CLI will automatically add/update a comment to all PRs linking
+    # other PRs in the stack. False by default.
+    writeStack: true

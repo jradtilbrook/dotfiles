@@ -11,6 +11,8 @@ return {
         -- Useful status updates for LSP
         { "j-hui/fidget.nvim", opts = {} },
 
+        "nvimtools/none-ls.nvim",
+
         -- Additional lua configuration, makes nvim stuff amazing!
         {
             -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -159,6 +161,18 @@ return {
 
         -- Setup mason so it can manage external tooling
         require("mason").setup()
+
+        local null_ls = require("null-ls")
+        local diagnostics = null_ls.builtins.diagnostics
+        null_ls.setup({
+            sources = {
+                diagnostics.phpstan.with({
+                    timeout = 10000, -- milliseconds
+                    extra_args = { "-c", "phpstan.dist.neon" },
+                }),
+                diagnostics.golangci_lint,
+            },
+        })
 
         -- Ensure the servers above are installed
         require("mason-lspconfig").setup({

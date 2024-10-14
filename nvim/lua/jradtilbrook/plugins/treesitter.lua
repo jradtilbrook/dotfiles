@@ -6,9 +6,12 @@ return {
         {
             "nvim-treesitter/nvim-treesitter-context",
             opts = {
-                enable = true,
+                enable = false,
                 max_lines = 0,
                 trim_scope = "inner",
+            },
+            keys = {
+                { "<leader>tc", "<cmd>TSContextToggle<cr>", desc = "Toggle treesitter context" },
             },
         },
         {

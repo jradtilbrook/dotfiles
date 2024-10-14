@@ -168,7 +168,7 @@ return {
             sources = {
                 diagnostics.phpstan.with({
                     timeout = 10000, -- milliseconds
-                    extra_args = { "-c", "phpstan.dist.neon" },
+                    to_temp_file = false,
                 }),
                 diagnostics.golangci_lint,
             },

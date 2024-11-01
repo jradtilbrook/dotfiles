@@ -22,6 +22,7 @@ include catppuccin-macchiato
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/Pictures/arch-4K.png fill
 output "Dell Inc. DELL U2723QE 35XJM04" scale 1.5
+output "eDP-1" disable
 
 
 font pango: Monolisa 9
@@ -266,14 +267,22 @@ bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+bindsym Print exec grim -g "$(slurp)"
+bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
 
-bindsym --release Shift+Print exec grim -g "$(slurp)" - | wl-copy
-bindsym --release Print exec grim -g "$(slurp)"
+# show clipboard and put selection back to the top
+bindsym $mod+Shift+p exec rofi -modi clipboard:cliphist-rofi-img -show clipboard -theme-str 'mode-switcher { enabled: false; }'
+
+# choose an emoji and write it out
+bindsym $mod+Ctrl+space exec rofimoji -a type -r '  Emoji'
 
 
 ### Start applications
 exec swaync
 bindsym $mod+U exec swaync-client -t -sw
+# CLI clipboard viewer
+exec wl-paste --watch cliphist store
+
 
 
 ### Window settings

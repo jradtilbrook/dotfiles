@@ -16,6 +16,7 @@
     ~/.config/k9s:
     ~/.config/kitty:
     ~/.config/nvim:
+    ~/.config/rofi:
     ~/.config/starship.toml:
     ~/.config/sesh:
     ~/.config/sway:
@@ -28,6 +29,7 @@
     ~/.gitconfig-he:
     ~/.hammerspoon:
     ~/.local/bin/cliphist-rofi-img: local/bin/cliphist-rofi-img
+    ~/.local/share/rofi/themes/catppuccin-macchiato.rasi: local/share/rofi/themes/catppuccin-macchiato.rasi
     ~/.zsh:
     ~/.zshenv:
     ~/.zshrc:

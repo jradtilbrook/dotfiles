@@ -27,6 +27,7 @@
     ~/.gitconfig-bk:
     ~/.gitconfig-he:
     ~/.hammerspoon:
+    ~/.local/bin/cliphist-rofi-img: local/bin/cliphist-rofi-img
     ~/.zsh:
     ~/.zshenv:
     ~/.zshrc:

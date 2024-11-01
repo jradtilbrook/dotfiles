@@ -267,6 +267,10 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 
+bindsym --release Shift+Print exec grim -g "$(slurp)" - | wl-copy
+bindsym --release Print exec grim -g "$(slurp)"
+
+
 ### Start applications
 exec swaync
 bindsym $mod+U exec swaync-client -t -sw

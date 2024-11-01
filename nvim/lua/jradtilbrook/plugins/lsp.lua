@@ -122,6 +122,7 @@ return {
                     telemetry = { enable = false },
                 },
             },
+            pyright = {},
             tailwindcss = {},
             ts_ls = {},
             yamlls = {

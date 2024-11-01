@@ -275,6 +275,8 @@ bindsym $mod+U exec swaync-client -t -sw
 ### Window settings
 #
 for_window [shell="xwayland"] title_format "[XWayland] %title"
+assign [app_id="Slack"] → workspace number 6
+assign [app_id="spotify"] → workspace number 10
 
 
 include /etc/sway/config.d/*

@@ -82,7 +82,7 @@ plugins=(
   systemd
   tmux
   zoxide
-  # zsh-aws-vault
+  zsh-aws-vault
 )
 
 source $ZSH/oh-my-zsh.sh

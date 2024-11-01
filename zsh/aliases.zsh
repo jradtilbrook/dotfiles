@@ -4,3 +4,7 @@ alias t=tmux
 alias cat=bat
 alias sc='sesh connect "$(sesh list -i | gum filter --limit 1 --placeholder "Pick a sesh" --prompt="⚡")"'
 alias tree='eza --tree --color=always'
+
+# aws-vault plugin alias clashes with av binary (aviator)
+unalias av
+alias awv='aws-vault'

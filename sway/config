@@ -287,7 +287,7 @@ bindsym $mod+Shift+p exec rofi -modi clipboard:cliphist-rofi-img -show clipboard
 bindsym $mod+y exec rofi -modi desk:desk-height -show desk -theme-str 'mode-switcher { enabled: false; }'
 
 # choose an emoji and write it out
-bindsym $mod+Ctrl+space exec rofimoji -a type -r '  Emoji'
+bindsym $mod+Ctrl+space exec rofimoji -a type -r '  Emoji' -s neutral
 
 
 ### Start applications

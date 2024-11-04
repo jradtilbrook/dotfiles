@@ -1,0 +1,10 @@
+#!/bin/bash
+# This script is run to exit from i3.
+# Prompts the user for confirmation and sets up colours to suite current theme.
+
+if [[ -n "$1" ]]; then
+    ~/developer/jarvis/artisan app:upsy-desky $1
+else
+    echo sitting
+    echo standing
+fi

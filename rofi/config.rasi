@@ -1,5 +1,5 @@
 configuration {
-    modi: "drun,run";
+    modi: "drun,run,desk:desk-height";
     show-icons: true;
     terminal: "kitty";
     drun-display-format: "{icon} {name}";
@@ -9,6 +9,7 @@ configuration {
     display-drun: "   Apps ";
     display-run: "   Run ";
     display-clipboard: "  Clipboard";
+    display-desk: "  Desk height";
     sidebar-mode: true;
 }
 

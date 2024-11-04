@@ -5,6 +5,7 @@
 if [[ -n "$1" ]]; then
     ~/developer/jarvis/artisan app:upsy-desky $1
 else
-    echo sitting
-    echo standing
+    echo -en "\0message\x1fCurrent: $(~/developer/jarvis/artisan app:upsy-desky --current)\n"
+    echo Sitting
+    echo Standing
 fi

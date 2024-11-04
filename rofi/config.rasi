@@ -1,5 +1,5 @@
 configuration {
-    modi: "drun,run,desk:desk-height";
+    modi: "drun,run";
     show-icons: true;
     terminal: "kitty";
     drun-display-format: "{icon} {name}";

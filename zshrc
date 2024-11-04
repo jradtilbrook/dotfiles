@@ -75,7 +75,6 @@ plugins=(
   jira
   kitty
   kubectl
-  kubectx
   nvm
   starship
   sudo

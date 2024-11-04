@@ -108,7 +108,9 @@ return {
         -- Enable the following language servers
         local servers = {
             gopls = {},
-            graphql = {},
+            graphql = {
+                filetypes = { "php", "typescript", "typescriptreact", "graphql" },
+            },
             intelephense = {},
             jsonls = {
                 json = {

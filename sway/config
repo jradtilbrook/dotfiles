@@ -112,8 +112,7 @@ set $ws7 "7:"
 set $ws8 "8:"
 set $ws9 "9:"
 set $ws10 "10: "
-smart_gaps inverse_outer
-gaps outer 8
+gaps inner 6
 # Switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2

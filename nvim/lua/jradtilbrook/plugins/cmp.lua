@@ -105,6 +105,7 @@ return {
                 { name = "nvim_lsp_signature_help" },
                 { name = "intelephense" },
                 { name = "luasnip" },
+                { name = "blade-naV" },
             }, {
                 { name = "buffer" },
                 { name = "path" },

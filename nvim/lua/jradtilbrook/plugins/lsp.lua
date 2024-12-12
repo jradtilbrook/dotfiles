@@ -107,6 +107,22 @@ return {
 
         -- Enable the following language servers
         local servers = {
+            emmet_language_server = {
+                filetypes = {
+                    "blade",
+                    "css",
+                    "eruby",
+                    "html",
+                    "javascript",
+                    "javascriptreact",
+                    "less",
+                    "sass",
+                    "scss",
+                    "php",
+                    "pug",
+                    "typescriptreact",
+                },
+            },
             gopls = {},
             graphql = {
                 filetypes = { "php", "typescript", "typescriptreact", "graphql" },

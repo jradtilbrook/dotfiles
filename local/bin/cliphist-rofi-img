@@ -4,7 +4,13 @@ tmp_dir="/tmp/cliphist"
 rm -rf "$tmp_dir"
 
 if [[ -n "$1" ]]; then
-    cliphist decode <<<"$1" | wl-copy
+    # decode entry and put it back at the top of the clipboard
+    # also copy to the primary clipboard so the shift+insert below will type it
+    cliphist decode <<<"$1" | tee >( wl-copy ) | wl-copy --primary
+    # type out the top entry by using the shift+insert standard keybinding
+    # use a coproc otherwise rofi captures the typing output
+    # so far this works except for images in slack
+    coproc ( wtype -M shift -P Insert -p Insert -m shift > /dev/null  2>&1 )
     exit
 fi
 

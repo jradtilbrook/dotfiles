@@ -55,7 +55,12 @@ return {
             },
             formatters = {
                 ["blade-formatter"] = {
-                    append_args = { "--sort-tailwindcss-classes", "--sort-html-attributes=code-guide" },
+                    append_args = {
+                        "--sort-tailwindcss-classes",
+                        "--sort-html-attributes=code-guide",
+                        "--component-prefix='x-,livewire:,flux:'",
+                        "--wrap-attributes=aligned-multiple",
+                    },
                 },
             },
         })

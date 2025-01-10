@@ -26,13 +26,6 @@ return {
             desc = "[T]est [F]ile",
         },
         {
-            "<leader>tw",
-            function()
-                require("neotest").watch.toggle(vim.fn.expand("%"))
-            end,
-            desc = "[T]est [W]atch",
-        },
-        {
             "<leader>ts",
             function()
                 require("neotest").run.run({ suite = true })
@@ -46,8 +39,14 @@ return {
             end,
             desc = "[T]est [L]ast",
         },
-        -- visiting the "last test" looks somewhat doable but id have to code it up. see neotest.run.get_last_run()
-        -- { "<leader>tv", "<cmd>TestVisit<CR>", desc = "[T]est [V]isit" },
+        {
+            "<leader>tp",
+            function()
+                require("neotest").summary.toggle()
+            end,
+            desc = "[T]est Summary",
+            -- with summary open, can jump to tests with "i", open output with "o", run with "r", go to failed with "J", "K"
+        },
     },
     config = function()
         require("neotest").setup({

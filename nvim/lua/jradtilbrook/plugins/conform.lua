@@ -46,7 +46,7 @@ return {
                     if bufname:match("/he/") then
                         return { "php_cs_fixer" }
                     end
-                    return { "pint" }
+                    return { "pint", "blade-formatter" }
                 end,
                 terraform = { "terraform_fmt" },
                 typescriptreact = { "eslint_d", "prettierd" },

@@ -11,7 +11,7 @@ return {
         -- Useful status updates for LSP
         { "j-hui/fidget.nvim", opts = {} },
 
-        "nvimtools/none-ls.nvim",
+        { "nvimtools/none-ls.nvim", dependencies = { "ThePrimeagen/refactoring.nvim" } },
 
         -- Additional lua configuration, makes nvim stuff amazing!
         {
@@ -182,14 +182,17 @@ return {
         require("mason").setup()
 
         local null_ls = require("null-ls")
-        local diagnostics = null_ls.builtins.diagnostics
         null_ls.setup({
             sources = {
-                diagnostics.phpstan.with({
+                -- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md#phpstan
+                null_ls.builtins.diagnostics.phpstan.with({
                     timeout = 10000, -- milliseconds
-                    to_temp_file = false,
                 }),
-                diagnostics.golangci_lint,
+                null_ls.builtins.diagnostics.golangci_lint,
+                null_ls.builtins.diagnostics.yamllint,
+                null_ls.builtins.code_actions.refactoring.with({
+                    filetypes = { "go", "javascript", "lua", "typescript", "typescriptreact", "php" },
+                }),
             },
         })
 

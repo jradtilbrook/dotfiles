@@ -47,6 +47,14 @@ return {
             desc = "[T]est Summary",
             -- with summary open, can jump to tests with "i", open output with "o", run with "r", go to failed with "J", "K"
         },
+        {
+            "<leader>to",
+            function()
+                require("neotest").output.open()
+            end,
+            desc = "[T]est [O]utput",
+            -- with summary open, can jump to tests with "i", open output with "o", run with "r", go to failed with "J", "K"
+        },
     },
     config = function()
         require("neotest").setup({

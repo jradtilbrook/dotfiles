@@ -62,7 +62,8 @@ return {
                 map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
                 map("K", vim.lsp.buf.hover, "Hover Documentation")
-                map("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+                -- TODO: is this supposed to be shift-k? it conflicts with window navigation, but shift-k will override default help search
+                -- map("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
                 map("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
                 map("]d", vim.diagnostic.goto_next, "Next diagnostic")

@@ -37,6 +37,7 @@ return {
                 timeout_ms = 2000,
             },
             formatters_by_ft = {
+                blade = { "blade-formatter" },
                 go = { "goimports", "gofmt", "golangci_lint" },
                 javascript = { "eslint_d", "prettierd" },
                 typescript = { "eslint_d", "prettierd" },
@@ -46,10 +47,16 @@ return {
                     if bufname:match("/he/") then
                         return { "php_cs_fixer" }
                     end
-                    return { "pint", "blade-formatter" }
+                    return { "pint" }
                 end,
                 terraform = { "terraform_fmt" },
                 typescriptreact = { "eslint_d", "prettierd" },
+                yaml = { "yamlfmt" },
+            },
+            formatters = {
+                ["blade-formatter"] = {
+                    append_args = { "--sort-tailwindcss-classes", "--sort-html-attributes=code-guide" },
+                },
             },
         })
     end,

@@ -40,6 +40,7 @@ return {
                 blade = { "blade-formatter" },
                 go = { "goimports", "gofmt", "golangci_lint" },
                 javascript = { "eslint_d", "prettierd" },
+                json = { "jq" },
                 typescript = { "eslint_d", "prettierd" },
                 lua = { "stylua" },
                 php = function(bufnr)

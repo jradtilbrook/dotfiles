@@ -52,6 +52,17 @@ window#waybar{
     all:unset;
 }
 
+.modules-left {
+    background: @base;
+    border-radius: 6px;
+}
+.modules-right {
+    background: @base;
+    border-radius: 6px;
+    padding-right: 6px;
+    padding-left: 6px;
+}
+
 /* The whole bar */
 #waybar {
     color: @text;

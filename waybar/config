@@ -33,6 +33,7 @@
         "wireplumber",
         //"network",
         //"network#tailscale",
+        "custom/ip",
         "disk",
         "memory",
         "cpu",

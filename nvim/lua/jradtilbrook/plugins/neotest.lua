@@ -50,10 +50,16 @@ return {
         {
             "<leader>to",
             function()
-                require("neotest").output.open()
+                require("neotest").output.open({ enter = true, auto_close = true })
             end,
             desc = "[T]est [O]utput",
-            -- with summary open, can jump to tests with "i", open output with "o", run with "r", go to failed with "J", "K"
+        },
+        {
+            "<leader>ta",
+            function()
+                require("neotest").run.attach()
+            end,
+            desc = "[T]est [A]ttach",
         },
     },
     config = function()

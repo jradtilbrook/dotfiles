@@ -1,0 +1,198 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+
+    "position": "top",
+
+    "height": 26,
+
+    "margin-top": 6,
+    "margin-left": 6,
+    "margin-right": 6,
+
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "sway/scratchpad",
+    ],
+    "modules-center": [
+        "mpris",
+    ],
+    "modules-right": [
+        "wireplumber",
+        //"network",
+        //"network#tailscale",
+        "disk",
+        "memory",
+        "cpu",
+        "battery",
+        "tray",
+        "clock#date",
+        "clock#time"
+    ],
+
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        // Connected to AC
+        "format": "  {icon}  {capacity}%", // Icon: bolt
+        // Not connected to AC
+        "format-discharging": "{icon}  {capacity}%",
+        "format-icons": [
+            "", // Icon: battery-full
+            "", // Icon: battery-three-quarters
+            "", // Icon: battery-half
+            "", // Icon: battery-quarter
+            ""  // Icon: battery-empty
+        ],
+        "tooltip": true
+    },
+
+    "clock#time": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "tooltip": false
+    },
+
+    "clock#date": {
+      "interval": 10,
+      "format": " {:%e %b %Y}", // Icon: calendar-alt
+      "tooltip-format": "{:%e %B %Y}"
+    },
+
+    "cpu": {
+        "interval": 5,
+        "format": " {usage}% ({load})", // Icon: microchip
+        "states": {
+          "warning": 70,
+          "critical": 90
+        }
+    },
+
+    "custom/separator-left": {
+        "format": "",
+        "tooltip": false
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": " {}%", // Icon: memory
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "network": {
+        "interval": 5,
+        "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
+        "format-ethernet": "  {ifname}: {ipaddr}", // Icon: ethernet
+        "format-disconnected": "⚠  Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}"
+    },
+    "network#tailscale": {
+        "interface": "tailscale0",
+        "interval": 5,
+        "format-ethernet": "{ifname}: {ipaddr}", // Icon: ethernet
+        "format-disconnected": "⚠  Disconnected",
+    },
+    "custom/ip": {
+        "interval": 60,
+        "exec": "curl -q https://checkip.amazonaws.com",
+        "format": " {}"
+    },
+
+    "disk": {
+        "format": " {free}"
+    },
+
+    "sway/mode": {
+        "tooltip": false
+    },
+
+    // #TODO: update/set workspace names/icons
+    "sway/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": true,
+        "format": "{icon} {name} {windows}",
+        "window-format": "{icon} {name} {windows}",
+        "format-icons": {
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+        "format-window-separator": "   ",
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "cursor-url-handler": "",
+            "kitty": "",
+            "chromium": "",
+            "google-chrome": "",
+            "slack": "",
+            "spotify": "",
+            "blueman-manager": "",
+            "pavucontrol": "",
+            "seahorse": "",
+            "cameractrls": "",
+        }
+    },
+
+    "sway/scratchpad": {
+        "format-icons": [""]
+    },
+
+    "mpris": {
+        "format": "{player_icon} {dynamic}",
+        "title-len": 40,
+        "dynamic-order": ["title", "artist", "album"],
+        "player-icons": {
+            "spotify": "",
+            "chromium": "",
+            "default": "",
+        },
+    },
+
+    "wireplumber": {
+        // pulseaudio might work better: does it swap icons to bluetooth
+        "scroll-step": 1,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol",
+        "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    }
+
+}

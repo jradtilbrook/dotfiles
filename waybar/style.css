@@ -1,0 +1,238 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+@import "macchiato.css";
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+@keyframes blink-warning {
+    70% {
+        color: @base;
+    }
+
+    to {
+        color: @base;
+        background-color: @peach;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: @base;
+    }
+
+    to {
+        color: @base;
+        background-color: @red;
+    }
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    font-family: MonoLisa;
+    font-size: 13px;
+}
+window#waybar{
+    all:unset;
+}
+
+/* The whole bar */
+#waybar {
+    color: @text;
+    border-radius: 6px;
+}
+
+tooltip {
+    background: @base;
+    border: 1px solid @blue;
+    border-radius: 4px;
+}
+
+tooltip label {
+    color: @text;
+}
+
+/* Each module */
+#battery,
+#clock,
+#custom-argon,
+#disk,
+#cpu,
+#memory,
+#mode,
+#network,
+#custom-ip,
+#pulseaudio,
+#wireplumber,
+#scratchpad {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning {
+    color: @peach;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#clock {
+    color: @blue;
+}
+
+#cpu {
+    color: @mauve;
+}
+
+#cpu.warning {
+    color: @peach;
+}
+
+#cpu.critical {
+    color: @red;
+}
+
+#disk {
+    color: @pink;
+}
+
+#memory {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    color: @yellow;
+}
+
+#memory.warning {
+    color: @peach;
+}
+
+#memory.critical {
+    color: @red;
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#mode {
+    background: @red;
+    color: @base;
+}
+
+#mpris {
+    color: @green;
+}
+#mpris.paused {
+    color: @overlay1;
+}
+
+#custom-ip {
+    color: @overlay1;
+}
+
+#network {
+    color: @overlay1;
+}
+
+#network.disconnected {
+    color: @peach;
+}
+
+#wireplumber {
+    color: @green;
+}
+#wireplumber.muted {
+    color: @yellow;
+}
+
+#pulseaudio {
+    /* No styles */
+}
+
+#pulseaudio.muted {
+    /* No styles */
+}
+
+#custom-spotify {
+    color: rgb(102, 220, 105);
+}
+
+#scratchpad {
+    color: @yellow;
+}
+
+#tray {
+    /* No styles */
+}
+
+#workspaces {
+}
+
+#workspaces button {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @overlay1;
+}
+#workspaces button:hover {
+    box-shadow: none;
+    border-radius: 6px;
+    background: @base;
+    color: @text;
+    text-shadow: none;
+    transition-duration: 0s;
+}
+
+#workspaces button.focused {
+    box-shadow: none;
+    color: @base;
+    background-color: @blue;
+    border-radius: 6px;
+    text-shadow: none;
+}
+#workspaces button.focused:hover {
+    box-shadow: none;
+    color: @base;
+    background-color: @text;
+    transition-duration: 0s;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}

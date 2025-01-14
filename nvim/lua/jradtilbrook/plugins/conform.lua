@@ -54,16 +54,6 @@ return {
                 typescriptreact = { "eslint_d", "prettierd" },
                 yaml = { "yamlfmt" },
             },
-            formatters = {
-                ["blade-formatter"] = {
-                    append_args = {
-                        "--sort-tailwindcss-classes",
-                        "--sort-html-attributes=code-guide",
-                        "--component-prefix='x-,livewire:,flux:'",
-                        "--wrap-attributes=aligned-multiple",
-                    },
-                },
-            },
         })
     end,
     init = function()

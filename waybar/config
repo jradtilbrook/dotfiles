@@ -140,7 +140,7 @@
             "focused": "",
             "default": ""
         },
-        "format-window-separator": "   ",
+        "format-window-separator": "  ",
         "window-rewrite-default": "",
         "window-rewrite": {
             "cursor-url-handler": "",

@@ -88,7 +88,6 @@ tooltip label {
 #memory,
 #mode,
 #network,
-#custom-ip,
 #pulseaudio,
 #wireplumber,
 #scratchpad {
@@ -171,10 +170,6 @@ tooltip label {
     color: @green;
 }
 #mpris.paused {
-    color: @overlay1;
-}
-
-#custom-ip {
     color: @overlay1;
 }
 

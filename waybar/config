@@ -32,8 +32,6 @@
     "modules-right": [
         "wireplumber",
         //"network",
-        //"network#tailscale",
-        "custom/ip",
         "disk",
         "memory",
         "cpu",
@@ -109,17 +107,6 @@
         "format-ethernet": "  {ifname}: {ipaddr}", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}"
-    },
-    "network#tailscale": {
-        "interface": "tailscale0",
-        "interval": 5,
-        "format-ethernet": "{ifname}: {ipaddr}", // Icon: ethernet
-        "format-disconnected": "⚠  Disconnected",
-    },
-    "custom/ip": {
-        "interval": 60,
-        "exec": "curl -q https://checkip.amazonaws.com",
-        "format": " {}"
     },
 
     "disk": {

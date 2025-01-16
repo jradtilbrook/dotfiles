@@ -19,8 +19,7 @@ include catppuccin-macchiato
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/arch-4K.png fill
+output * bg ~/.wallpaper fill
 output "Dell Inc. DELL U2723QE 35XJM04" scale 1.5
 output "eDP-1" disable
 

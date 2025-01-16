@@ -1,5 +1,0 @@
----
-## ------------------------------------------
-## Exercism API credentials (vault protected)
-## ------------------------------------------
-exercism_api_token: "{{ vault_exercism_api_token }}"

@@ -1,3 +1,0 @@
-{{ ansible_managed | comment('plain', prefix='#################################', postfix='#################################') }}
-[Service]
-ExecStopPost=/usr/bin/rm -f {{ ansible_user_dir }}/.config/mpd/socket

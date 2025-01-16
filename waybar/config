@@ -33,6 +33,7 @@
         "wireplumber",
         //"network",
         "disk",
+        "temperature",
         "memory",
         "cpu",
         "battery",
@@ -87,9 +88,10 @@
         }
     },
 
-    "custom/separator-left": {
-        "format": "",
-        "tooltip": false
+    "temperature": {
+        "format": "{icon} {temperatureC}°C",
+        "format-critical": "{icon} {temperatureC}°C",
+        "format-icons": ["", ""]
     },
 
     "memory": {

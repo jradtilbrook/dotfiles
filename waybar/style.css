@@ -85,6 +85,7 @@ tooltip label {
 #custom-argon,
 #disk,
 #cpu,
+#temperature,
 #memory,
 #mode,
 #network,
@@ -142,6 +143,19 @@ tooltip label {
 
 #disk {
     color: @pink;
+}
+
+#temperature {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    color: @subtext0;
+}
+
+#temperature.critical {
+    color: @red;
+    animation-name: blink-critical;
+    animation-duration: 2s;
 }
 
 #memory {

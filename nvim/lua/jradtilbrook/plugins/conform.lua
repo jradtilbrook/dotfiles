@@ -19,6 +19,10 @@ return {
             enable_format_on_save = not enable_format_on_save
         end, { desc = "Toggle auto [F]ormatting" })
 
+        vim.api.nvim_create_user_command("ConformEnabled", function()
+            vim.print("Auto format: " .. tostring(enable_format_on_save))
+        end, {})
+
         require("conform").setup({
             format_on_save = function(bufnr)
                 if enable_format_on_save then

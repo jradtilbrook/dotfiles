@@ -11,6 +11,12 @@
 	gpgsign = true
 [init]
 	defaultBranch = main
+[branch]
+	autoSetupRebase = always
+[branch "main"]
+	rebase = true
+[branch "master"]
+	rebase = true
 [core]
 	editor = nvim
 	pager = delta

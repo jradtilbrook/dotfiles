@@ -39,7 +39,8 @@
         "battery",
         "tray",
         "clock#date",
-        "clock#time"
+        "clock#time",
+        "custom/power"
     ],
 
 
@@ -183,6 +184,17 @@
     "tray": {
         "icon-size": 16,
         "spacing": 10
-    }
+    },
 
+    "custom/power": {
+        "format" : "⏻ ",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "~/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "logout": "swaymsg exit",
+            "shutdown": "shutdown",
+            "reboot": "reboot"
+        }
+    }
 }

@@ -1,0 +1,7 @@
+#!/bin/bash
+# This script acts as a script for a desktop entry to open URLs in a specific browser
+
+# bash is hard for anything more than simple stuff, so proxy to a php script that figures out
+# which browser to use for the given URL and then open that URL in the given browser
+
+exec `~/developer/jarvis/artisan app:url-opener "$1"` "$1"

@@ -43,6 +43,7 @@ return {
             formatters_by_ft = {
                 blade = { "blade-formatter" },
                 go = { "goimports", "gofmt", "golangci_lint" },
+                graphql = { "prettierd" },
                 javascript = { "eslint_d", "prettierd" },
                 json = { "jq" },
                 typescript = { "eslint_d", "prettierd" },

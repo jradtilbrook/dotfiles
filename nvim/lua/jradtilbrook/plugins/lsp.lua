@@ -142,7 +142,13 @@ return {
             },
             pyright = {},
             tailwindcss = {},
-            ts_ls = {},
+            ts_ls = {
+                initializationOptions = {
+                    preferences = {
+                        importModuleSpecifierPreference = "relative",
+                    },
+                },
+            },
             yamlls = {
                 yaml = {
                     schemaStore = {
@@ -198,6 +204,7 @@ return {
 
         -- Ensure the servers above are installed
         require("mason-lspconfig").setup({
+            automatic_installation = true,
             ensure_installed = vim.tbl_keys(servers),
             handlers = {
                 function(server_name)

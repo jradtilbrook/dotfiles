@@ -58,6 +58,7 @@ input "type:keyboard" {
 #
 # Start a terminal
 bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec $term --app-id kitty-scratch
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -285,6 +286,7 @@ for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="hu.irl.cameractrls"] floating enable
 for_window [app_id="org.gnome.seahorse.Application"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+for_window [app_id="kitty-scratch"] floating enable, move scratchpad, scratchpad show
 # this is what chrome gives to bitwarden popups
 for_window [app_id="chrome-.*-Profile_1"] floating enable
 for_window [app_id="chrome-.*-Default"] floating enable

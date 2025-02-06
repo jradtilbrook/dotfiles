@@ -11,30 +11,39 @@ return {
             mode = "",
             desc = "[F]ormat buffer",
         },
+        {
+            "<leader>cT",
+            function()
+                vim.b.disable_auto_format = not vim.b.disable_auto_format
+
+                local state = vim.b.disable_auto_format and "disabled" or "enabled"
+                vim.notify(string.format("Format on save %s for buffer %s", state, vim.api.nvim_buf_get_name(0)))
+            end,
+            mode = "",
+            desc = "Toggle auto [F]ormatting",
+        },
     },
     config = function()
-        local enable_format_on_save = true
-
-        vim.keymap.set("", "<leader>cT", function()
-            enable_format_on_save = not enable_format_on_save
-        end, { desc = "Toggle auto [F]ormatting" })
-
         vim.api.nvim_create_user_command("ConformEnabled", function()
-            vim.print("Auto format: " .. tostring(enable_format_on_save))
+            local state = vim.b.disable_auto_format and "disabled" or "enabled"
+            vim.notify(string.format("Format on save %s for buffer %s", state, vim.api.nvim_buf_get_name(0)))
         end, {})
 
         require("conform").setup({
             format_on_save = function(bufnr)
-                if enable_format_on_save then
-                    -- if we are running eslint, have a huge timeout
-                    local formatters = require("conform").list_formatters_to_run(bufnr)
-                    for _, v in pairs(formatters) do
-                        if v.name == "eslint_d" then
-                            return { timeout_ms = 10000 }
-                        end
-                    end
-                    return {}
+                if vim.b[bufnr].disable_auto_format then
+                    return nil
                 end
+
+                -- if we are running eslint, have a huge timeout
+                local formatters = require("conform").list_formatters_to_run(bufnr)
+                for _, v in pairs(formatters) do
+                    if v.name == "eslint_d" then
+                        return { timeout_ms = 10000 }
+                    end
+                end
+
+                return {}
             end,
             default_format_opts = {
                 lsp_format = "fallback",

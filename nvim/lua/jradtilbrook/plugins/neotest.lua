@@ -9,6 +9,7 @@ return {
         "V13Axel/neotest-pest",
         "nvim-neotest/neotest-jest",
         "olimorris/neotest-phpunit",
+        "marilari88/neotest-vitest",
     },
     keys = {
         {
@@ -73,6 +74,7 @@ return {
                     root_ignore_files = { "tests/Pest.php" },
                 }),
                 require("neotest-jest")({}),
+                require("neotest-vitest")({}),
             },
         })
     end,

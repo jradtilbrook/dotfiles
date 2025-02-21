@@ -292,6 +292,7 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="kitty-scratch"] floating enable, move scratchpad, scratchpad show
 # this is what chrome gives to bitwarden popups
 for_window [app_id="chrome-.*-Profile_1"] floating enable
+for_window [title=".*Bitwarden.*"] floating enable
 for_window [app_id="chrome-.*-Default"] floating enable
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 

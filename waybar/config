@@ -76,7 +76,7 @@
 
     "clock#date": {
       "interval": 10,
-      "format": " {:%e %b %Y}", // Icon: calendar-alt
+      "format": " {:%a %e %b %Y}", // Icon: calendar-alt
       "tooltip-format": "{:%e %B %Y}"
     },
 
@@ -136,6 +136,7 @@
         "window-rewrite": {
             "cursor-url-handler": "",
             "kitty": "",
+            "firefox-developer-edition": "",
             "chromium": "",
             "google-chrome": "",
             "slack": "",

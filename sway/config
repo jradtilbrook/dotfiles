@@ -18,10 +18,13 @@ set $move ""
 include catppuccin-macchiato
 
 ### Output configuration
-#
 output * bg ~/.wallpaper fill
 output "Dell Inc. DELL U2723QE 35XJM04" scale 1.5
 output "eDP-1" disable
+set $laptop "eDP-1"
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+exec_always ./hotplug.sh
 
 
 font pango: Monolisa 9

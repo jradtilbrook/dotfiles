@@ -25,8 +25,11 @@
 	ui = true # show colour by default
 [diff]
 	submodule = log
-	colorMoved = default
+	colorMoved = plain
 	colorMovedWS = ignore-all-space
+	algorithm = histogram
+	mnemonicPrefix = true
+	renames = true
 [interactive]
 	diffFilter = delta --color-only --features=interactive
 [grep]
@@ -56,10 +59,11 @@
 	submoduleSummary = true
 [push]
 	default = simple # only push to registered tracking branch
+	autoSetupRemote = true
 [credential]
 	#helper = cache --timeout=900 # remember credentials for 15mins
 [merge]
-	conflictstyle = diff3 # also show original text in merge conflicts
+	conflictstyle = zdiff3 # also show original text in merge conflicts
 	tool = nvimdiff # use vim for conflict resolution in terminal
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -73,7 +77,8 @@
 	; rebase = merges
 # special config for custom diff program
 [delta]
-	features = decorations navigate
+	features = decorations
+	navigate = true
 	line-numbers = true
 	file-style = omit
     hunk-header-decoration-style = blue ul ol
@@ -90,3 +95,9 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
+[tag]
+	sort = version:refname
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true

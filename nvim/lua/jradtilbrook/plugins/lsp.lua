@@ -218,6 +218,17 @@ return {
             },
         })
 
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = { "php", "blade" },
+            callback = function()
+                vim.lsp.start({
+                    name = "laravel-ls",
+                    cmd = { vim.fn.expand("~/developer/laravel-ls/start.sh") },
+                    root_dir = vim.fn.getcwd(),
+                })
+            end,
+        })
+
         -- Diagnostic configuration
         vim.diagnostic.config({
             virtual_text = false,

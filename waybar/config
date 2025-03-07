@@ -195,8 +195,8 @@
         "menu-file": "~/.config/waybar/power_menu.xml",
         "menu-actions": {
             "logout": "swaymsg exit",
-            "shutdown": "shutdown",
-            "reboot": "reboot"
+            "shutdown": "systemctl poweroff",
+            "reboot": "systemctl reboot"
         }
     }
 }

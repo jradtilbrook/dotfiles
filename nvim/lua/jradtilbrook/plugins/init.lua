@@ -22,6 +22,12 @@ return {
     -- Add more languages
     "sheerun/vim-polyglot",
     "aviator-co/av-vim-plugin",
+    {
+        "davidmh/mdx.nvim",
+        config = true,
+        lazy = false,
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+    },
 
     {
         "stevearc/dressing.nvim",

@@ -45,7 +45,9 @@ return {
             },
             completion = { completeopt = "menu,menuone,noinsert" },
             formatting = {
-                format = lspkind.cmp_format(),
+                format = lspkind.cmp_format({
+                    symbol_map = { Copilot = "" },
+                }),
             },
             experimental = {
                 ghost_text = true,
@@ -105,7 +107,7 @@ return {
                 { name = "nvim_lsp_signature_help" },
                 { name = "intelephense" },
                 { name = "luasnip" },
-                { name = "blade-naV" },
+                { name = "copilot" },
             }, {
                 { name = "buffer" },
                 { name = "path" },

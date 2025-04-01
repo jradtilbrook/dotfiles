@@ -9,6 +9,7 @@ return {
             opts = {
                 suggestion = { enabled = false },
                 panel = { enabled = false },
+                copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v22.14.0/bin/node",
                 server_opts_overrides = {
                     trace = "verbose",
                     cmd = {

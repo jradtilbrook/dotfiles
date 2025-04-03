@@ -21,8 +21,5 @@ vim.keymap.set("v", "Y", "myY`y")
 -- Turn off highlighting
 vim.keymap.set("n", "<esc>", ":nohlsearch<CR>", { silent = true })
 
--- close all buffers
-vim.keymap.set("n", "<leader>bd", ":%bdelete<CR>", { desc = "Close all buffers" })
-
 -- shortcut for normal mode in terminal
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Exit terminal mode" })

@@ -84,53 +84,24 @@ return {
                         },
                     },
                 },
-                extensions = {
-                    file_browser = {
-                        hijack_netrw = true,
-                    },
-                },
             })
 
             require("telescope").load_extension("fzf")
-            require("telescope").load_extension("file_browser")
             local builtin = require("telescope.builtin")
 
-            -- a function to fall back to find_files if not in a git repo
-            -- cache the results of git rev-parse
-            local is_inside_work_tree = {}
-            local project_files = function()
-                local cwd = vim.fn.getcwd()
-                if is_inside_work_tree[cwd] == nil then
-                    local stdout = vim.fn.system("git rev-parse --is-inside-work-tree")
-                    is_inside_work_tree[cwd] = stdout == "true\n"
-                end
-
-                if is_inside_work_tree[cwd] then
-                    builtin.git_files({})
-                else
-                    builtin.find_files({})
-                end
-            end
-
-            vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "Find existing buffers" })
             vim.keymap.set("n", "<leader>sc", builtin.commands, { desc = "Find available commands" })
-            vim.keymap.set(
-                "n",
-                "<leader>-",
-                require("telescope").extensions.file_browser.file_browser,
-                { desc = "File browser" }
-            )
             vim.keymap.set(
                 "n",
                 "<leader>/",
                 require("telescope.builtin").current_buffer_fuzzy_find,
                 { desc = "Fuzzily search in current buffer" }
             )
-            vim.keymap.set("n", "<leader>st", function()
-                builtin.builtin({ include_extensions = true })
-            end, { desc = "[S]earch [T]elescope" })
-            vim.keymap.set("n", "<leader>sf", project_files, { desc = "[S]earch [F]iles" })
-            vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
+            vim.keymap.set(
+                "n",
+                "<leader>st",
+                function() builtin.builtin({ include_extensions = true }) end,
+                { desc = "[S]earch [T]elescope" }
+            )
             vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
             vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
             vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })

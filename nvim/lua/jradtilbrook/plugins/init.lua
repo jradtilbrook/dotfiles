@@ -6,6 +6,8 @@ return {
             custom_highlights = function(colors)
                 return {
                     WinSeparator = { fg = colors.surface1 },
+                    -- darken indent markers
+                    SnacksIndent = { fg = colors.surface0 },
                 }
             end,
             background = {
@@ -32,20 +34,6 @@ return {
     {
         "stevearc/dressing.nvim",
         event = "VeryLazy",
-    },
-
-    -- Show indent markers
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        opts = {
-            indent = {
-                char = "┆",
-            },
-            scope = {
-                enabled = false,
-            },
-        },
     },
 
     -- Keybindings for comments

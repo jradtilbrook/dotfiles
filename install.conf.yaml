@@ -5,6 +5,7 @@
 - clean: ['~']
 
 - create:
+    - ~/.config/gh
     - ~/.local/bin/
     - ~/developer
     - ~/intelephense
@@ -12,6 +13,7 @@
 - link:
     ~/.config/av:
     ~/.config/bat:
+    ~/.config/gh/config.yml: gh/config.yml
     ~/.config/i3:
     ~/.config/k9s:
     ~/.config/kitty:

@@ -289,7 +289,7 @@ for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="hu.irl.cameractrls"] floating enable
 for_window [app_id="org.gnome.seahorse.Application"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
-for_window [app_id="kitty-scratch"] floating enable, move scratchpad, scratchpad show
+for_window [app_id="kitty-scratch"] floating enable, resize set 1000 600, move scratchpad, scratchpad show
 # this is what chrome gives to bitwarden popups
 for_window [app_id="chrome-.*-Profile_1"] floating enable
 for_window [title=".*Bitwarden.*"] floating enable

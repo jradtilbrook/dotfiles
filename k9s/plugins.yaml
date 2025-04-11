@@ -1,28 +1,40 @@
 plugins:
-  # Sends logs over to jq for processing. This leverages kubectl plugin kubectl-jq.
-  jqlogs:
-    shortCut: Ctrl-J
-    confirm: false
-    description: "Logs (jq)"
+  log-stern:
+    shortCut: Shift-K
+    description: "stern"
     scopes:
-      - containers
+    - pods
     command: kubectl
     background: false
     args:
-      - jq
-      - $POD
-      - $NAMESPACE
-      - $CONTEXT
-      - $NAME
+    - stern
+    - $NAME
+    - $NAMESPACE
+    - $CONTEXT
+  log-stern-container:
+    shortCut: Shift-K
+    description: "stern"
+    scopes:
+    - containers
+    command: kubectl
+    background: false
+    args:
+    - stern
+    - $POD
+    - $NAMESPACE
+    - $CONTEXT
+    - --container=$NAME
   deployhelm:
-    shortCut: Ctrl-U
+    shortCut: F5
     confirm: false
     description: "Deploy helm"
     scopes:
+    - deployments
     - helm
+    - pods
     command: kubectl
     background: false
     args:
     - deployhelm
-    - $CONTEXT
+    - dev
     - $NAME

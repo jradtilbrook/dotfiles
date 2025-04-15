@@ -1,8 +1,14 @@
 return {
-  "folke/snacks.nvim",
-  opts = {
-    dashboard = {
-      preset = {
+  -- {
+  --   -- TODO: remove the time/date from lualine_z
+  --   "nvim-lualine/lualine.nvim",
+  --   opts = {},
+  -- },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
         -- stylua: ignore
         ---@type snacks.dashboard.Item[]
         keys = {
@@ -16,11 +22,12 @@ return {
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
-      },
-      sections = {
-        { section = "header", padding = 1 },
-        { section = "keys", indent = 2, padding = 1 },
-        { section = "startup" },
+        },
+        sections = {
+          { section = "header", padding = 1 },
+          { section = "keys", indent = 2, padding = 1 },
+          { section = "startup" },
+        },
       },
     },
   },

@@ -1,9 +1,4 @@
 return {
-  -- {
-  --   -- TODO: remove the time/date from lualine_z
-  --   "nvim-lualine/lualine.nvim",
-  --   opts = {},
-  -- },
   {
     "folke/snacks.nvim",
     optional = true,

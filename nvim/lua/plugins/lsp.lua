@@ -4,6 +4,7 @@ return {
     -- but these are the ones that need a bit more or are missing
     -- TODO: these filetypes dont seem to be taking effect
     "neovim/nvim-lspconfig",
+    optional = true,
     opts = {
       servers = {
         emmet_language_server = {
@@ -21,6 +22,7 @@ return {
 
   {
     "nvimtools/none-ls.nvim",
+    optional = true,
     opts = function(_, opts)
       local nls = require("null-ls")
       opts.sources = vim.list_extend(opts.sources or {}, {

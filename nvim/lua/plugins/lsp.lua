@@ -17,6 +17,8 @@ return {
     },
   },
 
+  { "ThePrimeagen/refactoring.nvim", lazy = true },
+
   {
     "nvimtools/none-ls.nvim",
     opts = function(_, opts)

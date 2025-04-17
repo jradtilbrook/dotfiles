@@ -34,15 +34,6 @@ return {
         nls.builtins.code_actions.refactoring.with({
           filetypes = { "go", "javascript", "lua", "typescript", "typescriptreact", "php" },
         }),
-        -- TODO: https://github.com/laravel-ls/laravel-ls get this working through null-ls
-        -- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/HELPERS.md#generator_factory
-        -- {
-        --   method = nls.methods.COMPLETION,
-        --   filetypes = { "php", "blade" },
-        --   generator = nls.generator({
-        --     command = vim.fn.expand("~/developer/laravel-ls/start.sh"),
-        --   }),
-        -- },
       })
     end,
   },

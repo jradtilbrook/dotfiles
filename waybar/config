@@ -26,9 +26,9 @@
         "sway/mode",
         "sway/scratchpad",
     ],
-    "modules-center": [
-        "mpris",
-    ],
+    // "modules-center": [
+    //     "mpris",
+    // ],
     "modules-right": [
         "wireplumber",
         //"network",

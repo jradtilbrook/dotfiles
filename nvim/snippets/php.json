@@ -1,0 +1,20 @@
+{
+  "this": {
+    "prefix": "t",
+    "body": [
+      "\\$this"
+    ]
+  },
+  "this->": {
+    "prefix": "t.",
+    "body": [
+      "\\$this->$0"
+    ]
+  },
+  "tinker": {
+    "prefix": "tink",
+    "body": [
+      "eval(\\Psy\\sh());"
+    ]
+  }
+}

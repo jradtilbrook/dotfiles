@@ -8,4 +8,4 @@ vim.g.snacks_animate = false
 vim.g.lazyvim_php_lsp = "intelephense"
 
 vim.opt.spelllang = { "en_au" }
-vim.opt.spell = true
+vim.opt.spell = false

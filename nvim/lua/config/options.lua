@@ -7,5 +7,7 @@ vim.g.snacks_animate = false
 -- https://www.lazyvim.org/extras/lang/php#options
 vim.g.lazyvim_php_lsp = "intelephense"
 
+vim.opt.timeoutlen = 1000
+
 vim.opt.spelllang = { "en_au" }
 vim.opt.spell = false

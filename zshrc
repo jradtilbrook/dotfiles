@@ -66,7 +66,6 @@ zstyle ':omz:plugins:nvm' autoload yes
 plugins=(
   artisan
   aws
-  brew
   composer
   docker
   docker-compose
@@ -80,11 +79,18 @@ plugins=(
   nvm
   starship
   sudo
-  systemd
   tmux
   zoxide
   zsh-aws-vault
 )
+
+UNAME="$(uname)"
+
+if [ "$UNAME" = "Linux" ]; then
+  plugins+=(
+    systemd
+  )
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,6 +109,3 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
 --color=selected-bg:#494d64 \
 --multi"
-
-source /usr/share/nvm/init-nvm.sh
-source <(av completion zsh)

@@ -1,5 +1,0 @@
-# vi: ft=gitconfig noexpandtab
-[user]
-	name = Jarryd Tilbrook
-	email = jarryd@buildkite.com
-	signingkey = 19DCEF105975ECD2B69B85B62E54858C68D00DA5

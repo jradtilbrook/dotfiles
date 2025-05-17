@@ -1,13 +1,13 @@
 - defaults:
+    shell:
+      quiet: true
     link:
+      create: true
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - create:
-    - ~/.config/gh
-    - ~/.local/bin/
-    - ~/developer
     - ~/intelephense
 
 - link:
@@ -15,31 +15,44 @@
     ~/.config/bat:
     ~/.config/gh/config.yml: gh/config.yml
     ~/.config/i3:
+      if: command -v i3 >/dev/null
     ~/.config/k9s:
     ~/.config/kitty:
     ~/.config/nvim:
     ~/.config/rofi:
+      if: command -v rofi >/dev/null
     ~/.config/starship.toml:
     ~/.config/sway:
+      if: command -v sway >/dev/null
     ~/.config/swaylock:
+      if: command -v swaylock >/dev/null
     ~/.config/swaync:
+      if: command -v swaync >/dev/null
     ~/.config/tmux:
     ~/.config/waybar:
+      if: command -v waybar >/dev/null
     ~/.gitconfig:
-    ~/.gitconfig-bk:
     ~/.gitconfig-he:
     ~/.hammerspoon:
-    ~/.local/bin/cliphist-rofi-img: local/bin/cliphist-rofi-img
-    ~/.local/bin/desk-height: local/bin/desk-height
-    ~/.local/bin/url-opener: local/bin/url-opener
-    ~/.local/share/rofi/themes/catppuccin-macchiato.rasi: local/share/rofi/themes/catppuccin-macchiato.rasi
+      if: '[ `uname` = "Darwin" ]'
+    ~/.local/bin/cliphist-rofi-img:
+      path: local/bin/cliphist-rofi-img
+      if: command -v rofi >/dev/null
+    ~/.local/bin/desk-height:
+      path: local/bin/desk-height
+      if: '[ `uname` = "Linux" ]'
+    ~/.local/bin/url-opener:
+      path: local/bin/url-opener
+      if: '[ `uname` = "Linux" ]'
+    ~/.local/share/rofi/themes/catppuccin-macchiato.rasi:
+      path: local/share/rofi/themes/catppuccin-macchiato.rasi
+      if: command -v rofi >/dev/null
     ~/.zsh:
     ~/.zshenv:
     ~/.zshrc:
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - description: Hush login
-    command: '[ -f ~/.hushlogin ] || touch ~/.hushlogin'
-  - description: Install oh-my-zsh
-    command: '[ -d ~/.oh-my-zsh ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+    - description: Hush login
+      command: '[ `uname` = "Darwin" ] && touch ~/.hushlogin || true'
+    - description: Install oh-my-zsh
+      command: '[ -d ~/.oh-my-zsh ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'

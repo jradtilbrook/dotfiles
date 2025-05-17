@@ -76,7 +76,6 @@ plugins=(
   jira
   kitty
   kubectl
-  nvm
   starship
   sudo
   tmux
@@ -88,8 +87,11 @@ UNAME="$(uname)"
 
 if [ "$UNAME" = "Linux" ]; then
   plugins+=(
+    nvm
     systemd
   )
+elif [ "$UNAME" = "Darwin" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 source $ZSH/oh-my-zsh.sh

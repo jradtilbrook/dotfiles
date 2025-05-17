@@ -10,6 +10,12 @@
 - create:
     - ~/intelephense
 
+- shell:
+    - description: Hush login
+      command: '[ `uname` = "Darwin" ] && touch ~/.hushlogin || true'
+    - description: Install oh-my-zsh
+      command: '[ -d ~/.oh-my-zsh ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+
 - link:
     ~/.config/av:
     ~/.config/bat:
@@ -50,9 +56,3 @@
     ~/.zsh:
     ~/.zshenv:
     ~/.zshrc:
-
-- shell:
-    - description: Hush login
-      command: '[ `uname` = "Darwin" ] && touch ~/.hushlogin || true'
-    - description: Install oh-my-zsh
-      command: '[ -d ~/.oh-my-zsh ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'

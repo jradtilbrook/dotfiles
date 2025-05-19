@@ -76,6 +76,7 @@ plugins=(
   jira
   kitty
   kubectl
+  python
   starship
   sudo
   tmux
@@ -93,6 +94,9 @@ if [ "$UNAME" = "Linux" ]; then
 elif [ "$UNAME" = "Darwin" ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+# auto source python virtual envs
+PYTHON_AUTO_VRUN=true
 
 source $ZSH/oh-my-zsh.sh
 

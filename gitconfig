@@ -2,7 +2,7 @@
 [user]
 	name = jradtilbrook
 	email = jarryd@tilbrooktech.com
-	signingkey = 43D5A065FC794FD1
+	signingkey = 960EDC52DA20CDC0
 [includeIf "gitdir:~/Developer/he/"]
 	path = .gitconfig-he
 [commit]

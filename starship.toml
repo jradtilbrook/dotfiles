@@ -12,6 +12,7 @@ $golang\
 $helm\
 $nodejs\
 $php\
+$python\
 $terraform\
 $aws\
 $sudo\

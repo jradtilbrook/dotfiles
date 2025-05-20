@@ -27,4 +27,13 @@ return {
       },
     },
   },
+  {
+    "folke/noice.nvim",
+    optional = true,
+    opts = {
+      messages = {
+        view_search = "mini",
+      },
+    },
+  },
 }

@@ -9,6 +9,7 @@
 
 - create:
     - ~/intelephense
+    - ~/.local/bin
 
 - shell:
     - description: Hush login

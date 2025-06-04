@@ -5,9 +5,9 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "zsh/plugins/artisan"]
-	path = zsh/plugins/artisan
-	url = https://github.com/jessarcher/zsh-artisan.git
 [submodule "zsh/plugins/zsh-aws-vault"]
 	path = zsh/plugins/zsh-aws-vault
 	url = https://github.com/blimmer/zsh-aws-vault.git
+[submodule "zsh/plugins/artisan"]
+	path = zsh/plugins/artisan
+	url = https://github.com/jradtilbrook/zsh-artisan

@@ -3,11 +3,9 @@ return {
   { "nvim-neotest/neotest-jest", lazy = true },
   {
     "nvim-neotest/neotest",
-    opts = {
-      adapters = {
-        "neotest-vitest",
-        "neotest-jest",
-      },
-    },
+    opts = function(_, opts)
+      table.insert(opts.adapters, "neotest-vitest")
+      table.insert(opts.adapters, "neotest-jest")
+    end,
   },
 }

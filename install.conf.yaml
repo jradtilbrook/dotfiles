@@ -38,8 +38,9 @@
     ~/.config/tmux:
     ~/.config/waybar:
       if: command -v waybar >/dev/null
-    ~/.gitconfig:
+    ~/.git-templates:
     ~/.gitconfig-he:
+    ~/.gitconfig:
     ~/.hammerspoon:
       if: '[ `uname` = "Darwin" ]'
     ~/.local/bin/cliphist-rofi-img:

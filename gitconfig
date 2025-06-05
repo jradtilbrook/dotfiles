@@ -19,6 +19,7 @@
 	editor = nvim
 	pager = delta
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+	hooksPath = ~/.git-templates/hooks/
 [color]
 	ui = true # show colour by default
 [diff]

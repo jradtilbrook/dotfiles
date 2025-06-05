@@ -10,6 +10,7 @@
 # Check for a composer.lock file and run composer install in a new terminal
 # Check for a yarn.lock file and run yarn in a new terminal
 #
+exit
 
 shopt -s extglob
 

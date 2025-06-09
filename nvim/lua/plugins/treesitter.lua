@@ -1,5 +1,11 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = { "blade" },
+    },
+  },
+  {
     -- this overrides the LazyVim extra: lazyvim.plugins.extras.ui.treesitter-context
     "nvim-treesitter/nvim-treesitter-context",
     optional = true,

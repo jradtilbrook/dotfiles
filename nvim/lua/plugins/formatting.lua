@@ -8,7 +8,7 @@ return {
       -- },
       formatters_by_ft = {
         blade = { "blade-formatter" },
-        go = { "goimports", "gofumpt", "golangci_lint" },
+        go = { "goimports", "gofumpt", "golangci-lint" },
         graphql = { "prettierd" },
         javascript = { "eslint_d", "prettierd" },
         json = { "jq" },

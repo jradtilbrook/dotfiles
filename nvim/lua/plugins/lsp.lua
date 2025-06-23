@@ -17,31 +17,4 @@ return {
       },
     },
   },
-
-  { "ThePrimeagen/refactoring.nvim", lazy = true },
-
-  {
-    "nvimtools/none-ls.nvim",
-    optional = true,
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      opts.sources = vim.list_extend(opts.sources or {}, {
-        -- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md#phpstan
-        nls.builtins.diagnostics.phpstan.with({
-          timeout = 10000, -- milliseconds
-          condition = function(utils) return utils.root_has_file({ "phpstan.neon", "phpstan.neon.dist" }) end,
-        }),
-        nls.builtins.diagnostics.golangci_lint,
-        nls.builtins.diagnostics.yamllint,
-        nls.builtins.code_actions.refactoring.with({
-          filetypes = { "go", "javascript", "lua", "typescript", "typescriptreact", "php" },
-        }),
-      })
-
-      for i, v in ipairs(opts.sources) do
-        if v.name == "phpcs" then table.remove(opts.sources, i) end
-        if v.name == "phpcsfixer" then table.remove(opts.sources, i) end
-      end
-    end,
-  },
 }

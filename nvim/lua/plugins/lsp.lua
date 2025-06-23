@@ -37,6 +37,11 @@ return {
           filetypes = { "go", "javascript", "lua", "typescript", "typescriptreact", "php" },
         }),
       })
+
+      for i, v in ipairs(opts.sources) do
+        if v.name == "phpcs" then table.remove(opts.sources, i) end
+        if v.name == "phpcsfixer" then table.remove(opts.sources, i) end
+      end
     end,
   },
 }

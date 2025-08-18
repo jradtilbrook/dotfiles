@@ -17,3 +17,12 @@ vim.api.nvim_create_autocmd("FileType", {
     })
   end,
 })
+
+-- Listen for opencode events
+vim.api.nvim_create_autocmd("User", {
+  pattern = "OpencodeEvent",
+  callback = function(args)
+    -- Do something interesting, like show a notification when opencode finishes responding
+    if args.data.type == "session.idle" then vim.notify("opencode finished responding", vim.log.levels.INFO) end
+  end,
+})

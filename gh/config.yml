@@ -12,18 +12,18 @@ prefer_editor_prompt: disabled
 pager:
 # Aliases allow you to create nicknames for gh commands
 aliases:
-    co: pr checkout
-    cr: pr create
-    v: pr view -w
-    auto-merge: '!gh pr checks --watch -i 5 --required $1 && gh pr merge -s $1'
-    my-prs: pr list --author @me
-    my-prs-table: >
-      my-prs --json number,title,author,isDraft -L 3 --template
-      '{{if len .}}{{range .}}{{$colour := "green"}}{{if .isDraft}}{{$colour = "white"}}{{end}}{{tablerow (printf "#%v" .number | autocolor $colour) (truncate 60 .title)}}{{end}}{{else}}No items{{end}}{{tablerender}}'
-    review-prs: pr list -S '-status:failure review:required review-requested:@me'
-    review-prs-table: >
-      review-prs --json number,title,author -L 3 --template
-      '{{if len .}}{{range .}}{{$colour := "green"}}{{if .isDraft}}{{$colour = "white"}}{{end}}{{tablerow (printf "#%v" .number | autocolor $colour) (truncate 50 .title) (.author.login | autocolor "white")}}{{end}}{{else}}No items{{end}}{{tablerender}}'
+  co: pr checkout
+  cr: pr create
+  v: pr view -w
+  auto-merge: '!gh pr checks --watch -i 5 --required $1 && gh pr merge -s $1 && osascript -e \"display notification "$1" with title "Pull Request Merged"\"'
+  my-prs: pr list --author @me
+  my-prs-table: >
+    my-prs --json number,title,author,isDraft -L 3 --template
+    '{{if len .}}{{range .}}{{$colour := "green"}}{{if .isDraft}}{{$colour = "white"}}{{end}}{{tablerow (printf "#%v" .number | autocolor $colour) (truncate 60 .title)}}{{end}}{{else}}No items{{end}}{{tablerender}}'
+  review-prs: pr list -S '-status:failure review:required review-requested:@me'
+  review-prs-table: >
+    review-prs --json number,title,author -L 3 --template
+    '{{if len .}}{{range .}}{{$colour := "green"}}{{if .isDraft}}{{$colour = "white"}}{{end}}{{tablerow (printf "#%v" .number | autocolor $colour) (truncate 50 .title) (.author.login | autocolor "white")}}{{end}}{{else}}No items{{end}}{{tablerender}}'
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.

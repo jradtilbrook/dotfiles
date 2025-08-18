@@ -6,6 +6,7 @@ return {
     "neovim/nvim-lspconfig",
     optional = true,
     opts = {
+      inlay_hints = { enabled = false },
       servers = {
         emmet_language_server = {
           -- stylua: ignore

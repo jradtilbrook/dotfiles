@@ -21,6 +21,7 @@
     ~/.config/av:
     ~/.config/bat:
     ~/.config/gh/config.yml: gh/config.yml
+    ~/.config/ghostty:
     ~/.config/i3:
       if: command -v i3 >/dev/null
     ~/.config/k9s:

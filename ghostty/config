@@ -1,0 +1,44 @@
+font-family = MonoLisa
+font-size = 14
+font-style-bold = true
+font-style-italic = true
+font-feature = -liga
+font-feature = +calt
+font-feature = +zero
+font-feature = +ss04
+font-feature = +ss07
+font-feature = +ss08
+font-feature = +ss09
+adjust-cell-height = 100%
+adjust-cursor-height = 100%
+
+theme = catppuccin-macchiato
+cursor-style = block
+cursor-color = F4DBD6
+cursor-text = 24273A
+cursor-opacity = 0.8
+cursor-style-blink = false
+confirm-close-surface = false
+
+window-padding-x = 10
+window-padding-y = 10
+title = " "
+window-save-state = always
+macos-titlebar-style = tabs
+macos-option-as-alt = true
+
+term = xterm-256color
+
+shell-integration = zsh
+
+# Keybindings
+# Jump to end of line (Ctrl+E)
+keybind = super+right=text:\x05
+# Jump to start of line (Ctrl+A)
+keybind = super+left=text:\x01
+# Jump right to end of word (Alt+F)
+keybind = alt+right=text:\x1b\x66
+# Jump left to beginning of word (Alt+B)
+keybind = alt+left=text:\x1b\x62
+# Delete line from cursor to start (Ctrl+U)
+keybind = super+backspace=text:\x15

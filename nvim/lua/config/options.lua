@@ -11,3 +11,5 @@ vim.opt.timeoutlen = 1000
 
 vim.opt.spelllang = { "en_au" }
 vim.opt.spell = false
+
+vim.opt.swapfile = false

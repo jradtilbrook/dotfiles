@@ -22,6 +22,8 @@
     ~/.config/bat:
     ~/.config/gh/config.yml: gh/config.yml
     ~/.config/ghostty:
+    ~/.config/hypr:
+      if: command -v hyprctl >/dev/null
     ~/.config/i3:
       if: command -v i3 >/dev/null
     ~/.config/k9s:
@@ -38,7 +40,7 @@
       if: command -v swaync >/dev/null
     ~/.config/tmux:
     ~/.config/waybar:
-      if: command -v waybar >/dev/null
+      if: command -v sway >/dev/null
     ~/.git-templates:
     ~/.gitconfig-he:
     ~/.gitconfig:

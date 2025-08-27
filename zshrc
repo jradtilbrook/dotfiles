@@ -87,6 +87,7 @@ plugins=(
 UNAME="$(uname)"
 
 if [ "$UNAME" = "Linux" ]; then
+  NVM_DIR="/usr/share/nvm"
   plugins+=(
     nvm
     systemd

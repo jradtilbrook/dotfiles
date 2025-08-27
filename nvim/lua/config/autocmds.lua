@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.lsp.start({
       name = "laravel-ls",
-      cmd = { vim.fn.expand("~/developer/laravel-ls/start.sh") },
+      cmd = { vim.fn.expand("~/Developer/laravel-ls/start.sh") },
       root_dir = LazyVim.root.git(),
     })
   end,

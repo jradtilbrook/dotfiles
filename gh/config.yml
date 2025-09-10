@@ -15,7 +15,10 @@ aliases:
   co: pr checkout
   cr: pr create
   v: pr view -w
-  auto-merge: '!gh pr checks --watch -i 5 --required $1 && gh pr merge -s $1 && osascript -e \"display notification "$1" with title "Pull Request Merged"\"'
+  auto-merge: >
+    !gh pr checks --watch -i 5 --required "$1" &&
+    gh pr merge -s "$1" &&
+    osascript -e "display notification \"PR #${1} merged\" with title \"Pull Request Merged\""
   my-prs: pr list --author @me
   my-prs-table: >
     my-prs --json number,title,author,isDraft -L 3 --template

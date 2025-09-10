@@ -1,7 +1,10 @@
 return {
-  "CopilotC-Nvim/CopilotChat.nvim",
-  opts = {
-    auto_insert_mode = false,
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    lazy = true,
+    opts = {
+      auto_insert_mode = false,
+    },
   },
   {
     "zbirenbaum/copilot.lua",

@@ -14,13 +14,7 @@ return {
         json = { "jq" },
         typescript = { "eslint_d", "prettierd" },
         lua = { "stylua" },
-        php = function()
-          -- work related things use php-cs-fixer, but everything else is pint
-          if string.match(LazyVim.root.git(), "/he/") or string.match(LazyVim.root.git(), "/src/") then
-            return { "php_cs_fixer" }
-          end
-          return { "pint" }
-        end,
+        php = { "pint" },
         terraform = { "terraform_fmt" },
         typescriptreact = { "eslint_d", "prettierd" },
         yaml = { "yamlfmt" },

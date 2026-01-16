@@ -6,3 +6,4 @@ alias sc='sesh connect "$(sesh list -i --hide-duplicates --hide-attached | gum f
 alias tree='eza --tree --color=always'
 alias kx='kubectx'
 alias lg='lazygit'
+alias ldc='lazydocker'

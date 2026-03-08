@@ -41,6 +41,7 @@
     ~/.config/tmux:
     ~/.config/waybar:
       if: command -v sway >/dev/null
+    ~/.config/worktrunk:
     ~/.git-templates:
     ~/.gitconfig-he:
     ~/.gitconfig:

@@ -29,6 +29,13 @@
 # This requires setting up the <main> branch of a repo with all its config files and then those are copied over to new worktrees
 worktree-path = "../{{ branch | sanitize }}"
 
+# =============================================================================
+# GLOBAL HOOKS
+# =============================================================================
+post-create.zoxide = "zoxide add {{ worktree_path }} 2>/dev/null || true"
+post-switch.zoxide = "zoxide add {{ worktree_path }} 2>/dev/null || true"
+pre-remove.zoxide = "zoxide remove {{ worktree_path }} 2>/dev/null || true"
+
 # # Inside the repository
 # # Creates: ~/code/myproject/.worktrees/feature-auth
 # worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
@@ -76,6 +83,13 @@ summary = true    # Enable LLM branch summaries (requires [commit.generation])
 # remove = true      # Remove worktree after merge (--no-remove to keep)
 # verify = true      # Run project hooks (--no-verify to skip)
 #
+# ### Switch
+#
+# Configuration for `wt switch` command.
+
+[switch]
+no-cd = true       # Don't cd after switch (use --cd to override)
+
 # ### Switch picker
 #
 # Configuration for `wt switch` interactive picker.
@@ -198,3 +212,9 @@ command = "opencode run -m github/claude-haiku-4-5 --variant fast"
 #
 # """
 # <!-- DEFAULT_SQUASH_TEMPLATE_END -->
+
+# =============================================================================
+# PROJECT-SPECIFIC SETTINGS
+# =============================================================================
+[projects."github.com/laravel/nightwatch.laravel.com"]
+pre-remove.tmux = "tmux kill-session -t \"nightwatch_laravel_com/{{ branch | sanitize }}\" 2>/dev/null || true"

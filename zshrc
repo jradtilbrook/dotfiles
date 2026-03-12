@@ -74,7 +74,6 @@ plugins=(
   git
   gpg-agent
   jira
-  kitty
   kubectl
   python
   starship

@@ -1,3 +1,15 @@
+-- Laravel LSP: https://github.com/laravel/lsp
+-- Install globally with: composer global require laravel/lsp
+-- TODO: install with mason when available
+if vim.lsp.config then
+  vim.lsp.config("laravel_lsp", {
+    cmd = { "laravel-lsp" },
+    filetypes = { "php", "blade" },
+    root_markers = { "artisan", "composer.json", ".git" },
+  })
+  vim.lsp.enable("laravel_lsp")
+end
+
 return {
   {
     -- LazyVim configures pretty much everything I want in a useful way
